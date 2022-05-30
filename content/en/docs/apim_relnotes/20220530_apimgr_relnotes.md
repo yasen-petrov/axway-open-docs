@@ -77,41 +77,35 @@ API Gateway and API Manager now support Zulu OpenJDK 1.8.0_322. This version of 
 
 The following sections describe how to enable TLS algorithms manually.
 
-#### API Gateway and API Manager
+* **API Gateway and API Manager**: If you wish to enable these algorithms in your API Gateway or API Manager, add the `jdk.tls.disabledAlgorithms` Java security property to the jvm.xml file as follows, where `value` contains the desired list of disabled algorithms.
 
-If you wish to enable these algorithms in your API Gateway or API Manager, add the `jdk.tls.disabledAlgorithms` Java security property to the jvm.xml file as follows, where `value` contains the desired list of disabled algorithms.
+    ```xml
+    <SecurityProperty name="jdk.tls.disabledAlgorithms" value="MD2, MD5, SHA1 jdkCA & usage TLSServer,RSA keySize < 1024, DSA keySize < 1024, EC keySize < 224" />
+    ```
 
-```xml
-<SecurityProperty name="jdk.tls.disabledAlgorithms" value="MD2, MD5, SHA1 jdkCA & usage TLSServer,RSA keySize < 1024, DSA keySize < 1024, EC keySize < 224" />
-```
-
-#### Policy Studio
-
-To enable these algorithms for Policy Studio, remove "TLSv1" and "TLSv1.1" from the `jdk.tls.disabledAlgorithms` property in the INSTALL_DIR/policystudio/jre/lib/security/java.security file.
+* **Policy Studio**: To enable these algorithms for Policy Studio, remove "TLSv1" and "TLSv1.1" from the `jdk.tls.disabledAlgorithms` property in the INSTALL_DIR/policystudio/jre/lib/security/java.security file.
 
 ### OpenSSL upgrade to version 3.0.3
 
 OpenSSL has been upgraded to OpenSSL 3.0.3. The following are the major changes in API Gateway related to this upgrade:
 
-#### Support of legacy algorithms
+* **Support of legacy algorithms**
 
-Cryptographic algorithms, such as DES, MD2, and RC2 are considered legacy, and their use is strongly discouraged. The legacy algorithms are still available in OpenSSL 3.0.3. For more information, see [OpenSSL, Legacy algorithms](https://www.openssl.org/docs/man3.0/man7/migration_guide.html#Legacy-Algorithms).
+    Cryptographic algorithms, such as DES, MD2, and RC2 are considered legacy, and their use is strongly discouraged. The legacy algorithms are still available in OpenSSL 3.0.3. For more     information, see [OpenSSL, Legacy algorithms](https://www.openssl.org/docs/man3.0/man7/migration_guide.html#Legacy-Algorithms).
 
-Legacy algorithms support is provided by the legacy library, which is delivered with API Gateway and referenced by the environmental variable `OPENSSL_MODULES`.
+    Legacy algorithms support is provided by the legacy library, which is delivered with API Gateway and referenced by the environmental variable `OPENSSL_MODULES`.
 
-The legacy cryptographic algorithms DES and RC2, used for PKCS12 creation in API Gateway, are replaced by AES256. DES and RC2 algorithms are still supported when reading PKCS12 files encrypted with legacy algorithms.
+    The legacy cryptographic algorithms DES and RC2, used for PKCS12 creation in API Gateway, are replaced by AES256. DES and RC2 algorithms are still supported when reading PKCS12 files         encrypted with legacy algorithms.
 
-#### Support of legacy engines
+* **Support of legacy engines**
 
-OpenSSL 3.0 introduced the Provider concept, which conflicts with the APIs used to support engines. These APIs are deprecated but still supported by legacy engine libraries delivered with API Gateway. The environmental variable `OPENSSL_ENGINES` is added to reference the legacy engines. For more details on legacy engines, see [OpenSSL, Support of legacy engines](https://www.openssl.org/docs/man3.0/man7/migration_guide.html#Support-of-legacy-engines).
+    OpenSSL 3.0 introduced the Provider concept, which conflicts with the APIs used to support engines. These APIs are deprecated but still supported by legacy engine libraries delivered with API Gateway. The environmental variable `OPENSSL_ENGINES` is added to reference the legacy engines. For more details on legacy engines, see [OpenSSL, Support of legacy engines](https://www.openssl.org/docs/man3.0/man7/migration_guide.html#Support-of-legacy-engines).
 
-#### OpenSSL configuration
+* **OpenSSL configuration**
 
-OpenSSL configuration shipped with API Gateway (openssl.cnf) enables support of legacy algorithms and engines by default. Customized OpenSSL configurations should reflect this change.
+    OpenSSL configuration shipped with API Gateway (openssl.cnf) enables support of legacy algorithms and engines by default. Customized OpenSSL configurations should reflect this change.
 
-{{< alert title="Note" color="primary" >}}
-Running API Gateway in FIPS mode is not yet supported.
-{{< /alert >}}
+{{< alert title="Note" color="primary" >}}Running API Gateway in FIPS mode is not yet supported.{{< /alert >}}
 
 For more details on changes in OpenSSL 3.0.3, see [OpenSSL, Changelog](https://www.openssl.org/news/changelog.html#openssl-30).
 
@@ -255,6 +249,12 @@ This version of API Gateway and API Manager includes:
 
 The following are known issues for this update.
 
+### API Analytics PDF reports do not display chart contents
+
+In API Analytics, PDF reports do not display the contents of the charts. This issue has arisen because of an upgrade of the `Highcharts.js` library.
+
+Related Issue: RDAPI-27301
+
 ### Scripting filter whiteboard attributes not preloaded for Jython scripts
 
 The Scripting filter now uses a Jython 2.7 scripting environment (previously, Jython 2.5) to execute Jython scripts. As a result of this version change, the whiteboard attributes, such as `http.request.uri` and `http.request.verb`, are no longer preloaded for use by Jython scripts. However, you can run a Jython script to load these attributes before they are accessed as follows:
@@ -328,12 +328,6 @@ In API Manager, if a virtual host (global default, organization level, or for a 
 An issue only arises when a port is specified as part of the virtual host. API Manager blindly takes the specified virtual host and appends it to the supported schemes for the configured traffic ports. So if a virtual host of `myhost:9999` is set, then conflicting base paths of `https://myhost:9999` and `http://myhost:9999` are displayed in the API Catalog.
 
 Related Issue: RDAPI-23379
-
-### API Analytics PDF reports do not display chart contents
-
-In API Analytics, PDF reports do not display the contents of the charts. This issue has arisen because of an upgrade of the `Highcharts.js` library.
-
-Related Issue: RDAPI-27301
 
 ## Documentation
 
