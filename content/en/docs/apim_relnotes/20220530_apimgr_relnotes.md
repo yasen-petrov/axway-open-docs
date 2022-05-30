@@ -56,7 +56,7 @@ It is important, especially when upgrading from an earlier version, to be aware 
 
 ### New redaction rules for API Gateway
 
-New redaction rules have been defined for both [Admin Node Manager](/docs/apim_administration/apigtw_admin/admin_node_mngr/) and API Gateway instances. New API Gateway installations now have these rules enabled by default.
+New redaction rules have been defined for both Admin Node Manager and API Gateway instances. New API Gateway installations now have these rules enabled by default.
 
 When upgrading existing installations, the default redaction files are automatically installed but not enabled.
 
@@ -147,7 +147,7 @@ During development and testing of API Gateway with Cassandra 3.11.12, a critical
 
 When configuring the global fault handler in API Manager, it is now required to define and select a [fault handler policy](/docs/apim_administration/apimgr_admin/api_mgmt_custom_policies/#add-api-manager-fault-handler-policies).
 
-### Improvements to the list of allowed HTTP methods for CORS request
+### Corrections to the list of allowed HTTP methods for CORS request
 
 [API Gateway CORS](/docs/apim_policydev/apigw_gw_instances/general_cors/) request returned a list of allowed HTTP methods that included methods of relative paths configured to be resolved using Longest Path match, where a CORS request path is a sub-path of the relative paths. Now, the list of allowed HTTP methods includes methods of the longest relative paths, which are sub-paths of a CORS request path.
 
@@ -160,6 +160,10 @@ To prevent CRLF injection attacks, the names and values in HTTP headers are now 
 ```
 
 For more information, see [System property changes](/docs/apim_reference/system_props/).
+
+### API Analytics PDF reports no longer display chart contents
+
+In API Analytics, the PDF reports no longer correctly display the contents of the charts. This issue has arisen due to a security upgrade of the `Highcharts.js` charting library. We are working on the fix of this functionality, to be released in a future update of API Gateway.
 
 ## Deprecated features
 
@@ -251,7 +255,7 @@ The following are known issues for this update.
 
 ### API Analytics PDF reports do not display chart contents
 
-In API Analytics, PDF reports do not display the contents of the charts. This issue has arisen because of an upgrade of the `Highcharts.js` library.
+In API Analytics, the PDF reports no longer correctly display the contents of the charts. This issue has arisen due to a security upgrade of the `Highcharts.js` charting library. We are working on the fix of this functionality, to be released in a future update of API Gateway.
 
 Related Issue: RDAPI-27301
 
