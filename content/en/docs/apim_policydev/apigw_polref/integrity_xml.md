@@ -16,8 +16,7 @@ For more details on XML signature validating the integrity of the message, see [
 
 ### Signing key settings
 
-On the **Signing Key**
-tab, you can select either a symmetric or an asymmetric key to sign the message content. Select the appropriate radio button and configure the fields on the corresponding tab.
+On the **Signing Key** tab, you can select either a symmetric or an asymmetric key to sign the message content. Select the appropriate radio button and configure the fields on the corresponding tab.
 
 #### Asymmetric Key
 
@@ -26,9 +25,7 @@ With an asymmetric signature, the signatory's private key (from a public-private
 **Private Key in Certificate Store**:
 To use a signing key from the certificate store, select **Key in Store**, and click **Signing Key**. Select a certificate that has the required signing key associated with it. The signing key can also be stored on a Hardware Security Module (HSM).
 
-The *Distinguished Name*
-of the selected certificate appears in the `X509SubjectName`
-element of the XML signature as follows:
+The *Distinguished Name* of the selected certificate appears in the `X509SubjectName` element of the XML signature as follows:
 
 ```xml
 <dsig:X509SubjectName>
@@ -48,27 +45,22 @@ It would be unsafe to transmit an unprotected key along with the message so it i
 The following configuration options are available on this window:
 
 **Generate Symmetric Key, and Save in Message Attribute**:
-If you select this option, the API Gateway generates a symmetric key, which is included in the message before it is sent to the client. By default, the key is saved in the `symmetric.key`
-message attribute.
+If you select this option, the API Gateway generates a symmetric key, which is included in the message before it is sent to the client. By default, the key is saved in the `symmetric.key` message attribute.
 
 **Symmetric Key from Selector Expression**:
-If a previous filter (for example, a **Sign Message**
-filter) has already used a symmetric key, you can to reuse this key as proof that the API Gateway is the holder-of-key entity. Enter the name of the selector expression in the field provided, which defaults to `${symmetric.key}`.
+If a previous filter (for example, a **Sign Message** filter) has already used a symmetric key, you can to reuse this key as proof that the API Gateway is the holder-of-key entity. Enter the name of the selector expression in the field provided, which defaults to `${symmetric.key}`.
 
 **Include Encrypted Symmetric Key in Message**:
-The symmetric key is typically encrypted for the recipient and included in the message. However, the initiator and recipient of the transaction may have agreed on a symmetric key using some out-of-bounds mechanism. In this case, it is not necessary to include the key in the message. However, the default option is to include the encrypted symmetric key in the message. The `<KeyInfo>`
-section of the signature points to the `<EncryptedKey>`.
+The symmetric key is typically encrypted for the recipient and included in the message. However, the initiator and recipient of the transaction may have agreed on a symmetric key using some out-of-bounds mechanism. In this case, it is not necessary to include the key in the message. However, the default option is to include the encrypted symmetric key in the message. The `<KeyInfo>` section of the signature points to the `<EncryptedKey>`.
 
 **Encrypt with Key in Store**:
-Select this to encrypt the symmetric key with a public key from the certificate store. Click **Signing Key**
-and select the certificate that contains the public key of the recipient. By encrypting the symmetric key with this public key, you are ensuring that only the recipient that has access to the corresponding private key can decrypt the encrypted symmetric key.
+Select this to encrypt the symmetric key with a public key from the certificate store. Click **Signing Key** and select the certificate that contains the public key of the recipient. By encrypting the symmetric key with this public key, you are ensuring that only the recipient that has access to the corresponding private key can decrypt the encrypted symmetric key.
 
 **Encrypt with Key from Selector Expression**:
 You can also use a key stored in a message attribute to encrypt (or wrap) the symmetric key. Select this setting and enter the selector expression to obtain the public key you want to use to encrypt the symmetric key with.
 
 **Use Derived Key**:
-A `<wssc:DerivedKeyToken>`
-token can be used to derive a symmetric key from the original symmetric key held in and `<enc:EncryptedKey>`. The derived symmetric key is then used to actually sign the message, instead of the original symmetric key. It must be derived again during the verification process using the parameters in the `<wssc:DerivedKeyToken>`. One of these parameters is the symmetric key held in `<enc:EncryptedKey>`.
+A `<wssc:DerivedKeyToken>` token can be used to derive a symmetric key from the original symmetric key held in and `<enc:EncryptedKey>`. The derived symmetric key is then used to actually sign the message, instead of the original symmetric key. It must be derived again during the verification process using the parameters in the `<wssc:DerivedKeyToken>`. One of these parameters is the symmetric key held in `<enc:EncryptedKey>`.
 
 The following example shows the use of a derived key:
 
@@ -117,12 +109,10 @@ This enables the user to specify the length of the key to use when performing sy
 
 #### Key Info
 
-This tab configures how the `<KeyInfo>`
-block of the generated XML signature is displayed. Configure the following fields on this tab:
+This tab configures how the `<KeyInfo>` block of the generated XML signature is displayed. Configure the following fields on this tab:
 
 **Do Not Include KeyInfo Section**:
-This option enables you to omit all information about the signatory's certificate from the signature. In other words, the `KeyInfo`
-element is omitted from the signature. This is useful where a downstream web service uses an alternative method of authenticating the signatory, and uses the signature for the sole purpose of verifying the integrity of the message. In such cases, adding certificate information to the message is an unnecessary overhead.
+This option enables you to omit all information about the signatory's certificate from the signature. In other words, the `KeyInfo` element is omitted from the signature. This is useful where a downstream web service uses an alternative method of authenticating the signatory, and uses the signature for the sole purpose of verifying the integrity of the message. In such cases, adding certificate information to the message is an unnecessary overhead.
 
 **Include Certificate**:
 This is the default option which places the signatory's certificate inside the XML signature itself. The following example shows an example of an XML signature using this option:
@@ -144,9 +134,7 @@ This is the default option which places the signatory's certificate inside the X
 ```
 
 **Expand Public Key**:
-The details of the signatory's public key are inserted into a `KeyValue`
-block. The `KeyValue`
-block is only inserted when this option is selected.
+The details of the signatory's public key are inserted into a `KeyValue` block. The `KeyValue` block is only inserted when this option is selected.
 
 ```xml
 <dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" id="Sample">
@@ -173,8 +161,7 @@ block is only inserted when this option is selected.
 ```
 
 **Include Distinguished Name**:
-If this is selected, the Distinguished Name of the signatory's X.509 certificate is inserted in an `<X509SubjectName>`
-element as shown in the following example:
+If this is selected, the Distinguished Name of the signatory's X.509 certificate is inserted in an `<X509SubjectName>` element as shown in the following example:
 
 ```xml
 <dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" id="Sample">
@@ -194,10 +181,7 @@ element as shown in the following example:
 
 **Include Key Name**:
 This option allows you insert a key identifier, or `KeyName`, to allow the recipient to identify the signatory. Enter an appropriate value for the `KeyName`
-in the **Value**
-field. Typical values include Distinguished Names (DName) from X.509 certificates, key IDs, or email addresses. Specify whether the specified value is a **Text value**
-of a **Distinguished name attribute**
-by selecting the appropriate setting.
+in the **Value** field. Typical values include Distinguished Names (DName) from X.509 certificates, key IDs, or email addresses. Specify whether the specified value is a **Text value** of a **Distinguished name attribute** by selecting the appropriate setting.
 
 ```xml
 <dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" id="Sample">
@@ -211,14 +195,9 @@ by selecting the appropriate setting.
 **Put Certificate in an Attachment**:
 The API Gateway supports SOAP messages with attachments. By selecting this option, you can save the signatory's certificate to the file specified in the input field. This file can then be sent along with the SOAP message as a SOAP attachment.
 
-From previous examples, it is clear that the user's certificate is usually placed inside a `KeyInfo`
-element. However, in this example, the certificate is contained in an attachment, and not in the XML signature itself. To reference the certificate from the XML signature, so that validating applications can process the signature correctly, is the role of the `SecurityTokenReference`
-block.
+From previous examples, it is clear that the user's certificate is usually placed inside a `KeyInfo` element. However, in this example, the certificate is contained in an attachment, and not in the XML signature itself. To reference the certificate from the XML signature, so that validating applications can process the signature correctly, is the role of the `SecurityTokenReference` block.
 
-The `SecurityTokenReference`
-block provides a generic way for applications to retrieve security tokens in cases where these tokens are not contained in the SOAP message. The name of the security token is specified in the `URI`
-attribute of the `Reference`
-element:
+The `SecurityTokenReference` block provides a generic way for applications to retrieve security tokens in cases where these tokens are not contained in the SOAP message. The name of the security token is specified in the `URI` attribute of the `Reference` element:
 
 ```xml
 <dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" id="Sample">
@@ -231,12 +210,9 @@ element:
 </dsig:Signature>
 ```
 
-When the message is sent, the certificate attachment is given a `Content-Id` corresponding to the `URI`
-attribute of the `Reference`
-element.
+When the message is sent, the certificate attachment is given a `Content-Id` corresponding to the `URI` attribute of the `Reference` element.
 
-The following example shows what the complete multipart MIME SOAP message looks like as it is sent over the wire. This illustrates how the `Reference`
-element refers to the `Content-Id` of the attachment:
+The following example shows what the complete multipart MIME SOAP message looks like as it is sent over the wire. This illustrates how the `Reference` element refers to the `Content-Id` of the attachment:
 
 ```
 POST /adoWebSvc.asmx HTTP/1.0
@@ -273,36 +249,22 @@ MIIEZDCCA0ygAwIBAgIBAzANBgkqhki
 ```
 
 **Security Token Reference**:
-A `<wsse:SecurityTokenReference>`
-element can be used to point to the security token used in the generation of the signature. Select this option to use this element. The type of the reference must be selected from the **Reference Type**
-field.
+A `<wsse:SecurityTokenReference>` element can be used to point to the security token used in the generation of the signature. Select this option to use this element. The type of the reference must be selected from the **Reference Type** field.
 
-The `<wsse:SecurityTokenReference>` (in the `<dsig:KeyInfo>`) can contain a `<wsse:Embedded>`
-security token. Alternatively, the `<wsse:SecurityTokenReference>`, (in the `<dsig:KeyInfo>`) can refer to a certificate via a `<dsig:X509Data>`. Select the appropriate button, **Embed**
-or **Refer**, depending on whether you want to use an embedded security token or a referred one.
+The `<wsse:SecurityTokenReference>` (in the `<dsig:KeyInfo>`) can contain a `<wsse:Embedded>` security token. Alternatively, the `<wsse:SecurityTokenReference>`, (in the `<dsig:KeyInfo>`) can refer to a certificate via a `<dsig:X509Data>`. Select the appropriate button, **Embed** or **Refer**, depending on whether you want to use an embedded security token or a referred one.
 
-You can make sure to include a `<BinarySecurityToken>`
-(BST) that contains the certificate used to wrap the symmetric key in the message by selecting the **Include BinarySecurityToken**
-option. The BST is inserted into the WS-Security header regardless of the type of Security Token Reference selected.
+You can make sure to include a `<BinarySecurityToken>` (BST) that contains the certificate used to wrap the symmetric key in the message by selecting the **Include BinarySecurityToken** option. The BST is inserted into the WS-Security header regardless of the type of Security Token Reference selected.
 
-When using the Kerberos Token Profile standard and the API Gateway is acting as the initiator of a secure transaction, it can use Kerberos session keys to sign a message. The `KeyInfo`
-must be configured to use a Security Token Reference with a `ValueType`
-of `GSS_Kerberosv5_AP_REQ`. In this case, the Kerberos token is contained in a `<BinarySecurityToken>`
-in the message.
+When using the Kerberos Token Profile standard and the API Gateway is acting as the initiator of a secure transaction, it can use Kerberos session keys to sign a message. The `KeyInfo` must be configured to use a Security Token Reference with a `ValueType` of `GSS_Kerberosv5_AP_REQ`. In this case, the Kerberos token is contained in `<BinarySecurityToken>` in the message.
 
-If the API Gateway is acting as the recipient of a secure transaction, it can also use the Kerberos session keys to sign the message returned to the client. However, in this case, the `KeyInfo`
-must be configured to use a Security Token Reference with `ValueType`
-of `Kerberosv5_APREQSHA1`. When this `ValueType`
-is selected, the Kerberos token is not contained in the message. The Security Token Reference contains a SHA1 digest of the original Kerberos token received from the client, which identifies the session keys to the client.
+If the API Gateway is acting as the recipient of a secure transaction, it can also use the Kerberos session keys to sign the message returned to the client. However, in this case, the `KeyInfo` must be configured to use a Security Token Reference with `ValueType` of `Kerberosv5_APREQSHA1`. When this `ValueType` is selected, the Kerberos token is not contained in the message. The Security Token Reference contains a SHA1 digest of the original Kerberos token received from the client, which identifies the session keys to the client.
 
 Using the WS-Trust for SPNEGO standard, the Kerberos session keys are not used directly to sign messages because a security context with an associated symmetric key is negotiated. This symmetric key is shared by both client and service and can be used to sign messages on both sides.
 
 ### What to sign settings
 
 The **What to Sign**
-tab is used to identify parts of the message that must be signed. Each signed part is referenced from within the generated XML signature. You can use *any*
-combination of **Node Locations**, **XPaths**, **XPath Predicates**, and the nodes contained in a **Message Attribute**
-to specify what must be signed.
+tab is used to identify parts of the message that must be signed. Each signed part is referenced from within the generated XML signature. You can use *any* combination of **Node Locations**, **XPaths**, **XPath Predicates**, and the nodes contained in a **Message Attribute** to specify what must be signed.
 
 **XML Signing Mechanisms**
 It is important to consider the mechanisms available for referencing signed elements from within an XML signature. For example, With WSU Ids, an Id attribute is inserted into the root element of the nodeset that is to be signed. The XML signature then references this Id to indicate to verifiers of the signature the nodes that were signed. The use of WSU Ids is the default option because these are WS-I compliant.
@@ -312,9 +274,7 @@ Alternatively, a generic `Id` attribute (not bound to the WSU namespace) can be 
 **Id Attribute**:
 Select the Id attribute used to dereference the signed element in the `dsig:Signature`. The available options are as follows:
 
-* *wsu:Id*: The default option references the signed data using a `wsu:Id`
-    attribute. A `wsu:Id`
-    attribute is inserted into the root node of the signed nodeset. This Id is then referenced in the generated XML signature as an indication of which nodes were signed. For example:
+* *wsu:Id*: The default option references the signed data using a `wsu:Id` attribute. A `wsu:Id` attribute is inserted into the root node of the signed nodeset. This Id is then referenced in the generated XML signature as an indication of which nodes were signed. For example:
 
     ```xml
     <soap:Envelope xmlns:soap="...">
@@ -354,18 +314,10 @@ Select the Id attribute used to dereference the signed element in the `dsig:Sign
       </s:Envelope>
     ```
 
-    In this example, a `wsu:Id`
-    attribute has been inserted into the `<soap:Body>`
-    element. This `wsu:Id`
-    attribute is then referenced by the `URI`
-    attribute of the `<dsig:Reference>`
-    element in the actual signature. When the signature is being verified, the value of the `URI`
-    attribute can be used to locate the nodes that have been signed.
-* *Id*: Select the `Id`
-    option to use generic Ids (not bound to the WSU namespace) to dereference the signed data. Under this schema, the `URI`
-    attribute of the `<Reference>`
-    points at an Id attribute, which is inserted into the top-level node of the signed nodeset. In the following example, the Id specified in the signature matches the Id attribute inserted into the `<Body>`
-    element, indicating that the signature applies to the entire contents of the SOAP body:
+    In this example, a `wsu:Id` attribute has been inserted into the `<soap:Body>` element. This `wsu:Id` attribute is then referenced by the `URI` attribute of the `<dsig:Reference>` element in the actual signature. When the signature is being verified, the value of the `URI` attribute can be used to locate the nodes that have been signed.
+
+* *Id*: Select the `Id` option to use generic Ids (not bound to the WSU namespace) to dereference the signed data. Under this schema, the `URI` attribute of the `<Reference>`
+points at an Id attribute, which is inserted into the top-level node of the signed nodeset. In the following example, the Id specified in the signature matches the Id attribute inserted into the `<Body>` element, indicating that the signature applies to the entire contents of the SOAP body:
 
     ```xml
     <soap:Envelope xmlns:soap="....">
@@ -405,8 +357,7 @@ Select the Id attribute used to dereference the signed element in the `dsig:Sign
     ```
 
 * *ID*: Select this option to use generic IDs (not bound to the WSU namespace) to dereference the signed data. Under this schema, the URI attribute of the `Reference`
-    points at an ID attribute, which is inserted into the top-level node of the signed nodeset. In the following example, the URI specified in the Signature Reference node matches the ID attribute inserted into the `Body`
-    element, indicating that the signature applies to the entire contents of the SOAP body:
+points at an ID attribute, which is inserted into the top-level node of the signed nodeset. In the following example, the URI specified in the Signature Reference node matches the ID attribute inserted into the `Body` element, indicating that the signature applies to the entire contents of the SOAP body:
 
     ```xml
     <soap:Envelope xmlns:soap="....">
@@ -445,12 +396,9 @@ Select the Id attribute used to dereference the signed element in the `dsig:Sign
     </soap:Envelope>
     ```
 
-* *xml:id*: Select this option to use an `xml:id`
-    to dereference the signed data. Under this schema, the URI attribute of the `Reference`
-    points at an `xml:id`
-    attribute, which is inserted into the top-level node of the signed nodeset. In the following example, the URI specified in the Signature Reference node matches the `xml:id`
-    attribute inserted into the `Body`
-    element, indicating that the signature applies to the entire contents of the SOAP body:
+* *xml:id*: Select this option to use an `xml:id` to dereference the signed data. Under this schema, the URI attribute of the `Reference` points at an `xml:id`
+attribute, which is inserted into the top-level node of the signed nodeset. In the following example, the URI specified in the Signature Reference node matches the `xml:id`
+attribute inserted into the `Body` element, indicating that the signature applies to the entire contents of the SOAP body:
 
     ```xml
     <soap:Envelope xmlns:soap="....">
@@ -490,10 +438,8 @@ Select the Id attribute used to dereference the signed element in the `dsig:Sign
     ```
 
 * *No id (use with enveloped signature and XPath 'The Entire Document')*: Select this option to sign the entire document. In this case, the URI attribute on the `Reference`
-    node of the signature is `“”`, which means that no id is used to refer to what is being signed. The `“”`
-    URI means that the full document is signed. A signature of this type must be an enveloped signature. On the **Advanced** > **Options**
-    tab, select **Create enveloped signature**. To sign the full document, on the **What to Sign** > **XPaths**
-    tab, select the XPath named `The entire document`.
+node of the signature is `“”`, which means that no id is used to refer to what is being signed. The `“”` URI means that the full document is signed. A signature of this type must be an enveloped signature. On the **Advanced** > **Options** tab, select **Create enveloped signature**. To sign the full document, on the **What to Sign** > **XPaths**
+tab, select the XPath named `The entire document`.
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -541,15 +487,12 @@ Select the Id attribute used to dereference the signed element in the `dsig:Sign
 
 **Use SAML Ids for SAML Elements**:
 This option is only relevant if a SAML assertion is required to be signed. If this option is selected, and the signature is to cover a SAML assertion, an `AssertionID`
-attribute is inserted into a SAML version 1.1 assertion, or an `ID`
-attribute is inserted into a SAML version 2.0 assertion. The value of this attribute is then referenced from within a `<Reference>` block of the XML signature. This option is selected by default.
+attribute is inserted into a SAML version 1.1 assertion, or an `ID` attribute is inserted into a SAML version 2.0 assertion. The value of this attribute is then referenced from within a `<Reference>` block of the XML signature. This option is selected by default.
 
 **Add and Dereference Security Token Reference for SAML**:
-This option is only relevant if a SAML assertion is required to be signed. This setting signs the SAML assertion using a Security Token Reference and an STR-Transform. The `Signature`
-points to the id of the `wsse:SecurityTokenReference`, and applies the STR-Transform.
+This option is only relevant if a SAML assertion is required to be signed. This setting signs the SAML assertion using a Security Token Reference and an STR-Transform. The `Signature` points to the id of the `wsse:SecurityTokenReference`, and applies the STR-Transform.
 
-When signing the SAML assertion, this means to sign the XML that the `wsse:SecurityTokenReference`
-points to, and not the `wsse:SecurityTokenReference`. This option is unselected by default.
+When signing the SAML assertion, this means to sign the XML that the `wsse:SecurityTokenReference` points to, and not the `wsse:SecurityTokenReference`. This option is unselected by default.
 
 The following shows an example SOAP header:
 
@@ -628,19 +571,13 @@ The following shows an example SOAP header:
 
 Node locations are perhaps the simplest way to configure the message content that must be signed. The table on this tab is prepopulated with a number of common SOAP security headers, including the SOAP Body, WS-Security block, SAML assertion, WS-Security UsernameToken and Timestamp, and the WS-Addressing headers. For each of these headers, there are several namespace options available. For example, you can sign both a SOAP 1.1 and/or a SOAP 1.2 block by distinguishing between their namespaces.
 
-On the **Node Locations**
-tab, you can select one or more nodesets to sign from the default list. You can also add more default nodesets by clicking the **Add**
-button. Enter the **Element Name**, **Namespace**, and **Index**
-of the nodeset in the fields provided. The **Index**
-field is used to distinguish between two elements of the same name that occur in the same message.
+On the **Node Locations** tab, you can select one or more nodesets to sign from the default list. You can also add more default nodesets by clicking the **Add** button. Enter the **Element Name**, **Namespace**, and **Index** of the nodeset in the fields provided. The **Index** field is used to distinguish between two elements of the same name that occur in the same message.
 
 #### XPaths
 
 You can use an XPath expression to identify the nodeset (the series of elements) that must be signed. To specify that nodeset, select an existing XPath expression from the table, which contains several XPath expressions that can be used to locate nodesets representing common SOAP security headers, including SAML assertions.
 
-Alternatively, you can add a new XPath expression using the **Add**
-button. XPath expressions can also be edited and removed with the **Edit**
-and **Remove** buttons.
+Alternatively, you can add a new XPath expression using the **Add** button. XPath expressions can also be edited and removed with the **Edit** and **Remove** buttons. For more information, see [Configure XPath expressions](/docs/apim_policydev/apigw_polref/content_additional/#configure-xpath-expressions).
 
 An example of a SOAP message is as follows:
 
@@ -675,8 +612,7 @@ You must also supply the namespace mapping for the `soap` prefix, for example:
 
 Select this option to use an XPath transform to reference the signed content. You must select an XPath predicate from the table to do this. The table is prepopulated with several XPath predicates that can be used to identify common security headers that occur in SOAP messages, including SAML assertions.
 
-To illustrate the use of XPath predicates, the following example shows how the SOAP message is signed when the `Sign SOAP Body`
-predicate is selected:
+To illustrate the use of XPath predicates, the following example shows how the SOAP message is signed when the `Sign SOAP Body` predicate is selected:
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -689,8 +625,7 @@ predicate is selected:
 </s:Envelope>
 ```
 
-The default XPath expression (Sign SOAP Body) identifies the contents of the SOAP `Body` element, including the `Body`
-element itself. The following is the XML Signature produced when this XPath predicate is used:
+The default XPath expression (Sign SOAP Body) identifies the contents of the SOAP `Body` element, including the `Body` element itself. The following is the XML Signature produced when this XPath predicate is used:
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -733,8 +668,7 @@ To do this, select the **Extract nodes from Selector Expression** check box, and
 ### Where to place signature settings
 
 **Append Signature to Root or SOAP Header**:
-If the message is a SOAP message, the signature is inserted into the SOAP `Header` element when this radio button is selected. The XML signature is inserted as an immediate child of the SOAP `Header`
-element. The following example shows a skeleton SOAP message which has been signed using this option:
+If the message is a SOAP message, the signature is inserted into the SOAP `Header` element when this radio button is selected. The XML signature is inserted as an immediate child of the SOAP `Header` element. The following example shows a skeleton SOAP message which has been signed using this option:
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -788,8 +722,7 @@ the location to which the XPath expression points, or *append* it to this locati
 
 ### Advanced signature generation settings
 
-The **Advanced**
-tab enables you to set the following:
+The **Advanced** tab enables you to set the following:
 
 * Additional elements from the message to be signed.
 * Algorithms and ciphers used to sign the message parts.
@@ -811,48 +744,45 @@ This option is only enabled when you have elected to insert a Timestamp into the
 section below.
 
 * **Sign Attachments**:
-    In addition to signing some or all contents of the SOAP message, you can also sign attachments to the SOAP message. To sign all attachments, select **Include Attachments**. A signed attachment is referenced in an XML signature using the *Content-Id* or *cid* of the attachment. The `URI` attribute of the `Reference` element corresponds to this Content-Id. The following example shows how an XML signature refers to a sample attachment. It shows the wire format of the message and its attachment as they are sent to the destination web service. Multiple attachments result in successive `Reference` elements.
+In addition to signing some or all contents of the SOAP message, you can also sign attachments to the SOAP message. To sign all attachments, select **Include Attachments**.A signed attachment is referenced in an XML signature using the *Content-Id* or *cid* of the attachment. The `URI` attribute of the `Reference` element corresponds to thisContent-Id. The following example shows how an XML signature refers to a sample attachment. It shows the wire format of the message and its attachment as they are sent tothe destination web service. Multiple attachments result in successive `Reference` elements.
 
-    ```
-    POST /myAttachments HTTP/1.0
-    Content-Length: 1000
-    User-Agent: API Gateway
-    Accept-Language: en
-    Content-Type: multipart/related; type="text/xml";
-    boundary="----=Multipart-SOAP-boundary"
-
-    ------=Multipart-SOAP-boundary
-    Content-Id: soap-envelope
-    SOAPAction: none
-    Content-Type: text/xml;
-    charset="utf-8"
-    <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
-      <s:Header>
-        <dsig:Signature id="Sample" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
-          <dsig:SignedInfo>
-            <dsig:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/
-                xml-exc-c14n"/>
-            <dsig:SignatureMethod Algorithm="http://www.w3.org/2000/09/
-                xmldsig#rsa-sha1"/>
-            <dsig:Reference URI="cid:moredata.txt">...</dsig:Reference>
-          </dsig:SignedInfo>
-        </dsig:Signature>
-      </s:Header>
-      <s:Body>
-        ...
-      </s:Body>
-    </s:Envelope>
-
-    ------=Multipart-SOAP-boundary
-    Content-Id: moredata.txt
-    Content-Type: text/plain; charset="UTF-8"
-    Some more data.
-    ------=Multipart-SOAP-boundary--
-    ```
+```
+POST /myAttachments HTTP/1.0
+Content-Length: 1000
+User-Agent: API Gateway
+Accept-Language: en
+Content-Type: multipart/related; type="text/xml";
+boundary="----=Multipart-SOAP-boundary"
+------=Multipart-SOAP-boundary
+Content-Id: soap-envelope
+SOAPAction: none
+Content-Type: text/xml;
+charset="utf-8"
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header>
+    <dsig:Signature id="Sample" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
+      <dsig:SignedInfo>
+        <dsig:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/
+            xml-exc-c14n"/>
+        <dsig:SignatureMethod Algorithm="http://www.w3.org/2000/09/
+            xmldsig#rsa-sha1"/>
+        <dsig:Reference URI="cid:moredata.txt">...</dsig:Reference>
+      </dsig:SignedInfo>
+    </dsig:Signature>
+  </s:Header>
+  <s:Body>
+    ...
+  </s:Body>
+</s:Envelope>
+------=Multipart-SOAP-boundary
+Content-Id: moredata.txt
+Content-Type: text/plain; charset="UTF-8"
+Some more data.
+------=Multipart-SOAP-boundary--
+```
 
 **Transform**:
-This field is only available when you have selected the **Sign Attachments**
-box above. It determines the transform used to reference the signed attachments.
+This field is only available when you have selected the **Sign Attachments** box above. It determines the transform used to reference the signed attachments.
 
 **Timestamp Options**:
 It is possible to insert a timestamp into the message to indicate when exactly the signature was generated. Consumers of the signature can then validate the signature to ensure that it is not of date.
@@ -862,8 +792,7 @@ The following options are available:
 * **No Timestamp**:
     No timestamp is inserted into the signature.
 * **Embed in WSSE Security**:
-    The `wsu:Timestamp`
-    is inserted into a `wsse:Security` block. The `Security` block is identified by the SOAP actor/role specified on the **Signature** tab.
+    The `wsu:Timestamp` is inserted into a `wsse:Security` block. The `Security` block is identified by the SOAP actor/role specified on the **Signature** tab.
 * **Embed in Signature Property**:
     The `wsu:Timestamp` is placed inside a signature property element in the `dsig:Signature`.
 
@@ -911,8 +840,7 @@ Select the digest algorithm to you to produce a cryptographic hash of the signed
 This tab enables you to configure various advanced options on the generated XML signature. The following fields can be configured on this tab:
 
 **WS-Security Options**:
-WSSE 1.1 defines a `<SignatureConfirmation>`
-element that can be used as proof that a particular XML signature was processed. A recipient and verifier of an XML signature must generate a `<SignatureConfirmation>` element for each piece of data that was signed (for each `<Reference>` in the XML signature). A `<SignatureConfirmation>` element contains the hash of the signed data and must be signed by the recipient before returning it in the response to the initiator (the original signatory of the data).
+WSSE 1.1 defines a `<SignatureConfirmation>` element that can be used as proof that a particular XML signature was processed. A recipient and verifier of an XML signature must generate a `<SignatureConfirmation>` element for each piece of data that was signed (for each `<Reference>` in the XML signature). A `<SignatureConfirmation>` element contains the hash of the signed data and must be signed by the recipient before returning it in the response to the initiator (the original signatory of the data).
 
 When the initiator receives the `<SignatureConfirmation>` elements in the response, it compares the hash with the hash of the data that it produced initially. If the hashes match, the initiator knows that the recipient has processed the same signature.
 
@@ -1017,8 +945,7 @@ of the message.
 
 ### Signature verification settings
 
-The following sections are available on the **Signature Verification**
-tab:
+The following sections are available on the **Signature Verification** tab:
 
 **Signature Location**:
 Because there may be multiple signatures in the message, you must specify which signature API Gateway uses to verify the integrity of the message. The signature can be extracted from one of the following:
@@ -1058,31 +985,25 @@ to enforce this.{{< /alert >}}
 
 ### Advanced signature verification settings
 
-The following advanced configuration options are available on the **Advanced**
-tab:
+The following advanced configuration options are available on the **Advanced** tab:
 
 **Signature Confirmation**:
-If this filter is configured as part of an initiator policy, where the API Gateway acts as the client in a web services transaction, select the **Initiator**
-option. This means that the filter keeps a record of the signature that it has verified, and checks the `SignatureConfirmation`
-returned by the recipient.
+If this filter is configured as part of an initiator policy, where the API Gateway acts as the client in a web services transaction, select the **Initiator** option. This means that the filter keeps a record of the signature that it has verified, and checks the `SignatureConfirmation` returned by the recipient.
 
-Alternatively, if the API Gateway acts as the recipient in the transaction, select the **Recipient**
-option. In this case, the API Gateway returns the `SignatureConfirmation`
+Alternatively, if the API Gateway acts as the recipient in the transaction, select the **Recipient** option. In this case, the API Gateway returns the `SignatureConfirmation`
 elements in the response to the initiator.
 
 **Default Derived Key Label**:
 If the API Gateway consumes a `DerivedKeyToken`, use the default value to recreate the derived key.
 
 **Algorithm Suite**:
-Select the WS-Security Policy *Algorithm Suite*
-that must have been used when signing the message. This check ensures that the appropriate algorithms were used to sign the message.
+Select the WS-Security Policy *Algorithm Suite* that must have been used when signing the message. This check ensures that the appropriate algorithms were used to sign the message.
 
 **Fail if No Signatures to Verify**:
 Select this to configure the filter to fail if no XML signatures are present in the incoming message.
 
 **Verify Signature for Authentication Purposes**:
-You can use the **XML Signature Verification**
-filter to authenticate an end user. If the message can be successfully validated, it proves that only the private key associated with the public key used to verify the signature was used to sign the message. Because the private key is only accessible to its owner, a successful verification can be used to effectively authenticate the message signer.
+You can use the **XML Signature Verification** filter to authenticate an end user. If the message can be successfully validated, it proves that only the private key associated with the public key used to verify the signature was used to sign the message. Because the private key is only accessible to its owner, a successful verification can be used to effectively authenticate the message signer.
 
 **Retrieve DOM using Selector Expression**:
 You can configure this field to verify the response from a SAML PDP. When the API Gateway receives a response from the SAML PDP, it stores the signature on the response in a message attribute. You can specify this attribute using a selector expression to verify this signature. Using a selector enables settings to be evaluated and expanded at runtime based on metadata (for example, in a message attribute, Key Property Store, or environment variable).
@@ -1102,24 +1023,17 @@ The API Gateway can extract the signature from an XML message using several diff
 * SOAP message header
 * Advanced (XPath)
 
-Select the most appropriate method from the **Signature Location**
-field. Your selection depends on the types of SOAP messages that you expect to receive. For example, if incoming SOAP messages contain an XML signature within a WS-Security block, you should choose this option from the list.
+Select the most appropriate method from the **Signature Location** field. Your selection depends on the types of SOAP messages that you expect to receive. For example, if incoming SOAP messages contain an XML signature within a WS-Security block, you should choose this option from the list.
 
 ### Use WS-Security actors
 
 If the signature is present in a WS-Security block:
 
-1. Select `WS-Security block`
-    from the **Signature Location**
-    field.
-2. Select a SOAP actor from the **Select Actor/Role(s)**
-    field. Each actor uniquely identifies a separate WS-Security block. By selecting `Current actor/role only`
-    from the list, the WS-Security block with no actor is taken.
-3. In cases where there might be multiple signatures within the WS-Security block, it is necessary to extract one using the **Signature Position**
-    field.
+1. Select `WS-Security block` from the **Signature Location** field.
+2. Select a SOAP actor from the **Select Actor/Role(s)** field. Each actor uniquely identifies a separate WS-Security block. By selecting `Current actor/role only` from the list, the WS-Security block with no actor is taken.
+3. In cases where there might be multiple signatures within the WS-Security block, it is necessary to extract one using the **Signature Position** field.
 
-The following is a skeleton version of a message where the XML signature is contained in the `sample`
-WS-Security block, (`soap-env:actor="sample"`):
+The following is a skeleton version of a message where the XML signature is contained in the `sample` WS-Security block, (`soap-env:actor="sample"`):
 
 ```xml
 <s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
@@ -1141,11 +1055,8 @@ WS-Security block, (`soap-env:actor="sample"`):
 
 If the signature is present in the SOAP header:
 
-1. Select `SOAP message header`
-    from the **Signature Location**
-    field.
-2. If there is more than one signature in the SOAP header, then it is necessary to specify which signature the API Gateway should use. Specify the appropriate signature by setting the **Signature Position**
-    field.
+1. Select `SOAP message header` from the **Signature Location** field.
+2. If there is more than one signature in the SOAP header, then it is necessary to specify which signature the API Gateway should use. Specify the appropriate signature by setting the **Signature Position** field.
 
 The following is an example of an XML message where the XML signature is contained within the SOAP header:
 
@@ -1167,13 +1078,8 @@ The following is an example of an XML message where the XML signature is contain
 
 To use an XPath expression to locate the signature:
 
-1. Select `Advanced (XPath)`
-    from the **Signature Location**
-    field.
-2. Select an existing XPath expression from the list, or add a new one by clicking on the **Add**
-    button. XPath expressions can also be edited or removed with the **Edit**
-    and **Remove**
-    buttons.
+1. Select `Advanced (XPath)` from the **Signature Location** field.
+2. Select an existing XPath expression from the list, or add a new one by clicking on the **Add** button. XPath expressions can also be edited or removed with the **Edit** and **Remove** buttons.
 
 The `First signature in SOAP Header`
 XPath expression takes the first signature from the SOAP header. The expression is as follows:
@@ -1182,9 +1088,7 @@ XPath expression takes the first signature from the SOAP header. The expression 
 //s:Envelope/s:Header/dsig:Signature[1]
 ```
 
-To edit this expression, click the **Edit**
-button to display the **Enter XPath Expression**
-dialog.
+To edit this expression, click the **Edit** button to display the **Enter XPath Expression** dialog.
 
 An example of a SOAP message containing an XML signature in the SOAP header is provided below.
 
@@ -1206,9 +1110,7 @@ An example of a SOAP message containing an XML signature in the SOAP header is p
 </s:Envelope>
 ```
 
-Because the elements referenced in the expression (`Envelope`
-and `Signature`) are prefixed
-elements, you must define the namespace mappings for each of these elements as follows:
+Because the elements referenced in the expression (`Envelope` and `Signature`) are prefixed elements, you must define the namespace mappings for each of these elements as follows:
 
 | Prefix | URI                                         |
 |--------|---------------------------------------------|

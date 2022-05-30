@@ -56,11 +56,11 @@ You can install API Gateway using the following setup types.
 
 #### Standard
 
-Select this option to install all API Gateway components without API Manager. This includes API Gateway Analytics, the QuickStart tutorial, Apache Cassandra database, package and deployment tools, Policy Studio, and Configuration Studio.
+Select this option to install all API Gateway components without API Manager. This includes API Gateway Analytics, the QuickStart tutorial, Apache Cassandra database, Discovery and Traceability agents, package and deployment tools, Policy Studio, and Configuration Studio.
 
 #### Complete
 
-Select this option to install all API Gateway components with API Manager. This includes API Manager, API Gateway Analytics, the QuickStart tutorial, Apache Cassandra database, package and deployment tools, Policy Studio, and Configuration Studio.
+Select this option to install all API Gateway components with API Manager. This includes API Manager, API Gateway Analytics, the QuickStart tutorial, Apache Cassandra database, Discovery and Traceability agents, package and deployment tools, Policy Studio, and Configuration Studio.
 
 #### Custom
 
@@ -75,6 +75,7 @@ Select this option to customize which components are installed. You can install 
 * Install API Tester
 * [Install Configuration Studio](/docs/apim_installation/apigtw_install/install_config_studio)
 * [Install API Manager](/docs/apim_installation/apigtw_install/install_api_mgmt)
+* [Install Discovery and Traceability agents](/docs/apim_installation/apigtw_install/install_agents)
 * [Install the Package and Deploy tools](/docs/apim_installation/apigtw_install/install_deploy_tools)
 * [Install API Gateway Analytics](/docs/apim_installation/apigtw_install/install_analytics)
 
@@ -94,6 +95,7 @@ Select the components to be installed, and deselect those that are not to be ins
 
 * API Gateway Server
 * Admin Node Manager
+* Discovery and Traceability agents
 * Policy Studio desktop tool
 
 Click **Next** to continue.
@@ -128,7 +130,7 @@ It is important to secure your API Gateway system to protect it from internal an
 
 Select **Change the default user name and password** to set the user name and password for the administrator account, and enter a username and password. This option is selected by default to ensure that you set your own administrator user name and password. To use a default administrator user name and password, you must deselect this option. The default credentials are available from your Axway account manager.
 
-{{< alert title="Caution" color="warning" >}}You must ensure that you remember these credentials or you will not be able to log in to Policy Studio or API Gateway Manager.
+{{< alert title="Caution" color="warning" >}}Ensure that you remember these credentials or you will not be able to log in to Policy Studio or API Gateway Manager.
 This is especially important when planning to install Policy Studio on Windows later because you do not have the option to set the credentials then.{{< /alert >}}
 
 Click **Next** to continue.
@@ -159,6 +161,36 @@ Configure the following settings:
 
 Click **Next** to continue.
 
+### Specify Discovery and Traceability agents configuration
+
+{{< alert title="Note" color="primary" >}}The values of the Discovery and Traceability agents configuration variables must match the values defined in Amplify Central. For more information, see [Agent Configuration](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/connect_api_manager/agent-variables/index.html).
+
+If you do not know the values, you can leave the settings blank and edit the relevant configuration file after the installation.
+{{< /alert >}}
+
+Configure the following settings:
+
+* **Discovery agent name**:
+    Enter the name of the Discovery agent.
+* **Traceability agent name**:
+    Enter the name of the Traceability agent.
+* **Amplify Central Organization ID**:
+    Enter the Organization ID from Amplify Central. You can find this value at **Platform > User > Organization**.
+* **Private key**:
+    Enter the private key associated with the service Account.
+* **Public key**:
+    Enter the public key associated with the service Account.
+* **Amplify Central URL**:
+    Enter the URL to the Amplify Central instance, which the agents are using.
+* **Service Account Client ID**:
+    Enter the client identifier associated to the service account created in Amplify Central. You can find this value at **Access > Service Accounts > Client ID**.
+* **Amplify Central Environment Name**:
+    Enter the name of the Amplify Central environment where the APIs will be hosted.
+* **Amplify Central Authentication URL**:
+    Enter the Amplify login URL.
+
+Click **Next** to continue.
+
 ### Set the administrator credentials for API Manager
 
 It is important to secure your API Manager system to protect it from internal and external threats. This window enables you to set the API administrator user name and password used to log in to the API Manager web console.
@@ -175,7 +207,7 @@ It is important to secure your API Gateway Analytics system to protect it from i
 
 Select **Change the default user name and password** to set the user name and password for the administrator account, and enter a user name and password. This option is selected by default to ensure that you set your own administrator user name and password. To use a default administrator user name and password, you must deselect this option. The default credentials are available from your Axway account manager.
 
-{{< alert title="Caution" color="warning" >}}You must ensure that you remember these credentials or you will not be able to log in to API Gateway Analytics.{{< /alert >}}
+{{< alert title="Caution" color="warning" >}}Ensure that you remember these credentials or you will not be able to log in to API Gateway Analytics.{{< /alert >}}
 
 Click **Next** to continue.
 
@@ -212,4 +244,4 @@ To uninstall API Gateway manually:
 1. Run `killall vshell` to stop any running instances or Node Managers
 2. Delete the install directory, as well as any `init.d` or `systemd` service scripts that might have been created by the user to automatically start gateway components on restart.
 
-On Windows platforms, the client tools can be uninstalled by deleting the installation directory.  There are no registry entries.
+On Windows platforms, the client tools can be uninstalled by deleting the installation directory. There are no registry entries.

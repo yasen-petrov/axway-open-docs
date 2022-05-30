@@ -22,7 +22,7 @@ To install the Admin Node Manager in unattended mode, follow the steps described
 The following example shows how to install the Admin Node Manager component in unattended mode:
 
 ```
-./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --setup_type advanced --enable-components apigateway --disable-components qstart,policystudio,configurationstudio,analytics,apitester,apimgmt,cassandra,packagedeploytools
+./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --acceptGeneralConditions yes --setup_type advanced --enable-components apigateway --disable-components qstart,policystudio,configurationstudio,analytics,apitester,apimgmt,cassandra,packagedeploytools
 ```
 
 ## Start the Admin Node Manager

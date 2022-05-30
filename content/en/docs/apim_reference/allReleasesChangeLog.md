@@ -14,6 +14,11 @@ You can find the release notes for all service packs on [Axway Support](https://
 
 |Update |New features and enhancements        |Important Changes    |Deprecated/Removed/EOS  |
 |---  |---               |---                  |---                  |
+|[API Gateway and Manager 7.7.20220530](/docs/apim_relnotes/20220228_apimgr_relnotes/)  |Manage timeouts on Connection/ConnectToUrl filters |Distributed cache socket connect timeout |- |
+| |Querystring passthrough per API |New redaction rules for API Gateway|- |
+| |- |OpenJKE JRE 1.8.0_322|- |
+| |- |Axway Terms and Conditions Installer Update|- |
+|**Update**       |**New features and enhancements**        | **Important Changes**   |**Deprecated/Removed/EOS**  |
 |[API Gateway and Manager 7.7.20220228](/docs/apim_relnotes/20220228_apimgr_relnotes/)  |API Gateway Container use of Persisted Store |Distributed cache socket connect timeout |- |
 | |Initial YAML Environmentalization Support in Policy Studio |WSDL Schema Validation|- |
 | |- |Axway Terms and Conditions Update|- |

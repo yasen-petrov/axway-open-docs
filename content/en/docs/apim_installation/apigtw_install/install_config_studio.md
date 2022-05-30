@@ -28,7 +28,7 @@ To install Configuration Studio in unattended mode, follow the steps described i
 The following example shows how to install the Configuration Studio component in unattended mode on Linux:
 
 ```
-./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --setup_type advanced  
+./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --acceptGeneralConditions yes --setup_type advanced  
 --enable-components configurationstudio --disable-components nodemanager,apigateway,qstart,apitester,analytics,policystudio,apimgmt,cassandra,packagedeploytools
 ```
 

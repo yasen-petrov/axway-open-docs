@@ -5,7 +5,6 @@
   "date": "2019-10-17",
   "description": "Commonly used routing filters, including Connect to URL and Connection."
 }
-<!-- TODO reorder based on usage from GA-->
 
 Depending on how the API Gateway is perceived by the client, different combinations of routing filters can be used. For an introduction to routing scenarios and the filters in the **Routing** category, see [Get started with routing configuration](/docs/apim_policydev/apigw_polref/routing_getstarted/).
 
@@ -126,6 +125,7 @@ The **Settings** tab enables you to configure the following additional settings:
 * **Headers**
 * **Response Body**
 * **Connection**
+* **Timeouts**
 
 By default, these sections are collapsed. Click a section to expand it.
 
@@ -208,6 +208,22 @@ This option defaults to disabled, causing the connection not to be closed until 
 
 {{< alert title="Note" color="primary" >}}This option replaces the system property `<VMArg name="-DConnectToUrlFilter.removePreviousConnections=true"/>` that was added in 7.5.3 SP3 to enable releasing previously opened connections. If you were using this system property, you must select this option on each connection filter requiring this behavior, as the system property no longer exists.{{< /alert >}}
 
+#### Timeouts settings
+
+Configure custom timeouts for a filter. The custom timeouts will override the equivalent global-level timeouts (see, [General settings in Policy Studio](/docs/apim_reference/general_settings/#general-settings)), or the remote host level timeouts (see, [Remote Host Advanced settings](/docs/apim_policydev/apigw_gw_instances/general_remote_hosts/#advanced-settings)) when a remote host that matches the `host:port` of the URL specified in the filter has been previously configured.
+
+**Override timeouts**: Specifies whether or not timeouts are overridden by this filter. Defaults to disabled.
+
+**Connection Timeout**: Specifying a negative value means an infinite timeout. Specifying a value of zero causes the filter to return immediately, regardless the state of the underlying file descriptor. Defaults to 30000 milliseconds (30 seconds).
+
+**Active Timeout**: Specifying a negative value means an infinite timeout. Specifying a value of zero causes the filter to return immediately, regardless the state of the underlying file descriptor. Defaults to 30000 milliseconds (30 seconds)
+
+**Transaction Timeout (ms)**: Specifying a value less than or equal to zero means an infinite timeout. Defaults to 240000 milliseconds (4 minutes).
+
+**Idle Timeout**: If a value less than or equal to zero is specified, the connection is purged (almost) immediately. Defaults to 15000 milliseconds (15 seconds).
+
+{{< alert title="Note" color="primary" >}}All custom timeouts are optional. When a timeout value is not specified, a fallback mechanism applies the value of an equivalent timeout configured either at the global level or at the remote host level, if a **Remote Host** has been previously configured.{{< /alert >}}
+
 ## Connection filter
 
 The **Connection** filter makes the connection to the remote web service. It relies on connection details that are set by the other filters in the **Routing** category. Because the **Connection** filter connects out to other services, it negotiates the SSL handshake involved in setting up a mutually authenticated secure channel.
@@ -227,6 +243,7 @@ The **Settings** tab allows you to configure the following additional settings:
 * **Headers**
 * **Response Body**
 * **Connection**
+* **Timeouts**
 
 By default, these sections are collapsed. Click a section to expand it. For details on the fields on this tab, see [Configure additional settings](#configure-additional-settings).
 

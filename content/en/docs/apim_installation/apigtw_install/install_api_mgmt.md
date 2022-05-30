@@ -46,7 +46,7 @@ To install API Manager in unattended mode, follow the steps described in [Unatte
 The following example shows how to install the API Manager, API Gateway Server, Admin Node Manager, and Cassandra components in unattended mode:
 
 ```
-./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --setup_type advanced --enable-components apimgmt,apigateway,nodemanager,cassandra --disable-components qstart,policystudio,configurationstudio,analytics,apitester,packagedeploytools --licenseFilePath mylicense.lic --apimgmtLicenseFilePath mymgmtlicense.lic
+./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --acceptGeneralConditions yes --setup_type advanced --enable-components apimgmt,apigateway,nodemanager,cassandra --disable-components qstart,policystudio,configurationstudio,analytics,apitester,packagedeploytools --licenseFilePath mylicense.lic --apimgmtLicenseFilePath mymgmtlicense.lic
 ```
 
 ## Configure API Manager

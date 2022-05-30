@@ -25,7 +25,7 @@ To create your persisted API Gateway store, the expected mounted directory (moun
 | Docker volume mount | Description |
 | ------------------- | ----------- |
 | /merge/fed | For an API Gateway policy configuration stored as a deployment package (.fed file).|
-| /merge/yaml | For YAML based API Gateway policy configuration stored as a deployment package (.tar.gz file).|
+| /merge/yaml | For YAML based API Gateway policy configuration stored either as a deployment package (.tar.gz file) or as a directory.|
 | /merge/apigateway | For all other API Gateway policy configurations, for example, jvm.xml, envSettings.props, and so on. |
 | /merge/mandatoryFiles | For the verification of mandatory configuration files. |
 
@@ -100,12 +100,29 @@ docker run -d --name=apimgr --network=api-gateway-domain \
 
 ### YAML Entity Store configuration
 
-YAML based API Gateway policy configuration stored as a deployment package (.tar.gz file) can be added to the Docker container runtime configuration by adding the source directory to the `/merge/yaml` Docker volume:
+YAML based API Gateway policy configuration can be stored either as a deployment package (.tar.gz file) or as a directory. The following examples show how to add them to the Docker container runtime configuration.
+
+#### Deployment package
+
+For configuration stored in a deployment package (.tar.gz file), mount the deployment package to the /merge/yaml Docker volume:
 
 ```
 docker run -d --name=apimgr --network=api-gateway-domain \
            -p 8075:8075 -p 8065:8065 -p 8080:8080 \
            -v /home/user/apigw/yaml.tar.gz:/merge/yaml \
+           -e ACCEPT_GENERAL_CONDITIONS=yes -e EMT_ANM_HOSTS=anm:8090 -e CASS_HOST=casshost1 \
+           -e METRICS_DB_URL=jdbc:mysql://metricsdb:3306/metrics?useSSL=false -e METRICS_DB_USERNAME=db_user1 -e METRICS_DB_PASS=my_db_pwd \
+           api-gateway-my-group:1.0
+```
+
+#### Directory
+
+For configuration stored in a directory, mount the source directory to the /merge/yaml Docker volume:
+
+```
+docker run -d --name=apimgr --network=api-gateway-domain \
+           -p 8075:8075 -p 8065:8065 -p 8080:8080 \
+           -v /home/user/apigw/yaml:/merge/yaml \
            -e ACCEPT_GENERAL_CONDITIONS=yes -e EMT_ANM_HOSTS=anm:8090 -e CASS_HOST=casshost1 \
            -e METRICS_DB_URL=jdbc:mysql://metricsdb:3306/metrics?useSSL=false -e METRICS_DB_USERNAME=db_user1 -e METRICS_DB_PASS=my_db_pwd \
            api-gateway-my-group:1.0

@@ -14,123 +14,9 @@ For example, you can configure XPath expressions to make sure the value of an el
 
 To configure an XPath expression:
 
-1. On the Content Validation dialog, click the **Add**
-    button next to the **XPath Expression** field. Alternatively, you can select a previously configured XPath expression from the list.
-2. In the XPath Expression dialog, enter a name for the expression in the **Name** field, and enter the expression in the **XPath Expression** field. Alternatively, use the XPath wizard to create a valid XPath expression.
+1. On the Content Validation dialog, click the **Add** button next to the **XPath Expression** field. Alternatively, you can select a previously configured XPath expression from the list.
+2. In the XPath Expression dialog, enter a name for the expression in the **Name** field, and enter the expression in the **XPath Expression** field. Alternatively, use the [XPath wizard](/docs/apim_policydev/apigw_polref/content_additional/#configure-xpath-expressions) to create a valid XPath expression.
 3. To resolve any prefixes within the XPath expression, enter the namespace mappings in the table.
-
-### Configure XPath expressions
-
-You can configure XPath expressions manually or using a wizard.
-
-#### Configure XPath expression manually
-
-If you are already familiar with XPath and wish to configure the expression manually, complete the following fields, using the examples below if necessary:
-
-1. Enter or select a name for the XPath expression in the **Name**
-    drop-down list.
-2. Enter the XPath expression to use in the **XPath Expression**
-    field.
-3. In order to resolve any prefixes within the XPath expression, enter the namespace mappings (Prefix, URI) in the table.
-
-For example, consider the following SOAP message:
-
-```xml
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Header>
-    <dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" id="sig1">
-      ...............
-    </dsig:Signature>
-  </soap:Header>
-  <soap:Body>
-    <prod:product xmlns:prod="http://www.company.com">
-      <prod:name>SOA Product</prod:name>
-      <prod:company>Company</prod:company>
-      <prod:description>WebServices Security</prod:description>
-    </prod:product>
-  </soap:Body>
-</soap:Envelope>
-```
-
-The following XPath expression evaluates to true if the `<company>`
-element contains the value `Company`:
-
-```
-//prod:company[text()='Company']
-```
-
-In this case, you must define a mapping for the *prod*
-namespace as follows:
-
-| Prefix | URI                      |
-|--------|--------------------------|
-| `prod` | `http://www.company.com` |
-
-In another example, the element to be examined by the XPath expression belongs to a default namespace. Consider the following SOAP message:
-
-```xml
-<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
-  <soap:Header>
-    <dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" id="sig1">
-      ...............
-    </dsig:Signature>
-  </soap:Header>
-  <soap:Body>
-    <product xmlns="http://www.company.com">
-      <name>SOA Product</name>
-      <company>Company</company>
-      <description>Web Services Security</description>
-    </product>
-  </soap:Body>
-</soap:Envelope>
-```
-
-The following XPath expression evaluates to true if the `<company>`
-element contains the value `Company`:
-
-```
-//ns:company[text()='Company']
-```
-
-Because the `<company>` element belongs to the default (`xmlns`) namespace (`http://www.company.com`), you must make up an arbitrary prefix (`ns`) for use in the XPath expression, and assign it to `http://www.company.com`. This is necessary to distinguish between potentially several default namespaces which might exist throughout the XML message. The following mapping illustrates this:
-
-| Prefix | URI                      |
-|--------|--------------------------|
-| `ns`   | `http://www.company.com` |
-
-##### Return a nodeset
-
-Both of the examples above dealt with cases where the XPath expression evaluated to a Boolean value. For example, the expression in the above example asks does the `<company>`
-element in the `http://www.company.com`
-namespace contain a text node with the value `Company`.
-
-It is sometimes necessary to use the XPath expression to return a subset of the XML message. For example, when using an XPath expression to determine what nodes should be signed in a signed XML message, or when retrieving the nodeset to validate against an XML Schema.
-
-The API Gateway ships with an XPath expression that returns `All Elements inside SOAP Body`. To view this expression, select it from the **Name**
-field. It appears as follows:
-
-```
-/soap:Envelope/soap:Body//*
-```
-
-This XPath expression simply returns all child elements of the SOAP `<Body>`
-element. To construct and test more complicated expressions, use the XPath wizard.
-
-#### Configure XPath expression using XPath wizard
-
-The XPath wizard
-assists you in creating correct and accurate XPath expressions. The wizard enables you to load an XML message and then run an XPath expression on it to determine what nodes are returned. To launch the XPath wizard, click the **XPath Wizard** button
-on the XPath Expression
-dialog.
-
-To use the XPath wizard, enter (or browse to) the location of an XML file in the **File**
-field. The contents of the XML file are displayed in the main window of the wizard. Enter an XPath expression in the **XPath**
-field, and click the **Evaluate**
-button to run the XPath against the contents of the file. If the XPath expression returns any elements (or returns true), those elements are highlighted in the main window.
-
-If you are not sure how to write the XPath expression, you can select an element in the main window. An XPath expression to isolate this element is automatically generated and displayed in the **Selected**
-field. To use this expression, select the **Use this path**
-button, and click **OK**.
 
 ## Send to ICAP filter
 
@@ -289,3 +175,105 @@ Enter the maximum number of child nodes that an element in an XML message is all
 
 **Maximum Number of Attributes per Node**:
 Enter the maximum number of attributes that an element is allowed to have.
+
+## Configure XPath expressions
+
+You can use XPath expressions with some of the Policy Studio filters to select nodes in an XML document.
+
+For any filter, which accepts XPath expressions, you can configure them manually, when you already know its configuration, or using a wizard, to help you to start creating the XPath expression from scratch.
+
+### Configure XPath expression manually
+
+If you are already familiar with XPath and wish to configure the expression manually, complete the following fields, using the examples below if necessary:
+
+1. Enter or select a name for the XPath expression in the **Name** drop-down list.
+2. Enter the XPath expression to use in the **XPath Expression** field.
+3. To resolve any prefixes within the XPath expression, enter the namespace mappings (Prefix, URI) in the table.
+
+For example, consider the following SOAP message:
+
+```xml
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" id="sig1">
+      ...............
+    </dsig:Signature>
+  </soap:Header>
+  <soap:Body>
+    <prod:product xmlns:prod="http://www.company.com">
+      <prod:name>SOA Product</prod:name>
+      <prod:company>Company</prod:company>
+      <prod:description>WebServices Security</prod:description>
+    </prod:product>
+  </soap:Body>
+</soap:Envelope>
+```
+
+The following XPath expression evaluates to true if the `<company>` element contains the value `Company`:
+
+```
+//prod:company[text()='Company']
+```
+
+In this case, you must define a mapping for the `prod` namespace as follows:
+
+| Prefix | URI                      |
+|--------|--------------------------|
+| `prod` | `http://www.company.com` |
+
+In another example, the element to be examined by the XPath expression belongs to a default namespace. Consider the following SOAP message:
+
+```xml
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <dsig:Signature xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" id="sig1">
+      ...............
+    </dsig:Signature>
+  </soap:Header>
+  <soap:Body>
+    <product xmlns="http://www.company.com">
+      <name>SOA Product</name>
+      <company>Company</company>
+      <description>Web Services Security</description>
+    </product>
+  </soap:Body>
+</soap:Envelope>
+```
+
+The following XPath expression evaluates to true if the `<company>` element contains the value `Company`:
+
+```
+//ns:company[text()='Company']
+```
+
+Because the `<company>` element belongs to the default (`xmlns`) namespace (`http://www.company.com`), you must make up an arbitrary prefix (`ns`) for use in the XPath expression, and assign it to `http://www.company.com`. This is necessary to distinguish between potentially several default namespaces which might exist throughout the XML message. The following mapping illustrates this:
+
+| Prefix | URI                      |
+|--------|--------------------------|
+| `ns`   | `http://www.company.com` |
+
+#### Return a nodeset
+
+Both previous examples dealt with cases where the XPath expression evaluated to a boolean value. For example, the expression in the above example asks does the `<company>`
+element in the `http://www.company.com` namespace contain a text node with the value `Company`.
+
+It is sometimes necessary to use the XPath expression to return a subset of the XML message. For example, when using an XPath expression to determine what nodes should be signed in a signed XML message, or when retrieving the nodeset to validate against an XML Schema.
+
+The API Gateway ships with an XPath expression that returns `All Elements inside SOAP Body`. To view this expression, select it from the **Name** field. It is displayed as follows:
+
+```
+/soap:Envelope/soap:Body//*
+```
+
+This XPath expression simply returns all child elements of the SOAP `<Body>` element. To construct and test more complicated expressions, use the XPath wizard.
+
+### Configure XPath expression using XPath wizard
+
+The XPath wizard assists you in creating correct and accurate XPath expressions. The wizard enables you to load an XML message and then run an XPath expression on it to determine what nodes are returned. To launch the XPath wizard, click the **XPath Wizard** button on the XPath Expression
+dialog.
+
+To use the XPath wizard, enter (or browse to) the location of an XML file in the **File** field. The contents of the XML file are displayed in the main window of the wizard. Enter an XPath expression in the **XPath** field, and click the **Evaluate** button to run the XPath against the contents of the file. If the XPath expression returns any elements (or returns true), those elements are highlighted in the main window.
+
+If you are not sure how to write the XPath expression, you can select an element in the main window. An XPath expression to isolate this element is automatically generated and displayed in the **Selected** field. To use this expression, select the **Use this path** button, and click **OK**.
+
+{{< alert title="Note" color="primary" >}}The XPath wizard does not support the DOCTYPE declaration in XML documents. If the DOCTYPE declaration is included in the XML document, the error message *"DOCTYPE is disallowed when the feature <http://apache.org/xml/features/disallow-doctype-decl> is set to true"* is shown, and the XML document is not loaded by the XPath wizard. {{< /alert >}}

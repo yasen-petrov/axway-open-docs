@@ -26,7 +26,7 @@ To install Policy Studio in unattended mode, follow the steps described in [Unat
 The following example shows how to install the Policy Studio component in unattended mode on Linux:
 
 ```
-./APIGateway_7.7_Install_linux-x86-32-BN<n>.run --mode unattended --setup_type advanced  
+./APIGateway_7.7_Install_linux-x86-32-BN<n>.run --mode unattended --setup_type advanced --acceptGeneralConditions yes
 --enable-components policystudio --disable-components nodemanager,apigateway,qstart,apitester,analytics,configurationstudio,apimgmt,cassandra,packagedeploytools
 ```
 

@@ -23,6 +23,8 @@ You can examine the installation log in the root directory of the installation (
 * To log in to the API Manager web-based tool, see [Start API Manager](/docs/apim_installation/apigtw_install/install_api_mgmt/#start-api-manager).
 * To start the Configuration Studio desktop tool, see [Start Configuration Studio](/docs/apim_installation/apigtw_install/install_config_studio/#start-configuration-studio).
 * To set up and start the API Gateway Analytics server, and to log in to the API Gateway Analytics web-based tool, see the [API Gateway Analytics User Guide](/docs/apimanager_analytics/).
+* To start the Discovery agent, see [Running the Discovery agent](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/connect_api_manager/gateway-administation/index.html#running-the-discovery-agent).
+* To start the Traceability agent, see [Running the Traceability agent](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/connect_api_manager/gateway-administation/index.html#running-the-binary-traceability-agent).
 
 ## Initial configuration
 
@@ -54,12 +56,14 @@ If you installed API Gateway Analytics, see the [API Gateway Analytics User Guid
 
 ## Secure API Gateway
 
-Perform the following tasks after installation to secure your API Gateway system and protect the API Gateway environment from internal or external threats.
+Perform the following tasks after installation to secure your API Gateway system and protect the API Gateway environment.
 
 ### Change default passwords
 
 If you did not set an administrator user name and password during installation, you should change the default administrator user name and password now. For details, see
 [Manage administrator users](/docs/apim_administration/apigtw_admin/manage_user_access/#manage-admin-users).
+
+If using the Discovery and Traceability agents, password configuration should also be updated.
 
 ### Change default certificates
 
@@ -82,6 +86,18 @@ The default idle session timeout for the API Gateway Manager web UI is 12 hours.
 For additional procedures you can perform to secure your API Gateway, see the [API Gateway Administrator Guide](/docs/apim_administration/apigtw_admin/).
 
 For more information on the security features of API Gateway and best practices for strengthening the security of API Gateway, see the [API Management Security Guide](https://docs.axway.com/bundle/apim-security-guide/page/api_management_security_guide.html).
+
+## Discovery and Traceability agents
+
+Secure and configure the Discovery and Traceability agents.
+
+### Secure agents
+
+See [Administer agent security](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/connected_agent_common_reference/agent_security/index.html) to secure your Discovery and Traceability agents.
+
+### Configure agents in a clustered environment
+
+A clustered environment requires one Traceability agent per gateway, so you must install the agents on each node. For more information, see [Configure your agents](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/connect_api_manager/deploy-your-agents-with-amplify-cli/index.html#step-4-run-the-agents-configure-procedure).
 
 ## Set up services
 

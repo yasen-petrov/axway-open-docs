@@ -8,7 +8,7 @@
 
 API Gateway deployments can have common resources used by multiple APIs. For example, this includes corporate security policies to be applied to all APIs. You can package such common resources in a *dependent project* used by multiple APIs.
 
-To manage dependencies between API Gateway projects in Policy Studio, select **File** > **Manage Dependencies** from the main menu. Alternatively, right click **Project Dependencies** in the navigation tree on the left. This opens the **Manage Dependencies** dialog where you can add and remove project dependencies:
+To manage dependencies between API Gateway projects in Policy Studio, select **File** > **Manage Dependencies** from the main menu. Alternatively, right-click **Project Dependencies** in the navigation tree on the left. This opens the **Manage Dependencies** dialog where you can add and remove project dependencies:
 
 ![Manage project dependencies](/Images/docbook/images/promotion/team_dev_dependencies.png)
 

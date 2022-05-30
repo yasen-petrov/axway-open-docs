@@ -157,7 +157,7 @@ You can configure the followingon the **Advanced (SSL)** tab:
     * Forces the use of TLSv1.2 and TLSv1.3 protocols.
     * Forbids unauthenticated cipher suites.
 
-For more information on the syntax of this setting, see the [OpenSSL documentation](https://www.openssl.org/docs/man1.1.1/man1/ciphers.html).
+For more information on the syntax of this setting, see the [OpenSSL documentation](https://www.openssl.org/docs/man3.0/man1/ciphers.html).
 
 * **SSL session cache size**: Specify the number of idle SSL sessions that can be kept in memory. The default is `32`. If there are more simultaneous SSL sessions, new SSL connections can still be established, but no more SSL sessions are cached. If you set cache size to `0`, there is no cache. No outbound SSL connections are cached.
 * At `DEBUG` level or higher, API Gateway logs a trace when an entry goes into the cache, for example:
@@ -199,7 +199,7 @@ For more information on the syntax of this setting, see the [OpenSSL documentati
     * **Do not use the TLS v1.1 protocol**: TLS v1.1 is not used for incoming connections to avoid any weaknesses in this protocol. This is selected by default.
     * **Do not use the TLS v1.2 protocol**: TLS v1.2 is not use for incoming connections to avoid any weaknesses in this protocol. This is *not* selected by default.
     * **Do not use the TLS v1.3 protocol**: TLS v1.3 is not use for incoming connections to avoid any weaknesses in this protocol. This is *not* selected by default.
-    * **Prefer local cipher preferences over client's proposal**: When choosing a cipher during the SSL/TLS handshake, the client's preferences are selected by default from the list of ciphers supported by the client and the server. When this option is selected, the server's preferences are used instead. This option is *not* selected by default. For more details on ciphers, see the [OpenSSL documentation](https://www.openssl.org/docs/man1.1.1/man1/ciphers.html).
+    * **Prefer local cipher preferences over client's proposal**: When choosing a cipher during the SSL/TLS handshake, the client's preferences are selected by default from the list of ciphers supported by the client and the server. When this option is selected, the server's preferences are used instead. This option is *not* selected by default. For more details on ciphers, see the [OpenSSL documentation](https://www.openssl.org/docs/man3.0/man1/ciphers.html).
     * **Disable renegotiation in TLSv1.2 and earlier**: Disable renegotiation, do not send HelloRequest messages, and ignore renegotiation requests via ClientHello. This is selected by default. If you disable this option and allow SSL renegotiation, only secure renegotiation will be possible.
 
 ### Configure conditions for an HTTP Interface

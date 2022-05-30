@@ -247,6 +247,8 @@ Configure the following settings:
 
 **Monitor API usage**: Select whether to enable monitoring metrics for the REST API in the **Monitoring > API Usage** view.
 
+**Query String Pass Through**: Select whether to enable this setting for the REST API. When enabled, query parameters are sent unmodified to the back-end service. This is a per API implementation of the global system property [`api.manager.querystring.passthrough`](/docs/apim_reference/system_props/#753).
+
 **Enable CORS from all domains**: Select whether to enable Cross Origin Resource Sharing (CORS) from all domains. When enabled, this means that requests to this API are allowed from all domains (which corresponds to a CORS setting of `*`). To add more advanced CORS configuration (for example, allowed or exposed headers), disable this setting, and add a specific CORS profile for this API. For more details, see [Configure CORS profiles](#configure-cors-profiles).
 
 **PER-METHOD OVERRIDE**: You can click to override the REST API level settings for specified REST API methods. Click the add button, select an API method from the list, and override the following settings as required:
