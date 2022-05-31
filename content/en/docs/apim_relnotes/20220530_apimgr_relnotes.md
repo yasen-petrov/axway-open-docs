@@ -26,7 +26,7 @@ The following new features and enhancements are available in this update.
 
 **Timeout** settings can now be set on the **Connection** and **ConnectToUrl** filters. This change allows for specific calls to timeout at different times based on your use case. For more information, see [Connect to URL filter](/docs/apim_policydev/apigw_polref/routing_common/#connect-to-url-filter).
 
-### Querystring passthrough
+### Querystring passthrough per API
 
 Select whether to enable this setting for a REST API in API Manager. When enabled, query parameters are sent unmodified to the back-end service. This is a per API implementation of the [global system property](/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web).
 
@@ -34,11 +34,11 @@ Select whether to enable this setting for a REST API in API Manager. When enable
 
 Policy Studio performance has been improved with focus on the YAML entity store on a Windows operating system. Waiting times have been reduced for many UI interactions.
 
-### Discovery and Traceability agents
+### Install Discovery and Traceability agents
 
 Discovery and Traceability agents can be installed using API Gateway installer. For more information see [Install agents](/docs/apim_installation/apigtw_install/install_agents/).
 
-### API Manager lightweight APIs
+### New API Manager lightweight APIs
 
 There are 3 new API Manager endpoints for retrieving a lightweight version of back-end APIs, front-end APIs, and Swagger feeds. The endpoints are available on the following paths:
 
