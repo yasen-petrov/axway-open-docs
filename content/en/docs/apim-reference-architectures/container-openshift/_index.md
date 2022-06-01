@@ -107,15 +107,10 @@ The following table lists the number of runtime components in this configuration
 |--- |---|
 |Worker nodes                                    |3 to 6|
 |Cassandra nodes                                    |3|
-|Azure Database for Mysql                           |1|
-|Blob storage                                   |70GB|
-|Azure file storage                             |20GB|
-|External IP (public or private)                 |1 min|
-|Azure Load Balancer or Azure Application Gateway   |1|
-|Azure AD                                           |1|
-|Azure container registry                           |1|
-|Bastion                                            |1|
-|Worker pipeline                                    |1|
+|Database for Mysql                                 |1|
+|persistant disk storage                            |70GB|
+|file storage                                       |20GB|
+
 
 {{% alert title="Note" %}}
 These values are the minimum recommended starting point. Your actual values will depend on many factors, like the number of APIs, payload size, and so on.
@@ -132,19 +127,13 @@ A volume of 50GB must be allocated on each Cassandra node. Axway recommends usin
 |Use of Cosmos DB                                 |Not recommended|
 |Cassandra nodes spread on 3 availability zones   |Recommended|
 
-#### Azure Database for Mysql
+#### Database for Mysql
 
-Azure Database for Mysql is a DBaaS managed by Microsoft. ANM uses an RDBMS to store data. RDBMS uses less storage than Cassandra, so 20GB for a simple instance is acceptable.
+An externally managed Mysql database of choice. ANM uses an RDBMS to store data. RDBMS uses less storage than Cassandra, so 20GB for a simple instance is acceptable.
 
-Axway recommends using Azure Database for Mysql with four vCores in general Purpose mode and the last generation of CPU. Minimal storage in this plan is 50 GB with 150 IOPS. See [Azure Database for MySQL pricing tiers](https://docs.microsoft.com/en-us/azure/mysql/concepts-pricing-tiers) for a complete description of the vCore and pricing tier.
 
-|Description | Type |
-|---|---|
-|Use a standard plan with 50GB (for bandwidth)   |Recommended|
-|Activate TLS configuration                      |Recommended|
-|Use Endpoint termination                        |Recommended|
 
-#### Azure Files Premium (AFP) for shared storage
+#### File Share for shared storage
 
 ##### Events logs
 
@@ -160,9 +149,9 @@ Max_disk_space x API_gateway_max_replica + 1GB = recommended_disk_space
 
 It is important to select a proper disk option for logs in your target environment (cloud or on-premises). In the Kubernetes environment, there may be many pods simultaneously writing to shared storage. Selected disks must support this target workload.
 
-Azure Files is the perfect answer to shared files between pods. It requires a Storage account. The minimal size is 100Gib. See the Security considerations section for access restriction.
 
-#### Azure Blob Storage for logs
+
+#### Persistant Storage for logs
 
 A volume is required to store all logs streamed out from a Kubernetes cluster. Axway recommends using a premium SSD storage except if you want geo-replication for data persistence. In this case, Axway recommends a Local Replication Storage (LRS) or a Zone Redundant Storage (ZRS). The data will contain:
 
@@ -172,98 +161,34 @@ A volume is required to store all logs streamed out from a Kubernetes cluster. A
 
 FluentD_ has been used in our environment to stream logs. A plugin is available to stream logs to blob storage. In this case, Blob storage has a dynamic sizing with high limitation. See [Logging and tracing](#logging-and-tracing) for more details.
 
-#### Azure App Gateway or Azure Load Balancer
+OpenShift Container Platform provides the following methods for communicating from outside the cluster with services running in the cluster.
 
-A load balancer is required in front of the cluster. We use the Kubernetes object called _ingress controller_ that is responsible for fulfilling the ingress rules. A layer 7 load balancer is configured in this architecture. It performs important tasks of terminating TLS connection and request routing. Two solutions are possible with this architecture.
+### Configuring ingress cluster traffic
 
-##### Azure Application Gateway
+The methods are recommended, in order or preference:
 
-Azure Application Gateway has a mode for the Ingress controller (AGIC). It is fully managed by Azure and configuration is the easiest for the solution. You do not have to manage AGIC pods, just configuration inside the cluster. For example, http2 is deactivated on the Azure component and not directly in the pod. Axway recommends using a Standard V2 Tier without autoscaling. HTTP2 must be disabled. But AGIC usage is more expensive because outbound flows are billed at approximately $500 for 9TB.
+* If you have HTTP/HTTPS, use an Ingress Controller.
 
-![Azure Application Gateway](/Images/apim-reference-architectures/container-azure/image10.JPG)
+* If you have a TLS-encrypted protocol other than HTTPS. For example, for TLS with the SNI header, use an Ingress Controller.
 
-##### Azure Load Balancer
+* Otherwise, use a Load Balancer, an External IP, or a NodePort.
 
-Azure Load Balancer is a traditional load balancer. An ingress component is based on Nginx. In this case, the configuration is a little more complex and centralized inside the cluster. It has a more flexible configuration. For example, you can configure the name of a cookie for persistent sessions.
+Follow the redhat OpenShift documentation relevant for your cluster to get the the detailed steps for configuring the ingress controller traffic.
+Reference Sample: https://docs.openshift.com/container-platform/4.10/networking/configuring_ingress_cluster_traffic/configuring-ingress-cluster-traffic-ingress-controller.html
 
-This solution does not carry any additional cost.
 
-![Azure Load Balancer](/Images/apim-reference-architectures/container-azure/image11.JPG)
+#### Openshift Container Registry
 
-Azure Application Gateway uses Kubernetes services only for endpoint discovery. Then it routes requests directly to the IP endpoint. So, latency is smaller. But Azure Application Gateway has some limitation to manage certificates. First, it does not allow certificates signed by private authority. Secondly, a certificate must be composed by appending a top-level and second-level domains: `domainname.tld`.
-
-API Gateway Manager uses a certificate for internal communication between components (API Gateway, API Manager) and also for its User Interface by default. This certificate cannot use a certificate like `domainname.tld`. For this reason, this certificate cannot be used with Azure Application Gateway. The simplest way is to provide the second listener (see section Admin Node Manager for detailed description).
-
-#### Azure Container Registry
-
+OpenShift Container Platform provides a built-in container image registry that runs as a standard workload on the cluster. The registry is configured and managed by an infrastructure Operator. It provides an out-of-the-box solution for users to manage the images that run their workloads, and runs on top of the existing cluster infrastructure. This is the recommended solution for storing images.
 Azure Container Registry is deployed to store both Helm chart and docker images. Helm chart is a very small package, but 1GB is required to store main APIM images (ANM, APIMGR, BASE). Customers need to build a new docker image for every policy or configuration change in the `FED` file. Customers should have an image governance approach to maintain the required images in the registry. For example, if you need to roll back the current image (configuration) to one of the previous versions, that previous version must exist in the container registry.
 
-A Standard SKU is enough for space and performance, but Axway recommends an SKU Premium to restrict access to specific networks such as the AKS subnet and DevOps worker if needed.
+
 
 ### Kubernetes considerations
 
 This section focuses on additional Kubernetes objects and configuration inside the cluster to support Axway components. This is a required step before deploying containers. A [sample Helm chart](https://github.com/Axway/apigw-helm-charts) is available. Use it as a starting point for building your Helm chart.
 
-#### Deployment options
 
-There are parameters that you specify at the time of the creation of a Kubernetes cluster. One of them is a network manager for communication between pods. The second one is a set of strong permissions for Kubernetes.
-
-|Description | Type |
-|---|---|
-|Network CNI mode with a specific plugin (CALICO or Cloud provider) to secure pod connections with other applications or resources inside the cluster  | Recommended|
-| Secure Kubernetes with RBAC capabilities  |  Recommended|
-
-##### Network plugin
-
-By default, there is no isolation between pods inside the cluster in Kubernetes. It is not a problem to deploy it on a dedicated cluster; default Kubernetes networking will be enough. API management capabilities do not require specific rules. But in some cases, API management may be deployed with other back end or apps in the same cluster. In this case, it is necessary to use a Container Networking Interface (CNI) plugin. In the case of Azure, Axway recommends plugin _Azure CNI_. This plugin avoids a NAT between network and pods for low latency compared to Kubelet, but each pod will consume an IP in AKS Subnet. This is the reason why we use a large address range on this subnet.
-
-Also, it is possible to apply 3 kinds of network policies with CALICO or
-Azure Policy Manager (see [Integrating Azure CNI and Calico: A technical deep dive](https://azure.microsoft.com/en-us/blog/integrating-azure-cni-and-calico-a-technical-deep-dive/)):
-
-* Drop communication by default
-* Allow connection to API gateway from specific namespaces
-* Allow connection to pods from specific monitoring tools
-
-##### RBAC Permission
-
-RBAC permission is a secure mechanism to manage authorization inside Kubernetes. It's recommended to set people or application permissions to manage resources:
-
-* Allow Helm to manage resources.
-* Allow worker nodes autoscaling.
-* Allow specific users to view pods, to deploy pods, to access Kubernetes Dashboard.
-* Allow cert-manager to pull and encrypt certificate.
-* Allow Kubernetes to provide cloud resources, like storage or load balancer.
-
-This is a minimal configuration and you can define more specific permissions with cluster roles and binding in the cluster.
-
-Also, a Service Principal on Azure is required. Here are the main permissions:
-
-* Azure Kubernetes Service Cluster Admin Role.
-* AcrPull on all container registries where docker images and Helm charts are stored.
-* Network Contributor on the vnet.
-* Read/Write access to a storage account.
-* Managed Identity Operator and contributor for managed identity AAD_POD_IDENTITY.
-
-Axway recommends 2 services principals:
-
-* The first one is to build and configure all services.
-* The second one is to run a solution in production.
-
-#### Namespaces
-
-A namespace allows splitting of a Kubernetes cluster into separated virtual zones. It's possible to configure multiple namespaces that will be logically isolated from each other. Pods from different namespaces can communicate with a full DNS pattern `<service-name>.<namespace-name>.svc.cluster.local`. A name is unique within a namespace, but not across namespaces.
-
-As mentioned in [Kubernetes documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/), a typical usage of namespaces is separating projects and configured objects deployed by different teams.
-
-Axway recommends deploying all API management components inside the same namespace:
-
-* According to Kubernetes best-practice, the deployment is the responsibility of API team.
-* It is easiest to deploy the solution inside an existing cluster.
-* You do not have to specify full DNS to call other components, therefore, preventing errors. You just use a service name (`<service-name>`).
-
-|Description | Type |
-|---|---|
-|Provide all API management assets in the same namespace | Recommended|
 
 #### Pod resource limits
 
@@ -618,22 +543,7 @@ For a single region configuration, initial replication must be set as follows:
 
 A JMX exporter must be configured on each Cassandra node to monitor Cassandra. The listener is configured with the default port of 7070.
 
-### Security considerations
 
-The following is a summary of security considerations discussed within this document:
-
-* In layered infrastructure, the network is protected by firewall LVL4 that filters only specifics ports. Any administrative access to infrastructure components is enabled through a subnet called a bastion. PaaS services have selected access from AKS or data subnet.
-* All components are deployed in a cluster mode. Kubernetes uses RBAC permission to set roles per user or group. CNI plugin protects communications inside the cluster. All external connections are protected by an ingress controller with a public certificate.
-* In the application layer, sensitive data is protected inside a secret. All communications are encrypted in a cluster. API Management uses only TLS 1.2.
-* Do not run containers in a privileged mode.
-* Only allow communication on required ports.
-
-Here additional information on security in AKS:
-
-* It is possible to limit actions performed by a container or process with AppArmor or `seccomp`, but it is not enabled by default.
-* Microsoft doesn't reboot nodes after patching them. It recommends Kured to reboot them one by one.
-* See [Microsoft security recommendations](https://docs.microsoft.com/en-us/azure/aks/operator-best-practices-cluster-security).
-* Axway did not configure AppArmor or seccomp filters by default, but it strongly recommends deploying Kured.
 
 ### SQL database considerations
 
@@ -663,25 +573,6 @@ Fluentd is deployed on infrapool nodes in AKS to stream logs. Fluentd is deploye
 
 ### Monitoring
 
-A system is required to monitor the platform and containers inside it.
-
-Axway recommends using the Prometheus server with Grafana Web interface. These 2 components are deployed in the infrapool nodes in AKS. Prometheus is composed of 3 services:
-
-* Server with a Web interface. This component needs a PVC to store data.
-* PushGateway monitors Kubernetes ephemeral objects as Jobs. Kubernetes jobs are used to deploy APIM.
-* AlertManager notifies your central monitoring system or sends Alert email. In this reference architecture, an only email alert is possible.
-
-For more details and specific configuration, see [Prometheus documentation](https://prometheus.io/docs/introduction/overview/).
-
-Microsoft Azure offers a complete system monitoring for all managed services (Azure Container Registry, Azure App Gateway, Azure Kubernetes Services, Virtual Machines). It's based on Azure monitor coupled with log analytics that collects all metrics and stores them in blob storage.
-
-Also, for Azure Kubernetes Services, Microsoft has developed an extended feature of Azure monitor to collects containers stdout, stderr, and environmental variables.
-
-See [Configure agent data collection for Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/container-insights-agent-config#overview-of-configurable-prometheus-scraping-settings) for more information.
-
-| Description | Type |
-| --- | --- |
-| Use one of the following solutions:  Azure monitor with container analytics and logs analytics or Prometheus with Grafana | Recommended |
 
 ### Environmentalization and promotion
 
@@ -725,39 +616,7 @@ API Manager promotion:
 * Promote API using export and import mechanism - See [Promote managed APIs between environments](/docs/apim_administration/apimgr_admin/api_mgmt_promote/).
 * Promote API using REST API. [Sample implementation](https://github.com/Axway-API-Management-Plus/apim-deployment).
 
-### Performance testing
 
-![Performance testing](/Images/apim-reference-architectures/container-azure/image14.png)
-
-The Axway team ran a variety of performance tests on the reference architecture. These tests were executed with a testing tool JMeter. Axway recommends deploying the performance stack in the same VNET and the appropriate location. In our case, it has a technical separation between 2 platforms without additional costs of the outbound data transfer.
-
-All connections are encrypted in TLS. Backend is hosted on 2 nodes on the AKS cluster. The API has multiple methods that correspond to the payload. It is protected by basic authentication.
-
-#### Load test with 60 threads
-
-|Message size |  Configuration |  Number of Nodes  | Number of gateways |  Minimal Threshold (TPS) |  Result (TPS) |     Duration (min)  | Number of requests  | 90% Req duration |
-|----| ----| ---- | ---- |  ---- | ---- |  ----  | ----  | ---- |
-|1Kb|Passthrough|||> 1270|To be completed||||
-||API key|||> 800|To be completed||||
-||OAuth|||> 745|To be completed||||
-|10kb|Passthrough|3|3|> 1200|3100|60|11211912|44.57|
-||API key|3|3|> 750|3370|60|12189645|39.70|
-||OAuth|||> 670|To be completed||||
-|50kb|API key|||> 300|To be completed||||
-|100kb|Passthrough|||> 100|To be completed||||
-
-#### Load test with 200 threads
-
-|Message size |  Configuration |  Number of Nodes  | Number of gateways |  Minimal Threshold (TPS) |  Result (TPS) |     Duration (min)  | Number of requests  | 90% Req duration |
-|----| ----| ---- | ---- |  ---- | ---- |  ----  | ----  | ---- |
-|1Kb|Passthrough|||>1270|To be completed||||
-||API key|||>800|To be completed||||
-||OAuth|||>745|To be completed||||
-|10kb|Passthrough|3|6|>1200|5760|10||90.48|
-||API key|||>750|To be completed||||
-||OAuth|||>670|To be completed||||
-|50kb|API key|||>300|To be completed||||
-|100kb|Passthrough|||>100|To be completed||||
 
 ## Maintenance
 
@@ -880,19 +739,19 @@ There may be additional upgrade steps related to other parts of your deployment 
 
 You may want to add or customize some files in the product installation directory. To do this with a container-based deployment, follow steps outlined in [Installing a patch](#installing-a-patch). The only difference is the need to create manually a proper directory structure of your merge directory.
 
-### Pushing a new Docker image to your Kubernetes cluster
+### Pushing a new Docker image to your OpenShift cluster
 
-When there is time to push a new image to a Kubernetes cluster (in any environment), we rely on Kubernetes rolling updates that are supported under the Deployment object. This object has a section that governs the process of updating running containers with a new Docker image. This is an example of an update strategy specification:
+When there is time to push a new image to a OpenShift cluster (in any environment), we rely on OpenShift rolling updates that are supported under the Deployment object. This object has a section that governs the process of updating running containers with a new Docker image. This is an example of an update strategy specification:
 
 ```
-strategy:  
+strategy:
   type: RollingUpdate
-    rollingUpdate:  
-      maxSurge: 1  
+    rollingUpdate:
+      maxSurge: 1
       maxUnavailable: 0
 ```
 
-With the rolling update, Kubernetes will take down a designated number of pods, update them with a new image, and start. Then continue this process with other pods. The optional `maxUnavailable` parameter specifies that only one pod at a time can be updated. Instead of an absolute value for `maxUnavailable`, you can provide a percentage value that will represent a portion of your Deployment pods that can be updated at once. With four pods in Deployment set and `maxUnavailable: 25%` (the default value for `maxUnavailable` if it is omitted), Kubernetes will update one pod at a time.
+With the rolling update, OpenShift will take down a designated number of pods, update them with a new image, and start. Then continue this process with other pods. The optional `maxUnavailable` parameter specifies that only one pod at a time can be updated. Instead of an absolute value for `maxUnavailable`, you can provide a percentage value that will represent a portion of your Deployment pods that can be updated at once. With four pods in Deployment set and `maxUnavailable: 25%` (the default value for `maxUnavailable` if it is omitted), OpenShift will update one pod at a time.
 
 There is another optional parameter - `maxSurge` (default value is 25 percent). For example, if there are four pods in your Deployment, then during a rolling update, the maximum number of pods with old and new configurations combined cannot be more than five:
 
@@ -913,17 +772,9 @@ In addition to the source code, you need to maintain:
 * Deployment artifacts in the form of a Docker image, since this is what you deploy in the EMT mode. Thus, a Docker registry is required.
 * RDBMS backup - use the appropriate backup procedure for the selected RDBMS. Azure Database for Mysql has a native feature to save data and the transaction logs. By default, Azure schedules one full backup a week and 2 incremental backups per day. Axway recommends selecting geo-redundant backup storage.
 * Cassandra - follow recommendations in [Cassandra backup and restore](/docs/cass_admin/cassandra_bur/). You will need to decide how frequently you should back up Cassandra. This decision will be impacted by what data you store in Cassandra. Is it only API Manager data? Or does it include OAuth tokens and custom KPS? The main discussion point is to decide how much data you
-could potentially lose without seriously affecting your business. A daily backup may be a good starting point. There are a couple of good blogs on backing up and restoring Cassandra:
-    * [Azure recovery service to backup VM with policy rules. Data retention is 2 weeks by default.](https://docs.microsoft.com/fr-fr/azure/backup/tutorial-backup-vm-at-scale)
-    * [Medusa - Spotify's Apache Cassandra backup tool is now open source](https://thelastpickle.com/blog/2019/11/05/cassandra-medusa-backup-tool-is-open-source.html)
+could potentially lose without seriously affecting your business. A daily backup may be a good starting point.
 * Log/trace/even files - Azure file premium is an Azure backup solution. Axway recommends a geo-redundant backup with a default history of 14 days.
 * Helm charts and other environment-specific files should be part of an SCM with its own backup mechanism. You can use the Azure Container registry (geo-replication is enabled by default) to store Helm chart packages.
-
-## Disaster recovery
-
-For a disaster recovery procedure, you should have access to cloud resources in another region. Using backed-up configurations/data and Docker registry, you should be able to run a CI/CD pipeline for creating a new Kubernetes cluster in another region.
-
-A complete deployment/restoration takes 1 hour.
 
 ## Known constraints and roadmap
 
