@@ -239,7 +239,7 @@ In this example, API Gateway has a three-node topology that includes:
 * One Admin Node Manager on NodeA.
 * Two Node Managers, one on NodeB and one on NodeC.
 * A single API Gateway instance.
-* Cassandra runnig on each node.
+* Cassandra running on each node.
 
 There are two API Gateway groups:
 
