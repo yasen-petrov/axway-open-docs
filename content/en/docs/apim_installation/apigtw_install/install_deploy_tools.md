@@ -28,7 +28,7 @@ To install the Package and Deploy tools component in unattended mode, follow the
 For example, the following command shows how to install the API Gateway Package and Deploy tools only in unattended mode on Linux:
 
 ```
-./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --setup_type advanced --enable-components packagedeploytools --disable-components apigateway,qstart,policystudio,analytics,configurationstudio,apitester,apimgmt,cassandra
+./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --acceptGeneralConditions yes --setup_type advanced --enable-components packagedeploytools --disable-components apigateway,qstart,policystudio,analytics,configurationstudio,apitester,apimgmt,cassandra
 ```
 
 For details on using the tools to automate processes for continuous integration, see [Packaging and deployment tools](/docs/apigtw_devops/deploy_package_tools/).

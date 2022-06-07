@@ -76,7 +76,7 @@ If the private key is stored in the API Gateway certificate store, select **Priv
 
 ### Private key provided by OpenSSL engine
 
-{{< alert title="Warning" color="warning" >}}Engines from OpenSSL 1.0 are not compatible with OpenSSL 1.1. When configuring and using an OpenSSL engine, make sure it has been made for version 1.1.{{< /alert >}}
+{{< alert title="Warning" color="warning" >}}Engines from OpenSSL versions 1.0 and 1.1 are not compatible with OpenSSL 3.0. When configuring and using an OpenSSL engine, make sure it has been made for version 3.0.{{< /alert >}}
 
 If the private key that corresponds to the public key in the certificate is provided by an OpenSSL engine, select **Private key provided by OpenSSL Engine**.
 
@@ -94,7 +94,7 @@ To use the API Gateway's PKCS#11 engine to access objects in an external HSM, th
 
 ## Configure HSMs and certificate realms
 
-{{< alert title="Warning" color="warning" >}}OpenSSL 1.1 no longer supports FIPS and requires use of X.509 cryptographic operations. HSM hardware, and its corresponding driver, must be compatible with those requirements.{{< /alert >}}
+{{< alert title="Warning" color="warning" >}}API Gateway does not support FIPS and requires use of X.509 cryptographic operations. HSM hardware, and its corresponding driver, must be compatible with those requirements.{{< /alert >}}
 
 *Certificate realms* are abstractions of private keys and public key certificates, which mean that policy developers do not need to enter HSM-specific configuration such as slots and key labels. Instead, if a private key exists on an HSM, the developer can configure the certificate to show that its private key uses a specific certificate realm, which is simply an alias for a private key (for example, `JMS Keys`).
 

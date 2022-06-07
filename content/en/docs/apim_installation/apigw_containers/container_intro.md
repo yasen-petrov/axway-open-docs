@@ -13,9 +13,9 @@ To deploy your API Gateway or API Manager topology in containers, you must have 
 
 You can download Docker scripts for API Gateway and Admin Node Manager from [Axway Support](https://support.axway.com/), and use these scripts to create the Docker images. You can then include your `.fed` and other configuration files in the API Gateway base image in your development environment to create a customized API Gateway Docker image.
 
-Because the `.fed` files are not separately deployed but included in the Docker image, after the image is created, it is immutable. However, you can create multiple Docker images with different `.fed` files as needed, and deploy them as required. Containers from each image (containing the same `.fed` file) form a group that scales independently from other groups, and you can use a load balancer to route traffic from one group to another.
+Because the `.fed` files are not separately deployed but included in the Docker image, after the image is created, it is immutable. However, you can create multiple Docker images with different `.fed` files as needed and deploy them as required. Containers from each image (containing the same `.fed` file) form a group that scales independently from other groups, and you can use a load balancer to route traffic from one group to another.
 
-### Example containerized topology
+## Example containerized topology
 
 In the classic, non-containerized deployment, the topology is managed internally through an Admin Node Manager communicating with Node Managers in API Gateway nodes.
 
@@ -25,14 +25,14 @@ The following diagram shows an example of the topology in container deployment:
 
 ![Example elastic topology architecture.](/Images/ContainerGuide/elastic_topology_arch.png)
 
-#### API Gateway containers
+### API Gateway containers
 
 In this example, four API Gateway nodes run in Docker containers:
 
 * The containers have been deployed from two images that use different `.fed` files (`file1.fed` and `file2.fed`), thus forming two groups, `EMT - Group 1` and `EMT - Group 2`.
 * Because there are no Node Managers, each API Gateway node exposes the management interface directly on port `8085`.
 
-#### Admin Node Manager container
+### Admin Node Manager container
 
 The topology includes an Admin Node Manager, but with a different role than in the classic deployment:
 
@@ -43,14 +43,18 @@ The topology includes an Admin Node Manager, but with a different role than in t
     * Admin Node Manager listens to the API Gateway nodes, processes the received logs and writes them to the metrics database.
     * The Admin Node Manager container uses a shared volume to access the transaction event logs from API Gateway containers.
 
-#### Cluster manager
+### Cluster manager
 
 A cluster manager such as Docker Swarm or Kubernetes manages the topology and adds or removes nodes as the load on the system changes:
 
 * When a node is added, the image for the new node is passed to the cluster manager that starts the required number of containers.
 * When a node is removed, the cluster manager waits for the traffic to the node to stop before removing it.
 
-#### Apache Cassandra
+### Apache Cassandra
 
 If the deployment includes API Manager, Apache Cassandra is configured for high availability (HA) to store API Manager data and Key Property Store (KPS) tables. For more details, see
 [Configure a Cassandra HA cluster](/docs/cass_admin/cassandra_config/).
+
+### Discovery and Traceability agents
+
+If the deployment includes API Manager, Discovery and Traceability agents can be used to send information to Amplify Central. For more information, see [Set up Discovery agent](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/connect_api_manager/gateway-administation/index.html#discovery-agent) and [Set up Traceability agent](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/connect_api_manager/gateway-administation/index.html#traceability-agent).

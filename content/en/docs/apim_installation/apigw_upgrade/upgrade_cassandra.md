@@ -54,7 +54,7 @@ You must upgrade each node in your Cassandra cluster individually before moving 
 
 #### Complete your Cassandra 2.2.19 installation
 
-* Download [Cassandra 2.2.19](https://support.axway.com/en/downloads/download-details/id/1449277).
+* Download [Cassandra 2.2.19](https://support.axway.com/en/downloads/download-details/id/1452594).
 * Unzip the downloaded package, and copy the installation directory to the target Cassandra server node in an appropriate directory, for example, `/home/cassandra-2219/`.
 
 Perform the following steps:
@@ -168,7 +168,7 @@ After you upgrade Cassandra in all nodes, run the following commands to repair a
 
 To start upgrading your old installation:
 
-* Download [Cassandra 3.11.11](https://support.axway.com/en/downloads/download-details/id/1449279)
+* Download [Cassandra 3.11.11](https://support.axway.com/en/downloads/download-details/id/1452596)
 * Unzip the downloaded package, and copy the installation directory to the target Cassandra server node in an appropriate directory, for example, `/home/cassandra-31111/`.
 
 To complete your installation, perform all steps from section [Complete your Cassandra 2.2.19 installation](#complete-your-cassandra-2219-installation) for each API Gateway node in the cluster, by replacing the 2.2.19 version with target version 3.11.11.
@@ -216,7 +216,7 @@ In a single-node environment, you can upgrade directly to version 3.11.11.
 
 Perform the following to get started:
 
-1. Download [Cassandra 3.11.11](https://support.axway.com/en/downloads/download-details/id/1449279)
+1. Download [Cassandra 3.11.11](https://support.axway.com/en/downloads/download-details/id/1452596)
 2. Unzip the downloaded package
 3. Copy the installation directory to the target Cassandra server node in an appropriate directory, for example, `/home/cassandra-31111/`.
 4. To complete your installation, perform all steps from section [Upgrade Cassandra in a multi-node single datacenter](#stage-1---upgrade-cassandra-2282212-to-2219) by replacing the 2.2.19 version with target version 3.11.11.

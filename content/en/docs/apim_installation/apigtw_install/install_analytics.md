@@ -26,7 +26,7 @@ To install API Gateway Analytics in unattended mode, follow the steps described 
 The following example shows how to install the API Gateway Analytics component in unattended mode:
 
 ```
-./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --setup_type advanced --enable-components analytics --disable-components nodemanager,apigateway,qstart,policystudio,apitester,configurationstudio,apimgmt,cassandra,packagedeploytools --analyticsLicenseFilePath myanalyticslicense.lic
+./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --acceptGeneralConditions yes --setup_type advanced --enable-components analytics --disable-components nodemanager,apigateway,qstart,policystudio,apitester,configurationstudio,apimgmt,cassandra,packagedeploytools --analyticsLicenseFilePath myanalyticslicense.lic
 ```
 
 ## Configure your metrics database for API Gateway Analytics

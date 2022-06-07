@@ -26,6 +26,7 @@ fi
 echo 'Performing install steps...'
 cd /opt && \
     ./APIGateway_Install.run \
+        --acceptGeneralConditions yes \
         --mode unattended \
         --unattendedmodeui none \
         --setup_type complete \

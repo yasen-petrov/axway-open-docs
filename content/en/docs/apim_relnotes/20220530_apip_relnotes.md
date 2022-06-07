@@ -1,8 +1,9 @@
 ---
-title: API Portal 7.7 February 2022 Release Notes
-linkTitle: API Portal February 2022
+draft: true
+title: API Portal 7.7 May 2022 Release Notes
+linkTitle: API Portal May 2022
 weight: 95
-date: 2022-01-21
+date: 2022-03-22
 description: API Portal updates are cumulative, comprising new features and changes delivered in previous updates unless specifically indicated otherwise in the Release notes.
 ---
 ## Installation
@@ -23,19 +24,15 @@ API Portal is available as a software installation or a virtualized deployment i
 
 The following new features and enhancements are available in this update.
 
-### Support for PHP 8.0
+### placeholder 1
 
-We are adding support for PHP 8.0 in API Portal. This is a major update of the PHP language.
-
-### Support for MySql 8.0
-
-We are adding support for MySQL 8.0, but note that you must have PHP 8.0 installed before using MySQL 8.0. For more information, see [Install Apache HTTP server and PHP](/docs/apim_installation/apiportal_install/install_dependencies/)
+placeholder
 
 ## Limitations of this update
 
 This update has the following limitations:
 
-* API Portal 7.7.20220228 is compatible with API Gateway and API Manager 7.7.20220228 and 7.7.20220530.
+* API Portal 7.7.20220530 is compatible with API Gateway and API Manager 7.7.20220530 only.
 * To upgrade from earlier versions (for example, 7.5.5, 7.6.2) you must first upgrade to [API Portal 7.7](/docs/apim_relnotes/201904_release/apip_relnotes/) only.
 * This update is not available as a virtual appliance or as a managed service on Axway Cloud.
 
@@ -47,13 +44,13 @@ There are no major changes in this update.
 
 ## Deprecated features
 
+<!-- No features have been deprecated in this update.-->
+
 As part of our software development life cycle we constantly review our API Management offering. As part of this update, the following capabilities have been deprecated
 
-### PHP 7.1 and PHP 7.2
+### placeholder 2
 
-PHP 7.1 and PHP 7.2 are no longer actively supported by the PHP, therefore we are deprecating these versions from API Portal in this update, and they will be removed from official support in the next update, in May 2022.
-
-For more information, see [PHP Supported versions](https://www.php.net/supported-versions.php).
+placeholder.
 
 ## End of support notices
 
@@ -74,20 +71,11 @@ This version of API Portal includes:
 
 ### Fixed security vulnerabilities
 
-| Internal ID | Case ID | CVE Identifier | Description                                                                                                                                                            |
-| ----------- | ------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IAP-5011    |         |                | **Issue:** Vulnerable version 1.9.3-r0 of lz4 library is used. **Resolution:** lz4 is upgraded to version 1.9.3-r1.                                                            |
-| IAP-4891    |         |                | **Issue:** Vulnerable version 0.6.1 of json-pointer vdependency was used. **Resolution:** json-pointer was updated to a version 0.7.0 which is not vulnerable.                 |
-| IAP-5068    |         |                | **Issue:** A vulnarable version of golang was used to compile Jobber. **Resolution:** We replace alpine-based golang official base image instead for the "build jobber" layer. |
-| IAP-5066    |         |                | **Issue:** API Portal uses marked package version 1.1.1, which was reported as vulnerable. **Resolution:** Marked package was upgraded to a newer non-vulnerable version.      |
+placeholder
 
 ### Other fixed issues
 
-| Internal ID | Case ID | Description                                                                                                                                                                                               |
-| ----------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| IAP-4646    |         | **Issue:** API Manager HTTP response headers were handled in case-sensitive manner by API Portal. **Resolution:** API Manager HTTP response headers are now handled in case-insensitive manner by the API Portal. |
-| IAP-4850    | 1302607 | **Issue:** Аccented characters in application names are viewed as HTML codes. **Resolution:** Аccented character are viewed correctly.                                                                            |
-| IAP-4918    | 1317116 | **Issue:** Read only custom properties are erased on submitting the page. **Resolution:** Read only custom properties where preserved on saving the page.                                                         |
+placeholder
 
 ## Known issues
 

@@ -164,5 +164,3 @@ This example performs the following:
 For more details on the `docker run` command, see the [Docker user documentation](https://docs.docker.com/ "https://docs.docker.com/").
 
 For more information on the environment variables that you can specify at runtime, see [Environment variables reference](/docs/apim_installation/apigw_containers/container_env_variables/#environment-variables-reference).
-
-For more information on usage tracking for on-premise products purchased on a subscription basis, see [Configure usage tracking](/docs/apim_installation/apigw_containers/configure_edge_agent).

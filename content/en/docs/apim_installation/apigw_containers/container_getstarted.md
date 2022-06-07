@@ -60,6 +60,105 @@ To persist API Gateway logs to a directory on your host machine, you can use the
 
 For more information on using volumes to persist data, see the [Use volumes](https://docs.docker.com/storage/volumes/) Docker documentation.
 
+### How do you customize audit logs
+
+The audit log directory and filename can be customized by utilizing the following environment variables:
+
+* **APIGW_AUDIT_LOG_DIR** - The directory into which audit logs are placed. Defaults to `VINSTDIR/logs`. `VINSTDIR` (the instance directory) is the location of the running server instance. For an API Gateway, this is the location where the server runs from. It is usually located in the `/groups/group-id/instance-id` directory, for classic mode, or the `/groups/emt-group/emt-service` directory for EMT. For a Node Manager, this the location where the product has been installed. It is usually located in the `/apigateway` directory. The value of this environment variable can itself be a selector, so as to facilitate the use of Java system properties and other environment variables as part of the name of the audit log directory.
+* **APIGW_AUDIT_LOG_NAME** - The name of the audit log file. Defaults to `audit.log`. The value of this environment variable can itself be a selector, so as to facilitate the use of Java system properties and other environment variables as part of the name of the audit log.
+
+These environment variables can be specified in the `docker run` command for the API Gateway instance as follows:
+
+{{< alert title="Note" >}}`${environment.GROUPNAME}` and `${environment.INSTANCENAME}` are made available to the environment during API Gateway process startup. They are used here for illustrative purposes.{{< /alert >}}
+
+```
+docker run -d --name=apimgr --network=api-gateway-domain \
+           -p 8075:8075 -p 8065:8065 -p 8080:8080 -v /tmp/events:/opt/Axway/apigateway/events \
+           -e EMT_DEPLOYMENT_ENABLED=true -e EMT_ANM_HOSTS=anm:8090 -e CASS_HOST=casshost1 \
+           -e APIGW_AUDIT_LOG_DIR=\${environment.VINSTDIR}/logs/\${environment.GROUPNAME}
+           -e APIGW_AUDIT_LOG_NAME=\${environment.INSTANCENAME}_audit.log \
+           -e ACCEPT_GENERAL_CONDITIONS=yes \
+           -e METRICS_DB_URL=jdbc:mysql://metricsdb:3306/metrics?useSSL=false \
+           -e METRICS_DB_USERNAME=db_user1 -e METRICS_DB_PASS=my_db_pwd \
+           api-gateway-defaultgroup
+```
+
+If there is a requirement to persist the audit logs to a directory on your host machine, a mounted volume can be employed when running the API Gateway Docker container. The following `docker run` command results in the audit logs being persisted to the `/tmp/audit` directory on your host machine.
+
+{{< alert title="Note" >}}For a multi-instance/multi-group topology scenario, using `${environment.GROUPNAME}` and `${environment.INSTANCENAME}` guarantees that audit logs are persisted to separate 'group' directories, with a unique audit log name per instance.{{< /alert >}}
+
+```
+docker run -d --name=apimgr --network=api-gateway-domain \
+           -p 8075:8075 -p 8065:8065 -p 8080:8080 -v /tmp/events:/opt/Axway/apigateway/events \
+           -v /tmp/audit:/opt/Axway/apigateway/groups/emt-group/emt-service/logs \
+           -e EMT_DEPLOYMENT_ENABLED=true -e EMT_ANM_HOSTS=anm:8090 -e CASS_HOST=casshost1 \
+           -e APIGW_AUDIT_LOG_DIR=\${environment.VINSTDIR}/logs/\${environment.GROUPNAME}
+           -e APIGW_AUDIT_LOG_NAME=\${environment.INSTANCENAME}_audit.log \
+           -e ACCEPT_GENERAL_CONDITIONS=yes \
+           -e METRICS_DB_URL=jdbc:mysql://metricsdb:3306/metrics?useSSL=false \
+           -e METRICS_DB_USERNAME=db_user1 -e METRICS_DB_PASS=my_db_pwd \
+           api-gateway-defaultgroup
+```
+
+An alternative method of customizing the audit log directory and filename is by using a JMV.XML file. Given the following JVM.XML sample, the subsequent `docker run` command utilizes a mounted volume to inject the file into the docker container so that it is available when the API Gateway process starts up.
+
+{{< alert title="Note" >}}In this example, the JVM.XML file resides in the `/tmp/emt/configurationFiles/groups/emt-group/emt-service/conf` directory of the host machine.{{< /alert >}}
+
+```
+<ConfigurationFragment>
+    <Environment name="APIGW_AUDIT_LOG_DIR" value="$VINSTDIR/logs/$GROUPNAME"/>
+    <Environment name="APIGW_AUDIT_LOG_NAME" value="$INSTANCENAME-audit.log"/>
+</ConfigurationFragment>
+```
+
+```
+docker run -d --name=apimgr --network=api-gateway-domain \
+           -p 8075:8075 -p 8065:8065 -p 8080:8080 -v /tmp/events:/opt/Axway/apigateway/events \
+           -v /tmp/emt/configurationFiles:/merge/apigateway \
+           -e EMT_DEPLOYMENT_ENABLED=true -e EMT_ANM_HOSTS=anm:8090 -e CASS_HOST=casshost1 \
+           -e ACCEPT_GENERAL_CONDITIONS=yes \
+           -e METRICS_DB_URL=jdbc:mysql://metricsdb:3306/metrics?useSSL=false \
+           -e METRICS_DB_USERNAME=db_user1 -e METRICS_DB_PASS=my_db_pwd \
+           api-gateway-defaultgroup
+```
+
+### How do you customize logs in a multi-node environment
+
+You can customize the logs produced by API Gateway in Policy Studio by way of the following environment variables:
+
+* HOSTNAME - `${environment.HOSTNAME}`
+* GROUPNAME- `${environment.GROUPNAME}`
+* INSTANCENAME- `${environment.INSTANCENAME}`
+
+These variables allow you to make the configuration generic, so that you can create unique log directories and filenames across a multi-node EMT environment
+
+To customize logging for a multi-node environment, perform the following steps:
+
+1. In Policy Studio, create a project [from a .fed file](/docs/apim_policydev/apigw_poldev/gs_project/#new-project-from-a-fed-file), pointing it to an existing API Gateway FED. Or, alternatively, create a project [from an existing configuration](/docs/apim_policydev/apigw_poldev/gs_project/#new-project-from-existing-configuration) pointing to an existing directory that contains an XML or YAML configuration.
+2. Click **Server Settings > Logging**.
+3. Click **Transaction Audit Log** and configure where you wish API Gateway to log transaction audit information:
+
+   To log to a text file, select the **Text File** tab and configure the following:
+   * Check **Enable logging to file**.
+   * Set **File Name** to `transactionLog-${environment.HOSTNAME}`.
+   * Set **Directory** to `logs/transaction-${environment.HOSTNAME}`.
+
+   To log to an XML file, select the **XML File** tab  and configure the following:
+   * Check **Enable logging to XML file**.
+   * Set **File Name** to `transactionLog-${environment.HOSTNAME}`.
+   * Set **Directory** to `logs/transaction-${environment.HOSTNAME}`.
+4. Click **Transaction Access Log** and configure where you wish the API Gateway to log transaction access log information:
+    * Check **Writing to Transaction Access Log**.
+    * Set **File Name** to `access-${environment.HOSTNAME}`.
+    * Set **Directory** to `logs/access-${environment.HOSTNAME}`.
+5. Click **Transaction Event Log** and configure where you wish API Gateway to log transaction event log information:
+    * Check **Writing to Transaction Event Log**.
+    * Set **Write transaction event logs to directory** to `logs/events-${environment.HOSTNAME}`.
+6. click **Traffic Monitor** and configure where you wish API Gateway to log traffic information:
+    * Set **Transaction Directory** to `conf/opsdb.d/opsdb-${environment.HOSTNAME}`.
+
+You can rebake the updated API Gateway .fed file into an API Gateway Docker image, or you can use Docker volumes to update the configuration without having to rebake an image. For more information, see [Create an API Gateway with Docker volumes](/docs/apim_howto_guides/configuring_apigw_container/index.html).
+
 ### What license do you need to run
 
 You must have an appropriate license to run API Gateway or API Manager in a Docker container. For more information, see [Set up Docker environment](/docs/apim_installation/apigw_containers/docker_scripts_prereqs).

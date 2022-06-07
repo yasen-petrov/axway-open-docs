@@ -77,17 +77,17 @@ The options available on the **Advanced** tab are used when creating sockets for
 
 You can configure the following configuration options on the **Advanced** tab:
 
-**Connection Timeout** : If a connection to this remote host is not established within the time set in this field, the connection times out and the connection fails. Defaults to 30000 milliseconds (30 seconds).
+**Connection Timeout** : If a connection to this remote host is not established within the time set in this field, the connection times out and the connection fails. Defaults to 30000 milliseconds (30 seconds). To override this setting using the **Connection** and **Connect To URL** filters, see [Configure timeouts for routing filters](/docs/apim_policydev/apigw_polref/routing_common/#timeouts-settings).
 
 **Active Timeout** : When the API Gateway receives a large HTTP request, it reads the request off the network when it becomes available. If the time between reading successive blocks of data exceeds the **Active Timeout**, the API Gateway closes the connection. This prevents a remote host from closing the connection while sending data. Defaults to 30000 milliseconds (30 seconds).
 
 For example, the remote host's network connection is pulled out of the machine while sending data to the API Gateway. When the API Gateway has read all the available data off the network, it waits the **Active Timeout** period before closing the connection.
 
-The **Active Timeout** value is also used as a wait time when the maximum number of connections for a remote host is reached. For example, when a remote host reaches the **Maximum connections** value, API Gateway waits the active timeout period before giving up on trying to make a new connection.
+The **Active Timeout** value is also used as a wait time when the maximum number of connections for a remote host is reached. For example, when a remote host reaches the **Maximum connections** value, API Gateway waits the active timeout period before giving up on trying to make a new connection. To override this setting using the **Connection** and **Connect To URL** filters, see [Configure timeouts for routing filters](/docs/apim_policydev/apigw_polref/routing_common/#timeouts-settings).
 
 **Transaction Timeout (ms)** : A configurable transaction timeout that detects slow HTTP attacks (slow header write, slow body write, slow read) and rejects any transaction that keeps the worker threads occupied for an excessive amount of time.
 
-Unlike other timeouts, this is not measured with respect to any network transaction, rather it is measured from the start of the API Gateway transaction until the timeout occurs. A rejected transaction will run to completion, though it will not return any response to the client, therefore, you must set this value longer than any legitimate traffic. The default value is 240,000 milliseconds (4 minutes).
+Unlike other timeouts, this is not measured with respect to any network transaction, rather it is measured from the start of the API Gateway transaction until the timeout occurs. A rejected transaction will run to completion, though it will not return any response to the client, therefore, you must set this value longer than any legitimate traffic. The default value is 240,000 milliseconds (4 minutes). To override this setting using the **Connection** and **Connect To URL** filters, see [Configure timeouts for routing filters](/docs/apim_policydev/apigw_polref/routing_common/#timeouts-settings).
 
 **Max Received Bytes** : The maximum number of bytes received in a transaction. This is a configurable maximum length for the received data on transactions that API Gateway can handle. This setting limits the entire amount of data received over the link, regardless of whether it consists of body, headers, or request line. The default value is 20 MiB (20,971,520 bytes) and the maximum value is 16,384 PiB (18,446,744,073,709,551,615 bytes).
 
@@ -95,7 +95,7 @@ Unlike other timeouts, this is not measured with respect to any network transact
 
 **Idle Timeout** : The API Gateway supports HTTP 1.1 persistent connections. The **Idle Timeout** is the time that API Gateway waits after sending a message over a persistent connection to the remote host before it closes the connection. Defaults to 15000 milliseconds (15 seconds).
 
-Typically, the remote host tells the API Gateway that it wants to use a persistent connection. The API Gateway acknowledges this, and keeps the connection open for a specified period of time after sending the message to the host. If the connection is not reused by within the **Idle Timeout** period, the API Gateway closes the connection.
+Typically, the remote host tells the API Gateway that it wants to use a persistent connection. The API Gateway acknowledges this, and keeps the connection open for a specified period of time after sending the message to the host. If the connection is not reused by within the **Idle Timeout** period, the API Gateway closes the connection. To override this setting using the **Connection** and **Connect To URL** filters, see [Configure timeouts for routing filters](/docs/apim_policydev/apigw_polref/routing_common/#timeouts-settings).
 
 **Input Buffer Size** : The maximum amount of memory allocated to each request. The default value is 8192 bytes.
 

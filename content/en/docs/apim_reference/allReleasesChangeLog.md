@@ -14,6 +14,18 @@ You can find the release notes for all service packs on [Axway Support](https://
 
 |Update |New features and enhancements        |Important Changes    |Deprecated/Removed/EOS  |
 |---  |---               |---                  |---                  |
+|[API Gateway and Manager 7.7.20220530](/docs/apim_relnotes/20220530_apimgr_relnotes/)  |Manage timeouts on Connection and ConnectToUrl filters |New redaction rules for API Gateway |Edge agent for API Gateway |
+| |Querystring passthrough per API |Support for Zulu OpenJDK and how to manually enable TLS algorithms|- |
+| |Policy Studio YAML performance improvements on Windows |OpenSSL upgrade to version 3.0.3|- |
+| |Install Discovery and Traceability agents  |New system property to propagate API Manager security Invoke Policy generated headers|- |
+| |API Manager lightweight APIs  |SAML SSO Metadata URL host verification is now required|- |
+| |-  |Axway Terms and Conditions must be accepted to install API Gateway|- |
+| |-  |Cassandra 3.11.12 upgrade postponed|- |
+| |-  |A fault handling policy is required to enable the global fault handler|- |
+| |-  |Corrections to the list of allowed HTTP methods for CORS request|- |
+| |-  |Obs-folded values are forbidden in HTTP headers|- |
+| |-  |API Analytics PDF reports no longer display chart contents|- |
+|**Update**       |**New features and enhancements**        | **Important Changes**   |**Deprecated/Removed/EOS**  |
 |[API Gateway and Manager 7.7.20220228](/docs/apim_relnotes/20220228_apimgr_relnotes/)  |API Gateway Container use of Persisted Store |Distributed cache socket connect timeout |- |
 | |Initial YAML Environmentalization Support in Policy Studio |WSDL Schema Validation|- |
 | |- |Axway Terms and Conditions Update|- |

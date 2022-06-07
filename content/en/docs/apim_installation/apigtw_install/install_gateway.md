@@ -29,7 +29,7 @@ To install the API Gateway server in unattended mode, follow the steps described
 The following example shows how to install the API Gateway server component in unattended mode:
 
 ```
-./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --setup_type advanced --enable-components apigateway --disable-components nodemanager,qstart,policystudio,analytics,apitester,configurationstudio,apimgmt,cassandra,packagedeploytools --licenseFilePath mylicense.lic
+./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --acceptGeneralConditions yes --setup_type advanced --enable-components apigateway --disable-components nodemanager,qstart,policystudio,analytics,apitester,configurationstudio,apimgmt,cassandra,packagedeploytools --licenseFilePath mylicense.lic
 ```
 
 ## Before you start API Gateway

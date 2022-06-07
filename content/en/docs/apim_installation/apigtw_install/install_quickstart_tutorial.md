@@ -25,7 +25,7 @@ To install the API Gateway Server, Admin Node Manager, and QuickStart tutorial i
 The following example shows how to install the API Gateway Server component and the QuickStart tutorial in unattended mode:
 
 ```
-APIGateway_7.7_Install_linux-x86-32_BNyyyyMMdd.run --mode unattended --setup_type advanced --enable-components apigateway,nodemanager,qstart --disable-components policystudio,configurationstudio,apimgmt,cassandra,packagedeploytools --licenseFilePath mylicense.lic
+APIGateway_7.7_Install_linux-x86-32_BNyyyyMMdd.run --mode unattended --acceptGeneralConditions yes --setup_type advanced --enable-components apigateway,nodemanager,qstart --disable-components policystudio,configurationstudio,apimgmt,cassandra,packagedeploytools --licenseFilePath mylicense.lic
 ```
 
 ## QuickStart domain configuration

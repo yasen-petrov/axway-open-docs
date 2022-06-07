@@ -17,12 +17,14 @@ You can run the API Gateway installer in unattended mode on the command line. Pe
 1. Change to the directory where the setup file is located.
 2. Run the setup file with the `--mode unattended` option.
 
+{{< alert title="Note" >}}API Gateway unattended mode installation **requires** you to set the `acceptGeneralConditions` parameter to `yes` in order to acknowledge that you have read and accepted [Axway License, Support, and Service Agreement](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf). {{< /alert >}}
+
 ### Standard setup without API Manager
 
 The following example shows how to install all available API Gateway components excluding API Manager in unattended mode:
 
 ```
-./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --setup_type standard --licenseFilePath my_license.lic --analyticsLicenseFilePath my_analytics_license.lic --prefix /opt/Axway-7.7 --cassandraInstalldir opt/db/cassandra --cassandraJDK opt/jre --startCassandra 1
+./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --acceptGeneralConditions yes --setup_type standard --licenseFilePath my_license.lic --analyticsLicenseFilePath my_analytics_license.lic --prefix /opt/Axway-7.7 --cassandraInstalldir opt/db/cassandra --cassandraJDK opt/jre --startCassandra 1
 ```
 
 The components are installed in the background, in the directory specified by the `--prefix` option.
@@ -32,7 +34,7 @@ The components are installed in the background, in the directory specified by th
 The following example shows how to install all API Gateway components, including API Manager, in unattended mode:
 
 ```
-./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --setup_type complete --licenseFilePath my_license.lic --analyticsLicenseFilePath my_analytics_license.lic --apimgmtLicenseFilePath my_mgmt_license.lic --prefix /opt/Axway-7.7 --cassandraInstalldir /opt/db/cassandra --cassandraJDK /opt/jre --startCassandra 1
+./APIGateway_7.7_Install_linux-x86-32_BN<n>.run --mode unattended --acceptGeneralConditions yes --setup_type complete --licenseFilePath my_license.lic --analyticsLicenseFilePath my_analytics_license.lic --apimgmtLicenseFilePath my_mgmt_license.lic --prefix /opt/Axway-7.7 --cassandraInstalldir /opt/db/cassandra --cassandraJDK /opt/jre --startCassandra 1
 ```
 
 The components are installed in the background, in the directory specified by the `--prefix` option.
@@ -61,6 +63,7 @@ The following summarizes some of the more common options:
 
 * `--help`: Display available options and default settings.
 * `--mode`: Specify an installation mode.
+* `--acceptGeneralConditions`: Agree to the [Axway General Terms and Conditions](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf). Must be set to `yes`.
 * `--setup_type`: Specify a setup type (`standard`, `complete`, or `advanced`) (on Linux only).
 * `--enable-components`: Specify a comma-separated list of components to enable.
 * `--disable-components`: Specify a comma-separated list of components to disable.

@@ -5,7 +5,6 @@
   "date": "2019-10-17",
   "description": "Filters to retrieve message attributes."
 }
-<!-- TODO reorder based on usage from GA-->
 
 ## Retrieve attributes with JSON path filter
 
@@ -294,9 +293,7 @@ The following fields are available on the **Retrieve from Message** filter confi
 
 **Name**: Enter an appropriate name for this filter to display in a policy.
 
-**Use the following XPath**: Configure an XPath expression to retrieve the desired content.
-
-Click the **Add** button to add an XPath expression. You can add and remove existing expressions by clicking the **Edit** and **Remove** buttons respectively.
+**Use the following XPath**: Configure an XPath expression to retrieve the desired content. Click the **Add** button to add an XPath expression. You can add and remove existing expressions by clicking the **Edit** and **Remove** buttons respectively. For more information, see [Configure XPath expressions](/docs/apim_policydev/apigw_polref/content_additional/#configure-xpath-expressions).
 
 **Store the extracted content**: Select an option to specify how the extracted content is stored. The options are:
 

@@ -13,14 +13,46 @@ For example, sensitive data such as user passwords or credit card details can be
 
 ## API Gateway redaction configuration
 
-In the API Gateway configuration, message redaction rules are configured by adding a reference to include an XML file, usually called `redaction.xml`, within the `service.xml` file located at `apigateway/groups/GROUP/INSTANCE/conf/service.xml`.
-
-The `redaction.xml` file is usually located at `apigateway/groups/GROUP/INSTANCE/conf/redaction.xml`.
-
-When the configuration is loaded, this creates redactors for the specified message protocol and content. This XML-based configuration uses the following model:
+API Gateway installs a set of default rules that are applied to existing services such as Traffic Monitor, API Manager, and OAuth. In a new installation, API Gateway has default redaction rules for both Node Manager and group instances. The default redaction files are located at:
 
 ```
-<Redaction enabled="true" provider="redactors">
+apigateway/system/conf/nodemanagerRedaction.xml
+
+apigateway/skel/instanceRedaction.xml
+```
+
+When a new instance is created, the default instance redaction file is copied to `apigateway/groups/GROUP/INSTANCE/conf/instanceRedaction.xml` and no further configuration is required.
+
+On upgrading an existing installation, the files are extracted to the locations above and existing instances are not updated. To add these default rules to an upgraded instance, perform the following steps:
+
+1. Copy the `instanceRedaction.xml` file to the `apigateway/groups/GROUP/INSTANCE/conf/` folder.
+2. Add a reference to it in the `apigateway/groups/GROUP/INSTANCE/conf/service.xml` file. For example:
+
+```
+    <if exists="$VINSTDIR/conf/instanceRedaction.xml">
+        <include file="$VINSTDIR/conf/instanceRedaction.xml"/>
+    </if>
+```
+
+You can configure additional custom rules in API Gateway configuration by adding a reference to include a *custom rules* file within the `apigateway/groups/GROUP/INSTANCE/conf/service.xml` file. Modifying the default files is not recommended as future upgrades might overwrite these files. To create custom redaction rules:
+
+1. Create a new redaction rules file, for example, `apigateway/groups/GROUP/INSTANCE/conf/redaction.xml`.
+2. Add a reference to the new file in the `apigateway/groups/GROUP/INSTANCE/conf/service.xml` file. For example:
+
+```
+    <if exists="$VINSTDIR/conf/instanceRedaction.xml">
+        <include file="$VINSTDIR/conf/redaction.xml"/>
+    </if>
+```
+
+To disable default rules, remove the redaction rules file, or its reference, from the `service.xml`. To disable individual rules, see section [Disable default redaction rules](#disable-default-redaction-rules).
+
+## Define redaction rules
+
+After the configuration is loaded, redactors are created for the specified message protocol and content. This XML-based configuration uses the following model:
+
+```
+<Redaction enabled="true" name="First Redactor" provider="redactors">
     <HTTPRedactor>...</HTTPRedactor>
     <JSONRedactor>...</JSONRedactor>
     <RawRedactor>...</RawRedactor>
@@ -28,13 +60,18 @@ When the configuration is loaded, this creates redactors for the specified messa
     <FormRedactor>...</FormRedactor>
     <TraceRedactor>...</TraceRedactor>
 </Redaction >
+<Redaction enabled="true" name="Another Redactor" provider="redactors">
+    <HTTPRedactor>...</HTTPRedactor>
+</Redaction >
 ```
 
-The `HTTPRedactor` element is required because it lists which URLs redaction rules are applied to. The other redactor types are optional.
+You can create multiple redaction groups to segregate redaction by URLs and redaction types. The `HTTPRedactor` element is required in each redactor because it lists all URLs for which content redaction rules are applied to. You must add only one `HTTPRedactor` element per redaction group. All other content redactors elements are optional. Parameter `name` is optional in a redaction definition, and its default value is `Redaction_n`, where "n" starts at 1 and is increased for each redaction group loaded from configuration.
 
-During the transaction processing, for each traffic monitoring stream, a chain of redactors is created for redacting the received and sent data. Each redactor removes any sensitive data that it finds and passes the data for the next redactor for processing. The redacted content is then written to the traffic monitoring database.
+The redaction groups fragments can be loaded from different files, but the order in which configuration files are loaded and the order in which groups are declared within a single file matter. During a transaction processing, for each traffic monitoring stream, a chain of redactors is created for redacting data which is received and sent. Each redactor removes any sensitive data that it finds, then passes the data for the next redactor for processing. Based on product configuration, the redacted content is written to traffic monitoring database or to product traces.
 
-Each redactor defines its supported content types in `RedactMime` child elements. For example, the following shows content types for a JSON redactor:
+You must always configure a redaction group so that redacted data is not corrupted and respects the formatting expected by the next redaction groups.
+
+Each redactor defines its supported content types using `RedactMime` elements. In a given redaction group there should be only one redactor defined for a given content type; if multiple are defined, an error message is logged. The following example shows content types for a JSON redactor:
 
 ```
 <JSONRedactor>
@@ -44,25 +81,7 @@ Each redactor defines its supported content types in `RedactMime` child elements
 </JSONRedactor>
 ```
 
-You can specify the following properties in the `XMLRedactor` tag:
-
-| Name          | Type   | Default value | Description                                           |
-| ------------- | ------ | ------------- | ----------------------------------------------------- |
-| maxBufferSize | number | 32768         | Maximum memory size (in bytes) used by XML redaction. |
-| maxDepth      | number | 1024          | Maximum depth of XML nested nodes.                    |
-
-For example:
-
-```
-<XMLRedactor maxBufferSize="32768" maxDepth="1024">
-   <RedactMime mimeType="application/xml"/>
-   ...
-</XMLRedactor>
-```
-
-If an error occurs during the redaction process, including `maxBufferSize` or `maxDepth` reached, the XML redactor will redact the rest of the XML data being processed to avoid writing sensitive data to the logs.
-
-## Enable redaction for an API Gateway
+## Enable customized redaction for an API Gateway
 
 To enable redaction for an API Gateway instance, perform the following steps:
 
@@ -76,12 +95,13 @@ To enable redaction for an API Gateway instance, perform the following steps:
    ```
    apigateway/groups/GROUP/INSTANCE/conf/redaction.xml
    ```
-3. Ensure that redaction is enabled in `redaction.xml` as follows:
+3. Ensure that redaction elements are enabled in `redaction.xml` as follows:
 
    ```
    <ConfigurationFragment>
-   <Redaction enabled="true" provider="redactors">
+   <Redaction enabled="true">
    ...
+   </Redaction>
    </ConfigurationFragment>
    ```
 4. You can customize this file to configure redactors for different message payloads (HTTP, JSON, HTML form, and plain text), but you must ensure that you have an `HTTPRedactor` that specifies which URLs redaction will be applied to. This is described in the next sections.
@@ -102,26 +122,96 @@ To enable redaction for an API Gateway instance, perform the following steps:
 
 7. Restart the API Gateway instance.
 
+## Disable default redaction rules
+
+Disabling default redaction rules is not recommended because they hide sensitive pieces of data that would be otherwise logged.
+
+To disable default redaction of an instance, edit the `apigateway/groups/GROUP/INSTANCE/conf/instanceRedaction.xml` file and replace parameters `enabled="true"` with `enabled="false"`. For example:
+
+   ```
+   <ConfigurationFragment>
+     <Redaction enabled="false" name="Instance Global Redaction" provider="redactors">
+       ...
+     </Redaction>
+     <Redaction enabled="false" name="Instance currentuser API Redaction">
+       ...
+     </Redaction>
+     <Redaction enabled="false" name="Instance oauth API Redaction">
+       ...
+     </Redaction>
+   </ConfigurationFragment>
+   ```
+
+To disable default redaction of node manager, edit the `apigateway/system/conf/nodemanagerRedaction.xml` file and replace parameters `enabled="true"` with `enabled="false"`. For example:
+
+   ```
+   <ConfigurationFragment>
+     <Redaction enabled="false" name="Node Manager Global Redaction" provider="redactors">
+       ...
+     </Redaction>
+     <Redaction enabled="false" name="Node Manager login API Redaction">
+       ...
+     </Redaction>
+     <Redaction enabled="false" name="Node Manager adminusers API Redaction">
+       ...
+     </Redaction>
+   </ConfigurationFragment>
+   ```
+
+To disable custom redaction, modify the custom file (for example, `redaction.xml`) as follows:
+
+```
+<ConfigurationFragment>
+<Redaction enabled="false" provider="redactors">
+...
+</ConfigurationFragment>
+```
+
 ## Redact HTTP message content
 
-Within the redaction configuration, you must specify an `HTTPRedactor` with the URLs you wish to enable redaction on. Redaction rules are not processed for URLs not listed in one of the `HTTPURL` values in the `HTTPRedactor`. The other redactors have no effect if an `HTTPRedactor` is not defined.
+You must specify an `HTTPRedactor` element with the URLs you wish to enable redaction on within the redaction configuration. Redaction rules are only processed for URLs listed in one of the `HTTPURL` values. Other elements have no effect if an `HTTPRedactor` is not defined.
 
-You can redact any HTTP header or parameter value from the API Gateway message stream based on HTTP URLs specified in configuration. This applies to both HTTP requests and responses. The following shows a simple example configured in `redaction.xml`:
+You can redact any HTTP header or parameter value from the API Gateway message stream based on HTTP URLs specified in the configuration. This applies to both HTTP requests and responses.
+
+The following shows an example configured in the `redaction.xml` file:
 
 ```
 <HTTPRedactor>
-   <HTTPURL value="/payment"/>
-   <HTTPParam value="credit_card"/>
-   <HTTPParam value="password"/>
-   <HTTPHeader value="Authorization"/>
+   <HTTPURL value="/payment" match="prefix"/>
+   <HTTPParam value="credit_card" action="obfuscate" keepFirst="0" keepLast="0"/>
+   <HTTPParam value="password" action="replace" replaceBy="***"/>
+   <HTTPHeader value="Authorization" action="remove"/>
 </HTTPRedactor>
 ```
 
-This example specifies to remove the `credit_card` and `password` query string parameters and `Authorization` header from messages sent to and from the `/payment` URL.
+This example specifies how to obfuscate the `credit_card` query string parameter and to replace the value of `password` query string parameter with `***`, and to remove the `Authorization` header from messages sent to and from the `/payment` URL.
+
+`HTTPHeader` applies the `action` type redaction to HTTP headers named `value` parameter. A regular expression can be used to match multiple headers; to do so, replace the `value` parameter with a `regex` parameter. For example:
+
+```
+<HTTPHeader regex="X-TryIt-Cookie-.*" action="obfuscate"/>
+```
+
+The action type of fields `HTTPHeader`, `HTTPParam`, and `FormField` can be one of the following:
+
+* `remove` - Removes the field completely (name and value).
+* `replace` - Replaces the field value with the value defined in the tag parameter `replacedBy`.
+* `obfuscate` - Replaces the field value's characters with `\*`.
+
+If the `action` parameter is not set in tag `HTTPParam`, the default action is `replace` and the default value for `replaceBy` is the string `null`.
+
+If the `action` parameter is not set in tag `HTTPHeader`, the default action is `remove`.
+
+Obfuscation of the `value` parameter can be modified using extra tag parameters:
+
+* `keepFirst="n"` - The first `n` number of characters are not obfuscated. Defaults to `0`.
+* `keepLast="n"` - The last `n` number of characters are not obfuscated. Defaults to `0`.
+
+Note that if the original data value is not longer than `n`, then `value` is not obfuscated.
 
 ### URL path matching
 
-Each `HTTPURL` value is used to match URL paths, and to determine if the redaction applies to the transaction. You can use the `match` attribute to specify a match for an exact URL path or for a URL prefix. The following example shows an exact URL path match:
+Each `HTTPURL` value is used to match URL paths and to determine if the redaction applies to the transaction. You can use the `match` attribute to specify a match for an exact URL path or for a URL prefix. The following example shows an exact URL path match:
 
 ```
 <HTTPURL value="/secure_folder" match="exact"/>
@@ -129,9 +219,9 @@ Each `HTTPURL` value is used to match URL paths, and to determine if the redacti
 
 In this exact match example:
 
-* `/secure_folder` matches
-* `/secure_folder/` does not match
-* `/secure_folder/123` does not match
+* `/secure_folder` matches.
+* `/secure_folder/` does not match.
+* `/secure_folder/123` does not match.
 
 The following example shows a URL prefix match:
 
@@ -141,24 +231,24 @@ The following example shows a URL prefix match:
 
 In this prefix match example:
 
-* `/creditcard/` matches
-* `/creditcard/charge` matches
-* `/creditcard/charge/1234` matches
-* `/creditcard` does not match
+* `/creditcard/` matches.
+* `/creditcard/charge` matches.
+* `/creditcard/charge/1234` matches.
+* `/creditcard` does not match.
 
-`HTTPURL` values are also case sensitive. For example:
+`HTTPURL` values are case sensitive. For example,
 
 ```
 <HTTPURL value="/ORDER/shiptoaddress"/>
 ```
 
-This is different from:
+is different from:
 
 ```
 <HTTPURL value="/order/shiptoaddress"/>
 ```
 
-Finally, to define an `HTTPURL` that matches everything, use the following:
+Finally, to define an `HTTPURL` that matches everything, use the following pattern:
 
 ```
 <HTTPURL value="/" match="prefix"/>
@@ -166,14 +256,14 @@ Finally, to define an `HTTPURL` that matches everything, use the following:
 
 ### Supported HTTP features
 
-HTTP features such as the following are supported:
+The following HTTP features are supported:
 
-* Chunked transfer encoding
-* Multipart body entities (`Content-Type:multipart/`)
+* Chunked transfer encoding.
+* Multipart body entities (`Content-Type:multipart/`).
 
 #### Example: Redact an HTTP Basic authorization header
 
-This section shows an end-to-end example of redacting an HTTP Basic authorization header. Given the following HTTP request message:
+This section shows an end-to-end example of redacting an HTTP basic authorization header. Given the following HTTP request message,
 
 ```
 GET /securefiles/ HTTP/1.1
@@ -181,24 +271,41 @@ Host:www.httpwatch.com
 Authorization:Basic aHR0cHdhdGNoOmY=
 ```
 
-And the following HTTP redactor configuration:
+and the following HTTP redactor configuration,
 
 ```
 <HTTPRedactor>
    <HTTPURL value="/securefiles/" match="exact"/>
-   <HTTPHeader value="Authorization"/>
+   <HTTPHeader value="Authorization" action="remove"/>
 </HTTPRedactor>
 ```
 
-The HTTP message is redacted and stored in the traffic monitoring database as follows:
+the HTTP message is redacted and stored in the traffic monitoring database as follows:
 
 ```
-GET /securefiles/ HTTP/1.1Host:www.httpwatch.com
+GET /securefiles/ HTTP/1.1
+Host:www.httpwatch.com
+```
+
+If the action had been set to obfuscate (`action="obfuscate"`), the traffic monitoring database would contain:
+
+```
+GET /securefiles/ HTTP/1.1
+Host:www.httpwatch.com
+Authorization:**********************
+```
+
+Using the `replace` action and the `replaceBy` field (`action="replace" replaceBy="redacted"`) results in:
+
+```
+GET /securefiles/ HTTP/1.1
+Host:www.httpwatch.com
+Authorization:redacted
 ```
 
 ## Redact JSON message content
 
-You can redact JSON content from a message by configuring a specific path to be removed. You can define a relative or absolute location for elements inside a JSON document. When you configure a specific path in the JSON redactor configuration, all elements found in that element are removed.The following general syntax is used to remove JSON content:
+You can redact JSON content from a message by configuring a specific path to be removed. You can define a relative or absolute location for elements inside a JSON document. When you configure a specific path in the JSON redactor configuration, all elements found in that element are removed. The following general syntax is used to remove JSON content:
 
 ```
 rule = path_seg [“.”path_seg]*
@@ -209,7 +316,7 @@ wildcard = “*”
 rel_wildcard = “**”
 ```
 
-The following simple examples show how this syntax works:
+The following examples show how this syntax works:
 
 ```
 ca.b.c, a.*.c, a.**.c, **.b.c,**.b[0].c,**.b[*].c, *.b[0].*
@@ -228,7 +335,7 @@ This results in the following configuration model:
 
 ### JSON redactor configuration
 
-The following shows a simple example from `redaction.xml`:
+The following shows an example from `redaction.xml`:
 
 ```
 <JSONRedactor>
@@ -247,7 +354,7 @@ attribute.subject[0].id
 
 #### Example: Redact OAuth message tokens from a JSON message
 
-This section shows an end-to-end example of redacting an OAuth message token. Given the following JSON request message:
+This section shows an end-to-end example of redacting an OAuth message token. Given the following JSON request message,
 
 ```
 {
@@ -259,7 +366,7 @@ This section shows an end-to-end example of redacting an OAuth message token. Gi
 }
 ```
 
-And the following JSON redactor configuration:
+and the following JSON redactor configuration,
 
 ```
 <JSONRedactor>
@@ -269,7 +376,7 @@ And the following JSON redactor configuration:
 </JSONRedactor>
 ```
 
-The JSON message is redacted and stored in the traffic monitoring database as follows:
+the JSON message is redacted and stored in the traffic monitoring database as follows:
 
 ```
 {
@@ -306,7 +413,25 @@ An empty XML namespace name is the same as the default document namespace.
 
 ### XML redactor configuration
 
-The following example from `redaction.xml` removes all children from`a_namespace:a_name`. It also removes the `an_attribute_name` and `another_attribute_name` attributes:
+You can specify the following properties in the `XMLRedactor` tag:
+
+| Name          | Type   | Default value | Description                                           |
+| ------------- | ------ | ------------- | ----------------------------------------------------- |
+| maxBufferSize | number | 32768         | Maximum memory size (in bytes) used by XML redaction. |
+| maxDepth      | number | 1024          | Maximum depth of XML nested nodes.                    |
+
+For example:
+
+```
+<XMLRedactor maxBufferSize="32768" maxDepth="1024">
+   <RedactMime mimeType="application/xml"/>
+   ...
+</XMLRedactor>
+```
+
+If an error occurs during the redaction process, including `maxBufferSize` or `maxDepth` reached, the XML redactor redacts the rest of the XML data being processed to avoid writing sensitive data to the logs.
+
+The following example from `redaction.xml` removes all children from `a_namespace:a_name`. It also removes the `an_attribute_name` and `another_attribute_name` attributes:
 
 ```
 <XMLRedactor>
@@ -334,7 +459,7 @@ The following example removes the `b:a` element and all its children:
 
 #### Example: Redact a WS-Security username token from an XML message
 
-This section shows an end-to-end example of redacting a WS-Security user name token. Given the following XML request message:
+This section shows an end-to-end example of redacting a WS-Security user name token. Given the following XML request message,
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -360,7 +485,7 @@ This section shows an end-to-end example of redacting a WS-Security user name to
 </Envelope>
 ```
 
-And the following XML redactor configuration:
+and the following XML redactor configuration,
 
 ```
 <XMLRedactor>
@@ -373,7 +498,7 @@ And the following XML redactor configuration:
 </XMLRedactor>
 ```
 
-The XML message is redacted and stored in the traffic monitoring database as follows:
+the XML message is redacted and stored in the traffic monitoring database as follows:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -397,17 +522,23 @@ You can redact the content of specific HTML form fields by configuring the field
 ```
 <FormRedactor>
     <RedactMime mimeType="application/x-www-form-urlencoded"/>
-    <FormField value="credit_card"/>
-    <FormField value="phone_number"/>
+    <FormField value="credit_card" action="obfuscate"/>
+    <FormField value="phone_number" action="remove"/>
 </FormRedactor>
 ```
 
-This example removes the contents of the `credit_card` and `phone_number` form fields from the message.
+This example obfuscates the contents of `credit_card` and removes `phone_number` form fields from the message.
 
-Supported HTML form content types are as follows:
+The following are HTML form content types supported:
 
 * `application/x-www-form-urlencoded`
-* `multipart/formdata`
+* `multipart/form-data`
+
+These content types can be configured either in the same `FormRedaction` section, or in a separate `FormRedaction` section, where only the configured fields for their corresponding section will be used.
+
+If the `action` tag is not present, the default action is then `replace`, and if tag `replaceBy` is not present, redaction replaces `multipart/form-data` values by an empty string, and `application/x-www-form-urlencoded` values by the string `null`.
+
+For the `multipart/form-data` content, the `action` type `remove` does not remove the parameter name, only the parameter value is removed.
 
 ## Redact raw message content
 
@@ -430,9 +561,9 @@ In this configuration model, the `Regex` element includes the following attribut
 * `multi`: Specifies whether the match is multi-line. In multi-line mode, `^` and `$` match the beginning and the end of any line within the redacted text. Defaults to `false`.
 * `utf`: Specifies whether the data being parsed is checked for valid UTF-8 characters. Defaults to `true`. `RawRedactor` cannot be used with non-UTF-8 characters.
 
-### Use of regular expressions
+### Optimize and make regular expressions more efficient
 
-Inefficiently written regular expressions might result in poor performance and excessive use of resources, such as memory, stack, and CPU.  See the [PCRE documentation](https://www.pcre.org/original/doc/html/pcreperform.html) for recommendations on how to ensure that your regular expressions are written correctly.
+Regular expressions should be optimized to avoid poor performance and excessive use of resources, such as memory, stack, and CPU. See the [PCRE](https://www.pcre.org/original/doc/html/pcreperform.html) documentation for recommendations on how to ensure that your regular expressions are written correctly.
 
 To make your regular expressions more efficient, follow these tips:
 
@@ -511,18 +642,7 @@ Redaction for trace log records works as follows:
 
 ## Redact sensitive data from log files
 
-For details on how to redact sensitive data from domain audit log and access log files, see the following topics:
+Redaction rules do not apply to domain audit and access logs. For details on how to redact sensitive data from domain audit log and access log files, see:
 
-* [Configure API Gateway logging and events](/docs/apim_administration/apigtw_admin/logging)
-* [Transaction access log settings](/docs/apim_reference/log_global_settings/#transaction-access-log-setting)
-
-## Disable redaction for an API Gateway
-
-To disable redaction, modify `redaction.xml` as follows:
-
-```
-<ConfigurationFragment>
-<Redaction enabled="false" provider="redactors">
-...
-</ConfigurationFragment>
-```
+* [Configure API Gateway logging and events](/docs/apim_administration/apigtw_admin/logging).
+* [Transaction access log settings](/docs/apim_reference/log_global_settings/#transaction-access-log-setting).
