@@ -13,7 +13,6 @@ Therefore, the solution is not suitable for a production environment without fur
 
 placeholder
 
-
 ## Next steps
 
 On the following section, you are going to ...
