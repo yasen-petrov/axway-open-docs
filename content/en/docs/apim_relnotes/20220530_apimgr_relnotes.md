@@ -3,10 +3,13 @@ title: API Gateway and API Manager 7.7 May 2022 Release Notes
 linkTitle: API Gateway and API Manager May 2022
 weight: 95
 date: 2022-03-22
-description: API Gateway and API Manager updates are cumulative, comprising new
-  features and changes delivered in previous updates unless specifically
-  indicated otherwise in the Release notes.
+description: 
 ---
+
+API Gateway and API Manager updates are cumulative, comprising new features and changes delivered in previous updates unless specifically indicated otherwise in the Release notes.
+
+This latest release continues to simplify and evolve API management. Among the updates to help reduce the burden of API management is the API manager user interface performance improvement when dealing with a large number of APIs, a newly enhanced set of redaction rules, and an upgrade to Open SSL 3.0. Also included in this update, users will experience better control of timeout for Connect Filters, enhanced externalization of configuration for containerized deployments, and better Policy Studio performance when using on Windows operating systems.
+
 ## Installation
 
 * To **update** your API Gateway, see [Update from API Gateway One Version](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion/).

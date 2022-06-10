@@ -1,11 +1,20 @@
 ---
-draft: true
+draft: false
 title: API Portal 7.7 May 2022 Release Notes
 linkTitle: API Portal May 2022
 weight: 95
 date: 2022-03-22
-description: API Portal updates are cumulative, comprising new features and changes delivered in previous updates unless specifically indicated otherwise in the Release notes.
+description: 
 ---
+API Portal updates are cumulative, comprising new features and changes delivered in previous updates unless specifically indicated otherwise in the Release notes.
+
+{{< alert title="Note" >}}
+API Portal May 22 update will be available in early July.
+
+The [API Portal February 22](/docs/apim_relnotes/20220228_apip_relnotes/) update is compatible with the [API Gateway May 2022](/docs/apim_relnotes/20220530_apimgr_relnotes/) update and can be used until the **API Portal May 22** update is available.
+
+{{< /alert >}}
+
 ## Installation
 
 API Portal is available as a software installation or a virtualized deployment in a Docker container. For more information, see the following options:
@@ -24,9 +33,7 @@ API Portal is available as a software installation or a virtualized deployment i
 
 The following new features and enhancements are available in this update.
 
-### placeholder 1
-
-placeholder
+Coming soon...
 
 ## Limitations of this update
 
@@ -44,13 +51,9 @@ There are no major changes in this update.
 
 ## Deprecated features
 
-<!-- No features have been deprecated in this update.-->
+No features have been deprecated in this update.
 
-As part of our software development life cycle we constantly review our API Management offering. As part of this update, the following capabilities have been deprecated
-
-### placeholder 2
-
-placeholder.
+<!-- As part of our software development life cycle we constantly review our API Management offering. As part of this update, the following capabilities have been deprecated-->
 
 ## End of support notices
 
@@ -71,11 +74,11 @@ This version of API Portal includes:
 
 ### Fixed security vulnerabilities
 
-placeholder
+Coming soon...
 
 ### Other fixed issues
 
-placeholder
+Coming soon...
 
 ## Known issues
 
