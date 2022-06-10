@@ -31,3 +31,7 @@ In particular the Traffic-Summary and Traffic-Details indicies become huge and t
 ### Results of infrastructure test
 
 (to be continued)
+
+## Next steps
+
+On the following section, you are going to configure your API Gateway Manager to render log data, which is now provided by Elasticsearch instead of the individual API Gateway instances. For more information, see [Configure API Gateway Manager for Elasticsearch](/amplify_analytics/config_APIMng_elasticsearch).
