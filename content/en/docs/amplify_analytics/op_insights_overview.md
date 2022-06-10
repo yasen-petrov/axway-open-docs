@@ -50,6 +50,16 @@ It is also possible to use existing components such as an Elasticsearch cluster 
 
 For more details on managing metrics, see [Purge the metrics database](/docs/apimanager_analytics/metrics_db_purge).
 
+## High level steps to use Operational Insights
+
+The following is a summary of the high level steps to use Operational Insights:
+
+* Ensure that you have read the prerequisites section (**link**).
+* Size your infrastructure (**link**).
+* Configure your system for a single node Elasticsearch cluster (**link**).
+* Configure your API Manager with Elasticsearch (**link**).
+* Configure your system for a production environment (**link**).
+
 ## Monitoring and reporting with API Gateway Analytics
 
 When you have configured the metrics database and API Gateway Analytics, you can start monitoring your API traffic and generating reports in API Gateway Analytics. For details, see [Get started with API Gateway Analytics] (/docs/apimanager_analytics/analytics_start/).
