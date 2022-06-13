@@ -1,12 +1,14 @@
 ---
 title: Size your infrastructure
 linkTitle: Size your infrastructure
-weight: 20
+weight: 30
 date: 2022-06-09
 description: Size your infrastructure to be able to store and process millions of transactions per day and make them quickly available for traffic monitoring and analytics.
 ---
 
 Operational Insights is designed to store and process millions of transactions per day and make them quickly available for traffic monitoring and analytics. This advantage of being able to access millions of transactions is not free of charge with Elasticsearch, but is available in the size of the disc space provided. The solution has been extensively tested, especially for high-volume requirements. It processed 1010 transactions per second, up to 55 million transactions per day on the following infrastructure.
+
+{{< alert title="Note">}}It is high recommended that you size your infrastructure before configuring Operational Insights in your production environment.{{< /alert >}}
 
 ## Sizing recommendations
 
