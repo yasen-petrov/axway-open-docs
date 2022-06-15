@@ -28,6 +28,8 @@ The number of concurrent transactions per second (TPS) that the entire platform 
 The second important aspect for sizing is the retention period, which defines how long data should be available. Accordingly, disk space must be made available.
 In particular the Traffic-Summary and Traffic-Details indicies become huge and therefore play a particularly important role here. The solution is delivered with default values which you can read here. Based on the these default values which result in ap. 14 days the following disk space is required.
 
+For more information, see [Configure the retention period](/docs/amplify_analytics/op_insights_config_elastic_production#configure-the-retention-period)
+
 (to be continued)
 
 ### Results of infrastructure test
