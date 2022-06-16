@@ -1,9 +1,9 @@
 ---
 title: Configure Elasticsearch for production environment
-linkTitle: Advanced configuration
+linkTitle: Production setup
 weight: 50
 date: 2022-06-09
-description:  Configure Elasticsearch for production environment.
+description: Configure Elasticsearch for production environment.
 ---
 
 This section covers advanced configuration topics that are required for a production environment. It is assumed that you have already familiarized yourself with the solution using the Basic setup.
@@ -19,7 +19,7 @@ Enable Metricbeat
 Configure cluster UUID
 Custom certificates
 Secure API-Builder Traffic-Monitor API
-Lifecycle Management
+(**done**) Lifecycle Management (rename to Configure the retention period)
 
 ## placeholder
 

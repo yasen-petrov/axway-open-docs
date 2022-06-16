@@ -66,4 +66,6 @@ The following is a summary of the high level steps to use Operational Insights:
 
 ## Monitoring and reporting with API Gateway Analytics
 
-When you have configured the metrics database and API Gateway Analytics, you can start monitoring your API traffic and generating reports in API Gateway Analytics. For details, see [Get started with API Gateway Analytics](/docs/apimanager_analytics/analytics_start/).
+placeholder
+
+This is a summary of what you're going to accomplish, what's the advantage of integrating Op insights to your API Manager, something like: "After you integrate Operational Insights capability to you API Gateway Manger, you can avail of better performance to monitor the traffic of your APIs, and a large range of Kibana dashboard to support you to understand and analyze your data from different perspectives."

@@ -1,7 +1,7 @@
 ---
 title: Configure Elasticsearch for a single instance
 linkTitle: Basic setup
-weight: 20
+weight: 30
 date: 2022-06-09
 description: Configure a basic setup for Operational insights to test Elasticsearch in a single instance and get prepare for a deployment in production later.
 ---

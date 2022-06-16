@@ -32,8 +32,6 @@ Version 7.7-20200130 is required due to some Dateformat changes in the Open-Traf
 The solution is based on the Elastic-Stack (Elasticsearch, Logstash, Beats and Kibana). It can run completely in docker containers, which for example are started on the basis of docker-compose.yaml or run in a Docker Orchestration Framework.
 It is also possible to use existing components such as an Elasticsearch cluster or a Kibana instance. With that you have the flexiblity to use for instance an Elasticsearch service at AWS or Azure or use Filebeat manually installed on the API-Gateway machines. The solution has been tested with Elasticsearch >7.10.x version.
 
-For more details on managing metrics, see [Purge the metrics database](/docs/apimanager_analytics/metrics_db_purge).
-
 ## Prerequisites for Helm
 
 The following are the requirements to deploy Operational insights on a Kubernetes or OpenShift cluster using Helm.

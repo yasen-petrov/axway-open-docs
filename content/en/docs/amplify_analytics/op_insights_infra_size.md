@@ -1,7 +1,7 @@
 ---
 title: Size your infrastructure
 linkTitle: Size your infrastructure
-weight: 30
+weight: 20
 date: 2022-06-09
 description: Size your infrastructure to be able to store and process millions of transactions per day and make them quickly available for traffic monitoring and analytics.
 ---
