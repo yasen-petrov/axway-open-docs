@@ -9,7 +9,7 @@ description:
 API Portal updates are cumulative, comprising new features and changes delivered in previous updates unless specifically indicated otherwise in the Release notes.
 
 {{< alert title="Note" >}}
-API Portal May 22 update was released in early July.
+API Portal May 22 update was released in early July
 
 The [API Portal February 22](/docs/apim_relnotes/20220228_apip_relnotes/) update is compatible with the [API Gateway May 2022](/docs/apim_relnotes/20220530_apimgr_relnotes/) update and can be used until the **API Portal May 22** update is available.
 
