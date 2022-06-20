@@ -32,8 +32,6 @@ You can see geomaps to see from which regions API requests are processed. These 
 
 (**screenshot** <https://github.com/Axway-API-Management-Plus/apigateway-openlogging-elk/blob/develop/imgs/geo-map-mixed.png>)
 
-The IP address of the client is determined from the Transaction event log, converted to a corresponding location by the Logstash plugin [Geoip](https://www.elastic.co/guide/en/logstash/current/plugins-filters-geoip.html) and stored in Elasticsearch. The process is enabled by default, but can be disabled via the `GEOIP_CUSTOM_ATTRIBUTE` parameter.
-
-(**where's this parameter located?**)
+The IP address of the client is determined from the Transaction event log, converted to a corresponding location by the Logstash plugin [Geoip](https://www.elastic.co/guide/en/logstash/current/plugins-filters-geoip.html) and stored in Elasticsearch. The process is enabled by default, but can be disabled via the `GEOIP_ENABLED` [parameter](https://github.com/Axway-API-Management-Plus/apigateway-openlogging-elk/blob/7d91baaf8009ceb09ac9f3889752912b17b83736/env-sample#L604-L648).
 
 Most likely, your API management solution is running behind a firewall or load balancer, so the actual IP address of the client is not included in the event log. To pass the correct IP address to the solution, please configure a custom attribute (by default xForwardedFor) for the transaction event log, which contains the correct IP address. You can obtain this from the X-Forwarded-For header, for example.

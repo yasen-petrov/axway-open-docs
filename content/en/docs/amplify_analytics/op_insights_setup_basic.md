@@ -16,7 +16,7 @@ You can also import and use the sample Kibana Dashboard or create your own visua
 
 This basic setup uses minimal parameters to run and test the solution on a machine with at least 16 GB of RAM including the API Management platform (for example, like the Axway internal API Management reference environment). Therefore, this is not suitable for a production environment without further configuration.
 
-For a production environment, check the parameters mentioned in the env-sample at the beginning and set them if necessary. (**TO BE REVIEWED**)
+For a production environment, check the parameters mentioned in the [env-sample](https://github.com/Axway-API-Management-Plus/apigateway-openlogging-elk/blob/7d91baaf8009ceb09ac9f3889752912b17b83736/env-sample#L604-L648) at the beginning and set them if necessary. (**TO BE REVIEWED**)
 
 ## High-level steps to perform a basic configuration
 
