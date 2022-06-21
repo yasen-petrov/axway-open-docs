@@ -116,3 +116,52 @@ Similarly, the original `.htaccess` file is backed up to `${apiportal-install-di
 ### Encrypt database password
 
 If you did not choose to encrypt your database password during the installation process, you can use the `apiportal_db_pass_encryption.sh` script, available from both API Portal installation and upgrade packages, to encrypt the password at any time. For more details see [Encrypt database password](/docs/apim_installation/apiportal_install/secure_harden_portal/#encrypt-database-password).
+
+## Upgrade to May2022 release
+
+With May2022 release (7.7.20220530) API&nbsp;Portal introduces Joomla!&nbsp;4 integration which brings some backward incompatible changes. Direct upgrade with the steps from the above sections will break database integrity.
+
+In order to upgrade to May2022 release please follow the steps below:
+
+1. If your API&nbsp;Portal version is below Feb2022 upgrade API&nbsp;Portal to Feb2022 release in a normal way as described in the above sections.
+2. SSH to you API&nbsp;Portal server and detect where additional php settings directory is located. Issue the command:
+
+    ```shell
+    php --ini | grep -iF "scan for additional" | rev | cut -d' ' -f1 | rev
+    ```
+
+3. Create `apiportal.ini` file inside the additional php settings directory with the following content:
+
+    ```ini
+    post_max_size = 60m
+    upload_max_filesize = 60m
+    ```
+
+4. Restart apache server to reload the configuration:
+
+    ```shell
+    sudo systemctl restart httpd
+    ```
+
+    Depending on the installation type apache service on your machine can have a name different from `httpd`.
+5. Open API&nbsp;Portal in a browser and go to **JAI > System > Global&nbsp;Configuration > Server** and make sure you are using `MySQLi` database driver for `Database Type` field. If you have been using a different adapter and need to switch to `MySQLi` adapter, please make sure you changed database credentials accordingly. You may need to create a MySQL user without TLS authentication, see instructions [here](/docs/apim_installation/apiportal_install/install_software_configure_database/#configure-a-user-account).
+6. Go to **JAI > Extensions > Plugins**, search and disable *T3&nbsp;Framework* plugin.
+7. Go to **JAI > Components > Joomla!&nbsp;Update > Upload&nbsp;&&nbsp;Update**, and apply Joomla!&nbsp;4 upgrade package via uploading `joomla-update-package-4.*.zip` file which ships with the upgrade package. Wait for the upgrade process to finish and login back to JAI.
+8. SSH to your API&nbsp;Portal server and upgrade API&nbsp;Portal with API&nbsp;Portal upgrade package:
+
+    ```shell
+    sudo ./apiportal_upgrade.sh
+    ```
+
+9. Remove custom php configuration and restart apache:
+
+    ```shell
+    sudo rm <additional-php-settings-directory>/apiportal.ini
+    sudo systemctl restart httpd
+    ```
+
+10. (Optional) Return your `Database Type` value.
+
+    Go to **JAI > System > Global&nbsp;Configuration > Server > Database section** and change your database settings.
+
+    Note, in Joomla!&nbsp;4 a native `MySQLi` driver in conjunction with `One-way / Two-way authentication` for `Connection Encryption` field is used for SSL connection.
