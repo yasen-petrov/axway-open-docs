@@ -21,7 +21,7 @@ API Portal is available as a software installation or a virtualized deployment i
 
 * If you are installing API Portal for the first time using this update, see [Install API Portal](/docs/apim_installation/apiportal_install/).
 * If you are already using API Portal (7.5.x, 7.6.x, 7.7.x) and want to install this update, see [Upgrade API Portal](/docs/apim_installation/apiportal_install/upgrade_automatic/). Upgrade to API Portal May 22 is only posible if you vere previosly installed API Portal 7.7 Februarry 2022 Release.
-* You can use the [cumulative upgrade script](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade directly from earlier versions (for example, 7.5.5, 7.6.2) to API Portal [7.7 November](/docs/apim_relnotes/20201130_apip_relnotes/), then you need to apply API Portal 7.7 Februarry 2022 Release, and then you can apply this update package to update your API Portal to the May 22 release.
+* You can use the [cumulative upgrade script](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade directly from earlier versions (for example, 7.5.5, 7.6.2) to API Portal [7.7 November](/docs/apim_relnotes/20201130_apip_relnotes/), then you need to apply API Portal 7.7 Februarry 2022 Release, and then you can apply this update package.
 * See [API Portal single version upgrade](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-from-api-portal-7-6-2) to upgrade versions incrementally.
 
 ### Docker containers
@@ -40,7 +40,7 @@ Coming soon...
 This update has the following limitations:
 
 * API Portal 7.7.20220530 is compatible with API Gateway and API Manager 7.7.20220530 only.
-* Upgrdate is only possible if you have previosly API Portal 7.7 Februarry 2022. To upgrade from earlier versions (for example, 7.5.5, 7.6.2) you must first upgrade to [API Portal 7.7](/docs/apim_relnotes/201904_release/apip_relnotes/), then upgrdate to API Portal 7.7 Februarry 2022 and then you can apply API Portal May 22 update.
+* Upgrdate is only possible if you have previosly API Portal 7.7 Februarry 2022. To upgrade from earlier versions (for example, 7.5.5, 7.6.2) you must first upgrade to [API Portal 7.7](/docs/apim_relnotes/201904_release/apip_relnotes/), then upgrdate to API Portal 7.7 Februarry 2022 and then you can apply this update.
 * This update is not available as a virtual appliance or as a managed service on Axway Cloud.
 
 ## Important changes
