@@ -31,7 +31,7 @@ API Portal is available as a software installation or a virtualized deployment i
 ### Docker containers
 
 * To deploy API Portal in Docker containers, see [Deploy API Portal in containers](/docs/apim_installation/apiportal_docker/docker_portal_upgrade/).
-* If you are already using API Portal in Docker containers and you want to install this update, see [Upgrade API Portal in Docker containers](/docs/apim_installation/apiportal_docker/docker_portal_upgrade/). 
+* If you are already using API Portal in Docker containers and you want to install this update, see [Upgrade API Portal in Docker containers](/docs/apim_installation/apiportal_docker/docker_portal_upgrade/).
 
 ## New features and enhancements
 
@@ -44,7 +44,7 @@ Coming soon...
 This update has the following limitations:
 
 * API Portal 7.7.20220530 is compatible with API Gateway and API Manager 7.7.20220530 only.
-* This release of API Portal ships with Joomla 4, which is a major upgrade of the Joomla platform. It is a Joomla perquisite that to upgrade to Joomla 4, you can only upgrade from Joomla 3.10 which is the "bridge" release of Joomla between v3 and v4. As a result of this limitation, upgrading to API Portal May 2022 (based on with Joomla 4) is only possible from the API Portal Feb 2022 (based on Joomla 3.10) release. This applies for both Software installation and ready made docker image. 
+* This release of API Portal ships with Joomla 4, which is a major upgrade of the Joomla platform. It is a Joomla perquisite that to upgrade to Joomla 4, you can only upgrade from Joomla 3.10 which is the "bridge" release of Joomla between v3 and v4. As a result of this limitation, upgrading to API Portal May 2022 (based on with Joomla 4) is only possible from the API Portal Feb 2022 (based on Joomla 3.10) release. This applies for both Software installation and ready made docker image.
 * This update is not available as a virtual appliance or as a managed service on Axway Cloud.
 
 ## Important changes
