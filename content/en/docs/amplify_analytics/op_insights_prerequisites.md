@@ -3,7 +3,7 @@ title: Operational Insights prerequisites
 linkTitle: Prerequisites
 weight: 10
 date: 2022-06-09
-description: Prerequisites to configure Operational Insights in API Gateway.
+description: Prerequisites to configure Operational Insights in API Management.
 ---
 
 Deploying Operational Insights requires knowledge of the Axway API Management solution, basic understanding of Docker, and a solid understanding of [HTTPS and server certificates](https://www.ssl.com/article/browsers-and-certificate-validation/) and how to validate them via trusted CAs.
