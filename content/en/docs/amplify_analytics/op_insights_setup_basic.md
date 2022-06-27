@@ -38,31 +38,38 @@ In the **Import options** window, select **Automatically overwrite conflicts**. 
 
 You can create customized visualizations and dashboards, but do not change the existing ones as they will be overwritten with the next update. If you have created your own visualizations and dashboards, they will not be changed by the import.
 
-### Configure API Gateway Manager
+### Setup Admin Node Manager
 
-Configure your API Gateway Manager to render log data provided by Elasticsearch instead of the individual API Gateway instances. By default, the API Gateway Manager API listens to port 8090 for administrative traffic. This API is responsible to serve the Traffic Monitor and it needs to be configured to use the API Builder REST API instead.
+Watch this video for an overview, [Traffic-Monitor and Kibana Dashboard](https://youtu.be/OZ0RNnqE6hs).
 
-To configure API Gateway Manager to render log data from Elasticsearch, follow these steps:
+Configure Admin Node Manager to render log data provided by Elasticsearch instead of the individual API Gateway instances. The Admin Node Manager API listens to port 8090 for administrative traffic by default and itt is responsible for serving the Traffic Monitor. You must now configured node manager to use the API Builder REST API instead.
 
-1. Open the API Gateway Manager configuration in Policy-Studio. For more information, see [Authentication and RBAC with Active Directory](/docs/apim_administration/apigtw_admin/general_rbac_ad_ldap/#use-the-ldap-policy-to-protect-management-services).
+To configure the node manager to render log data from Elasticsearch, follow these steps:
+
+1. Open the node manager configuration in Policy Studio. For more information, see [Authentication and RBAC with Active Directory](/docs/apim_administration/apigtw_admin/general_rbac_ad_ldap/#use-the-ldap-policy-to-protect-management-services).
 2. Import the provided policy fragment (`nodemanager/policy-use-elasticsearch-api-7.7.0.xml`) from the release package you have downloaded. This imports the policy, "Use Elasticsearch API".
-3. To be continued...
+    Do not use the XML file downloaded directly from the GitHub project as it might contain different certificates.
+3. [Update main policy](https://github.com/Axway-API-Management-Plus/apigateway-openlogging-elk/tree/develop/nodemanager) by inserting the "Use Elasticsearch API" policy as a callback policy (see filter, **Shortcut filter**) into the main policy, **Protect Management Interfaces**, and wire it like shown in the following image.
+    **IMAGE**
+4. Disable the audit log for **Failure** transactions to avoid not needed log messages in the node manager trace file.
+5. Open the `apigateway-install-dir>/apigateway/conf/envSettings.props` file and add the following new environment variable, `env.API_BUILDER_URL=https://apibuilder4elastic:8443`.
+6. If you are using [multiple regions](https://github.com/Axway-API-Management-Plus/apigateway-openlogging-elk#different-topologiesdomains), you must configure the appropriate region to restrict the data of node manager to the correct regional data, for example, `env.REGION=US`.
+7. Copy the new configuration from the Policy Studio project folder (path on Linux, `/home/<user>/apiprojects/\<project-name\>`) back to the Admin Node Manager folder (`\<install-dir\>/apigateway/conf/fed`).
+8. Restart the Admin Node Manager.
 
-### Setup Admin-Node-Manager
-
-Watch this video for an overview: [Traffic-Monitor and Kibana Dashboard](https://youtu.be/OZ0RNnqE6hs),
-
-As the idea of this project is to use the existing API-Gateway Manager UI (short: ANM) to render log data now provided by Elasticsearch instead of the individual API-Gateway instances before (the build in behavior), it is required to change the ANM configuration to make use of Elasticsearch instead of the API-Gateway instances (default setup). By default, ANM is listening on port 8090 for administrative traffic. This API is responsible to serve the Traffic-Monitor and needs to be configured to use the API-Builder REST-API instead.
-
-**TO BE CONTINUED...**
-
-### Traffic-Monitor for API-Manager Users
+### Traffic Monitor for API Manager users
 
 AAA
-S
-## Virtual machines (Docker-Compose)
 
-The following sections cover the configuration using Docker Compose.
+## Setup for Helm
+
+The following sections cover the configuration specific for using Helm charts.
+
+placeholder
+
+## Setup for Docker Compose
+
+The following sections cover the configuration specific for using Docker Compose (virtual machines).
 
 ### Download and extract the release package
 
