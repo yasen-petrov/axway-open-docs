@@ -18,7 +18,7 @@ The [API Portal February 22](/docs/apim_relnotes/20220228_apip_relnotes/) update
 ## Installation
 
 {{< alert title="Note" >}}
-This release of API Portal ships with Joomla 4, which is a major upgrade of the Joomla platform. It is a Joomla perquisite that to upgrade to Joomla 4, you can only upgrade from Joomla 3.10 which is the "bridge" release of Joomla between v3 and v4. If you have previously installations of API Portal you can first upgrade your environment with Joomla 3.10 (no need upgrading API Portal) and then you can apply this update. As a result of this limitation, directly upgrading to API Portal May 2022 (based on with Joomla 4) is only possible from the API Portal Feb 2022 (based on Joomla 3.10) release. 
+This release of API Portal ships with Joomla 4, which is a major upgrade of the Joomla platform. It is a Joomla perquisite that to upgrade to Joomla 4, you can only upgrade from Joomla 3.10 which is the "bridge" release of Joomla between v3 and v4. If you have previously installations of API Portal you can first upgrade your environment with Joomla 3.10 (no need upgrading API Portal) and then you can apply this update. As a result of this limitation, directly upgrading to API Portal May 2022 (based on with Joomla 4) is only possible from the API Portal Feb 2022 (based on Joomla 3.10) release.
 {{< /alert >}}
 
 API Portal is available as a software installation or a virtualized deployment in a Docker container. For more information, see the following options:
