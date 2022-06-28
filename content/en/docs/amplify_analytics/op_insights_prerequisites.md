@@ -35,29 +35,16 @@ Operational Insights is designed to work with classical and EMT API Management d
 
 Operational Insights works only with API Management 7.7 [January 2020](/docs/apim_relnotes/) onwards. Because of `Dateformat` changes in the open traffic format, older versions of API Gateway will shown errors in the Logstash processing.
 
-## Virtual machine prerequisites
+## Helm prerequisites
 
-The following are the prerequisites to configure Operational Insights using Docker Compose on virtual machines with Docker installed.
+The following are the requirements to deploy Operational Insights on Docker Orchestration platforms using Helm charts.
 
-### Docker
-
-Components such as the API Builder project are supposed to run as a Docker container. The Elasticsearch stack is using standard Docker images, which are configured with environment variables and some mount points, allowing for great flexible where you can run them with the provided Docker Compose or with a Docker Orchestration platform (Kubernetes, OpenShift) to get elastic scaling and self-healing.
-
-### Docker Compose
-
-Your virtual machines must have Docker Compose installed and executable.
-
-## Docker Orchestration prerequisites
-
-The following are the requirements to deploy Operational Insights on a Docker Orchestration platform using Helm.
-
-* Kubernetes >= 1.19.
-    * At least three dedicated worker nodes for three Elasticsearch instances.
+* Kubernetes >= 1.19 (At least three dedicated worker nodes for three Elasticsearch instances).
 * Helm >= 3.3.0
 * kubectl installed and configured.
 * OpenShift (not yet tested (Please create an issue if you need help))
-* See required resources
-* Strongly recommended to have an Ingress-Controller already installed. See <https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/>
+* See required resources - <https://github.com/Axway-API-Management-Plus/apigateway-openlogging-elk/tree/develop/helm#required-resources>
+* Ingress controller already installed. See <https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/>
 
 ### Kubernetes and OpenShift knowledge
 
@@ -69,6 +56,18 @@ You must be familiar with:
 * Kubernetes resources such as deployments, configMaps, and secrets.
 * Kubernetes networking, Ingress, Services, and load balancing.
 * Kubernetes volumes, persistent volumes, and volume mounts.
+
+## Docker Compose prerequisites
+
+The following are the prerequisites to configure Operational Insights using Docker Compose on virtual machines with Docker installed.
+
+### Docker
+
+Components such as the API Builder project are supposed to run as a Docker container. The Elasticsearch stack is using standard Docker images, which are configured with environment variables and some mount points, allowing for great flexible where you can run them with the provided Docker Compose or with a Docker Orchestration platform (Kubernetes, OpenShift) to get elastic scaling and self-healing.
+
+### Docker Compose
+
+Your virtual machines must have Docker Compose installed and executable.
 
 ## Next steps
 

@@ -103,7 +103,7 @@ In this configuration, which also contains corresponding Javascript code, necess
 
 Once this configuration is stored, the API Manager Organization based authorization will be replaced.
 
-Please note:
+Note:
 
 * Besides the API-Manager Organization autorization only `externalHTTP` is currently supported.
 * Only 1 authorization method can be enabled
@@ -149,6 +149,14 @@ cp env-sample .env
 ```
 
 You must store the `.env` file as a central configuration file in a version management system.
+
+### Setup Elasticsearch
+
+placeholder
+
+### Setup Kibana
+
+placeholder
 
 ## Next steps
 
