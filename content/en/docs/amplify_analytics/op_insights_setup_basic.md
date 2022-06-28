@@ -20,9 +20,9 @@ For a production environment, check the parameters mentioned in the [env-sample]
 
 You can deploy Operational Insights using a Helm chart or Docker Compose. This page is organized in three main sections describing the common setup for both Helm and Docker Compose options, and two specific sections for each Helm and Docker Compose.
 
-## Common setup for Helm and Docker Compose
+## Setup for Helm and Docker Compose
 
-The following are the common setup for both Helm and Docker Compose options.
+The following sections are common for both Helm and Docker Compose options.
 
 ### Enable Open Traffic Event Log
 
@@ -59,7 +59,56 @@ To configure the node manager to render log data from Elasticsearch, follow thes
 
 ### Traffic Monitor for API Manager users
 
-AAA
+Watch this video for an overview, [Traffic Monitor for API Manager users](https://youtu.be/X08bQPC1sc4).
+
+In larger companies hundreds of API service providers are using the API Manager or the APIM-CLI to register their own services and APIs. While the service providers require access to the Traffic Monitor to monitor their own APIs independently, during registration, the corresponding APIs are assigned to API Manager organizations, which logically split them up, but, the standard traffic monitor does not know the organization concept and therefore, cannot restrict the view for a user based on the organization of an API.
+
+Operational Insights solves this problem by storing the API transactions in Elasticsearch with the appropriate organization. Then, the API organization is used when reading the traffic data from Elasticsearch according to the following table.
+
+| API Gateway Manager | API Manager | Restriction                       | Comment     |
+|---------------------|-------------|-----------------------------------|-------------|
+| Administrator       | N/A         | Unrestricted access               | A Gateway Manager user is considered as an Admin when they own the permission, `adminusers_modify`.  |
+| Operator            | API Admin   | All APIs having a Service-Context | By default, each API processed by the API Manager has a Service-Context. Pure Gateway APIs, for example, `. /healthcheck`, will not be visible. |
+| Operator            | Org Admin   | APIs of its own organization      | Such a user will only see the APIs that belong to the same organization as himself.  |
+| Operator            | User        | APIs of its own organization      | The same rules apply as for the Org-Admin           |
+
+### Setup API Manager user in API Gateway Manager
+
+To give API Manager users an restricted access to the API Gateway Traffic-Monitor, the user must be configured in the API-Gateway-Manager with the same login name as in the API-Manager. Here, for example, an LDAP connection can be a simplification.
+Additionally you need to know, that by default, all API-Gateway Traffic-Monitor users get unrestricted access only if one of their roles includes the permission: adminusers_modify. But typically, only a full API-Administrator has this right and therefore only these users can see the entire traffic. All other users get a restricted view of the API traffic and will be authorized according to the configured authorization configuration described below.
+However, with the parameter: UNRESTRICTED_PERMISSIONS you can configure which right(s) a user must have to get unrestricted access.
+
+### Customize user authorization
+
+By default, the organization(s) of the API-Manager user is used for authorization to the Traffic-Monitor. This means that the user only sees traffic from his the organization(s) he belongs in API-Manager. From a technical point of view, an additional filter clause is added to the Elasticsearch query, which results in a restricted result set. An example: `{ term: { "serviceContext.apiOrg": "Org-A" }}`.
+
+Since version 2.0.0, it is alternatively possible to use an external HTTP service for authorization instead of the API Manager organizations, to restrict the Elasticsearch result based on other criterias.
+
+To customize user authorization, you need to configure an appropriate configuration file as described here:
+
+```bash
+# Copy the provided example 
+cp ./config/authorization-config-sample.js ./config/my-authorization-config.js
+# Customize your configuration file as needed
+vi ./config/my-authorization-config.js
+# Setup your .env file to use your authorization config file
+vi .env
+AUTHZ_CONFIG=./config/my-authorization-config.js
+# Recreate the API-Builder container
+docker stop apibuilder4elastic
+docker-compose up -d
+```
+
+In this configuration, which also contains corresponding Javascript code, necessary parameters and code is stored, for example to parse the response and to adjust the Elasticsearch query. The example: <https://github.com/Axway-API-Management-Plus/apigateway-openlogging-elk/blob/develop/config/authorization-config-sample.js> contains all required documentation.
+
+Once this configuration is stored, the API Manager Organization based authorization will be replaced.
+
+Please note:
+
+* Besides the API-Manager Organization autorization only `externalHTTP` is currently supported.
+* Only 1 authorization method can be enabled
+* It is also possible to disable user authorization completely. To do this, set the parameter: `enableUserAuthorization`: false.
+* If you have further use-cases please create an issue describing the use-case/requirements.
 
 ## Setup for Helm
 

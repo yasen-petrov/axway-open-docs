@@ -1,7 +1,7 @@
 ---
 title: Amplify Analytics Operational Insights
-linkTitle: Operational Insights
-weight: 00
+linkTitle: Configure Operational Insights
+weight: 80
 date: 2022-06-09
 hide_readingtime: true
 description: Configure API Gateway with Elasticsearch to manage your metrics database and use Operational Insights component to observe millions of requests across different API Gateway instances.
