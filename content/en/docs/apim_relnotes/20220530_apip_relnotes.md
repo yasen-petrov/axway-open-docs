@@ -18,13 +18,14 @@ The [API Portal February 22](/docs/apim_relnotes/20220228_apip_relnotes/) update
 ## Installation
 
 {{< alert title="Note" >}}
-This release of API Portal ships with Joomla 4, which is a major upgrade of the Joomla platform. It is a Joomla perquisite that to upgrade to Joomla 4, you can only upgrade from Joomla 3.10 which is the "bridge" release of Joomla between v3 and v4. If you have previously installations of API Portal you can first upgrade your environment with Joomla 3.10 (no need upgrading API Portal) and then you can apply this update. As a result of this limitation, directly upgrading to API Portal May 2022 (based on with Joomla 4) is only possible from the API Portal Feb 2022 (based on Joomla 3.10) release.
+This release of API Portal ships with Joomla 4, which is a major upgrade of the Joomla platform. It is a Joomla perquisite that to upgrade to Joomla 4, you can only upgrade from Joomla 3.10 which is the "bridge" release of Joomla between v3 and v4. If you have previously installations of API Portal you can first upgrade your environment with Joomla 3.10 (no need upgrading API Portal) and then you can apply this update. As a result of this limitation, for direct upgrade to API Portal May 2022 (based on with Joomla 4) we recommend to upgrade from the API Portal Feb 2022 (based on Joomla 3.10) release.
 {{< /alert >}}
 
 API Portal is available as a software installation or a virtualized deployment in a Docker container. For more information, see the following options:
 
 * If you are installing API Portal for the first time using this update, see [Install API Portal](/docs/apim_installation/apiportal_install/).
 * If you are already using API Portal (7.5.x, 7.6.x, 7.7.x) and want to install this update, see [Upgrade API Portal](/docs/apim_installation/apiportal_install/upgrade_automatic/). Upgrade to API Portal May 22 is only possible if you have previously installed API Portal 7.7 February 2022 release.
+* If you are already using API Portal 7.7.x with Patch and want to install this update, you need to execute one manual step, see [Upgrade API Portal Prerequisites](/docs/apim_installation/apiportal_install/upgrade_automatic/#prerequisites). 
 * You can use the [cumulative upgrade script](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade directly from earlier versions (for example, 7.5.5, 7.6.2) to API Portal [7.7 November](/docs/apim_relnotes/20201130_apip_relnotes/), then you need to apply API Portal 7.7 February 2022 release, and then you can apply this update package.
 * See [API Portal single version upgrade](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-from-api-portal-7-6-2) to upgrade versions incrementally.
 
@@ -44,7 +45,7 @@ Coming soon...
 This update has the following limitations:
 
 * API Portal 7.7.20220530 is compatible with API Gateway and API Manager 7.7.20220530 only.
-* This release of API Portal ships with Joomla 4, which is a major upgrade of the Joomla platform. It is a Joomla perquisite that to upgrade to Joomla 4, you can only upgrade from Joomla 3.10 which is the "bridge" release of Joomla between v3 and v4. As a result of this limitation, upgrading to API Portal May 2022 (based on with Joomla 4) is only possible from the API Portal Feb 2022 (based on Joomla 3.10) release. This applies for both Software installation and ready made docker image.
+* This release of API Portal ships with Joomla 4, which is a major upgrade of the Joomla platform. It is a Joomla perquisite that to upgrade to Joomla 4, you can only upgrade from Joomla 3.10 which is the "bridge" release of Joomla between v3 and v4. If you have previously installations of API Portal you can first upgrade your environment with Joomla 3.10 (no need upgrading API Portal) and then you can apply this update. As a result of this limitation, for direct upgrade to API Portal May 2022 (based on with Joomla 4) we recommend to upgrade from the API Portal Feb 2022 (based on Joomla 3.10) release. This applies for both Software installation and ready made docker image.
 * This update is not available as a virtual appliance or as a managed service on Axway Cloud.
 
 ## Important changes
@@ -99,6 +100,7 @@ This version of API Portal includes:
 | IAP-5165    |                    |                | **Issue**: Vulnerable version 1.9.3-r0 of lz4 library is used. **Resolution**: lz4 is upgraded to version 1.9.3-r1.                                                          |
 | IAP-5037    |                    |                | **Issue**: Vulnerable version 0.6.1 of json-pointer vdependency was used. **Resolution**: json-pointer was updated to a version 0.7.0 which is not vulnerable.               |
 | IAP-5166    |                    |                | **Issue**: API Portal uses marked package version 1.1.1, which was reported as vulnerable. **Resolution**: Marked package was upgraded to a newer non-vulnerable version.    |
+| IAP-5347    |                    |                | **Issue**: Used pcre2 and apache2 libraries version was reported as vulnerable. **Resolution**: pcre2 and apache2 libraries was updated to pcre2 v10.40-r0 and apache2 v2.4.54-r0.    |
 
 ### Other fixed issues
 
