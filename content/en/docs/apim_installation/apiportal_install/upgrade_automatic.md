@@ -23,7 +23,7 @@ Before you upgrade your API Portal, complete the following prerequisites. These 
 * If you intend to use the EasyBlog and EasyDiscuss plugins, you must install them before you start the upgrade. For more details, see [Install API Portal](/docs/apim_installation/apiportal_install/install_software/).
 * Stop and back up the existing API Portal files and database. There is no option to roll back after you start the upgrade.
 * To back up an API Portal software installation, perform a file system backup and export the database.
-* If you are already using API Portal 7.7.x with Patch and want to install this update, you need to execute the follwing step:
+* If you are already using patched API Portal 7.7.x and want to install this update, you need to execute the follwing step:
 
 ```
 chown -R apache:apache {ApiPortalInstallPath}
