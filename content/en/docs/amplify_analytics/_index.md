@@ -30,13 +30,23 @@ The following are the **components** used in Operational insights component:
 
 ## Architecture
 
-The following image shows the overall architecture of the Elasticsearch components running with API Gateway Manager:
+This section presents the overall architecture of the Elasticsearch components running with API Gateway Manager both using  Docker compose and Helm.
 
-(**add an image of the solution architecture here** )  
+### Docker compose
+
+The following image shows the overall architecture of the Elasticsearch components running with API Gateway Manager deployed with Docker compose:
+
+(**add the image** <https://github.com/Axway-API-Management-Plus/apigateway-openlogging-elk#overview> )  
 
 With that architecture it is possible to collect data from API Gateways running all over the world into a centralized Elasticsearch instance to have the data available with the best possible performance, independent from the network performance.
 
 It also helps, when running API Gateway in a Docker environment, where containers are started and stopped, as it avoids to lose data when an API Gateway container is stopped.
+
+### Helm
+
+The following diagram shows an overview of the architecture to be deployed in the Kubernetes cluster. The example is for an environment where the API management platform is external to Kubernetes, so Filebeat is also external.
+
+(**add the image** <https://github.com/Axway-API-Management-Plus/apigateway-openlogging-elk/tree/develop/helm#architecture-overview> )  
 
 ## Key benefits
 
