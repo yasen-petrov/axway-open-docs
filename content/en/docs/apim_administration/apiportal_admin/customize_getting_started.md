@@ -39,7 +39,7 @@ With ThemeMagic, you have an administrative interface for creating or modifying 
 1. Log in to the Joomla! Administrator Interface (JAI), and click **Extensions > Templates**.
 2. In Templates sidebar, select **Styles**, then select the style **Purity III - Default**.
 
-    ![Joomla user interface with Purity III selecting the styles](/Images/APIPortal/JoomlaThemeMagicStyles.png)
+    ![Joomla user interface with Purity III selecting the styles](/Images/APIPortal/JoomlaThemeMagicStyles_j4.png)
 
 3. Select **ThemeMagic**. ThemeMagic opens your portal home page with theme variables are displayed on the left.
 
