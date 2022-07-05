@@ -20,7 +20,7 @@ User interface strings are stored in language-specific resource files. To add th
 4. After the installation is finished, click **Extensions > Language(s) > Installed** and ensure that **Site** is selected at the top of the page.
 5. To set the installed language as the default language of your API Portal, click the star button in the row for that language.
 
-   ![Install language](/Images/APIPortal/joomla_install_lang.png)
+   ![Install language](/Images/APIPortal/joomla_install_lang_j4.png)
 
    {{< alert title="Tip" color="primary" >}}You can change the default language of JAI independently from your API Portal. Select **Administrator** on the **Languages: Installed** page and click the star button in the row for the required language. You can also select any of the installed languages when you log in to JAI.{{< /alert >}}
 
