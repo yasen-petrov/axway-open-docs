@@ -150,7 +150,7 @@ To customize the banner:
 
 Modify the tiles in the home page using the **Home Tiles** module.
 
-![Tiles home page](/Images/APIPortal/tiles-homepage.png)
+![Tiles home page](/Images/APIPortal/tiles-homepage_j4.png)
 
 By default, there are four instances of this module:
 
