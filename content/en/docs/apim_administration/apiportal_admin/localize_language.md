@@ -171,7 +171,7 @@ First, create a main menu that will be the default main menu for all languages. 
 5. To add a menu item to this main menu, click **Menus > Main menu - All > Add New Menu Item**.
 6. Click **Save & Close**.
 
-   ![Add menu item for Main menu -All](/Images/APIPortal/jai_mainmenuall_home.png)
+   ![Add menu item for Main menu -All](/Images/APIPortal/jai_mainmenuall_home_j4.png)
 
 #### Change the language of the original main menu to English
 
