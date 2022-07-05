@@ -13,7 +13,7 @@ Joomla creates audit logs from the activities performed on your API Portal websi
 
 To view the list of audit logs, log in to the Joomla! Administrator Interface (JAI), and click **Users > User Actions Log**. You can filter by extension, by user, and by date or period. Sorting by all fields is also available.
 
-![Logs table](/Images/APIPortal/user_actions_logs_table.png)
+![Logs table](/Images/APIPortal/user_actions_logs_table_j4.png)
 
 * You must enable both **Action Log- Joomla** and **Action Log - API Portal** plugins to view the list of audit logs.
 * This view is available only for Super Users.
