@@ -31,9 +31,9 @@ When planning changes to CSS files, you can quickly check which file controls th
 
 {{< alert title="Warning" color="warning">}}It is not recommended to manually edit the `less/themes/axway/variables-custom.less` file. This file contains the attribute values customized in the ThemeMagic editor. For more details, see [Customize with ThemeMagic](/docs/apim_administration/apiportal_admin/customize_getting_started/#customize-with-thememagic).{{< /alert >}}
 
-1. Log in to the Joomla! Admin Interface (JAI), and click **Extensions > Templates**.
-2. In the Template sidebar, click **Templates**, and select **Purity III_Details and Files**.
-    ![API Portal customizatoin list of available templates through Purity tool](/Images/APIPortal/customation_puritIII_detailsandfiles.png)
+1. Log in to the Joomla! Admin Interface (JAI), and click **System > Site Templates**.
+2. Select **Purity III_Details and Files**.
+    ![API Portal customizatoin list of available templates through Purity tool](/Images/APIPortal/customation_puritIII_detailsandfiles_j4.png)
 3. On the **Editor** tab, open the following folder:
 
     ```
