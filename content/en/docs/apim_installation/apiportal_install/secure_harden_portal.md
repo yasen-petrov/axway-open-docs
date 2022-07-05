@@ -221,7 +221,7 @@ The `open_basedir` option must be added after the installation is finished. Set 
 
 * API Portal root directory
 * Value of `upload_tmp_dir` or `/tmp` if it is empty
-* New location of log files if you changed them according to [Change the location of API Portal log files](#change-the-location-of-api-portal-log-files)
+* New location of log files if you changed them according to [Change the location of API Portal log files](/docs/apim_administration/apiportal_admin/apip_logging/#change-the-location-of-apiportal-log-files)
 
 After updating `php.ini`, restart Apache.
 
