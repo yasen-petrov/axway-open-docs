@@ -143,7 +143,7 @@ To change the settings:
 3. Click the **Applications** tab.
 4. Change the settings as required and click **Save & Close**.
 
-![Customize application settings](/Images/APIPortal/jai_customize_apps.png)
+![Customize application settings](/Images/APIPortal/jai_customize_apps_j4.png)
 
 ## Customize monitoring
 
