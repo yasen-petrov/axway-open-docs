@@ -37,7 +37,7 @@ On the **User Actions Log** page, click **Options** to enable or disable the **I
 
 To set the number of days after which the logs will be deleted:
 
-1. In JAI, click **Extensions > Plugins**.
+1. In JAI, click **System > Plugins**.
 2. Search for **System - User Actions Log**, and click it from the list.
 3. Select **Enabled** from the **Status** dropdown list.
 
