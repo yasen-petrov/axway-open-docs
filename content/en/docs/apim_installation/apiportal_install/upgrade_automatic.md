@@ -7,13 +7,14 @@
 }
 This section does not describe how to upgrade API Gateway. For information on upgrading API Gateway, see [API Gateway Upgrade Guide](/docs/apim_installation/apigw_upgrade/).
 
-You can use the [cumulative upgrade script](#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade your 7.5.5 or 7.6.2 API Portal installation (including all service packs) directly to [7.7 November](/docs/apim_relnotes/20201130_apip_relnotes/), or you can upgrade versions incrementally:
+You can use the [cumulative upgrade script](#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade your 7.5.5 or 7.6.2 API Portal installation (including all service packs) directly to [7.7 November 2020](/docs/apim_relnotes/20201130_apip_relnotes/), or you can upgrade versions incrementally:
 
-| From   | To                                                                                                                                                   | Download Package                                                                                                                                       |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 7.5.5  | [7.6.2](https://docs.axway.com/bundle/APIPortal_762_ReleaseNotes_allOS_en_HTML5/page/Content/ReleaseNotesPortal/APIPortal_ReleaseNotes_allOS_en.htm) | [7.5.5 to 7.6.2 Upgrade](https://support.axway.com/en/search/index/type/Downloads/sort/created%7Cdesc/ipp/10/product/545/version/2997/subtype/44)      |
-| 7.6.2  | [7.7 GA](/docs/apim_relnotes/201904_release/apip_relnotes/)                                                                                          | [7.6.2 to 7.7 Upgrade](https://support.axway.com/en/downloads/download-details/id/1443352)                                                             |
-| 7.7 GA | [7.7.x](/docs/apim_relnotes/20200130_apip_relnotes/) (Including all Service Packs)                                                                   | [7.7 GA to 7.7 Latest Update](https://support.axway.com/en/search/index/type/Downloads/sort/created%7Cdesc/ipp/10/product/545/version/3036/subtype/90) |
+| From   | To    | Download Package         |
+| ------ | ----- | -------------------------|
+| 7.5.5  | [7.6.2](https://docs.axway.com/bundle/APIPortal_762_ReleaseNotes_allOS_en_HTML5/page/Content/ReleaseNotesPortal/APIPortal_ReleaseNotes_allOS_en.htm) | [7.5.5 to 7.6.2 Upgrade](https://support.axway.com/en/search/index/type/Downloads/sort/created%7Cdesc/ipp/10/product/545/version/2997/subtype/44) |
+| 7.6.2  | [7.7 GA](/docs/apim_relnotes/201904_release/apip_relnotes/)                                                                                          | [7.6.2 to 7.7 Upgrade](https://support.axway.com/en/downloads/download-details/id/1443352)   |
+| 7.7.x | February 22 ([7.7 20220228](/docs/apim_relnotes/20220228_apip_relnotes/)) Including all service packs                                                 | [7.7 x to 7.7 20220228](https://support.axway.com/en/search/index/type/Downloads/sort/created%7Cdesc/ipp/10/product/545/version/3036/subtype/90) |
+| 7.7 20220228 |May 22 ([7.7 20220530](/docs/apim_relnotes/20220530_apip_relnotes/))                                                                | [7.7 20220228 to 7.7 20220530](https://support.axway.com/en/search/index/type/Downloads/sort/created%7Cdesc/ipp/10/product/545/version/3036/subtype/90) |
 
 ## Prerequisites
 
@@ -22,6 +23,15 @@ Before you upgrade your API Portal, complete the following prerequisites. These 
 * If you intend to use the EasyBlog and EasyDiscuss plugins, you must install them before you start the upgrade. For more details, see [Install API Portal](/docs/apim_installation/apiportal_install/install_software/).
 * Stop and back up the existing API Portal files and database. There is no option to roll back after you start the upgrade.
 * To back up an API Portal software installation, perform a file system backup and export the database.
+* If you are already using patched API Portal 7.7.x and want to install this update, you need to execute the follwing step:
+
+```
+chown -R apache:apache {ApiPortalInstallPath}
+```
+
+{apiportalInstallPath} - API Portal instalation directory, API Portal is installed at /opt/axway/apiportal/htdoc by default.
+
+Change the default install path. API Portal is installed at /opt/axway/apiportal/htdoc by default, but you can specify a custom path. The folders specified in the custom path are created if they do not already exist.
 
 {{< alert title="Note" color="primary" >}} Currently, API Portal upgrade from CentOS 7 to CentOS 8 is not supported. You can only apply a clean install on CentOS 8. {{< /alert >}}
 
