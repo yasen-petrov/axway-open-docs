@@ -7,13 +7,14 @@
 }
 This section does not describe how to upgrade API Gateway. For information on upgrading API Gateway, see [API Gateway Upgrade Guide](/docs/apim_installation/apigw_upgrade/).
 
-You can use the [cumulative upgrade script](#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade your 7.5.5 or 7.6.2 API Portal installation (including all service packs) directly to [7.7 November](/docs/apim_relnotes/20201130_apip_relnotes/), or you can upgrade versions incrementally:
+You can use the [cumulative upgrade script](#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade your 7.5.5 or 7.6.2 API Portal installation (including all service packs) directly to [7.7 November 2020](/docs/apim_relnotes/20201130_apip_relnotes/), or you can upgrade versions incrementally:
 
-| From   | To                                                                                                                                                   | Download Package                                                                                                                                       |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 7.5.5  | [7.6.2](https://docs.axway.com/bundle/APIPortal_762_ReleaseNotes_allOS_en_HTML5/page/Content/ReleaseNotesPortal/APIPortal_ReleaseNotes_allOS_en.htm) | [7.5.5 to 7.6.2 Upgrade](https://support.axway.com/en/search/index/type/Downloads/sort/created%7Cdesc/ipp/10/product/545/version/2997/subtype/44)      |
-| 7.6.2  | [7.7 GA](/docs/apim_relnotes/201904_release/apip_relnotes/)                                                                                          | [7.6.2 to 7.7 Upgrade](https://support.axway.com/en/downloads/download-details/id/1443352)                                                             |
-| 7.7 GA | [7.7.x](/docs/apim_relnotes/20200130_apip_relnotes/) (Including all Service Packs)                                                                   | [7.7 GA to 7.7 Latest Update](https://support.axway.com/en/search/index/type/Downloads/sort/created%7Cdesc/ipp/10/product/545/version/3036/subtype/90) |
+| From   | To    | Download Package         |
+| ------ | ----- | -------------------------|
+| 7.5.5  | [7.6.2](https://docs.axway.com/bundle/APIPortal_762_ReleaseNotes_allOS_en_HTML5/page/Content/ReleaseNotesPortal/APIPortal_ReleaseNotes_allOS_en.htm) | [7.5.5 to 7.6.2 Upgrade](https://support.axway.com/en/search/index/type/Downloads/sort/created%7Cdesc/ipp/10/product/545/version/2997/subtype/44) |
+| 7.6.2  | [7.7 GA](/docs/apim_relnotes/201904_release/apip_relnotes/)                                                                                          | [7.6.2 to 7.7 Upgrade](https://support.axway.com/en/downloads/download-details/id/1443352)   |
+| 7.7.x | February 22 ([7.7 20220228](/docs/apim_relnotes/20220228_apip_relnotes/)) Including all service packs                                                 | [7.7 x to 7.7 20220228](https://support.axway.com/en/search/index/type/Downloads/sort/created%7Cdesc/ipp/10/product/545/version/3036/subtype/90) |
+| 7.7 20220228 |May 22 ([7.7 20220530](/docs/apim_relnotes/20220530_apip_relnotes/))                                                                | [7.7 20220228 to 7.7 20220530](https://support.axway.com/en/search/index/type/Downloads/sort/created%7Cdesc/ipp/10/product/545/version/3036/subtype/90) |
 
 ## Prerequisites
 
@@ -22,10 +23,19 @@ Before you upgrade your API Portal, complete the following prerequisites. These 
 * If you intend to use the EasyBlog and EasyDiscuss plugins, you must install them before you start the upgrade. For more details, see [Install API Portal](/docs/apim_installation/apiportal_install/install_software/).
 * Stop and back up the existing API Portal files and database. There is no option to roll back after you start the upgrade.
 * To back up an API Portal software installation, perform a file system backup and export the database.
+* If you are already using patched API Portal 7.7.x and want to install this update, you need to execute the follwing step:
+
+```
+chown -R apache:apache {ApiPortalInstallPath}
+```
+
+{apiportalInstallPath} - API Portal instalation directory, API Portal is installed at /opt/axway/apiportal/htdoc by default.
+
+Change the default install path. API Portal is installed at /opt/axway/apiportal/htdoc by default, but you can specify a custom path. The folders specified in the custom path are created if they do not already exist.
 
 {{< alert title="Note" color="primary" >}} Currently, API Portal upgrade from CentOS 7 to CentOS 8 is not supported. You can only apply a clean install on CentOS 8. {{< /alert >}}
 
-## Upgrade API Portal using the cumulative upgrade script
+## Upgrade using the cumulative upgrade script
 
 If you have a **7.5.5** or **7.6.2** API Portal installation, you can upgrade directly to API Portal **7.7 November 2020** by using the cumulative script.
 
@@ -46,7 +56,7 @@ If you have a **7.5.5** or **7.6.2** API Portal installation, you can upgrade di
    sh apiportal_cumulative_upgrade
    ```
 
-## Upgrade API Portal from the Joomla! Administrator Interface
+## Upgrade from the Joomla! Administrator Interface
 
 If you have a 7.7.x API Portal installation, you can upgrade to the latest version without having to repeat the initial installation setup.
 
@@ -116,3 +126,44 @@ Similarly, the original `.htaccess` file is backed up to `${apiportal-install-di
 ### Encrypt database password
 
 If you did not choose to encrypt your database password during the installation process, you can use the `apiportal_db_pass_encryption.sh` script, available from both API Portal installation and upgrade packages, to encrypt the password at any time. For more details see [Encrypt database password](/docs/apim_installation/apiportal_install/secure_harden_portal/#encrypt-database-password).
+
+## Upgrade to API Portal May 2022 release
+
+API Portal [May 2022](/docs/apim_relnotes/20220530_apip_relnotes/) release (7.7.20220530) is integrated with *Joomla 4*, which results in some backward incompatible changes. Attempting to upgrade directly from versions prior to [February 2022](/docs/apim_relnotes/20220228_apip_relnotes/) to May 22 will break database integrity.
+
+To upgrade to API Portal May 2022 release, follow these steps:
+
+1. If your API Portal version is lower than [February 2022](/docs/apim_relnotes/20220228_apip_relnotes/), you must first upgrade to February 2022 as described in the previous sections.
+2. Establish an SSH connection to your API Portal server and locate the additional PHP settings directory:
+
+    ```shell
+    php --ini | grep -iF "scan for additional" | rev | cut -d' ' -f1 | rev
+    ```
+
+3. Create an `apiportal.ini` file inside the additional PHP settings directory with the following content:
+
+    ```ini
+    post_max_size = 60m
+    upload_max_filesize = 60m
+    ```
+
+4. Restart the Apache server to reload the configuration. Depending on the installation type, the Apache service on your machine might have a name different from `httpd`.
+
+    ```shell
+    sudo systemctl restart httpd
+    ```
+5. Open API Portal in a browser, log in to the Joomla! Administrator Interface (JAI), click **System > Global Configuration > Server** and ensure that you are using `MySQLi` database driver for `Database Type` field.
+
+    If you are using a different adapter and you need to switch to `MySQLi` adapter, ensure that you changed the database credentials accordingly. You might need to [create a MySQL user account without TLS authentication](/docs/apim_installation/apiportal_install/install_software_configure_database/#configure-a-user-account-without-authentication).
+6. Click **Extensions > Plugins**, then search and disable the *T3 Framework* plugin.
+7. Click **Components > Joomla! Update > Upload & Update**, then apply the *Joomla 4* upgrade package by uploading the `joomla-update-package-4.*.zip` file, which ships with the upgrade package.
+8. Wait for the upgrade process to finish and log in to JAI again.
+9. Establish an SSH connection to your API Portal server and upgrade your product:
+
+    ```shell
+    sudo ./apiportal_upgrade.sh
+    ```
+
+10. (Optional) To change the `Database Type` field back to the value which was there before, in JAI, click **System > Global Configuration > Server > Database section** and change your database settings.
+
+    Note that *Joomla 4* uses a native `MySQLi` driver in conjunction with `One-way` or `Two-way authentication` for the `Connection Encryption` field for SSL connection.
