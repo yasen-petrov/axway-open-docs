@@ -386,7 +386,7 @@ Axway-defined Java system properties introduced in the 7.7 20200930 release
 
 | System Property                          | Context     | Description                                                                         |
 | ---------------------------------------- | ----------- | ----------------------------------------------------------------------------------- |
-| api.manager.orgadmin.selfservice.enabled | API Manager | Sets whether an org admin has self service enabled by default. Default value: true. |
+| api.manager.orgadmin.selfservice.enabled | API Manager | Sets whether an org admin has self service enabled by default. Default value: false. |
 
 ## 7.7 November 2020
 
