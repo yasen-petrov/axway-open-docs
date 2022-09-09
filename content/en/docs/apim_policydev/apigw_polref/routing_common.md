@@ -32,11 +32,12 @@ Configure the following general settings:
 On the **Request** tab, you can use the API Gateway selector syntax to evaluate and expand request details at runtime. The values specified on this tab are used in the outbound request to the URL.
 
 * **Method**: Enter the HTTP verb used in the incoming request (for example, `GET`). Defaults to `${http.request.verb}`.
-* **Request Body**: Enter the content of the incoming request message body. Defaults to `${content.body}`.
+* **Request Body**: Enter the content of the incoming request message body. You must enter the body headers and body content in the text area. Defaults to `${content.body}`.
 
-    {{< alert title="Note" color="primary" >}} You must enter the body headers and body content in the **Request Body** text area. For example, enter the `Content-Type` followed by a return     and then the required message payload:
-    ```
-    Content-Type:text/html
+    The following example shows the `Content-Type` followed by a Carriage Return Line Feed (CRLF), then the required message payload:
+
+    ```yaml
+    Content-Type: text/html
     
     <!DOCTYPE html>
     <html>
@@ -45,9 +46,17 @@ On the **Request** tab, you can use the API Gateway selector syntax to evaluate 
     </body>
     </html>
     ```
-    {{< /alert >}}
 
-* **Request Protocol Headers**: Enter the HTTP headers associated with the incoming request message. Defaults to `${http.headers}`. Ensure to avoid extra spaces before or after any selector expressions and to use CRLF after each raw header value, or the filter will abort with an IO error when executed.
+* **Request Protocol Headers**: Enter the HTTP headers associated with the incoming request message in the text area. Defaults to `${http.headers}`.
+
+    {{< alert title="Note" color="primary" >}}Ensure to use Carriage Return Line Feed (CRLF) after each raw header value and do not add extra spaces before or after any selector expressions, or the filter will abort with an IO error when executed.{{< /alert >}}
+
+    The following example shows an `Accept` header followed by a CRLF, but the *blank line* below the header is not visible.
+
+    ```yaml
+    Accept: */*
+    
+    ```
 
 ### Configure SSL settings
 
@@ -136,7 +145,8 @@ To specify the retry settings for this filter, complete the following fields:
 * **Perform Retries**: Select whether the filter performs retries. By default, this setting is not selected, no retries are performed, and all **Retry** settings are disabled. This means that the filter only attempts to perform the connection once.
 * **Retry On**: Select the HTTP status ranges on which retries can be performed. If a host responds with an HTTP status code that matches one of the selected ranges, this filter performs a retry. Select one or more ranges in the table (for example, `Client Error 400-499`). For details on adding custom HTTP status ranges, see the next subsection.
 * **Retry Count**: Enter the maximum number of retries to attempt. Defaults to `5`.
-    {{< alert title="Note" color="primary" >}}When **Retry** setting is enabled, the **Retry Count** value is used as the default number of redirects to follow in the **Redirect** settings.{{< /alert >}}
+
+    When the **Retry** setting is enabled, the **Retry Count** value is used as the default number of redirects to follow in the **Redirect** settings.
 * **Retry Interval (ms)**: Enter the time to delay between retries in milliseconds. Defaults to `500` ms.
 * **Add an HTTP status range**: To add an HTTP status range to the default list displayed in the **Retry On** table, click the **Add** button. In the **Configure HTTP Status Code** dialog, complete the following fields:
     * **Name**: Enter a name for the HTTP status range.
@@ -184,7 +194,7 @@ To specify the redirect settings for this filter, complete the following fields:
 
 * **Follow Redirects**: Specifies whether the API Gateway follows HTTP redirects, and connects to the redirect URL specified in the HTTP response. This setting is enabled by default, and the default number of redirects to follow is 2.
 
-{{< alert title="Note" color="primary" >}}When the **Retry Count** property of the **Retry** settings is enabled, its value is used as the default number of redirects to follow.{{< /alert >}}
+    When the **Retry Count** property of the **Retry** settings is enabled, its value is used as the default number of redirects to follow.
 
 #### Header settings
 
@@ -222,7 +232,7 @@ Configure custom timeouts for a filter. The custom timeouts will override the eq
 
 **Idle Timeout**: If a value less than or equal to zero is specified, the connection is purged (almost) immediately. Defaults to 15000 milliseconds (15 seconds).
 
-{{< alert title="Note" color="primary" >}}All custom timeouts are optional. When a timeout value is not specified, a fallback mechanism applies the value of an equivalent timeout configured either at the global level or at the remote host level, if a **Remote Host** has been previously configured.{{< /alert >}}
+All custom timeouts are optional. When a timeout value is not specified, a fallback mechanism applies the value of an equivalent timeout configured either at the global level or at the remote host level, if a **Remote Host** has been previously configured.
 
 ## Connection filter
 
@@ -282,7 +292,7 @@ API Gateway can act as a proxy for clients of the secured web service. When a cl
 
 The following is an example of an HTTP request line that was made through a proxy, where `WEB_SERVICE_HOST` is the name or IP address of the machine hosting the destination web service:
 
-```
+```yaml
 POST http://WEB_SERVICE_HOST:80/myService HTTP/1.0
 ```
 
