@@ -333,7 +333,7 @@ const collections = [{
   folder: 'content/en/blog/friends',
 }];
 
-const cms_branch = window.location.hostname.includes('developaug22') ? 'developaug22' : 'master';
+const cms_branch = window.location.hostname.includes('developnov22') ? 'developnov22' : 'master';
 
 const config = {
   backend: {
