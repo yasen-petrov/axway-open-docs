@@ -4,6 +4,7 @@ resources/
 build/
 node_modules/
 tech-doc-hugo
+package-lock.json
 
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
