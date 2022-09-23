@@ -1,10 +1,24 @@
 {
-    "title": "Troubleshoot an upgrade",
-    "linkTitle": "Troubleshooting",
-    "weight": 150,
-    "date": "2019-10-07",
-    "description": "Advice on troubleshooting the API Gateway upgrade process and the `sysupgrade` commands."
+"title": "Troubleshoot an upgrade or an update",
+  "linkTitle": "Troubleshooting",
+  "weight": 150,
+  "date": "2019-10-07",
+  "description": ""
 }
+
+General troubleshooting steps for problems you might encounter when upgrading API Gateway using the `sysupgrade` commands from versions 7.5x and 7.6x to 7.7, or when you are installing a [7.7.x One Version](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion/) update, as well as specific problems and recommended solutions.
+
+## Unable to connect to Metrics DB after applying update
+
+Problem
+: After applying [7.7 May 22](/docs/apim_relnotes/20220530_apimgr_relnotes/) update, the secure connection to the Metrics DB fails with "Communications link failure".
+
+Solution
+: The latest JRE upgrade has increased security by making TLSv1.3 the only protocol supported out of the box. If the MySQL server is setup to support a highest version of TLSv1.2, then you must change the DB URL with following option.
+
+```
+jdbc:mysql://mysqlhost:3307/metrics_db?useSSL=true&enabledTLSProtocols=TLSv1.2
+```
 
 ## Out of memory error when running upgrade
 
@@ -18,24 +32,23 @@ To increase the memory, perform the following steps:
 
 1. Edit the `-Xmx` setting in the `apigateway/system/conf/jvm.xml` file to specify a value (for example, `2048`) instead of the default. The value required depends on the size of your configuration.
 
-    The following example shows how to change it to `2048`.
+   The following example shows how to change it to `2048`.
 
-    Default `-Xmx` value:
+   Default `-Xmx` value:
 
-    ```
-    <if property="maxHeap">
-    <VMArg name="-Xmx${maxHeap}"/>
-    </if>
-    ```
+   ```
+   <if property="maxHeap">
+   <VMArg name="-Xmx${maxHeap}"/>
+   </if>
+   ```
 
-    `-Xmx` value of `2048`:
+   `-Xmx` value of `2048`:
 
-    ```
-    <if property="maxHeap">
-    <VMArg name="-Xmx2048"/>
-    </if>
-    ```
-
+   ```
+   <if property="maxHeap">
+   <VMArg name="-Xmx2048"/>
+   </if>
+   ```
 2. Rerun the `upgrade` command.
 
 ## Apply was run before export was run on all nodes
@@ -58,8 +71,7 @@ To upgrade NodeB and NodeC, perform the following steps:
 6. Run `upgrade` on NodeC.
 7. Shut down the API Gateway processes in the old installation on all nodes.
 
-    {{< alert title="Tip" color="primary" >}}If you need to bring up the processes in the new installation on NodeA more quickly, you can shut down the processes in the old installation on all nodes after `export` is run on NodeB and NodeC.{{< /alert >}}
-
+   {{< alert title="Tip" color="primary" >}}If you need to bring up the processes in the new installation on NodeA more quickly, you can shut down the processes in the old installation on all nodes after `export` is run on NodeB and NodeC.{{< /alert >}}
 8. Start the API Gateway processes on the new 7.7 installation on NodeA.
 9. Run `apply` on NodeB.
 10. Run `apply` on NodeC.
@@ -82,12 +94,12 @@ Solution
 
 The following table summarizes the `import-kps` command options:
 
-| Option                 | Description         | Required                                  |
-|------------------------|---------------------|-------------------------------------------|
-| `--help`               | Display help for the `import-kps` command only. | - |
-| `--anm_host`           | Specify the topology host name of the Admin Node Manager in the old API Gateway installation you are using to export the data. We recommend that you specify the first Admin Node Manager host that you are upgrading, and you must use the same value on every node. | Only required if multiple Admin Node Managers in upgraded topology. |
-| `--username`           | Specify the Admin Node Manager user name. | Yes (prompted if not specified). |
-| `--password`           | Specify the Admin Node Manager password. | Yes (prompted if not specified). |
+| Option       | Description                                                                                                                                                                                                                                                           | Required                                                            |
+| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `--help`     | Display help for the `import-kps` command only.                                                                                                                                                                                                                       | \-                                                                  |
+| `--anm_host` | Specify the topology host name of the Admin Node Manager in the old API Gateway installation you are using to export the data. We recommend that you specify the first Admin Node Manager host that you are upgrading, and you must use the same value on every node. | Only required if multiple Admin Node Managers in upgraded topology. |
+| `--username` | Specify the Admin Node Manager user name.                                                                                                                                                                                                                             | Yes (prompted if not specified).                                    |
+| `--password` | Specify the Admin Node Manager password.                                                                                                                                                                                                                              | Yes (prompted if not specified).                                    |
 
 ## API Gateways missing from topology after upgrade
 
@@ -116,10 +128,9 @@ To resolve this issue, follow these steps:
 1. Stop all API Gateway processes in the new installation on NodeC.
 2. Rerun `apply` on NodeC as follows:
 
-    ```
-    sysupgrade apply --anm_host NodeA
-    ```
-
+   ```
+   sysupgrade apply --anm_host NodeA
+   ```
 3. When this command completes, NodeC joins the domain where NodeA is the first Admin Node Manager.
 
 {{< alert title="Tip" color="primary" >}} Rerunning apply on NodeC is the easiest solution in this case. Alternatively, you could rerun `apply ``--anm_host NodeC` on NodeA and on NodeB.{{< /alert >}}
