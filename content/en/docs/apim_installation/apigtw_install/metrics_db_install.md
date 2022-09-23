@@ -183,7 +183,7 @@ The following example JDBC string shows a TLS configuration for AWS RDS MySQL to
 jdbc:mysql://dba3s-np-rds-apimgateway-dev-int-mysql.cpqdyezqyf7p.eu-central-1.rds.amazonaws.com:3306/apimetrics?useSSL=true&requireSSL=true&verifyServerCertificate=false
 ```
 
-For more information, see [Connection URL Syntax](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-url-format.html) and [Configuration Properties for Connector/J - Security](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-connp-props-security.html).
+For more information, see [Connection URL Syntax](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-jdbc-url-format.html) and [Configuration Properties for Connector/J - Security](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-connp-props-security.html).
 
 #### Install a database
 
