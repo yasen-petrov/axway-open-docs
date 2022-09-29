@@ -538,7 +538,7 @@ The following example shows the JSON format used for an HTTP `transaction` event
 }
 ```
 
-For details on `custom` event entries, see the [API Gateway Javadoc](https://support.axway.com/htmldoc/1444954). The `com.vordel.reporting.rtm.api.MetricGroup class` includes details on the Java API and the resulting metric event in the transaction event log.
+For details on `custom` event entries, see the [API Gateway Javadoc](https://support.axway.com/doc/4f0a52b8a1f1934372469892828b468a/index.html). The `com.vordel.reporting.rtm.api.MetricGroup class` includes details on the Java API and the resulting metric event in the transaction event log.
 
 ### Configure the transaction event log
 
@@ -552,7 +552,7 @@ Configure the following fields to enable the API Gateway instance to write a tra
 
 * If transaction event logs are being used to populate the metrics database, you must also update the `sourceEventLogDir` property in the Node Manager configuration if you change this directory.
 
-**System event frequency (secs)**: Specifies how often in seconds that a system entry is written to each event log file. Defaults to `60` seconds. For more details, see [Event log system entries](#event-log-system-entries).
+**System event frequency (secs)**: Specifies how often in seconds that a system entry is written to each event log file. Defaults to `60` seconds.
 
 **Maximum disk space for event logs (MB)**: Specifies the maximum amount of disk space used for event logs. When the directory reaches the specified limit, the oldest log files are deleted. Defaults to `1024` MB.
 

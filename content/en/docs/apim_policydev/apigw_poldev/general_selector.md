@@ -15,21 +15,19 @@ key and open a filter, you can edit all filter settings using text values in the
 
 The API Gateway selector syntax uses JUEL to evaluate and expand the following types of values at runtime:
 
-* Message attribute properties configured in message filters, for example:
+Message attribute properties configured in message filters, for example:
 
 ```
 ${authentication.subject.id}
 ```
 
-* Environment variables specified in `envSettings.props`
-    and `system.properties`
-    files, for example:
+Environment variables specified in `envSettings.props` and `system.properties` files, for example:
 
 ```
 ${env.PORT.MANAGEMENT}
 ```
 
-* Values stored in a KPS table, for example:
+Values stored in a KPS table, for example:
 
 ```
 ${kps.CustomerProfiles[JoeBloggs].age}
@@ -39,17 +37,13 @@ ${kps.CustomerProfiles[JoeBloggs].age}
 
 ### Access selector fields
 
-A message attribute selector can refer to a field of that message (for example `certificate`), and you can use `.`
-characters to access subfields. For example, the following selector expands to the `username`
-field of the object stored in the `profile`
-attribute in the message:
+A message attribute selector can refer to a field of that message (for example `certificate`), and you can use `.` characters to access subfields. For example, the following selector expands to the `username` field of the object stored in the `profile` attribute in the message:
 
 ```
 ${profile.username}
 ```
 
-You can also access fields indirectly using square brackets (`[`
-and `]`). For example, the following selector is equivalent to the previous example:
+You can also access fields indirectly using square brackets (`[`and `]`). For example, the following selector is equivalent to the previous example:
 
 ```
 ${profile[field]}
@@ -61,19 +55,13 @@ You can specify literal strings as follows:
 ${profile["a field name with spaces"]}
 ```
 
-For example, the following selector uses the `kathy.adams@acme.com`
-key value to look up the `User`
-table in the KPS, and returns the value of the `age`
-property:
+For example, the following selector uses the `kathy.adams@acme.com` key value to look up the `User` table in the KPS, and returns the value of the `age` property:
 
 ```
 ${kps.User["kathy.adams@acme.com"].age}
 ```
 
-{{< alert title="Note" color="primary" >}}For backwards compatibility with the `.`
-spacing characters used in previous versions of the API Gateway, if a selector fails to resolve with the above rules, the flat, dotted name of a message attribute still works. For example, `${content.body}`
-returns the item stored with the `content.body`
-key in the message.{{< /alert >}}
+{{< alert title="Note" color="primary" >}}For backwards compatibility with the `.` spacing characters used in previous versions of the API Gateway, if a selector fails to resolve with the above rules, the flat, dotted name of a message attribute still works. For example, `${content.body}` returns the item stored with the `content.body` key in the message.{{< /alert >}}
 
 ### Special selector keys
 
@@ -85,8 +73,7 @@ The following top-level keys have a special meaning:
 
 ### Resolve selectors
 
-Each `${...}`
-selector string is resolved step-by-step, passing an initial context object (for example, `Message`). The top-level key is offered to the context object, and if it resolves the field (for example, the message contains the named attribute), the resolved object is indexed with the next level of key. At each step, the following rules apply:
+Each `${...}` selector string is resolved step-by-step, passing an initial context object (for example, `Message`). The top-level key is offered to the context object, and if it resolves the field (for example, the message contains the named attribute), the resolved object is indexed with the next level of key. At each step, the following rules apply:
 
 1. At the top level, test the key for the global values (for example, `kps`, `system`, and `env`) and resolve those specially.
 2. If the object being indexed is a Dictionary, KPS, or Map, use the index as a key for the item’s normal indexing mechanism, and return the resulting lookup.
@@ -100,8 +87,7 @@ This section lists some example selectors that use expressions to evaluate and e
 
 ### Message attribute
 
-The following message attribute selector returns the HTTP `User-Agent`
-header:
+The following message attribute selector returns the HTTP `User-Agent` header:
 
 ```
 ${http.headers["User-Agent"]}
@@ -173,13 +159,8 @@ This returns `true` if the HTTP response code lies between 200 and 299:
 ${http.response.status >= 200 && http.response.status <= 299}
 ```
 
-{{< alert title="Tip" color="primary" >}}You can use the **Trace**
-filter to determine the appropriate selector expressions to use for specific message attributes. When configured after another filter, the **Trace** filter outputs the available message attributes and their Java type (for example, `Map`
-or `List`). For details on `com.vordel` classes, see the [API Gateway Javadoc](https://support.axway.com/htmldoc/1444954)
-. For example, for the `OAuth2AccessToken`
-class, you can use selector expressions such as `${accesstoken.getAdditionalInformation()}`.{{< /alert >}}
+{{< alert title="Tip" color="primary" >}}You can use the **Trace** filter to determine the appropriate selector expressions to use for specific message attributes. When configured after another filter, the **Trace** filter outputs the available message attributes and their Java type (for example, `Map` or `List`). For details on `com.vordel` classes, see the [API Gateway Javadoc](https://support.axway.com/doc/4f0a52b8a1f1934372469892828b468a/index.html). For example, for the `OAuth2AccessToken` class, you can use selector expressions such as `${accesstoken.getAdditionalInformation()}`.{{< /alert >}}
 
 ## Extract message attributes
 
-There are a number of API Gateway filters that extract message attribute values (for example, **Extract Certificate Attributes**
-and **Retrieve from HTTP Header**). Using selectors to extract message attributes offers a more flexible alternative to using such filters. For more details on using selectors instead of these filters, contact Axway Support.
+There are a number of API Gateway filters that extract message attribute values (for example, **Extract Certificate Attributes** and **Retrieve from HTTP Header**). Using selectors to extract message attributes offers a more flexible alternative to using such filters. For more details on using selectors instead of these filters, contact Axway Support.

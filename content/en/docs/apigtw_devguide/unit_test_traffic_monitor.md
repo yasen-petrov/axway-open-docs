@@ -72,7 +72,7 @@ Perform the following steps to write a JUnit test for the Health Check policy fi
     }
     ```
 
-For more information on the client assertion methods, go to [API Gateway Javadoc](https://support.axway.com/htmldoc/1444954).
+For more information on the client assertion methods, go to [API Gateway Javadoc](https://support.axway.com/doc/4f0a52b8a1f1934372469892828b468a/index.html).
 
 ## Debug custom Java code with a Java debugger
 
@@ -82,7 +82,7 @@ To change the JVM settings of an API Gateway instance, follow these steps:
 
 1. Create a file called `jvm.xml` in the following location:
 
-    ```
+    ```bash
     INSTALL_DIR/apigateway/groups/GROUP_ID/INSTANCE_ID/conf
     ```
 
@@ -186,6 +186,6 @@ To output custom log4j information perform the following steps:
 
 The following is output in the API Gateway trace file:
 
-```
+```none
 <Date> <Time> [Thread-xx] DEBUG com.vordel.jabber.filter.JabberProcessor - Chat Thread ID is xxxxxx
 ```
