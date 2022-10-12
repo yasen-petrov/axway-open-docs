@@ -116,6 +116,10 @@ A new script has been added to help in creating new users in Cassandra. It is lo
 
 Setting the cache refresh interval of a LDAP authentication via Auth Repository will now disable the cache altogether. For more information, see [General settings in Policy Studio](/docs/apim_reference/general_settings/index.html)
 
+### OpenJDK JRE update to v8u345
+
+API Gateway 7.7 and API Manager 7.7 support OpenJDK JRE. This update includes Zulu OpenJDK v8u345.
+
 ## Deprecated features
 
 No features have been deprecated in this update.
@@ -146,6 +150,7 @@ This version of API Gateway and API Manager includes:
 |RDAPI-27638|01373636  01372464|CVE-2020-15250|**Issue**: A vulnerability has been found in old dependencies on nimbus-jose-jwt and json-smart. **Resolution**: Upgraded the dependencies to the latest version for json-smart and nimbus-jose-jwt.|
 |RDAPI-27710|01379534|CVE-2020-13947|**Issue**: API Gateway is delivered with ActiveMQ 5.16.0, which is vulnerable to CVEs. **Resolution**: ActiveMQ version delivered is now 5.16.5|
 |RDAPI-27711|01379534|CVE-2018-14721|**Issue**: Scans of Ehcache version 2.10.6 generates a false positive Security Vulnerability CVE-2018-14721. **Resolution**: Ehcache is now upgraded to version 2.10.9.2 to remove false positive scan results.|
+|RDAPI-28116|01393767 01406653|CVE-2018-25032 CVE-2022-21426 CVE-2022-21434 CVE-2022-21443 CVE-2022-21449 CVE-2022-21476 CVE-2022-21496 CVE-2022-21540 CVE-2022-21541 CVE-2022-21549 CVE-2022-34169|**Issue**: These CVEs were reported against JRE 8u322. **Resolution**: This release includes JRE 8u345|
 
 ### Other fixed issues
 
