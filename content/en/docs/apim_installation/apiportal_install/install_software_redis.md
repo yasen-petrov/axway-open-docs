@@ -90,9 +90,9 @@ Follow these steps to install a Redis PHP extension on CentOS 7 or RHEL 8:
 
 After you have successfully installed Redis, you must enable it in JAI:
 
-1. In the Joomla! Administrator Interface (JAI), click **System > Global Configuration**
+1. In the Joomla! Administrator Interface (JAI), click **System > Global Configuration**.
 2. Click **System** tab.
-3. On the **Cache configuration** section, set **Cache Handler** to **Redis**.
+3. On the **Cache** section, set **System Cache** to **ON-Conservative caching** and set **Cache Handler** to **Redis**.
 4. Review and update the other settings if necessary.
 5. Click **Save**.
 
