@@ -36,7 +36,7 @@ API Portal versions after [February 2022](/docs/apim_relnotes/20220228_apip_reln
 
 To upgrade from before May 2022 to API Portal latest 2022 release, follow these steps:
 
-1. Download the `APIPortal_7.7.20220530_ThirdPartyPackages.zip` upgrade package from [Axway Support](https://support.axway.com).
+1. Download the `APIPortal_7.7.20220830_ThirdPartyPackages.zip` upgrade package from [Axway Support](https://support.axway.com).
 2. If your API Portal version is lower than [February 2022](/docs/apim_relnotes/20220228_apip_relnotes/), you must first upgrade to February 2022 as described in the previous section.
 3. Create an `apiportal.ini` file with the following content:
 
