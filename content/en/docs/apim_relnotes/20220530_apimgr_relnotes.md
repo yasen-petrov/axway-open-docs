@@ -79,10 +79,12 @@ API Gateway and API Manager now support Zulu OpenJDK 1.8.0_322. This version of 
 
 The following sections describe how to enable TLS algorithms manually.
 
-* **API Gateway and API Manager**: If you wish to enable these algorithms in your API Gateway or API Manager, add the `jdk.tls.disabledAlgorithms` Java security property to the jvm.xml file as follows, where `value` contains the desired list of disabled algorithms.
+* **API Gateway and API Manager**: If you wish to enable these algorithms in your API Gateway or API Manager, add the `jdk.tls.disabledAlgorithms` Java security property to the jvm.xml file as follows, where `value` contains the desired list of disabled algorithms. For more information on the `jvm.xml` file, see [System property changes](/docs/apim_reference/system_props/).
 
   ```xml
-  <SecurityProperty name="jdk.tls.disabledAlgorithms" value="MD2, MD5, SHA1 jdkCA & usage TLSServer,RSA keySize < 1024, DSA keySize < 1024, EC keySize < 224" />
+  <SecurityProperty name="jdk.tls.disabledAlgorithms" value="jdk.tls.disabledAlgorithms=SSLv3, RC4, DES, MD5withRSA, \
+    DH keySize &lt; 1024, EC keySize &lt; 224, 3DES_EDE_CBC, anon, NULL, \
+    include jdk.disabled.namedCurves" />
   ```
 * **Policy Studio**: To enable these algorithms for Policy Studio, remove "TLSv1" and "TLSv1.1" from the `jdk.tls.disabledAlgorithms` property in the INSTALL_DIR/policystudio/jre/lib/security/java.security file.
 
