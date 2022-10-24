@@ -42,6 +42,8 @@ With ThemeMagic, you have an administrative interface for creating or modifying 
 
     ![Joomla User Interface with Purity III theme magic](/Images/APIPortal/joomlathememagic.png)
 
+    {{< alert title="Note" color="primary" >}}The **ThemeMagic** button is no longer available in API Portal versions from [May 2022](/docs/apim_relnotes/20220530_apip_relnotes/) onwards, that is, after the migration to Joomla! 4.x. For more information, see [Theme Customization in Joomla 4](#theme-customization-in-joomla-4).{{< /alert >}}
+
 4. In the ThemeMagic window, sign in to API Portal. You are now ready to start customizing your portal. ![Screenshot on ThemeMagic](/Images/APIPortal/JoomlaThemeMagiconAPIPortal.png)
 
 ### Create a new theme
@@ -99,6 +101,19 @@ The following list summarizes the replaced Purity III files:
 * `thememagic.xml` – Configuration for the ThemeMagic GUI.
 * `language/en-GB/en-GB.tpl_purity_iii.ini` – Language strings displayed in the ThemeMagic GUI. In order to be utilized by ThemeMagic, this file must be copied to Joomla!'s main language folder, `language/en-GB/en-GB.tpl_purity_iii.ini` when the API Portal plugin is installed.
 * `less/variables.less` – Global variables for the Purity III template. Default values for theming variables must be defined in this file.
+
+## Theme Customization in Joomla 4
+
+If you are using Joomla! 4.x, the **ThemeMagic** button is no longer available from the Templates screen, and you must customize a new theme as follows:
+
+1. Create a new Theme. All theme folders are located at `templates/purity_iii/less/themes/`, under the API Portal installation. The easiest way to create a new theme is by creating a copy of  `/axway` theme folder, and renaming it as, for example, `/axway_copy`.
+2. Select a new Theme. In JAI, click **Sysytem > Site Templates Styles**.
+3. Click **Purity III - style**.
+4. Select the **Theme** page, and select your newly created `axway_copy` theme from the **Theme** drop-down menu.
+
+    ![API Portal sample screen on how to save a new theme in templates](/Images/APIPortal/portal_templates.png)
+
+5. Customize your Theme. You can manually [Customize CSS styles](/docs/apim_administration/apiportal_admin/customize_css_styles/). For more information, see [T3 Framework Layout]([http://www.t3-framework.org/documentation/bs3-layout-system#about-layout](https://www.t3-framework.org/documentation/bs3-customization#theme-customization)) documentation.
 
 ## Customize your home page layout
 
