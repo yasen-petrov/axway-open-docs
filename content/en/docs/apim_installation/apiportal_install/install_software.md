@@ -95,8 +95,6 @@ You must install the EasyBlog and EasyDiscuss components.
 4. Click **Components > EasyDiscuss**, and repeat the component installation as described for EasyBlog.
 5. If a newer version is available for **EasyBlog** or **EasyDiscuss**, click **Update Now** to update the component.
 
-{{< alert title="Note" color="primary" >}} To resolve a known issue (caused by EasyBlog) with broken menu paths when creating new custom menus for your API Portal in JAI, you must rebuild the menu paths. In JAI, select **Menus > Main Menu** and click **Rebuild**. You only need to rebuild the menu paths once after installation or upgrade. {{< /alert >}}
-
 ## Uninstall API Portal software
 
 To uninstall the API Portal software:

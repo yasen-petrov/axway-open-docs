@@ -279,3 +279,11 @@ Create a new style and assign it to the Home page.
 4. Click the **Layout** tab, and select **apiportal-homepage** for **Position & Responsive Configuration**.
 5. Click the **Assignment** tab, and select only **Home**.
 6. Click **Save**, then click **Close**.
+
+## Configure terms and conditions text
+
+To modify the API Portal Terms and Conditions content, edit the following file:
+
+```NONE
+/opt/axway/apiportal/htdoc/components/com_apiportal/views/terms/tmpl/default.php
+```

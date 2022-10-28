@@ -72,12 +72,7 @@ If you have a 7.7.x API Portal installation, you can upgrade to the latest versi
 
 3. Extract the Joomla! upgrade package (for example, `joomla-update-package-3.9.14-package.zip`) from the API Portal upgrade package to your local file system.
 4. Log in to the Joomla! Administrator Interface (JAI) (`https://<API Portal host>/administrator`).
-5. Click **Components > Joomla! Update**, and click the **Upload & Update** tab. If **Joomla! Update** is not visible in the menu, connect to your user database and execute the following query for API Portal database:
-
-   ```
-   update s8f7h_menu set menutype='main' where title like 'com_joomlaupdate'
-   ```
-
+5. Click **Components > Joomla! Update**, and click the **Upload & Update** tab.
 6. Select the Joomla! upgrade package (for example, `joomla-update-package-3.9.14-package.zip`) from your file system.
 7. Click **Upload & Install**, and follow the displayed instructions.
 8. Enter the following to run the upgrade script:
@@ -155,24 +150,6 @@ After upgrade, you must reinstall Easyblog and EasyDiscuss in JAI to update the 
 5. If a newer version is available for **EasyBlog** or **EasyDiscuss**, click **Update Now** to update the component.
 
 {{< alert title="Note" color="primary" >}} To resolve a known issue (caused by EasyBlog) with broken menu paths when creating new custom menus for your API Portal in JAI, you must rebuild the menu paths. In JAI, select **Menus > Main Menu** and click **Rebuild**. You only need to rebuild the menu paths once after installation or upgrade. {{< /alert >}}
-
-### Restore footer customizations
-
-If you customized the company name in your API Portal footer using a Joomla! language override (**Extensions > Languages > Overrides** in JAI), you must perform the following steps to restore language overrides after upgrade:
-
-1. Locate the backup file `/opt/axway/apiportal/htdoc/Backups/<timestamp>/language/overrides/en-GB.override.ini` that is created during an upgrade. The timestamp corresponds to the time of the upgrade, for example, `20180613105149`.
-2. Copy the backup file to the path `/opt/axway/apiportal/htdoc/language/overrides/en-GB.override.ini`.
-
-Any customizations performed using language overrides are now restored.
-
-### Hide blog from the API Portal landing page (optional)
-
-After the upgrade, the blog is visible and accessible on the main menu on the API Portal landing page, because the EasyBlog plugin overrides permissions. If you want to hide your blog on the landing page, do the following:
-
-1. Log in to JAI.
-2. Click **Menus > Main Menu**, and select **Blog**.
-3. On the **Details** tab, set **Access** to **Registered**, and click **Save**.
-4. Refresh the API Portal landing page. Blog is no longer visible in the main menu before signing in.
 
 ### Consolidate vhosts and .htaccess files (optional)
 
