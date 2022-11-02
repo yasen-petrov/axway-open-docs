@@ -19,7 +19,7 @@ Because the `.fed` files are not separately deployed but included in the Docker 
 
 In the classic, non-containerized deployment, the topology is managed internally through an Admin Node Manager communicating with Node Managers in API Gateway nodes.
 
-However, in a container deployment the topology is externally managed. Instead of the Admin Node Manager, a cluster manager, such as Docker Swarm or Kubernetes, manages the topology and communicates directly with each API Gateway. The API Gateway Docker images do not include a Node Manager.
+However, in a container deployment the topology is externally managed. Instead of the Admin Node Manager, a cluster manager, such as Openshift or Kubernetes, manages the topology and communicates directly with each API Gateway. The API Gateway Docker images do not include a Node Manager.
 
 The following diagram shows an example of the topology in container deployment:
 
@@ -45,7 +45,7 @@ The topology includes an Admin Node Manager, but with a different role than in t
 
 ### Cluster manager
 
-A cluster manager such as Docker Swarm or Kubernetes manages the topology and adds or removes nodes as the load on the system changes:
+A cluster manager such as Openshift or Kubernetes manages the topology and adds or removes nodes as the load on the system changes:
 
 * When a node is added, the image for the new node is passed to the cluster manager that starts the required number of containers.
 * When a node is removed, the cluster manager waits for the traffic to the node to stop before removing it.

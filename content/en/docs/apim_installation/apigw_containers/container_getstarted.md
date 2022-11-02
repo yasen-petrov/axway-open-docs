@@ -180,9 +180,11 @@ When building your API Gateway or Admin Node Manager Docker images, you can spec
 
 ### How do you manage API Gateway topology
 
-In a classic deployment, topology is managed internally through an Admin Node Manager communicating with Node Managers in API Gateway nodes. In a container deployment, the topology is externally managed by a cluster manager, such as Docker Swarm or Kubernetes, and it manages the topology and communicates directly with each API Gateway.
+In a classic deployment, topology is managed internally through an Admin Node Manager communicating with Node Managers in API Gateway nodes.
 
-This means that you cannot use the `managedomain` script or the API Gateway Manager web UI to manage your topology in a container deployment. Instead, you must use an orchestration tool. For more information on Docker Swarm, see the [Getting started with swarm mode](https://docs.docker.com/engine/swarm/swarm-tutorial/) Docker documentation, or for more information on Kubernetes go to the [Kubernetes website](https://kubernetes.io/).
+In a container deployment, the topology is externally managed by a cluster manager, such as Openshift or Kubernetes, and it manages the topology and communicates directly with each API Gateway. In this case, you cannot use the `managedomain` script or the API Gateway Manager web UI to manage your topology in a container deployment. Instead, you must use an orchestration tool. For more information on Openshift, see [Openshift Platform](https://docs.openshift.com/container-platform/4.9/welcome/index.html), or for more information on Kubernetes, see [Kubernetes](https://kubernetes.io/).
+
+API Gateway, running in containers is fully supported on Openshift Container Platform (4.9) using an Axway provided Helm chart and Red Hat Universal Base Image 7 (UBI 7) based images built using the latest version of the containerization scripts.
 
 ### How do you run API Gateway administration tools or scripts
 
