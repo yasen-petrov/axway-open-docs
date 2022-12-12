@@ -12,7 +12,7 @@ This section explains the following for each data type:
 * How to configure the replication (for example, by configuring Apache Cassandra, Ehcache, or RDBMS).
 * How to install and configure API Gateway and API Manager in multiple datacenters, and how to optimize performance.
 
-For details on recommended architecture, see [Multi-datacenter deployment](/docs/apimgmt_multi_dc/#multi-datacenter-deployment).
+For details on recommended architecture, see [Multi-datacenter deployment](/docs/apimgmt_multi_dc#multi-datacenter-deployment).
 
 ## API Management configuration
 
@@ -41,7 +41,7 @@ The recommended configuration for each data type and its replication between dat
 
 ## Configure Cassandra for multiple datacenters {#cassandra_multiple}
 
-Cassandra is required to store data for API Manager and to store custom KPS tables for API Gateway. For details on the recommended Cassandra architecture, see [Multi-datacenter deployment architecture](/docs/apimgmt_multi_dc/#multi-datacenter-deployment-architecture).
+Cassandra is required to store data for API Manager and to store custom KPS tables for API Gateway. For details on the recommended Cassandra architecture, see [Multi-datacenter deployment architecture](/docs/apimgmt_multi_dc#multi-datacenter-deployment-architecture).
 
 {{< alert title="Note" color="primary" >}}You must install and configure Cassandra on each node from each datacenter installing and configuring API Gateway and API Manager.{{< /alert >}}
 

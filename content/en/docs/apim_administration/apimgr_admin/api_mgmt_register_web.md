@@ -105,7 +105,7 @@ For details on registering web services using Policy Studio, see [Register and s
 
 ## Import an existing cloud-based back-end API
 
-Before importing a cloud API, you must first ensure that the API connector and OAuth profile for the cloud API have been configured. For example, see [Configure a connector for Salesforce APIs](/docs/apim_administration/apimgr_admin/api_mgmt_connector/#configure-a-connector-for-salesforce-apis).
+Before importing a cloud API, you must first ensure that the API connector and OAuth profile for the cloud API have been configured. For example, see [Configure a connector for Salesforce APIs](/docs/apim_administration/apimgr_admin/api_mgmt_connector#configure-a-connector-for-salesforce-apis).
 
 To import a cloud-based back-end API for existing cloud-based APIs in API Manager:
 
@@ -198,8 +198,10 @@ When you have registered the back-end API, you can select it from the list of re
 
 * **Delete**: Deletes the selected API(s) registered in the **API Registration** > **Backend API** view. You can delete APIs created as front-end APIs in the **Frontend API** view.
 * **Clone API**: Creates a copy of the selected REST API, which you can then edit as required. You cannot clone a back-end API imported from a WSDL-based web service.
+
+    After an API is cloned, if you subsequently delete the original back-end API, the **Download original API definition** option is no longer enabled (for the clone) because the original API definition no longer exists.
 * **Export API**: Exports a copy of the selected back-end API (in `.json` format). You can then import this into another API Manager environment as a back-end API.
-* **Download original API description**: For APIs imported from Swagger or WADL definitions, downloads a copy of the original REST API definition.
+* **Download original API definition**: For APIs imported from Swagger or WADL definitions, downloads a copy of the original REST API definition.
 
 {{< alert title="Tip" color="primary" >}}The API Admin can configure all back-end APIs to be editable by default using the **Allow users to modify Backend APIs** option in **API Manager settings** {{< /alert >}}
 

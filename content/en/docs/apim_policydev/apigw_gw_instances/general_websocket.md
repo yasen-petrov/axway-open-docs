@@ -72,11 +72,11 @@ This is the absolute time for the connection to be active. For example, if this 
 
 #### Advanced settings
 
-For details on the fields on this tab, see [Advanced settings](/docs/apim_policydev/apigw_gw_instances/general_relative_path/#advanced-settings).
+For details on the fields on this tab, see [Advanced settings](/docs/apim_policydev/apigw_gw_instances/general_relative_path#advanced-settings).
 
 #### CORS settings
 
-For details on the fields on this tab, see [CORS settings](/docs/apim_policydev/apigw_gw_instances/general_relative_path/#cors-settings).
+For details on the fields on this tab, see [CORS settings](/docs/apim_policydev/apigw_gw_instances/general_relative_path#cors-settings).
 
 ## Monitor a WebSocket connection
 

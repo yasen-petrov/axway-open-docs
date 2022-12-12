@@ -11,7 +11,7 @@ description: Learn about the different types of logs that API Portal creates,
 API Portal includes several log files, which hold different data:
 
 * `com_apiportal.access.log` - Contains records related to the access to API Portal, for example, successful logins and logouts from the system.
-* `com_apiportal.api.log` - Contains all debug data. When the [debug mode is enabled through JAI](/docs/apim_installation/apiportal_install/secure_harden_portal/#configure-joomla-administrator-interface-jai), all requests and responses can be reviewed under this file.
+* `com_apiportal.api.log` - Contains all debug data. When the [debug mode is enabled through JAI](/docs/apim_installation/apiportal_install/secure_harden_portal#configure-joomla-administrator-interface-jai), all requests and responses can be reviewed under this file.
 * `com_apiportal.error.log` - Whenever an exception is caught, it is logged in this file.
 * `com_apiportal.txt` - Contains logs generated during the installation or upgrade of API Portal.
 
@@ -39,4 +39,4 @@ This approach ensures that you can detect and prevent tampering.
 
 ## Logging and error reporting files
 
-For more information on the troubleshooting logs of API Portal see the [Troubleshooting API Portal](/docs/apim_administration/apiportal_admin/troubleshooting/#logging-and-error-reporting).
+For more information on the troubleshooting logs of API Portal see the [Troubleshooting API Portal](/docs/apim_administration/apiportal_admin/troubleshooting#logging-and-error-reporting).

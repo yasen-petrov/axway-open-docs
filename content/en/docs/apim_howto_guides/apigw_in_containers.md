@@ -69,7 +69,7 @@ Download the following complete example files to learn which folders you can rem
 * [`anm-dockerfile`](/samples/apimanagement/howto/docker/anm-dockerfile)
 * [`gw-dockerfile`](/samples/apimanagement/howto/docker/gw-dockerfile)
 
-## Set locale environment variables
+## Set local environment variables
 
 The API Gateway Docker image is automatically created with the `LANG` environment variable set to `en_US.UTF-8`. This is required to handle Unicode-named files that might be in use in your configuration (`fed` files). If needed, this environment variable can be manually overridden in two ways:
 

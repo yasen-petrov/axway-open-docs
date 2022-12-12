@@ -124,7 +124,7 @@ path[2] = "book repo"
 path[3] = "first book.pdf"
 ```
 
-{{< alert title="Note" color="primary" >}}For APIs virtualized in API Manager, any parameters not declared in the API method will be consumed and will not get passed to any API Gateway policies that are invoked. For more information, see [Create REST API methods](/docs/apim_administration/apimgr_admin/api_mgmt_register_web/#create-rest-api-methods).
+{{< alert title="Note" color="primary" >}}For APIs virtualized in API Manager, any parameters not declared in the API method will be consumed and will not get passed to any API Gateway policies that are invoked. For more information, see [Create REST API methods](/docs/apim_administration/apimgr_admin/api_mgmt_register_web#create-rest-api-methods).
 {{< /alert >}}
 
 ## Extract WSS header filter
@@ -181,7 +181,7 @@ A HTTP cookie is data sent by a server in an HTTP response to a client. The clie
 
 The **Get Cookie** filter is used to read the `Cookie` and `Set-Cookie` HTTP headers. The `Cookie` header is used when a client sends a cookie to a server. The `Set-Cookie` header is used when the server instructs the client to store a cookie.
 
-For more details, see [Create cookie](/docs/apim_policydev/apigw_polref/conversion_additional/#create-cookie-filter).
+For more details, see [Create cookie](/docs/apim_policydev/apigw_polref/conversion_additional#create-cookie-filter).
 
 ### Configure get cookie
 

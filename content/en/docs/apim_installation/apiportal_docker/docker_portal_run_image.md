@@ -14,7 +14,7 @@ The following components are required on your system before you can deploy API 
 
 * [Docker engine](https://docs.docker.com/engine/).
 * MySQL server.
-* API Portal Docker image, available from [Axway Support](https://support.axway.com/en/search/index/type/Downloads/q/API%20Portal%20/ipp/10/product/545/version/3036/subtype/89).
+* API Portal Docker image, available from [Axway Repository](https://repository.axway.com).
 
 Optional components:
 
@@ -26,31 +26,47 @@ The monitoring feature of API Portal, which enables your API consumers to monit
 
 ## Run a Docker container using the image
 
-1. Download the API Portal Docker image from [Axway Support](https://support.axway.com/en/search/index/type/Downloads/q/API%20Portal%20/ipp/10/product/545/version/3036/subtype/89).
-2. Upload the file to your Docker host machine.
-3. Enter the following command to load the image:
+To get the ready-made Docker image, login to [Axway Repository](https://repository.axway.com/catalog?products=a1Ew000000N241BEAR&artifactType=DockerImage) and click the desired file. Then, follow these steps to install the image:
 
-   ```
-   docker load -i APIPortal_7.7_Docker_Image_linux-x86-64_<build number>.tgz
-   ```
-4. Run the API Portal Docker container, for example:
+1. Download a Docker image:
 
-   ```
-   docker container run --name apiportal \
-     -d -p 8080:80 \
-     -e MYSQL_HOST=mysql.axway.com \
-     -e MYSQL_PORT=3306 \
-     -e MYSQL_DATABASE=joomla \
-     -e MYSQL_USER=joomla \
-     -e MYSQL_PASSWORD=XXXXX \
-     apiportal:7.7
-   ```
+    * Using Docker native client commands.
 
-   This example performs the following:
+      This option requires a [Service Account](https://docs.axway.com/bundle/axwaycli-open-docs/page/docs/authentication/service_accounts/index.html) in Axway Platform with access to this artifact.
 
-   * Runs an API Portal Docker container from an image named `apiportal`:`7.7` in detached mode.
-   * Sets environment variables for connecting to the MySQL server.
-   * Binds port 80 of the container to port 8080 on the host machine.
+      ```bash
+      docker login docker.repository.axway.com --username <ServiceAccount_client_id> --password <ServiceAccountclient_secret>
+      docker pull docker.repository.axway.com/apiportal-docker-prod/7.7/apiportal:7.7.20220830-BN903
+      ```
+
+    * Using Axway CLI, Execute the following commands to authenticate and download Docker:
+
+      This option requires the [Axway CLI](https://docs.axway.com/bundle/axwaycli-open-docs/page/docs/index.html) and [Axway Repository CLI extension](https://docs.axway.com/bundle/axwaycli-open-docs/page/docs/extensions/axway_repository_cli/index.html) installed to be able to manage Docker images, Helm charts, and files stored in the Axway Central Repository.
+
+      ```bash
+      axway auth login
+      axway repository docker register
+      axway repository docker pull docker.repository.axway.com/apiportal-docker-prod/7.7/apiportal:7.7.20220830-BN903
+      ```
+
+2. Run the API Portal Docker container, for example:
+
+    ```bash
+    docker run --name apiportal \
+      -d -p 8080:80 \
+      -e MYSQL_HOST=mysql.axway.com \
+      -e MYSQL_PORT=3306 \
+      -e MYSQL_DATABASE=joomla \
+      -e MYSQL_USER=joomla \
+      -e MYSQL_PASSWORD=XXXXX \
+      docker.repository.axway.com/apiportal-docker-prod/7.7/apiportal:7.7.20220830-BN903
+    ```
+  
+    This example performs the following:
+
+    * Runs an API Portal Docker container from an image named `apiportal`:`7.7.20220830-BN903` in detached mode.
+    * Sets environment variables for connecting to the MySQL server.
+    * Binds port 80 of the container to port 8080 on the host machine.
 
 API Portal is now running in a Docker container.
 
@@ -66,13 +82,13 @@ API Portal Docker container exposes Apache ports `80` and `443`. Port `443` is u
 
 To get help with the Docker image, run the following command:
 
-```
+```bash
 docker container run --rm <apiportal-image-tag> --help
 ```
 
 To list the environment variables available in the Docker image, run the following command:
 
-```
+```bash
 docker container run --rm <apiportal-image-tag> --env
 ```
 
@@ -82,7 +98,7 @@ API Portal container supports a wide range of environment variables that allows 
 
 The following is an example that you can copy and paste to an `env` file, then edit the values and use the `env` file with `docker run` command:
 
-```
+```none
 ##### NOTE #####
 # Boolean environment variables can take a value of 0 or 1.
 # `*_CONFIGURED` and `*_ON` variables are boolean.
@@ -256,6 +272,13 @@ API_WHITELIST_CONFIGURED=0
 API_WHITELIST=
 
 #####
+# For reference see "Secure API Portal"
+# page in API Portal docs
+#####
+SESSION_HIJACK_PREVENTION_CONFIGURED=0
+SESSION_HIJACK_PREVENTION_ENABLED=1
+
+#####
 # JAI admin management.
 # Works only at first run.
 #####
@@ -293,7 +316,7 @@ REDIS_CACHE_TIMEOUT_SEC=600
 
 The following is an example of how to use the `env` file with `docker run` command:
 
-```
+```bash
 docker container run --env-file .env \
   -e MYSQL_PASSWORD=very_secret_password \
   -e APACHE_SSL_PRIVATE_KEY="$(cat ~/certs/apiportal.key)" \
@@ -308,7 +331,7 @@ Besides configuring certificates with environment variables, alternatively you c
 
 Certificate files are placed in the following locations inside the container:
 
-```
+```none
 /opt/axway/apiportal/certs/
 ├── apache/
 │   ├── apache.crt
@@ -335,7 +358,7 @@ docker container run <some-options> \
 
 You can mix certificates in mounted files and environment variables, but note that values from mounted certificate files override the ones from environment variables.
 
-```
+```none
 docker container run <some-options> \
   -e APACHE_SSL_ON=1 \
   -e APACHE_SSL_CERT="base64:$(cat ~/certs/apiportal.crt)" \
@@ -345,7 +368,7 @@ docker container run <some-options> \
 
 You can simplify the process by creating the following file structure under a directory of your choice, for example `${HOME}/certs`:
 
-```
+```none
 ${HOME}/certs/
 ├── apache/
 │   ├── apache.crt
@@ -358,7 +381,7 @@ ${HOME}/certs/
 
 Ensure that you named the files exactly as they are expected inside the container. Then, you can configure the container using certificates by mounting the whole `"${HOME}/certs` directory:
 
-```
+```bash
 docker container run <some-options> \
   -e APACHE_SSL_ON=1 -e MYSQL_SSL_ON=1 \
   -v "${HOME}/certs":/opt/axway/apiportal/certs:ro \
@@ -393,7 +416,7 @@ Do not modify the content of the following folders because they will be overwrit
 
 The following is an example of how you can create data volumes:
 
-```
+```bash
 # create volumes
 docker volume create apiportal-etc
 docker volume create apiportal-enckey
@@ -421,5 +444,5 @@ As API Portal container runs as a non-root user. You must ensure that mounted di
 
 ## RHEL API Portal software installation versus API Portal running in a docker container
 
-* [Elasticsearch scheduling](/docs/apim_installation/apiportal_install/install_software_elastic/#configure-a-schedule-to-push-data-to-elasticsearch) - API Portal software installation accepts non-standard cron expression syntax if the expression is supported by the cron version installed on the server, whereas in the Docker image only standard syntax is supported. For example, values like `@daily` or `@reboot` are not allowed.
-* [Public API Mode](/docs/apim_administration/apiportal_admin/public_api_configure) - In API Portal software installations, an encryption key directory must be generated with `apiportal_encryption.sh` script or with an option in API Portal installer to enable the Public API Mode feature, whereas the Docker image include pre-generated encryption directory (For more information, see [Create data volumes to persist data](#create-data-volumes-to-persist-data) section).
+* [Elasticsearch scheduling](/docs/apim_installation/apiportal_install/install_software_elastic#configure-a-schedule-to-push-data-to-elasticsearch) - API Portal software installation accepts non-standard cron expression syntax if the expression is supported by the cron version installed on the server, whereas in the Docker image only standard syntax is supported. For example, values like `@daily` or `@reboot` are not allowed.
+* [Public API Mode](/docs/apim_administration/apiportal_admin/public_api_configure) - In API Portal software installations, an encryption key directory must be generated with `apiportal_encryption.sh` script or with an option in API Portal installer to enable the Public API Mode feature, whereas the Docker image include pre-generated encryption directory. For more information, see [Create data volumes to persist data](#create-data-volumes-to-persist-data) section.

@@ -47,7 +47,7 @@ ${level} ${timestamp} ${id} ${text} ${filterType} ${filterName}
 The available logging properties are described as follows:
 
 * `level`: The log level (`fatal` , `fail`, `success`).
-* `timestamp`: The time that the message was processed in user-readable form. For more details, see **Date format** in [General settings](/docs/apim_reference/general_settings/#general-settings).
+* `timestamp`: The time that the message was processed in user-readable form. For more details, see **Date format** in [General settings](/docs/apim_reference/general_settings#general-settings).
 * `id`: The unique transaction ID assigned to the message.
 * `text`: The text of the log message that was configured in the filter itself. In the case of the **Log Message Payload** filter, the `${payload}` selector contains the message that was sent by the client.
 * `filterName`: The name of the filter that generated the log message.
@@ -474,7 +474,7 @@ The following example shows the JSON format used for an HTTP `transaction` event
 
 In this example, the `legs` data is based on traffic monitoring. `Leg 0` is always the inbound transaction, and its `duration` value is the overall transaction duration observed by API Gateway. Subsequent `legs` are outbound calls, so their `duration` value represents the back-end transactions observed by API Gateway.
 
-The back-end duration for `leg 1` to `leg n`, typically from a [Connect To URL](/docs/apim_policydev/apigw_polref/routing_common/#connect-to-url-filter) filter, only includes the time taken for API Gateway to receive the response headers, and not the entire body. For this reason, API Gateway cannot accurately measure the time from the back-end `leg` `durations`, because the reply bodies can be received in the background.
+The back-end duration for `leg 1` to `leg n`, typically from a [Connect To URL](/docs/apim_policydev/apigw_polref/routing_common#connect-to-url-filter) filter, only includes the time taken for API Gateway to receive the response headers, and not the entire body. For this reason, API Gateway cannot accurately measure the time from the back-end `leg` `durations`, because the reply bodies can be received in the background.
 
 At this point, **Connect to URL** has an HTTP status and a filter return value so that it can move onto the next filter in the the circuit chain. The next filter, though, might need to wait until the entire body has been received before it can proceed.
 
@@ -482,7 +482,7 @@ The service context is an abstract concept, and the `duration` at this level mea
 
 The top-level transaction `duration` is obtained separately, but should be similar to the `leg 0` value.
 
-For more information about transactions and legs, see [Introduction to transactions and legs in API Gateway](/docs/apim_administration/apigtw_admin/admin_open_logging/#introduction-to-transactions-and-legs).
+For more information about transactions and legs, see [Introduction to transactions and legs in API Gateway](/docs/apim_administration/apigtw_admin/admin_open_logging#introduction-to-transactions-and-legs).
 
 ### Event log alert entries
 

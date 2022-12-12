@@ -132,7 +132,7 @@ When you enable response validation, the following time validation logic is appl
 
 You can configure the settings for routing the OCSP request to the OCSP responder on the **Routing** tab.
 
-You can configure SSL settings, credential profiles for authentication, and other settings for the connection using the **SSL**, **Authentication**, and **Settings** tabs. For more details, see [Connect to URL](/docs/apim_policydev/apigw_polref/routing_common/#connect-to-url-filter).
+You can configure SSL settings, credential profiles for authentication, and other settings for the connection using the **SSL**, **Authentication**, and **Settings** tabs. For more details, see [Connect to URL](/docs/apim_policydev/apigw_polref/routing_common#connect-to-url-filter).
 
 ### Configure OCSP advanced settings
 

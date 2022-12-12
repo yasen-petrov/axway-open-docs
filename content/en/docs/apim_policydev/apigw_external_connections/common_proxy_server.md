@@ -29,4 +29,4 @@ node, and select **Add a Proxy Server**. You can configure the following setting
 | **Scheme**           | Specifies whether the proxy server uses the HTTP or HTTPS transport. Defaults to HTTP. |
 
 {{< alert title="Tip" color="primary" >}}These proxy server settings are different from the global proxy settings in the **Preferences**
-dialog in Policy Studio, which apply only when downloading WSDL, XSD, and XSLT files from Policy Studio. For more details, see [Proxy settings](/docs/apim_policydev/apigw_poldev/general_ps_settings/#proxy-settings).{{< /alert >}}
+dialog in Policy Studio, which apply only when downloading WSDL, XSD, and XSLT files from Policy Studio. For more details, see [Proxy settings](/docs/apim_policydev/apigw_poldev/general_ps_settings#proxy-settings).{{< /alert >}}

@@ -25,9 +25,7 @@ This section explains how to monitor example services using the API Gateway Mana
 ### View real-time monitoring
 
 You can view a wide range of monitoring data in the API Gateway Manager. For example, this includes message status, message traffic, filter execution path, message content, system, services, and remote hosts. You can view real-time traffic monitoring summary data on the main **Dashboard**
-tab in the **TRAFFIC** section. The following example shows the number of messages that have been passed by the API Gateway on to a service:
-
-![Real-time monitoring](/Images/APIGateway/rt_monitoring.gif)
+tab in the **TRAFFIC** section.
 
 Each time you send messages through the API Gateway to a service, the message status is displayed in the **TRAFFIC** section.
 
@@ -40,15 +38,13 @@ view provides a web-based message log of the HTTP, HTTPS, JMS, and FTP traffic p
 * Drill down to view message contents
 * View performance statistics (for example, number of requests, average bytes sent, or average duration)
 
-For example, you can click the **Traffic** button in the API Gateway Manager to view summary information for each message sent to the API Gateway. Alternatively, you can click one of the summary charts displayed on the **Dashboard** (for example, **Messages passed** or **Messages failed**). This displays the message traffic automatically filtered according to your selection.
-
-The following example shows the details displayed on the **Traffic** tab for **Messages passed** by the API Gateway:
-
-![Message monitoring](/Images/APIGateway/message_monitoring.png)
+For example, you can click the **Traffic** button in the API Gateway Manager to view summary information for each message sent to the API Gateway. Alternatively, you can click one of the summary charts displayed on the **Dashboard**; **Passed**, **Blocked** or **Exceptions**. This displays the message traffic automatically filtered according to your selection.
 
 **Filter message traffic**:
 
 In the **SELECTION** pane on the left of the **Traffic** tab, click the **Apply** button to filter the messages based on default criteria such as **REQUEST FROM**(Client or API Gateway), **MAX RESULTS PER SERVER**, **TRANSACTION STATUS**, and **TIME INTERVAL**.
+
+{{< alert title="Note" color="primary" >}}When the **Transaction Status** filter is set to **Block**, it also matches transactions blocked by threat protection on request in order to maintain consistency between what appears on the **Blocked** widget and what is shown when redirected from the widget to Traffic Monitor.{{< /alert >}}
 
 Click **Add Filter** to define your own filter criteria (for example, Service Name, Remote Host, Authentication Subject, Transaction ID, and Operation).
 
@@ -64,21 +60,13 @@ Both fields are case-sensitive.
 
 ### View message content
 
-When you click a selected message listed on the **Traffic** tab, this displays the message filter execution path and the contents of each request message and response message. The following example displays the message path for a simple Google Search message:
-
-![Message path](/Images/APIGateway/message_path.gif)
-
-The following example shows the corresponding message content for the selected message displayed below:
-
-![Message content](/Images/APIGateway/message_content.gif)
+When you click a selected message listed on the **Traffic** tab, this displays the message filter execution path and the contents of each request message and response message.
 
 Click **Save Request** or **Save Response** to download the message contents and save them to a file.
 
 ### View performance statistics
 
-The **Performance** tab displays performance statistics for the HTTP and HTTPS traffic processed by the API Gateway. For example, these include the number of requests, average bytes sent, and average duration:
-
-![Performance statistics](/Images/APIGateway/message_traffic_perf.gif)
+The **Performance** tab displays performance statistics for the HTTP and HTTPS traffic processed by the API Gateway. These include the number of requests, average bytes sent, and average duration.
 
 ### Filter performance statistics
 
@@ -86,13 +74,9 @@ Click the **Apply** in the left pane to filter the performance statistics displa
 
 ### Detect malformed messages
 
-Messages with malformed content or an incorrect relative path are blocked by the API Gateway and displayed on the **Dashboard** tab in the **TRAFFIC** section as follows:
+Messages with malformed content or an incorrect relative path are blocked by the API Gateway and displayed on the **Dashboard** tab in the **TRAFFIC** section.
 
-![Message blocked](/Images/APIGateway/blocked_message.gif)
-
-Click the chart to display the list of blocked messages automatically filtered on the **Traffic** tab. Click a message in the list to display the filter execution path and message content. The following example shows the execution path of a malformed message that has been blocked by the API Gateway:
-
-![Message blocked](/Images/APIGateway/blocked_message_path.gif)
+Click the chart to display the list of blocked messages automatically filtered on the **Traffic** tab. Click a message in the list to display the filter execution path and message content.
 
 {{< alert title="Note" color="primary" >}}When a blocked message has failed in the gateway, this means that a filter executed in a policy has returned a failure status. When a blocked message generates an exception, this means that a filter executed in a policy has aborted (thrown an exception).{{< /alert >}}
 

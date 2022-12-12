@@ -40,7 +40,7 @@ On the host machines running the Docker containers, you can expose any port you 
 
 ## API Portal resources
 
-Axway provides a package containing a ready-made API Portal Docker image for running API Portal in Docker. You can get the API Portal packages from [Axway Support](https://support.axway.com).
+Axway provides a package containing a ready-made API Portal Docker image for running API Portal in Docker. You can get the API Portal packages from [Axway Repository](https://repository.axway.com).
 
 ## Data persistence
 
@@ -53,4 +53,4 @@ Data is persistent as long as the Docker container exists:
 
 ## Non-root user
 
-By default, API Portal container runs as a non-root container, which makes containers more secure but results in some volumes-related issues. For more information, see the [data persistence](/docs/apim_installation/apiportal_docker/docker_portal_run_image/#create-data-volumes-to-persist-data) section.
+By default, API Portal container runs as a non-root container, which makes containers more secure but results in some volumes-related issues. For more information, see the [data persistence](/docs/apim_installation/apiportal_docker/docker_portal_run_image#create-data-volumes-to-persist-data) section.

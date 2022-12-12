@@ -49,7 +49,7 @@ To change the settings:
 
 ## Customize page title and summary
 
-You can customize the API Catalog page title and summary text. For details, see [Additional customizations](/docs/apim_administration/apiportal_admin/customize_page_content/#customize-page-title-and-summary).
+You can customize the API Catalog page title and summary text. For details, see [Additional customizations](/docs/apim_administration/apiportal_admin/customize_page_content#customize-page-title-and-summary).
 
 ## Group APIs with tags
 
@@ -69,7 +69,7 @@ To create a dedicated API Catalog for a subset of tagged APIs, do the following:
    * To access all your API Catalogs under the **APIs** menu item rather than additional menu items, set **Parent Item** to **APIs**.
 7. On the **API Catalog** tab, in the **Show APIs with tags**, enter the tags to include in this API Catalog.
 8. On the **API Catalog** tab, in the **Do not show APIs with tags**, enter the tags to exclude in this API Catalog.
-9. On the **Page Display** tab, you can change the page title and summary text. For more details, see [Customize page title and summary](/docs/apim_administration/apiportal_admin/customize_page_content/#customize-page-title-and-summary).
+9. On the **Page Display** tab, you can change the page title and summary text. For more details, see [Customize page title and summary](/docs/apim_administration/apiportal_admin/customize_page_content#customize-page-title-and-summary).
 10. Click **Save & Close**.
 
 Your themed API Catalog is now ready, and you can see it in your API Portal.

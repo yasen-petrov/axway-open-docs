@@ -12,7 +12,7 @@ You can find the signatures, which are files with the same name as the original 
 
 ## Prerequisites
 
-* You have downloaded the [required file](/docs/apim_installation/apigtw_install/installation/#prerequisites) and its related `.asc` signature file from [Axway Support](https://support.axway.com).
+* You have downloaded the [required file](/docs/apim_installation/apigtw_install/installation#prerequisites) and its related `.asc` signature file from [Axway Support](https://support.axway.com).
 * You have downloaded the public PGP key file (`axwaypgp.asc`) from [Axway Support](https://support.axway.com).
 * A tool to verify PGP signature is installed.
 

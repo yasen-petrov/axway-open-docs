@@ -117,7 +117,7 @@ This example performs the following:
 * Starts an API Gateway Analytics container named `analytics` from an image named `apigw-analytics:1.0`. You must specify the name of the API Gateway Analytics Docker image that you created in [Create an API Gateway Analytics Docker image](#create-an-api-gateway-analytics-docker-image).
 * Binds the port 8040 of the container to port `8040` on the host machine. This enables you to access the API Gateway Analytics web UI on port `8040` of your host machine.
 * Mounts the host directory `/tmp/reports` inside the container to store API Gateway Analytics reports.
-* Uses environment variables to specify connection details for the metrics database. The metrics database must be running as detailed in [Start external data stores](/docs/apim_installation/apigw_containers/docker_scripts_prereqs/#start-external-data-stores).
+* Uses environment variables to specify connection details for the metrics database. The metrics database must be running as detailed in [Start external data stores](/docs/apim_installation/apigw_containers/docker_scripts_prereqs#start-external-data-stores).
 * Sets the `ACCEPT_GENERAL_CONDITIONS` environment variable to `yes` to acknowledge that you have accepted [Axway License, Support, and Service Agreement](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf).
 
 To run the container in the background, use the `-d` option, for example:

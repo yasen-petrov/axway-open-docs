@@ -40,6 +40,34 @@ When you have first registered a back-end REST API in API Manager, you can then 
 
 {{< alert title="Note" color="primary" >}}If the virtualized API is not a Swagger 2.0-compatible REST API, API Manager displays a message that Swagger download will not be available in the **API Catalog**.{{< /alert >}}
 
+### Export Swagger 2.0 with multiple traffic ports
+
+When exporting Swagger 2.0 from API Manager Catalog with multiple traffic ports defined, if you try to subsequently reimport the generated document into another API Manager, the back-end URLs (HTTP and HTTPS) are correctly generated, but the port will be incorrect for one of the URLs. This issue is caused by an inherent flaw in Swagger 2.0 as it only permits one host to be specified. At export time, API Manager takes the first SSL-based basePath, if one exists, from the list of available basePaths (`host:port`) and applies that to the `$.host` field in the resultant Swagger 2.0 definition.
+
+For example, if an HTTPS traffic port of `8065` and an HTTP traffic port of `8066` are configured, and the host IP address is `127.0.0.1`, then the generated Swagger 2.0 definition will look like this:
+
+```json
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "",
+    "version" : "1.0.3",
+    "title" : "Test API"
+  },
+  "host" : "127.0.0.1:8065",
+  "basePath" : "/api",
+  "schemes" : [ "https", "http" ],
+  "paths" : {...}
+}
+```
+
+Note that the `$.host` field specifies a port of `8065`. Importing this definition back into API Manager will result in the following back-end URLs, with the HTTP port being incorrect:
+
+* `https://127.0.0.1:8065/api`
+* `http://127.0.0.1:8065/api`
+
+The recommendation is to use OpenAPI, which has the ability to specify multiple back-end hosts. For more information, see [OpenAPI Specification, Server Object](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#serverObject).
+
 ## Import a previously exported API
 
 Alternatively, you can virtualize an existing API by importing a previously exported front-end API (for example, from another API Manager environment). For details on how to export APIs, see [Manage the front-end REST API lifecycle.](#manage-front-end-rest-api-lifecycle)
@@ -94,6 +122,18 @@ Configure the following to enable access to the API using an Amazon Web Services
 
 **Remove credentials on success**: Select whether to remove the user credentials from the message after successful authentication. This is selected by default. If you disable this option, an inbound request authorization header is forwarded to the back-end. To use another authentication and authorization mechanism to secure the connection to the back-end, you must remove the inbound authorization header using a custom routing policy.
 
+The signing algorithm used by this device as part of the verification step is **Amazon S3 version 2**. The expected format of the Authorization header is as follows:
+
+```
+"Authorization: AWS " + AWSAccessKeyId + ":" Signature
+```
+
+where `Signature` is calculated as:
+
+```
+base64(hmac-sha1(VERB + "\n" + CONTENT-MD5 + "\n" + CONTENT-TYPE + "\n" + DATE + "\n" + CanonicalizedAmzHeaders + "\n" + CanonicalizedResource))
+```
+
 #### AWS Signing (Query String)
 
 Configure the following to enable access to the API using an Amazon Web Services query string:
@@ -101,6 +141,18 @@ Configure the following to enable access to the API using an Amazon Web Services
 **Name**: Enter a required name for the device. Defaults to `AWS Signing Device (Query String)`.
 
 **API key field name**: Enter a required name of the query-string parameter used to store the API key field in the inbound request. Defaults to `AWSAccessKeyId`.
+
+The signing algorithm used by this device as part of the verification step is **Amazon S3 version 2**. The expected format of the request is as follows:
+
+```
+VERB /path?Signature=<generated-signature>&Expires=<seconds-since-epoch>&AWSAccessKeyId=<aws-id>
+```
+
+where `Signature` is calculated as:
+
+```
+urlencode(base64(hmac-sha1(VERB + "\n" + CONTENT-MD5 + "\n" + CONTENT-TYPE + "\n" + Expires + "\n" + CanonicalizedAmzHeaders + "\n" + CanonicalizedResource)))
+```
 
 #### HTTP Basic
 
@@ -147,7 +199,7 @@ Configure the following to enable OAuth authorization for access tokens issued b
 
 **Scopes must match**: Select whether the OAuth scopes match `Any` or `All` of the OAuth scopes configured in the next field. OAuth scopes are used to control how access tokens are accepted.
 
-**Scopes**: Enter a comma-separated list of scopes used to manage how access tokens are accepted. In addition, these tokens are used as default scopes for applications that use this API and do not send the `scope` parameter in the access token request. You can also configure additional default scopes for an application if enabled in **Settings > API Manager Settings > General settings > Enable application scopes**. For details, see [API Manager settings](/docs/apim_reference/api_mgmt_config_web/#api-manager-settings). Defaults to `resource.WRITE, resource.READ`.
+**Scopes**: Enter a comma-separated list of scopes used to manage how access tokens are accepted. In addition, these tokens are used as default scopes for applications that use this API and do not send the `scope` parameter in the access token request. You can also configure additional default scopes for an application if enabled in **Settings > API Manager Settings > General settings > Enable application scopes**. For details, see [API Manager settings](/docs/apim_reference/api_mgmt_config_web#api-manager-settings). Defaults to `resource.WRITE, resource.READ`.
 
 **Remove credentials on success**: Select whether to remove the user credentials from the message after successful authentication. This is selected by default. If you disable this option, an inbound request authorization header is forwarded to the back-end. To use another authentication and authorization mechanism to secure the connection to the back-end, you must remove the inbound authorization header using a custom routing policy.
 
@@ -231,7 +283,7 @@ To enable two-way (mutual) SSL authentication, the client must supply a certific
 
 Before you can configure an API to use two-way SSL you must first configure the API Manager traffic port (default 8065) to accept and trust client certificates issued by the server CA. API Manager ignores client certificates by default, but when you configure API Manager to accept them, clients have the option during the SSL handshake to send their client certificate, which is then used by API Manager to validate access.
 
-For details on how to configure mutual authentication and accepting client certificates, see [Mutual Authentication settings](/docs/apim_policydev/apigw_gw_instances/general_services/#mutual-authentication-settings).
+For details on how to configure mutual authentication and accepting client certificates, see [Mutual Authentication settings](/docs/apim_policydev/apigw_gw_instances/general_services#mutual-authentication-settings).
 
 {{< alert title="Note" color="primary" >}}You must not _require_ client certificates, as this would mean that all clients for all APIs must provide a client certificate. Clients who do not provide a client certificate are rejected during the SSL handshake and are unable to access your APIs.{{< /alert >}}
 
@@ -247,7 +299,7 @@ Configure the following settings:
 
 **Monitor API usage**: Select whether to enable monitoring metrics for the REST API in the **Monitoring > API Usage** view.
 
-**Query String Pass Through**: Select whether to enable this setting for the REST API. When enabled, query parameters are sent unmodified to the back-end service. This is a per API implementation of the global system property [`api.manager.querystring.passthrough`](/docs/apim_reference/system_props/#753).
+**Query String Pass Through**: Select whether to enable this setting for the REST API. When enabled, query parameters are sent unmodified to the back-end service. This is a per API implementation of the global system property [`api.manager.querystring.passthrough`](/docs/apim_reference/system_props#753).
 
 **Enable CORS from all domains**: Select whether to enable Cross Origin Resource Sharing (CORS) from all domains. When enabled, this means that requests to this API are allowed from all domains (which corresponds to a CORS setting of `*`). To add more advanced CORS configuration (for example, allowed or exposed headers), disable this setting, and add a specific CORS profile for this API. For more details, see [Configure CORS profiles](#configure-cors-profiles).
 
@@ -486,12 +538,15 @@ When you have registered the back-end REST API, you can select it in the list of
 
 ### Encryption of exported API collections
 
-In earlier API Manager versions, you could export API collections as a plaintext file. Now, by default, you can no longer export API collections as plaintext. You must supply a password and the generated file is encrypted. If you wish to generate a plaintext export file, the administrator must add the following lines towards the start of `INSTALL_DIR/apigateway/webapps/apiportal/vordel/apiportal/app/app.config` (for example, before the `nodemanager` setting):
+In earlier API Manager versions, you could export API collections as a plain text file. Now, by default, to export API collections as plain text you must supply a password so that the generated file is encrypted.
 
-```
+If you wish to generate a plain text export file, the administrator must add the following lines towards the start of the `INSTALL_DIR/apigateway/webapps/apiportal/vordel/apiportal/app/app.config` file, for example, before the `nodemanager` setting:
+
+```bash
 /* Flag to determine if API collections can be exported as clear text:
  - Set to false if API export as clear text is not allowed (exported file is always encrypted)
  - Set to true if API export as clear text is allowed (you can choose to encrypt the file or not)*/
+
 allowAPIExportAsClearText: true,
 ```
 
@@ -538,7 +593,7 @@ You can grant or revoke access to your APIs, as well as you can view a list of t
 
 ### Grant access to an API
 
-Both API Admins and Org Admins can grant API access to organizations. After access has been granted to an API, it can then be used in any application within the organization, but the Org Admin still needs access to all the organizations and proxies to be able to manage the API. For more information on how to enable API management access to Org Admins, see [Organization administrator](/docs/api_mgmt_overview/key_concepts/api_mgmt_orgs_roles/#organizationadministrator).
+Both API Admins and Org Admins can grant API access to organizations. After access has been granted to an API, it can then be used in any application within the organization, but the Org Admin still needs access to all the organizations and proxies to be able to manage the API. For more information on how to enable API management access to Org Admins, see [Organization administrator](/docs/api_mgmt_overview/key_concepts/api_mgmt_orgs_roles#organizationadministrator).
 
 To grant access to an API, perform the following steps:
 

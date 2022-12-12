@@ -74,7 +74,7 @@ To perform a test upgrade, run the `export` and `upgrade` commands on all nodes 
 
 5. Run the `apply` command on Node1, Node2, and so on, until the upgrade is complete.
 
-For a detailed example of a multi-node upgrade from 7.5.x or 7.6.x, see [Multi-node upgrade example](/docs/apim_installation/apigw_upgrade/upgrade_steps_extcass/#multi-node-upgrade-example).
+For a detailed example of a multi-node upgrade from 7.5.x or 7.6.x, see [Multi-node upgrade example](/docs/apim_installation/apigw_upgrade/upgrade_steps_extcass#multi-node-upgrade-example).
 
 ## Resolve upgrade errors and warnings
 

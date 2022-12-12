@@ -14,10 +14,10 @@ API Portal is available as a software installation or a virtualized deployment i
 
 * If you are installing API Portal for the first time using this update, see [Install API Portal](/docs/apim_installation/apiportal_install/)
 * If you are already using API Portal (7.5.x, 7.6.x, 7.7.x) and want to install this update, see [Upgrade API Portal](/docs/apim_installation/apiportal_install/upgrade_automatic/).
-* You can use the [cumulative upgrade script](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade directly from earlier versions (for example, 7.5.5, 7.6.2) to API Portal July 20, then apply this package to update your API Portal to the September 20 release.
-* See [API Portal single version upgrade](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-from-api-portal-7-6-2) to upgrade versions incrementally.
+* You can use the [cumulative upgrade script](/docs/apim_installation/apiportal_install/upgrade_automatic#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade directly from earlier versions (for example, 7.5.5, 7.6.2) to API Portal July 20, then apply this package to update your API Portal to the September 20 release.
+* See [API Portal single version upgrade](/docs/apim_installation/apiportal_install/upgrade_automatic#upgrade-from-api-portal-7-6-2) to upgrade versions incrementally.
 
-API Portal in Docker containers is available for production environment from [API Portal 7.7 November 2020](/docs/apim_relnotes/20201130_apip_relnotes/) update. For more information, see [Production-ready Docker container](/docs/apim_relnotes/20201130_apip_relnotes/#production-ready-docker-container).
+API Portal in Docker containers is available for production environment from [API Portal 7.7 November 2020](/docs/apim_relnotes/20201130_apip_relnotes/) update. For more information, see [Production-ready Docker container](/docs/apim_relnotes/20201130_apip_relnotes#production-ready-docker-container).
 
 *This section was updated to amend the information about API Portal in Docker containers.*
 
@@ -33,7 +33,7 @@ Users can request a copy of their API Portal and Joomla! data to be sent to a no
 
 ### Security
 
-Users can enable [two-factor authentication](/docs/apim_installation/apiportal_install/secure_harden_portal/#enable-two-factor-authentication) (2FA) for both API Portal website and Joomla! Administrator Interface.
+Users can enable [two-factor authentication](/docs/apim_installation/apiportal_install/secure_harden_portal#enable-two-factor-authentication) (2FA) for both API Portal website and Joomla! Administrator Interface.
 
 ### UI/UX improvements
 
@@ -58,7 +58,7 @@ It is important, especially when upgrading from an earlier version, to be aware 
 
 ### API version update
 
-To support [User membership in multiple organizations](/docs/apim_relnotes/20200930_apimgr_relnotes/#user-membership-in-multiple-organizations) (multi-orgs), a new version of the API v1.4 was introduced. The multi-orgs feature is available with the 1.4 version of the API only, meaning that any third-party portals or integrations (for example, SSO) must be updated to use version 1.4. The API Manager UI uses the API 1.4 by default.
+To support [User membership in multiple organizations](/docs/apim_relnotes/20200930_apimgr_relnotes#user-membership-in-multiple-organizations) (multi-orgs), a new version of the API v1.4 was introduced. The multi-orgs feature is available with the 1.4 version of the API only, meaning that any third-party portals or integrations (for example, SSO) must be updated to use version 1.4. The API Manager UI uses the API 1.4 by default.
 
 This feature is forward compatible, the API 1.4 will work with single-org users, but not backward compatible, you cannot configure multi-orgs in the API 1.4, then revert it to the API 1.3.
 
@@ -88,7 +88,7 @@ This version of API Portal includes:
 | Internal ID | Case ID | CVE Identifier | Description                                                                                                                                                                                                                                                                                                                                                                                          |
 | ----------- | ------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | IAP-3188    |         |                | **Issue**: Audit log and its exporting functionality was missing. **Resolution**: API Portal now has rich audit log, which can be exported to a file or email to the requester.                                                                                                                                                                                                                      |
-| IAP-3171    |         |                | **Issue**: Documentation was not raising the awareness about the risk of using self-signed certificate in production. **Resolution**: Documentation about HTTPS connection with self-signed certificate was updated. For more info see [Configure API Portal to run with HTTP or HTTPS](/docs/apim_installation/apiportal_install/install_software/#configure-api-portal-to-run-with-http-or-https). |
+| IAP-3171    |         |                | **Issue**: Documentation was not raising the awareness about the risk of using self-signed certificate in production. **Resolution**: Documentation about HTTPS connection with self-signed certificate was updated. For more info see [Configure API Portal to run with HTTP or HTTPS](/docs/apim_installation/apiportal_install/install_software#configure-api-portal-to-run-with-http-or-https). |
 | IAP-1933    |         |                | **Issue**: API Portal does not officially support 2FA. **Resolution**: Official support of 2FA was added on both admin and site sections.                                                                                                                                                                                                                                                            |
 | IAP-3186    |         |                | **Issue**: A privacy communication channel for requesting export or removal of user data was missing. **Resolution**: A privacy communication channel for requesting export or removal of user data is supported in API Portal. For more information see, [Manage privacy and personal data](/docs/apim_administration/apiportal_admin/manage_privacy_personal_data/).                               |
 

@@ -8,7 +8,7 @@
 
 ## Configure API Portal
 
-This topic describes how to deploy API Portal in multiple datacenters using the recommended deployment architecture ([Multi-datacenter deployment with shared file system](/docs/apiportal_ha/#multi-datacenter-deployment-with-shared-file-system)).
+This topic describes how to deploy API Portal in multiple datacenters using the recommended deployment architecture ([Multi-datacenter deployment with shared file system](/docs/apiportal_ha#multi-datacenter-deployment-with-shared-file-system)).
 
 ### Configure the database cluster for multiple datacenters
 
@@ -18,7 +18,7 @@ You must configure a relational database management system (RDBMS) to store API�
 
 The database cluster has the following requirements in a multi-datacenter production environment:
 
-* The database must be supported by API Portal. For more information on supported databases, see [Software requirements](/docs/apim_installation/apiportal_install/install_software_prereqs/#software-requirements).
+* The database must be supported by API Portal. For more information on supported databases, see [Software requirements](/docs/apim_installation/apiportal_install/install_software_prereqs#software-requirements).
 * For high availability (HA), it is best to have at least three database nodes in each datacenter (for example, to prevent data corruption due to split-brain syndrome). Install the database on each node.
 * Choose a unique name for the database cluster.
 * Do not start any of the databases until the database cluster is fully configured.
@@ -42,21 +42,21 @@ After setting up the database cluster, install API Portal. For HA, you must ha
 
 For HA, install API Portal on the first node, and then install it on each of the other nodes.
 
-1. Install API Portal on the first node as detailed in [Install API Portal as software installation](/docs/apim_installation/apiportal_install/install_software/#install-api-portal-software).
+1. Install API Portal on the first node as detailed in [Install API Portal as software installation](/docs/apim_installation/apiportal_install/install_software#install-api-portal-software).
 
     * When prompted for database connection settings during the API Portal software installation, enter the access host of the database you created for this node.
     * When asked if this is going to be HA setup with database replication, enter `y`.
 
-2. Install the EasyBlog and EasyDiscuss components on the first node as detailed in [Install Joomla! components](/docs/apim_installation/apiportal_install/install_software/#install-joomla-components).
+2. Install the EasyBlog and EasyDiscuss components on the first node as detailed in [Install Joomla! components](/docs/apim_installation/apiportal_install/install_software#install-joomla-components).
 
     {{< alert title="Note" color="primary" >}}When you change the Joomla! admininstrator password on the first node, the password is changed for all nodes. {{< /alert >}}
 
-3. Install API Portal on each of the other nodes as detailed in [Install API Portal as software installation](/docs/apim_installation/apiportal_install/install_software/#install-api-portal-software). For each node:
+3. Install API Portal on each of the other nodes as detailed in [Install API Portal as software installation](/docs/apim_installation/apiportal_install/install_software#install-api-portal-software). For each node:
 
     * When prompted for database connection settings, use the same database server or cluster you used for the first API Portal instance.
     * The installation checks the database connection and if it is successful for any node other than the first node, it asks you to confirm that this is a HA setup. Enter `y`.
 
-4. Install the EasyBlog and EasyDiscuss components on each other node as detailed in [Install Joomla! components](/docs/apim_installation/apiportal_install/install_software/#install-joomla-components).
+4. Install the EasyBlog and EasyDiscuss components on each other node as detailed in [Install Joomla! components](/docs/apim_installation/apiportal_install/install_software#install-joomla-components).
 
 #### Upgrade API Portal for HA in multiple datacenters as a software installation
 

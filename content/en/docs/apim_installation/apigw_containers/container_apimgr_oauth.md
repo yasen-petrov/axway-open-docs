@@ -24,9 +24,9 @@ Follow these steps:
     * Enter the port of the Cassandra container (for example, `9042`).
 
 4. Click **Next**.
-5. Enter the appropriate API Manager settings. For full details, see [Enable API Manager](/docs/apim_administration/apimgr_admin/api_mgmt_config/#enable-api-manager).
+5. Enter the appropriate API Manager settings. For full details, see [Enable API Manager](/docs/apim_administration/apimgr_admin/api_mgmt_config#enable-api-manager).
 
-    {{< alert title="Note" color="primary" >}}The default API administrator user name and password set in Policy Studio are used only when creating the administrator account in Apache Cassandra. After the account has been created in Cassandra, you cannot change the credentials in Policy Studio. You must use API Manager to change the administrator credentials. You can also reset the administrator password by running the `setup-apimanager` script with the option `--resetPassword` inside the Admin Node Manager container. For details, see [Reset the default API administrator password](/docs/apim_installation/apigw_containers/container_troubleshoot/#reset-the-default-api-administrator-password).{{< /alert >}}
+    {{< alert title="Note" color="primary" >}}The default API administrator user name and password set in Policy Studio are used only when creating the administrator account in Apache Cassandra. After the account has been created in Cassandra, you cannot change the credentials in Policy Studio. You must use API Manager to change the administrator credentials. You can also reset the administrator password by running the `setup-apimanager` script with the option `--resetPassword` inside the Admin Node Manager container. For details, see [Reset the default API administrator password](/docs/apim_installation/apigw_containers/container_troubleshoot#reset-the-default-api-administrator-password).{{< /alert >}}
 
 6. Click **Finish**.
 7. Configure additional API Manager settings under **Server Settings > API Manager**. For example, you can specify custom policies that are called as traffic passes through API Manager.
@@ -34,7 +34,7 @@ Follow these steps:
 
 ### Deploy API Manager enabled API Gateway container {#apimgrdeploy}
 
-Follow the steps in [Create and start API Gateway Docker container](/docs/apim_installation/apigw_containers/docker_script_gwimage/). When creating the API Gateway Docker image using `build_gw_image.py`, specify the deployment package you exported from Policy Studio. For an example, see [Create an API Manager or OAuth enabled API Gateway image](/docs/apim_installation/apigw_containers/docker_script_gwimage/#create-an-api-manager-or-oauth-enabled-api-gateway-image).
+Follow the steps in [Create and start API Gateway Docker container](/docs/apim_installation/apigw_containers/docker_script_gwimage/). When creating the API Gateway Docker image using `build_gw_image.py`, specify the deployment package you exported from Policy Studio. For an example, see [Create an API Manager or OAuth enabled API Gateway image](/docs/apim_installation/apigw_containers/docker_script_gwimage#create-an-api-manager-or-oauth-enabled-api-gateway-image).
 
 ## Deploy OAuth services
 
@@ -51,10 +51,10 @@ Follow these steps:
     * Enter the name of the Cassandra container as the host name (for example, `cassandra228`).
     * Enter the port of the Cassandra container (for example, `9042`).
 4. Click **Next**.
-5. Select the OAuth deployment type. For full details, see [Deploy OAuth configuration](/docs/apim_policydev/apigw_oauth/gw_server/#deploy-oauth-services).
+5. Select the OAuth deployment type. For full details, see [Deploy OAuth configuration](/docs/apim_policydev/apigw_oauth/gw_server#deploy-oauth-services).
 6. Click **Finish**.
 7. Select **File > Export** and select a package to export the configuration as a package (`fed`, `pol`, or `env`).
 
 ### Deploy OAuth-enabled API Gateway container {#oauthdeploy}
 
-Follow the steps in in [Create and start API Gateway Docker container](/docs/apim_installation/apigw_containers/docker_script_gwimage/). When creating the API Gateway Docker image using `build_gw_image.py`, specify the deployment package you exported from Policy Studio. For an example, see [Create an API Manager or OAuth enabled API Gateway image](/docs/apim_installation/apigw_containers/docker_script_gwimage/#create-an-api-manager-or-oauth-enabled-api-gateway-image).
+Follow the steps in in [Create and start API Gateway Docker container](/docs/apim_installation/apigw_containers/docker_script_gwimage/). When creating the API Gateway Docker image using `build_gw_image.py`, specify the deployment package you exported from Policy Studio. For an example, see [Create an API Manager or OAuth enabled API Gateway image](/docs/apim_installation/apigw_containers/docker_script_gwimage#create-an-api-manager-or-oauth-enabled-api-gateway-image).

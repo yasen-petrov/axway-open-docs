@@ -104,7 +104,7 @@ You can configure API Gateway to output detailed diagnostic information for a sp
 
 To change the trace level in Policy Studio, select the **Server Settings** node, and click **General**. Select DEBUG or DATA from the **Tracing level** field, and click **Save**.
 
-For more information on tracing and logging see [Configure API Gateway trace files](/docs/apim_administration/apigtw_admin/tracing/#configure-api-gateway-trace-files).
+For more information on tracing and logging see [Configure API Gateway trace files](/docs/apim_administration/apigtw_admin/tracing#configure-api-gateway-trace-files).
 
 ### Add custom trace output to custom code
 

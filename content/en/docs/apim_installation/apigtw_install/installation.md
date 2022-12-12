@@ -83,7 +83,7 @@ Select this option to customize which components are installed. You can install 
 
 #### QuickStart tutorial
 
-The **Standard** and **Complete** setup types install the QuickStart tutorial by default, or you can select to install it during the **Custom** setup type. This installs a preconfigured domain and API Gateway instance. If you do not install the QuickStart tutorial, you must configure a domain and API Gateway instance when the installation is complete. For more details, see [Initial configuration](/docs/apim_installation/apigtw_install/post_overview/#initial-configuration).
+The **Standard** and **Complete** setup types install the QuickStart tutorial by default, or you can select to install it during the **Custom** setup type. This installs a preconfigured domain and API Gateway instance. If you do not install the QuickStart tutorial, you must configure a domain and API Gateway instance when the installation is complete. For more details, see [Initial configuration](/docs/apim_installation/apigtw_install/post_overview#initial-configuration).
 
 Click **Next** to continue.
 
@@ -106,7 +106,7 @@ Enter a location or click the browse button to specify the directory where the g
 
 ### Specify license file
 
-Enter the location or click the browse button to specify a valid Axway license file. For more details, see [Software and license keys](/docs/apim_installation/apigtw_install/system_requirements/#software-and-license-keys).
+Enter the location or click the browse button to specify a valid Axway license file. For more details, see [Software and license keys](/docs/apim_installation/apigtw_install/system_requirements#software-and-license-keys).
 
 Note that API Gateway, API Gateway Analytics, and API Manager each require a valid Axway license file. If you have separate license files for each of these components, specify the API Gateway license at this step, and you will be prompted for the API Gateway Analytics and API Manager license files at a later step. Alternatively, you can specify a single license file that covers all licensed components.
 

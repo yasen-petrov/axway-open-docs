@@ -293,7 +293,7 @@ The following fields are available on the **Retrieve from Message** filter confi
 
 **Name**: Enter an appropriate name for this filter to display in a policy.
 
-**Use the following XPath**: Configure an XPath expression to retrieve the desired content. Click the **Add** button to add an XPath expression. You can add and remove existing expressions by clicking the **Edit** and **Remove** buttons respectively. For more information, see [Configure XPath expressions](/docs/apim_policydev/apigw_polref/content_additional/#configure-xpath-expressions).
+**Use the following XPath**: Configure an XPath expression to retrieve the desired content. Click the **Add** button to add an XPath expression. You can add and remove existing expressions by clicking the **Edit** and **Remove** buttons respectively. For more information, see [Configure XPath expressions](/docs/apim_policydev/apigw_polref/content_additional#configure-xpath-expressions).
 
 **Store the extracted content**: Select an option to specify how the extracted content is stored. The options are:
 
@@ -326,7 +326,7 @@ Configure the following fields on the **Database** tab:
 
 **Database Location**: The API Gateway searches the selected database for the user's attributes. Click the browse button to select the database to search. To use an existing database connection (for example, `Default Database Connection`), select it in the tree. To add a database connection, right-click the **Database Connections** tree node, and select **Add DB connection**. Alternatively, you can add database connections under the **Environment Configuration** > **External Connections** node in the Policy Studio tree view. For more details, see [Configure database connections](/docs/apim_policydev/apigw_external_connections/common_db_conf/).
 
-**Database Statements**: The **Database Statements** table lists the currently configured SQL queries or stored procedure calls. These queries and calls retrieve certain user attributes from the database selected in the **Database Location** field. You can edit and delete existing queries by selecting them from the list and clicking the **Edit** and **Delete** buttons. Queries are executed in the order they are listed in the filter. You can change the order of execution using the **Up** and **Down** buttons. For details, see [Configure database queries](/docs/apim_policydev/apigw_external_connections/common_db_conf/#configure-database-queries).
+**Database Statements**: The **Database Statements** table lists the currently configured SQL queries or stored procedure calls. These queries and calls retrieve certain user attributes from the database selected in the **Database Location** field. You can edit and delete existing queries by selecting them from the list and clicking the **Edit** and **Delete** buttons. Queries are executed in the order they are listed in the filter. You can change the order of execution using the **Up** and **Down** buttons. For details, see [Configure database queries](/docs/apim_policydev/apigw_external_connections/common_db_conf#configure-database-queries).
 
 ### Configure advanced settings
 

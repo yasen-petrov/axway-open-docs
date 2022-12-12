@@ -34,7 +34,7 @@ To disable in Policy Studio, select **Environment Configuration > Server Setting
 
 ![Disable real-time monitoring](/Images/APIGateway/admin_perf_realtime_monitor.png)
 
-For more details, see [Real-time monitoring metrics](/docs/apim_reference/monitor_traffic_events_metrics/#real-time-monitoring-metrics).
+For more details, see [Real-time monitoring metrics](/docs/apim_reference/monitor_traffic_events_metrics#real-time-monitoring-metrics).
 
 ### Disable traffic monitoring
 
@@ -64,7 +64,7 @@ To disable access logging in the API Gateway, select **Environment Configuration
 
 ![Disable access logging](/Images/APIGateway/admin_perf_access_log.png)
 
-For more details, see [Transaction access log settings](/docs/apim_reference/log_global_settings/#transaction-access-log-settings).
+For more details, see [Transaction access log settings](/docs/apim_reference/log_global_settings#transaction-access-log-settings).
 
 ## Advanced performance tuning
 
@@ -137,7 +137,7 @@ In the Policy Studio node tree, click **Environment Configuration > Listeners > 
 
 The remote host only enforces settings to a specific configured server, not globally. You must edit the settings separately for each destination server you want to configure for HTTP 1.1.
 
-If you have [set HTTP 1.1 to be used globally](/docs/apim_administration/apigtw_admin/admin_performance/#configure-http-11-globally), you can also use a remote host to turn it *off* for a specific server by deselecting **Allow HTTP 1.1**.
+If you have [set HTTP 1.1 to be used globally](/docs/apim_administration/apigtw_admin/admin_performance#configure-http-11-globally), you can also use a remote host to turn it *off* for a specific server by deselecting **Allow HTTP 1.1**.
 
 #### Configure HTTP 1.1 globally
 

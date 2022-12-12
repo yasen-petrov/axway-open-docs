@@ -22,7 +22,7 @@ We have made further improvements for Internet Content Adaption Protocol (ICAP) 
 
 We have improved documentation with more detailed information to upgrade from previous versions to the latest version of the product.
 
-* Added [checklists for upgrading single-node environment](/docs/apim_installation/apigw_upgrade/upgrade_steps_extcass/#upgrade-steps---single-node-upgrade-example).
+* Added [checklists for upgrading single-node environment](/docs/apim_installation/apigw_upgrade/upgrade_steps_extcass#upgrade-steps---single-node-upgrade-example).
 * Created a [list of API Gateway scripts that you must run after upgrade your product](/docs/apim_reference/scripts_changelog_sp/), which provides visibility of the changes from release to release.
 
 ### MSSQL Database Support
@@ -298,7 +298,7 @@ These instructions apply to API Gateway and API Manager classic deployments only
 This update has the following prerequisites in addition to the [System requirements](/docs/apim_installation/apigtw_install/system_requirements/).
 
 1. Shut down any Node Manager or API Gateway instances on your existing installation.
-2. Back up your existing installation. You can use the `update_apigw.sh` script to take a backup of your entire API Gateway installation directory as detailed in the [API Gateway server install steps](#install-the-api-gateway-server-update), or you can manage your own backups as detailed in [API Gateway backup and disaster recovery](/docs/apim_administration/apigtw_admin/manage_operations/#api-gateway-backup-and-disaster-recovery). Ensure that you back up any customized files. You should merge updated files instead of copying them back directly to avoid any regex matching issues, whether you manage your own backups or not. For example, the following directories might contain customized files:
+2. Back up your existing installation. You can use the `update_apigw.sh` script to take a backup of your entire API Gateway installation directory as detailed in the [API Gateway server install steps](#install-the-api-gateway-server-update), or you can manage your own backups as detailed in [API Gateway backup and disaster recovery](/docs/apim_administration/apigtw_admin/manage_operations#api-gateway-backup-and-disaster-recovery). Ensure that you back up any customized files. You should merge updated files instead of copying them back directly to avoid any regex matching issues, whether you manage your own backups or not. For example, the following directories might contain customized files:
 
    ```
    webapps/apiportal/vordel/apiportal
@@ -543,7 +543,7 @@ To allow an unprivileged user to run the API Gateway on a Linux system, perform 
 
 #### API Manager
 
-When API Manager is installed, you must run the `update-apimanager` script after the API Gateway post-install script to ensure that all paths are up-to-date. For details, see [Run update-apimanager](/docs/apim_installation/apigw_upgrade/upgrade_steps_extcass/#run-update-apimanager).
+When API Manager is installed, you must run the `update-apimanager` script after the API Gateway post-install script to ensure that all paths are up-to-date. For details, see [Run update-apimanager](/docs/apim_installation/apigw_upgrade/upgrade_steps_extcass#run-update-apimanager).
 
 {{< alert title="Caution" color="warning" >}} Before executing the `update-apimanager` script:
 

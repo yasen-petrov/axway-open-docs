@@ -133,7 +133,7 @@ When validating the parameters received from the client, API Manager runtime ign
 * Header/Cookie - `${http.headers.headerName}`
 * Form - `${http.querystring.paramName}`
 
-You can also add undefined parameters as part of a [method override](/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web/#per-method-override). In such cases, you can use API Manager `${params.query}`, `${params.form}`, and `${params.header}` selectors.
+You can also add undefined parameters as part of a [method override](/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web#per-method-override). In such cases, you can use API Manager `${params.query}`, `${params.form}`, and `${params.header}` selectors.
 
 ## Add custom API Manager routing policies
 

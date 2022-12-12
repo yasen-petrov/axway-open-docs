@@ -3,10 +3,10 @@
   "linkTitle": "Upgrade API Portal",
   "weight": "110",
   "date": "2019-08-09",
-  "description": "Upgrade your existing API Portal to 7.7."
+  "description": "Upgrade your existing API Portal to version 7.7."
 }
 
-You can use the [cumulative upgrade script](#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade your 7.5.5 or 7.6.2 API Portal installation (including all service packs) directly to [7.7 November 2020](/docs/apim_relnotes/20201130_apip_relnotes/), or you can upgrade versions incrementally:
+You can use the [cumulative upgrade script](#upgrade-using-the-cumulative-upgrade-script) to upgrade your 7.5.5 or 7.6.2 API Portal installation (including all service packs) directly to [7.7 November 2020](/docs/apim_relnotes/20201130_apip_relnotes/), or you can upgrade versions incrementally:
 
 | From   | To    | Download Package         |
 | ------ | ----- | -------------------------|
@@ -26,7 +26,7 @@ Before you upgrade your API Portal, complete the following prerequisites. These 
 * Stop and back up the existing API Portal files and database. There is no option to roll back after you start the upgrade.
 * Perform a back up of your API Portal software installation by taking a snapshot of your environment. Ensure that you have a file system backup and database export.
 
-### API Portal with applied patches
+## API Portal with applied patches
 
 If you are using API Portal with applied patches, you must change the ownership of the installation path before applying an update:
 
@@ -109,7 +109,7 @@ To upgrade to API Portal May 2022 or latest releases, follow these steps:
 
 5. Open API Portal in a browser, log in to the Joomla! Administrator Interface (JAI), click **System > Global Configuration > Server** and ensure that you are using `MySQLi` database driver for `Database Type` field.
 
-    If you are using a different adapter and you need to switch to `MySQLi` adapter, ensure that you changed the database credentials accordingly. You might need to [create a MySQL user account without TLS authentication](/docs/apim_installation/apiportal_install/install_software_configure_database/#configure-a-user-account-without-authentication).
+    If you are using a different adapter and you need to switch to `MySQLi` adapter, ensure that you changed the database credentials accordingly. You might need to [create a MySQL user account without TLS authentication](/docs/apim_installation/apiportal_install/install_software_configure_database#configure-a-user-account-without-authentication).
 6. Click **Extensions > Plugins**, then search and disable the *T3 Framework* plugin.
 7. Click **Components > Joomla! Update > Upload & Update**, then apply *Joomla 4* by uploading the relevant file from the upgrade package.
 8. Wait for the upgrade process to finish.
@@ -161,7 +161,7 @@ Similarly, the original `.htaccess` file is backed up to `${apiportal-install-di
 
 ### Encrypt database password
 
-If you did not choose to encrypt your database password during the installation process, you can use the `apiportal_db_pass_encryption.sh` script, available from both API Portal installation and upgrade packages, to encrypt the password at any time. For more details see [Encrypt database password](/docs/apim_installation/apiportal_install/secure_harden_portal/#encrypt-database-password).
+If you did not choose to encrypt your database password during the installation process, you can use the `apiportal_db_pass_encryption.sh` script, available from both API Portal installation and upgrade packages, to encrypt the password at any time. For more details see [Encrypt database password](/docs/apim_installation/apiportal_install/secure_harden_portal#encrypt-database-password).
 
 ## Update API Portal with a service pack or patch
 

@@ -79,7 +79,7 @@ In API Gateway, a global OAuth scopes model is used:
 * Scopes can be dynamically defined and assigned to registered client applications in the Client Application Registry.
 * Supports default scopes, which are scopes assigned if no scopes are requested in the authorization request.
 
-{{< alert title="Note" color="primary" >}}This scopes model is also supported in API Manager. For more details, see [Scopes in API Manager](/docs/apim_policydev/apigw_oauth/apimgr_oauth_resource_server/#scopes-in-api-manager).{{< /alert >}}
+{{< alert title="Note" color="primary" >}}This scopes model is also supported in API Manager. For more details, see [Scopes in API Manager](/docs/apim_policydev/apigw_oauth/apimgr_oauth_resource_server#scopes-in-api-manager).{{< /alert >}}
 
 ### Manage OAuth scopes in the Client Application Registry
 

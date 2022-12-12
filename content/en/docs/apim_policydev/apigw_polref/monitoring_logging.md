@@ -116,7 +116,7 @@ The category selected here identifies the category of filters to which this filt
 
 ## Service level agreement filter
 
-A service level agreement (SLA) is an agreement put in place between a web services host and a client of that web service in order to guarantee a certain minimum quality of service. It is common to see SLAs in place to ensure that a minimum number of messages result in a communications failure and that responses are received within an acceptable time frame. In cases where the conditions of the SLA are breached, it is crucial that an alert can be sent to the appropriate party.
+A service level agreement (SLA) is an agreement put in place between a web services host and a client of that web service in order to guarantee a certain minimum quality of service. It is common to see SLAs in place to ensure that a maximum number of messages do not result in a communications failure and that responses are received within an acceptable time frame. In cases where the conditions of the SLA are breached, it is crucial that an alert can be sent to the appropriate party.
 
 When one of the specified thresholds is breached, an alert is sent to a configured alert destination to ensure that interested parties are notified promptly of the SLA breach. For more details on configuring system alerts, see the
 [Configure system alerts](/docs/apim_policydev/apigw_poldev/general_system_alerts/).
@@ -127,21 +127,134 @@ API Gateway satisfies these requirements by allowing SLAs to be configured at th
 * HTTP status codes returned from the web service
 * Communication failures
 
-The SLA monitoring performed by API Gateway is *statistical*. Because of this, a single message (or even a small number of messages) is not considered a sufficient sample to cause an alert to be triggered. The monitoring engine actually uses an *exponential decay*
-algorithm to determine whether an SLA is failing or not. This algorithm is best explained with an example.
+The SLA monitoring performed by API Gateway is *statistically driven*. Alerting is not based on a single message (or even a small number of messages) as the sample size is considered insufficient for the algorithm to return meaningful results. The monitoring engine uses an *exponential decay* algorithm to determine whether an SLA is failing or not.
 
-### Example SLA
+The filter exposes 3 parameters that directly affect the workings of the underlying algorithm:
 
-Assume the *poll rate*
-is set to 3 seconds (3000 ms), the *data age*
-is set to 6 seconds (6000 ms), and you have a web service with an average processing time of 100 ms. A single client sending a stream of requests through API Gateway can generate about 10 requests per second, given the web service's 100 ms response time.
+* **Minimum sample size**: The minimum required number of samples that must be present in the cache during a poll interval so that the algorithm can consider them significant enough to warrant an alert being raised when the configured 'requirements' have been breached.
+* **Poll rate (milliseconds)**: The rate at which the algorithm is executed against the samples present in the cache. The default value is `30000` (30 seconds).
+* **Data Age Estimate (milliseconds)**: The time period during which historical data should remain significant. The default value is `600000` (10 minutes).
 
-At every 3 seconds poll period you have data from a previous 30 samples to consider the average response times of. However, rather than simply using the response time of the *last*
-3 seconds worth of data, historical data is "smoothed" into the current estimate of the failing percentage. The new data is combined with the existing data such that it will take approximately the data age time for a sample to disappear from the average.
+### Decay algorithm numerical examples
 
-Therefore the closer the data age is to the sampling rate, the less significant historical data becomes, and the more significant the "last" sample becomes.
+Exponential decay is generally calculated with the help a decay-rate function. The decay rate in this instance should be considered a percentage. The SLA filter uses the following formula:
 
-To generate an alert, you must also have enough significant samples at each poll period to consider the date to be statistically valid. For example, if a single request arrives over a period of 1 hour it might not be fair to say that "less than 20%" of all received requests have failed the response time requirements. For this reason, statistical analysis provides a more realistic SLA monitoring mechanism than a solution based purely on absolute metrics.
+```
+decayRate = 2 / ( dataAge / pollRate + 1)
+```
+
+The count during each poll interval is calculated using the following equation:
+
+```
+newCount = agedCount * (1 - decayRate) + count * decayRate;
+```
+
+where,
+
+* `count` refers to the number of samples obtained during the current poll interval.
+* `agedCount` refers to the historical data calculated over previous poll intervals, with decay taken into account.
+* `newCount` is the updated sample count with new data (for example, `count`) combined with historical data (for example, `agedCount`).
+
+After the poll interval has elapsed, `newCount` becomes `agedCount` and the equation is calculated again when poll interval is next triggered.
+
+#### Example of complete decay
+
+The following are the parameters for this example:
+
+| Parameter     | Value              |
+|---------------|--------------------|
+| `pollRate`  | 1000ms (1 second)|
+| `dataAge`   | 1000ms (1 second)|
+| `decayRate` | Calculated as `2 / (1000 / 1000 + 1) = 2 / 2 = 1`|
+
+A `decayRate` of `1` signifies complete decay, meaning all historical data has expired. This implies historical samples do not apply any weight to the overall result. Using the equation above it is evident that historical samples do not factor into the calculation of `newCount`. Only results from the current poll interval are included, for example:
+
+```
+newCount = agedCount * (1 - decayRate) + count * decayRate
+newCount = agedCount * (1 - 1) + count * 1
+newCount = count
+```
+
+{{< alert title="Note" color="primary" >}}The closer the `dataAge` is to `pollRate`, the less significant historical data becomes, and the more significant the "last" sample becomes.{{< /alert >}}
+
+#### Example of slow decay
+
+The following are the parameters for this example:
+
+| Parameter     | Value              |
+|---------------|--------------------|
+| `pollRate`   | 1000ms (1 second)|
+| `dataAge`    | 100000ms (100 seconds)|
+| `decayRate`  | Calculated as `2 / (100000 / 1000 + 1) = 2 / 101` &#8773; `0.02`|
+
+A `decayRate` of `0.02` signifies slow decay, meaning historical data is important, yet samples from the current poll interval carry little weight in the overall result. Using the equation above it is evident that historical samples factor greatly in the calculation of `newCount`, whereas the newest samples are less significant.
+
+```
+newCount = agedCount * (1 - decayRate) + count * decayRate
+newCount = agedCount * (1 - 0.02) + count * 0.02
+newCount = agedCount * (0.98) + count * 0.02
+newCount ≅ agedCount + (small input from the current poll interval)
+```
+
+#### Example of insufficient samples
+
+The following are the parameters for this example:
+
+| Parameter     | Value              |
+|---------------|--------------------|
+| `minimumSampleSize` | 100|
+| `pollRate` | 3000ms (3 seconds)|
+| `dataAge` | 6000ms (6 seconds)|
+| `decayRate` | Calculated as `2 / (6000 / 3000 + 1) = 2 / 3` &#8773; `0.66`|
+| `threshold` | At least 60% 200 OK responses|
+| `throughput` | 10tps|
+
+In this example the throughput of the back-end webservice is 10 transactions per second. The following table illustrates how the algorithm fails to achieve the minimum sample size to perform the analysis and trigger the alert.
+
+| Time (ms)    | Calculations |
+|--------------|--------------|
+| 0    | Traffic commences |
+| | `count = 0`<br>`agedCount = 0`|
+| 3000 | By the first poll interval ~30 samples have been gathered (10tps * 3 seconds). Insufficient sample count |
+| | `newCount = agedCount * (1 - decayRate) + count * decayRate`<br>`newCount = 0 * (1 - 0.66) + 30 * 0.66`<br>`newCount = 0 + 20`<br>`newCount = 20`|
+| 6000 | By the next poll interval another ~30 samples have been gathered, and so on. Insufficient sample count |
+| | `newCount = agedCount * (1 - decayRate) + count * decayRate`<br>`newCount = 20 * (1 - 0.66) + 30 * 0.66`<br>`newCount = 6.8 + 20`<br>`newCount = 26.8`|
+| 9000 - 21000 | Insufficient sample count. Calculated values for `newCount` shown |
+| | At 9000 `newCount = 29.11`<br>At 12000 `newCount = 29.9`<br>At 15000 `newCount = 30.17`<br>At 18000 `newCount = 30.26`<br>At 21000 `newCount = 30.28`|
+| 24000 | From this point onwards `newCount` only grows a negligible amount each time the cache of samples is polled, and never reaches the minimum samples size required in order to check to see if the SLA has been breached.|
+| | `newCount = agedCount * (1 - decayRate) + count * decayRate`<br>`newCount = 30.28 * (1 - 0.66) + 30 * 0.66`<br>`newCount = 10.3 + 20`<br>`newCount = 30.3` |
+
+#### Example of alert triggered
+
+The following are the parameters for this example:
+
+| Parameter     | Value              |
+|---------------|--------------------|
+| `minimumSampleSize`  | 100|
+| `pollRate`  | 10000ms (10 seconds)|
+| `dataAge`   | 6000ms (6 seconds)|
+| `decayRate` | Calculated as `2 / (6000 / 10000 + 1) = 2 / 1.6` &#8773; `1.25`|
+| `threshold` | At least 60% 200 OK responses|
+| `throughput` | 10tps|
+
+Let's assume that the webservice being used returns a `400 Bad Request` response approximately 40-45% of the time.
+
+| Time (ms)    | Calculations |
+|--------------|--------------|
+| 0 | Traffic commences |
+| | `count = 0`<br>`agedCount = 0` |
+| 10000 | By the first poll interval ~100 samples will have been gathered (10tps * 10 seconds). Assume no SLA breach at this stage|
+| | `newCount = agedCount * (1 - decayRate) + count * decayRate`<br>`newCount = 0 * (1 - 1.25) + 100 * 1.25`<br>`newCount = 0 + 125`<br>`newCount = 125` |
+| 20000 | Insufficient sample count |
+| | `newCount = agedCount * (1 - decayRate) + count * decayRate`<br>`newCount = 125 * (1 - 1.25) + 100 * 1.25`<br>`newCount = -31.25 + 125`<br>`newCount = 93.75` |
+| 30000 | Sufficient samples. No SLA breach |
+| | `newCount = agedCount * (1 - decayRate) + count * decayRate`<br>`newCount = 93.75 * (1 - 1.25) + 100 * 1.25`<br>`newCount = -23.44 + 125`<br>`newCount = 101.56` |
+| 40000 | Insufficient sample count.|
+| | `newCount = agedCount * (1 - decayRate) + count * decayRate`<br>`newCount = 101.56 * (1 - 1.25) + 100 * 1.25`<br>`newCount = -25.39 + 125`<br>`newCount = 99.61` |
+| 50000 | SLA breached! |
+| | `newCount = agedCount * (1 - decayRate) + count * decayRate`<br>`newCount = 99.61 * (1 - 1.25) + 100 * 1.25`<br>`newCount = -24.9 + 125`<br>`newCount = 100.1` |
+
+As illustrated by the examples in this section, to generate an alert there must be sufficient samples at each poll interval to consider the data to be statistically valid. For example, if a single request arrives over a period of one hour it might not be fair to say that "less than 20%" of all received requests have failed the response time requirements. For this reason, statistical analysis provides a more realistic SLA monitoring mechanism than a solution based purely on absolute metrics.
 
 ### Response time requirements
 

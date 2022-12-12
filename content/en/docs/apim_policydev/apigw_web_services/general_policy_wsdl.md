@@ -88,6 +88,8 @@ to continue.
 
     These options enable you to configure the underlying auto-generated **Service Handler** without having to navigate to it in the **Policies** tree. Review the information on each tab and click **OK** to close the wizard.
 
+{{< alert title="Note" color="primary" >}}If a web service is defined using multiple WSDLs, an error of "Cannot find the declaration of element" might occur during the schema validation of a SOAP message. The error is shown because of a duplication of the WSDLs types schema `targetNamespace`. To avoid this failure, change the types schema `targetNamespace` to be unique across the WSDLs.{{< /alert >}}
+
 ### Configure a security policy
 
 The **Secure Virtual Service** dialog enables you to specify the policy that API Gateway enforces on the messages that it receives from the client. To specify a policy, perform the following steps:

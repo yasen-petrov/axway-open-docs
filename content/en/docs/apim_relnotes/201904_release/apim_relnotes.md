@@ -130,7 +130,7 @@ Documentation might contain references to removed features (for example, hardwar
 ### Cassandra synchronization in multi-datacenter environments
 
 In multi-datacenter environments with Cassandra read/write consistency set to local quorum, there is a small risk of configuration corruption if the event triggering API Manager to load a configuration change happens before the configuration replication to the other datacenter is complete. Changing the polling time as described in
-[Configure API Management in multiple datacenters](/docs/apimgmt_multi_dc/multi_datacenter_config/#configure-api-management-in-multiple-datacenters) reduces this risk, but does not remove it completely.
+[Configure API Management in multiple datacenters](/docs/apimgmt_multi_dc/multi_datacenter_config#configure-api-management-in-multiple-datacenters) reduces this risk, but does not remove it completely.
 
 This issue results in outdated configuration data being used for the affected API until API Gateway is restarted. For example, as a result of this, valid traffic may be rejected if a new API has been added and not updated, or wrong traffic may be accepted if an API has been deprecated and not updated. The workaround requires a restart of all API Gateway instances in the affected datacenter.
 

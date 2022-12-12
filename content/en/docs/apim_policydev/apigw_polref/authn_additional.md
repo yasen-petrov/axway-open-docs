@@ -54,7 +54,7 @@ Typically, the timestamp contains `Created` and `Expires` times, which combine t
 </wsu:Timestamp>
 ```
 
-Because the WS-Utility timestamp is inserted into the WS-Security header block, it is also referred to as a WSS timestamp. For example, see [Extract WSS timestamp](/docs/apim_policydev/apigw_polref/attributes_manipulate/#extract-wss-timestamp-filter).
+Because the WS-Utility timestamp is inserted into the WS-Security header block, it is also referred to as a WSS timestamp. For example, see [Extract WSS timestamp](/docs/apim_policydev/apigw_polref/attributes_manipulate#extract-wss-timestamp-filter).
 
 Complete the following fields to configure the API Gateway to insert a timestamp into the message:
 

@@ -28,7 +28,7 @@ Watch this video to learn how to use Stoplight:
 
 ## Integrate into the Amplify API Management platform
 
-Stoplight creates standard OpenAPI (Swagger) files under the hood, which you can directly transfer to the API management platform. You can import the OpenAPI specification manually using the API Manager web UI, or using [`apim-cli`](/docs/api_mgmt_overview/api_mgmt_components/tools/#api-manager-cli) directly, or a CI/CD pipeline. Direct integration using `apim-cli` is preferable because it makes the process fast, easy, and repeatable. In addition, Stoplight Studio works on the basis of a checked out Git repository, which allows a fully automatic coupling with a CI/CD system.
+Stoplight creates standard OpenAPI (Swagger) files under the hood, which you can directly transfer to the API management platform. You can import the OpenAPI specification manually using the API Manager web UI, or using [`apim-cli`](/docs/api_mgmt_overview/api_mgmt_components/tools#api-manager-cli) directly, or a CI/CD pipeline. Direct integration using `apim-cli` is preferable because it makes the process fast, easy, and repeatable. In addition, Stoplight Studio works on the basis of a checked out Git repository, which allows a fully automatic coupling with a CI/CD system.
 
 The following diagram shows simplified integration between Stoplight and the AMPLIfY API Management solution:
 

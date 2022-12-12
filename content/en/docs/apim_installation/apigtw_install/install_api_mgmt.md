@@ -55,7 +55,7 @@ If you selected to install the QuickStart tutorial, API Manager is configured by
 
 ## Start API Manager
 
-{{< alert title="Note" color="primary" >}}Before starting API Manager, ensure that Apache Cassandra, the Admin Node Manager and API Gateway instance are running. For more details, see [Start API Gateway](/docs/apim_installation/apigtw_install/install_gateway/#start-api-gateway).{{< /alert >}}
+{{< alert title="Note" color="primary" >}}Before starting API Manager, ensure that Apache Cassandra, the Admin Node Manager and API Gateway instance are running. For more details, see [Start API Gateway](/docs/apim_installation/apigtw_install/install_gateway#start-api-gateway).{{< /alert >}}
 
 When API Manager is configured, you can use the following URL to log into the API Manager web console: `https://HOST:8075` (The default URL is `https://localhost:8075`).
 

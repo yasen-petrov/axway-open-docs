@@ -11,7 +11,7 @@ Policy Studio provides the following features that enable you to register and se
 
 * You can register a web service in Policy Studio by importing a WSDL file into the web service repository. For more information on registering web services, see [Manage web services](/docs/apim_policydev/apigw_web_services/general_ws_repository/).
 * The **Import WSDL** wizard enables you to automatically generate the policies to protect web services. For more information on using the wizard, see [Configure policies from WSDL files](/docs/apim_policydev/apigw_web_services/general_policy_wsdl/).
-* You can also manually configure policies to protect web services (for example, if a WSDL file is not available). For more information, see [Configure policies manually](/docs/apim_policydev/apigw_poldev/general_manual_policy/#configure-policies-manually).
+* You can also manually configure policies to protect web services (for example, if a WSDL file is not available). For more information, see [Configure policies manually](/docs/apim_policydev/apigw_poldev/general_manual_policy#configure-policies-manually).
 * You can also invoke registered web services from policies, for example, when you expose a SOAP web service as a REST API, the REST API you define calls a policy to implement the API, which in turn invokes the SOAP web service. For more information, see [Expose a web service as a REST API](/docs/apim_policydev/apigw_web_services/mapper_soap_to_rest/).
 
 ## WSDL and XML schema cache

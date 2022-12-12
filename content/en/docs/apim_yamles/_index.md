@@ -24,7 +24,7 @@ API Gateway main configuration is created by way of Policy Studio in XML format.
 Your system must meet the following prerequisites before you start creating your YAML configuration:
 
 * Install or upgrade your API Gateway to its [latest version](/docs/apim_relnotes/).
-* Upgrade your XML federated configuration using [upgradeconfig](/docs/apim_installation/apigw_upgrade/upgrade_analytics/#upgradeconfig-options) or [projupgrade](/docs/apim_reference/devopstools_ref/) before converting it.
+* Upgrade your XML federated configuration using [upgradeconfig](/docs/apim_installation/apigw_upgrade/upgrade_analytics#upgradeconfig-options) or [projupgrade](/docs/apim_reference/devopstools_ref/) before converting it.
 
 ## Using Git on Windows
 

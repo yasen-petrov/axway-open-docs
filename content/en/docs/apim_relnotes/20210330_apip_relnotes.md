@@ -12,8 +12,8 @@ API Portal is available as a software installation or a virtualized deployment i
 
 * If you are installing API Portal for the first time using this update, see [Install API Portal](/docs/apim_installation/apiportal_install/).
 * If you are already using API Portal (7.5.x, 7.6.x, 7.7.x) and want to install this update, see [Upgrade API Portal](/docs/apim_installation/apiportal_install/upgrade_automatic/).
-* You can use the [cumulative upgrade script](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade directly from earlier versions (for example, 7.5.5, 7.6.2) to API Portal [7.7 November](/docs/apim_relnotes/20201130_apip_relnotes/), then apply this update package to update your API Portal to the March 21 release.
-* See [API Portal single version upgrade](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-from-api-portal-7-6-2) to upgrade versions incrementally.
+* You can use the [cumulative upgrade script](/docs/apim_installation/apiportal_install/upgrade_automatic#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade directly from earlier versions (for example, 7.5.5, 7.6.2) to API Portal [7.7 November](/docs/apim_relnotes/20201130_apip_relnotes/), then apply this update package to update your API Portal to the March 21 release.
+* See [API Portal single version upgrade](/docs/apim_installation/apiportal_install/upgrade_automatic#upgrade-from-api-portal-7-6-2) to upgrade versions incrementally.
 
 ### Docker containers
 
@@ -30,12 +30,12 @@ You can also watch [How to use a configuration file for simpler installations (u
 
 ### Further Enhancements
 
-* New module allowing easy integration with Intercom to [enable chat support on API Portal](/docs/apim_administration/apiportal_admin/customize_page_content/#chat-support).
+* New module allowing easy integration with Intercom to [enable chat support on API Portal](/docs/apim_administration/apiportal_admin/customize_page_content#chat-support).
 * Microsoft Edge browser is now supported.
 * New Axway icons, color palettes, and typography were incorporated.
 * The name of the relevant API Manager instance is now displayed on the **API catalog** (on Grid and List view layouts) and in the **API details** page.
-* A [new notification](/docs/apim_administration/apiportal_admin/customize_page_content/#show-notifications-for-applications-that-are-waiting-for-approval) has been added to alert the organization administrator to review applications that are pending approval.
-* Labels and values for custom properties are now [translatable](/docs/apim_administration/apiportal_admin/localize_language/#add-a-translated-ui-string-file).
+* A [new notification](/docs/apim_administration/apiportal_admin/customize_page_content#show-notifications-for-applications-that-are-waiting-for-approval) has been added to alert the organization administrator to review applications that are pending approval.
+* Labels and values for custom properties are now [translatable](/docs/apim_administration/apiportal_admin/localize_language#add-a-translated-ui-string-file).
 
 ## Limitations of this update
 

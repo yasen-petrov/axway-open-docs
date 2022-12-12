@@ -10,7 +10,7 @@
 
 ## Create an API Gateway initialized with a YAML factory configuration
 
-You can use the `managedomain` command to [create API Gateway instances](/docs/apim_administration/apigtw_admin/makegateway/#create-an-api-gateway-instance). The first API Gateway in a group is created by default with a XML federated configuration. To create an API Gateway instance with a YAML configuration, run the following command:
+You can use the `managedomain` command to [create API Gateway instances](/docs/apim_administration/apigtw_admin/makegateway#create-an-api-gateway-instance). The first API Gateway in a group is created by default with a XML federated configuration. To create an API Gateway instance with a YAML configuration, run the following command:
 
 ```
 ./managedomain --create_instance --yaml --group TestGroup -n MyGateway
@@ -163,11 +163,11 @@ You can deploy YAML configuration by way of the following methods:
 
 ### Deploy using Policy Studio
 
-For information on how to deploy YAML configuration via Policy Studio, see [Deploy configuration in Policy Studio](/docs/apim_administration/apigtw_admin/deploy_get_started/#deploy-configuration-in-policy-studio).
+For information on how to deploy YAML configuration via Policy Studio, see [Deploy configuration in Policy Studio](/docs/apim_administration/apigtw_admin/deploy_get_started#deploy-configuration-in-policy-studio).
 
 ### Deploy using API Gateway Manager UI
 
-For information on how to deploy YAML configuration in the API Gateway Manager web UI, on port `8090`, see [Deploy a YAML deployment package](/docs/apim_administration/apigtw_admin/managetopology/#deploy-a-yaml-deployment-package).
+For information on how to deploy YAML configuration in the API Gateway Manager web UI, on port `8090`, see [Deploy a YAML deployment package](/docs/apim_administration/apigtw_admin/managetopology#deploy-a-yaml-deployment-package).
 
 ### Deploy using managedomain
 
@@ -209,7 +209,7 @@ When the `.tar.gz` is encrypted using `targz-passphrase` and the API Gateway gro
 ./projdeploy --name yaml-config --dir archives --group TestGroup --type targz --passphrase "targz-passphrase" --change-pass-to-none --deploy-to --host-name=localhost --port=8090 --user-name=admin --password=changeme
 ```
 
-See [projdeploy](/docs/apigtw_devops/deploy_package_tools/#example-projdeploy-use-cases) for more details on other `projdeploy` options. The options `--apply-env`, `--polprop`, `--envprop` do not apply for YAML configurations.
+See [projdeploy](/docs/apigtw_devops/deploy_package_tools#example-projdeploy-use-cases) for more details on other `projdeploy` options. The options `--apply-env`, `--polprop`, `--envprop` do not apply for YAML configurations.
 
 ## Manage your domain topology when YAML is deployed
 

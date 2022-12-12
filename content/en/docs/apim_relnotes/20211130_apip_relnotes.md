@@ -11,8 +11,8 @@ API Portal is available as a software installation or a virtualized deployment i
 
 * If you are installing API Portal for the first time using this update, see [Install API Portal](/docs/apim_installation/apiportal_install/).
 * If you are already using API Portal (7.5.x, 7.6.x, 7.7.x) and want to install this update, see [Upgrade API Portal](/docs/apim_installation/apiportal_install/upgrade_automatic/).
-* You can use the [cumulative upgrade script](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade directly from earlier versions (for example, 7.5.5, 7.6.2) to API Portal [7.7 November](/docs/apim_relnotes/20201130_apip_relnotes/), then apply this update package.
-* See [API Portal single version upgrade](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-from-api-portal-7-6-2) to upgrade versions incrementally.
+* You can use the [cumulative upgrade script](/docs/apim_installation/apiportal_install/upgrade_automatic#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade directly from earlier versions (for example, 7.5.5, 7.6.2) to API Portal [7.7 November](/docs/apim_relnotes/20201130_apip_relnotes/), then apply this update package.
+* See [API Portal single version upgrade](/docs/apim_installation/apiportal_install/upgrade_automatic#upgrade-from-api-portal-7-6-2) to upgrade versions incrementally.
 
 ### Docker containers
 
@@ -33,7 +33,7 @@ Pagination and Elasticsearch are now enabled in API Docker containers. The pagin
 
 ### OAuth client credentials flow improvements
 
-Configuration for [OAuth client credentials flow](/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web/#oauth) was added in API Manager, so API Portal now supports client credentials flow in line with API Manager adding support.
+Configuration for [OAuth client credentials flow](/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web#oauth) was added in API Manager, so API Portal now supports client credentials flow in line with API Manager adding support.
 
 ### New installation parameters
 

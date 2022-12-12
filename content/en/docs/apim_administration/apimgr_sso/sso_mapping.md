@@ -36,7 +36,7 @@ Sample RenameMapping if the IdP provides an attribute which should be renamed:
 
 #### `organization`
 
-The API Manager organization associated with the logged in user. The organization must already exist in API Manager. Organizations can be added by an API Manager administrator. See [Usage guidelines](/docs/apim_administration/apimgr_sso/saml_sso_config/#usage-guidelines) for additional details and exceptions.
+The API Manager organization associated with the logged in user. The organization must already exist in API Manager. Organizations can be added by an API Manager administrator. See [Usage guidelines](/docs/apim_administration/apimgr_sso/saml_sso_config#usage-guidelines) for additional details and exceptions.
 
 The IdP does not need to provide this value. If it does and the IdP attribute has a different name, you can use a RenameMapping to transform it to an `organization` attribute. If the IdP does not provide the value associated with the organization at all, you can use an `OutputAttribute` to assign an organization to the logged in user. For example:
 
@@ -46,7 +46,7 @@ The IdP does not need to provide this value. If it does and the IdP attribute ha
 
 #### `role`
 
-The API Manager role associated with the logged in user. Permitted substring values: `Administrator`, `Operator`, `User`. See [Usage guidelines](/docs/apim_administration/apimgr_sso/saml_sso_config/#usage-guidelines) for details of how these SSO roles are mapped to API Manager roles.
+The API Manager role associated with the logged in user. Permitted substring values: `Administrator`, `Operator`, `User`. See [Usage guidelines](/docs/apim_administration/apimgr_sso/saml_sso_config#usage-guidelines) for details of how these SSO roles are mapped to API Manager roles.
 
 The IdP does not need to provide this value. If it does and the IdP attribute has a different name, you can use a RenameMapping to transform it to a `role` attribute. If the IDP does not provide the value associated with the role at all, you can use an `OutputAttribute` to assign a role to the logged in user. For example:
 

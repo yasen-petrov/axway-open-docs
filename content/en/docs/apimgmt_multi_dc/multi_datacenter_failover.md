@@ -26,7 +26,7 @@ In this case, one Cassandra node is down in DC 1:
 
 The following applies in this scenario:
 
-* Cassandra is inherently HA and can tolerate the loss of one Cassandra node only in a datacenter (DC 1 in this case). This ensures 100% data consistency when Cassandra is configured for multiple datacenters. For more details, see [Configure Cassandra for multiple datacenters](/docs/apimgmt_multi_dc/multi_datacenter_config/#cassandra_multiple).
+* Cassandra is inherently HA and can tolerate the loss of one Cassandra node only in a datacenter (DC 1 in this case). This ensures 100% data consistency when Cassandra is configured for multiple datacenters. For more details, see [Configure Cassandra for multiple datacenters](/docs/apimgmt_multi_dc/multi_datacenter_config#cassandra_multiple).
 * You must restart the Cassandra node that is not running in DC 1.
 
 {{< alert title="Note" color="primary" >}}When a node has been absent from a cluster for a time, it is brought back into the cluster after restart, and becomes eventually consistent by design. Node repair is required after re-integration into the cluster. For more details, see [Perform essential Cassandra operations](/docs/cass_admin/cassandra_ops/).{{< /alert >}}

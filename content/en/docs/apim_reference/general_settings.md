@@ -17,7 +17,7 @@ You can configure the following settings in the **General** screen:
 
 **Connection Timeout**: Set the time to connect to a remote host. If a connection to a remote host is not established within the time set in this field, the connection times out and the connection fails. Defaults to `30000` milliseconds (`30` seconds).
 
-You can override this setting using the [remote host](/docs/apim_policydev/apigw_gw_instances/general_remote_hosts/) settings or the **Connection** and **Connect To URL** [filters](/docs/apim_policydev/apigw_polref/routing_common/#timeouts-settings).
+You can override this setting using the [remote host](/docs/apim_policydev/apigw_gw_instances/general_remote_hosts/) settings or the **Connection** and **Connect To URL** [filters](/docs/apim_policydev/apigw_polref/routing_common#timeouts-settings).
 
 **Active timeout**: When the API Gateway receives or sends blocks of data over a network connection, if the time between reading or writing successive blocks of data exceeds the **Active Timeout** specified in milliseconds, API Gateway closes the connection. This guards against a host closing the connection in the middle of sending data. For example, if the host's network connection is pulled out of the machine while in the middle of sending data to API Gateway. When API Gateway has read all the available data off the network, it waits the **Active Timeout** period before closing the connection. Defaults to `30000` milliseconds.
 
@@ -25,7 +25,7 @@ This setting applies to outgoing connections. For incoming connection settings, 
 
 The **Active Timeout** value is also used as a wait time when the maximum number of connections for a host is reached. For example, when a host reaches the **Maximum connections** value, API Gateway waits the active timeout period before giving up on trying to make a new connection. The global default value for **Maximum connections** is `128` and cannot be changed.
 
-You can override this setting using the [remote host](/docs/apim_policydev/apigw_gw_instances/general_remote_hosts/) settings or the **Connection** and **Connect To URL** [filters](/docs/apim_policydev/apigw_polref/routing_common/#timeouts-settings).
+You can override this setting using the [remote host](/docs/apim_policydev/apigw_gw_instances/general_remote_hosts/) settings or the **Connection** and **Connect To URL** [filters](/docs/apim_policydev/apigw_polref/routing_common#timeouts-settings).
 
 **Date format**: Configures the format of the date for the purposes of transaction audit logging and historic metrics. Defaults to `MM.dd.yyyy HH:mm:ss,SSS`. For more details on this format, see [Class SimpleDateFormat](http://docs.oracle.com/javase/6/docs/api/java/text/SimpleDateFormat.html). See also [Transaction audit log settings](/docs/apim_reference/log_global_settings/).
 
@@ -35,7 +35,7 @@ You can override this setting using the [remote host](/docs/apim_policydev/apigw
 
 Unlike other timeouts, this is not measured with respect to any network transaction, rather it is measured from the start of the API Gateway transaction until the timeout occurs. A rejected transaction will run to completion, though it will not return any response to the client, therefore, you must set this value longer than any legitimate traffic. The default value is 240,000 milliseconds (4 minutes).
 
-You can override this setting using the [remote host](/docs/apim_policydev/apigw_gw_instances/general_remote_hosts/) settings or the **Connection** and **Connect To URL** [filters](/docs/apim_policydev/apigw_polref/routing_common/#timeouts-settings).
+You can override this setting using the [remote host](/docs/apim_policydev/apigw_gw_instances/general_remote_hosts/) settings or the **Connection** and **Connect To URL** [filters](/docs/apim_policydev/apigw_polref/routing_common#timeouts-settings).
 
 **Maximum sent bytes per transaction**: The maximum number of bytes sent in a transaction. This is the maximum length for the transmitted data on transactions that API Gateway can handle. This helps to prevent denial-of-service (DoS) attacks. This setting limits the entire amount of data sent over the link, regardless of whether it consists of body, headers, or request line. The default value is 20 MiB (20,971,520 bytes) and the maximum is 16,384 PiB (18,446,744,073,709,551,615 bytes). You can override this setting using the [remote host](/docs/apim_policydev/apigw_gw_instances/general_remote_hosts/) settings.
 
@@ -43,7 +43,7 @@ You can override this setting using the [remote host](/docs/apim_policydev/apigw
 
 **Idle timeout**: API Gateway supports HTTP 1.1 persistent connections. The **Idle Timeout** specified in milliseconds is the time that API Gateway waits after sending a message over a persistent connection before it closes the connection. Typically, the host tells API Gateway that it wants to use a persistent connection. API Gateway acknowledges this instruction and decides to keep the connection open for a certain amount of time after sending the message to the host. If the connection is not reused within the **Idle Timeout** period, API Gateway closes the connection. Defaults to `15000` milliseconds.
 
-This setting applies to outgoing connections, and you can override its value using the [remote host](/docs/apim_policydev/apigw_gw_instances/general_remote_hosts/) settings or the **Connection** and **Connect To URL** [filters](/docs/apim_policydev/apigw_polref/routing_common/#timeouts-settings). For incoming connection settings, see [HTTP and HTTPS interfaces](/docs/apim_policydev/apigw_gw_instances/general_services#http-and-https-interfaces).
+This setting applies to outgoing connections, and you can override its value using the [remote host](/docs/apim_policydev/apigw_gw_instances/general_remote_hosts/) settings or the **Connection** and **Connect To URL** [filters](/docs/apim_policydev/apigw_polref/routing_common#timeouts-settings). For incoming connection settings, see [HTTP and HTTPS interfaces](/docs/apim_policydev/apigw_gw_instances/general_services#http-and-https-interfaces).
 
 **LDAP service provider**: Specifies the service provider used for looking up an LDAP server (for example, `com.sun.jndi.ldap.LdapCtxFactory`). The provider is typically used to connect to LDAP directories for certificate and attribute retrieval.
 
@@ -85,9 +85,9 @@ The file extensions are used to set the `Content-Type` headers returned by a [St
 
 To configure the MIME settings, in the Policy Studio main menu, select **Tasks > Manage Gateway Settings > General > MIME**. Alternatively, in the Policy Studio tree, select the **Environment Configuration > Server Settings** node, and click **General > MIME**. To confirm updates to these settings, click **Apply changes** at the bottom right of the screen.
 
-The MIME settings screen lists the actual MIME types on the left column of the table, together with their corresponding file extensions (where applicable) in the right column.
+The MIME settings screen lists the actual *MIME types* on the left column of the table, the corresponding file *Extensions* (where applicable) in the middle column, and the optional *Body Factories* in the right column.
 
-To add a new MIME type, click the **Add** button. In the **Configure MIME Type** dialog, enter the new content type in the **MIME Type** field. If the new type has a corresponding file extension, enter this extension in the **Extension** field. Click the **OK** button when finished.
+To add a new MIME type, click the **Add** button. In the **Configure MIME Type** dialog, enter the new content type in the **MIME Type** field. If the new type has a corresponding file extension, enter this extension in the **Extension** field. If a body factory is required to better describe how the MIME Type should be handled, it can be selected from the **Body Factory** drop-down list. Click the **OK** button when finished.
 
 Similarly, you can edit or delete existing types using the **Edit** and **Delete** buttons.
 
@@ -176,7 +176,7 @@ The **Zero Downtime** settings enable you to configure zero downtime deployment 
 
 To configure zero downtime settings, select the **Server Settings** node in the Policy Studio tree, and click **General > Zero Downtime**. To confirm updates to these settings, click **Save** at the bottom right of the window.
 
-For more information of performing a zero downtime deployment, see [Perform zero downtime deployment](/docs/apim_administration/apigtw_admin/deploy_get_started/#perform-zero-downtime-deployment). For more information on performing a zero downtime shutdown, see [Perform zero downtime shutdown](/docs/apim_administration/apigtw_admin/manage_operations/#zero-downtime-shutdown).
+For more information of performing a zero downtime deployment, see [Perform zero downtime deployment](/docs/apim_administration/apigtw_admin/deploy_get_started#perform-zero-downtime-deployment). For more information on performing a zero downtime shutdown, see [Perform zero downtime shutdown](/docs/apim_administration/apigtw_admin/manage_operations#zero-downtime-shutdown).
 
 Zero downtime deployment and shutdown rely on the **Health Check LB** policy to alert the load balancer when a maintenance operation is about to begin. To use the zero downtime deployment or shutdown features, the Health Check LB policy must be present in your API Gateway configuration.
 

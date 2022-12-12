@@ -26,7 +26,7 @@ This deployment architecture is described as follows:
 * The API Gateway group in the internal zone also hosts the API Manager web console used by API administrators.
 * The API Gateway group in the outer DMZ is responsible for securing traffic. The Node Manager manages local API Gateways instances on that host only.
 * The Cassandra database cluster is required to store data for API Manager or API Gateway client registry (API key or OAuth). You can use Cassandra as an option to store custom KPS data and OAuth tokens. You can also use an RDBMS to store custom KPS, OAuth tokens, or metrics for API Manager or API Gateway Analytics.
-* Caching is replicated between API Gateway instances using the Ehcache distributed caching system. For more details, see [Global distributed cache settings](/docs/apim_policydev/apigw_poldev/general_cache/#global-distributed-cache-settings).
+* Caching is replicated between API Gateway instances using the Ehcache distributed caching system. For more details, see [Global distributed cache settings](/docs/apim_policydev/apigw_poldev/general_cache#global-distributed-cache-settings).
 
 ### API Management data storage
 

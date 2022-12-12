@@ -54,7 +54,7 @@ The following table shows the difference between case 3 and 4 when the appropria
 | Disabled                  | Disabled                        | Enabled    | Email sent to the organization email address for approval by API admin, and directed to API Manager. |
 | Disabled                  | Enabled                         | Enabled    | Email sent to the organization email address for approval by API admin or organization admin, and directed to API Manager in all cases. |
 
-For more details, see [API Manager settings](/docs/apim_reference/api_mgmt_config_web/#api-manager-settings).
+For more details, see [API Manager settings](/docs/apim_reference/api_mgmt_config_web#api-manager-settings).
 
 ### API access workflow
 

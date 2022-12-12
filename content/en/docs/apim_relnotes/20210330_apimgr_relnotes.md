@@ -27,7 +27,7 @@ The cipher scheme for all encrypted data in the system (such as Database, LDAP p
 
 This feature has introduced changes related to how sensitive data is managed, how data can be encrypted in custom libraries or Policy Studio script filters, and how data can be migrated between environments, for example, from this release onwards, encrypted KPS data can no longer be transferred directly between environments.
 
-For more information, see [Update cipher scheme](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion/#update-cipher-scheme).
+For more information, see [Update cipher scheme](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion#update-cipher-scheme).
 
 ### Passphrase policy enforcement
 
@@ -37,7 +37,7 @@ A new passphrase policy and two new endpoints to manage the policy have been int
 * PUT /deployment/passphrase/nodemanager/{serviceID}
 * PUT /deployment/passphrase/group/{groupID}
 
-With a suitably strict passphrase policy enabled, the user will no longer be able to select extremely weak passphrases, such as `password` or `1234`. For more information see, [Configure a passphrase policy](/docs/apim_administration/apigtw_admin/manage_user_access/#configure-a-passphrase-policy-for-node-managers-and-api-gateway-groups).
+With a suitably strict passphrase policy enabled, the user will no longer be able to select extremely weak passphrases, such as `password` or `1234`. For more information see, [Configure a passphrase policy](/docs/apim_administration/apigtw_admin/manage_user_access#configure-a-passphrase-policy-for-node-managers-and-api-gateway-groups).
 
 ### Security enhancements to JWT Sign and Verify filters
 
@@ -51,20 +51,20 @@ Note that API Gateway still does not support:
 
 For more information, see:
 
-* [JWT Sign filter](/docs/apim_policydev/apigw_polref/integrity_additional/#jwtsign-filter)
-* [JWT Verify filter](/docs/apim_policydev/apigw_polref/integrity_additional/#jwtverify-filter)
+* [JWT Sign filter](/docs/apim_policydev/apigw_polref/integrity_additional#jwtsign-filter)
+* [JWT Verify filter](/docs/apim_policydev/apigw_polref/integrity_additional#jwtverify-filter)
 
 ### Automatic upgrade of projects in Policy Studio
 
 After applying [API Gateway One Version](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion/) update to Policy Studio, opening a pre-existing project will now offer to automatically upgrade the project.
 
-For more information, see [Upgrade of project after 7.7 One Version update](/docs/apim_policydev/apigw_poldev/gs_project/#upgrade-of-project-after-77-one-version-update).
+For more information, see [Upgrade of project after 7.7 One Version update](/docs/apim_policydev/apigw_poldev/gs_project#upgrade-of-project-after-77-one-version-update).
 
 ### API Manager request rate limiter
 
 Rate limit monitors the number of requests that a user can send to API Manager during an active session. If the number of requests in an individual session exceeds the configured boundaries, the session is terminated and the user must log in again to continue using API Manager.
 
-For more information, see [Configure the API Manager request rate limiter](/docs/apim_administration/apimgr_admin/api_mgmt_config/#configure-api-manager-request-rate-limiter).
+For more information, see [Configure the API Manager request rate limiter](/docs/apim_administration/apimgr_admin/api_mgmt_config#configure-api-manager-request-rate-limiter).
 
 ### HTTP strict transport security profile
 
@@ -74,7 +74,7 @@ For more information, see [Configure HTTP strict transport security](/docs/apim_
 
 ### Certification with MySQL 8
 
-API Gateway is now certified as compatible with MySQL 8. For more information see, [Third Party JDBC Drivers](/docs/apim_installation/apigtw_install/metrics_db_install/#add-third-party-jdbc-driver-files).
+API Gateway is now certified as compatible with MySQL 8. For more information see, [Third Party JDBC Drivers](/docs/apim_installation/apigtw_install/metrics_db_install#add-third-party-jdbc-driver-files).
 
 ### YAML configuration store (Technical preview capability)
 
@@ -86,7 +86,7 @@ This update includes bug fixes and enhanced functionality for YAML configuration
 * Entities with same key fields at the same hierarchy level is now fully supported.
 * CLI import sub-command now comes with new options to relax some constraint and facilitate import.
 
-See the [September 2020](/docs/apim_relnotes/20200930_apimgr_relnotes/#yaml-configuration-store-technical-preview-capability) release notes for an overview of this technical preview, and the [YAML configuration](/docs/apim_yamles/) documentation for more detailed information.
+See the [September 2020](/docs/apim_relnotes/20200930_apimgr_relnotes#yaml-configuration-store-technical-preview-capability) release notes for an overview of this technical preview, and the [YAML configuration](/docs/apim_yamles/) documentation for more detailed information.
 
 ## Important changes
 
@@ -100,19 +100,19 @@ The version of the `libthrift` library within Cassandra database is vulnerable t
 
 There is now a distinction between JSON Web Signature (JWS), where the payload can be of any content type, and a JSON Web Token (JWT), which must be a valid JSON. The system defaults to JWS after you update the product.
 
-Note also that for [JWT verification](/docs/apim_policydev/apigw_polref/integrity_additional/#jwtverify-filter), the previous **None** option for shared-key HMAC signing has now been replaced with a checkbox. If **None** was selected in the old filter, then the checkbox will be disabled after migration, resulting in the same behavior.
+Note also that for [JWT verification](/docs/apim_policydev/apigw_polref/integrity_additional#jwtverify-filter), the previous **None** option for shared-key HMAC signing has now been replaced with a checkbox. If **None** was selected in the old filter, then the checkbox will be disabled after migration, resulting in the same behavior.
 
 ### New Cipher schemes for configuration and KPS
 
 New cipher schemes, which are used to encrypt relevant data in configuration and in KPS, have been added to API Gateway. These changes impact how sensitive data is encrypted and managed, how data can be migrated between environments, and how data can be encrypted in custom libraries or policy studio script filters.
 
-For more information on the cipher scheme and the passphrase policy enforcement feature, see [Update cipher scheme](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion/#update-cipher-scheme).
+For more information on the cipher scheme and the passphrase policy enforcement feature, see [Update cipher scheme](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion#update-cipher-scheme).
 
 ### Driver for metrics database
 
 An update was made to the MySQL JDBC driver version to support MySQL8, and the driver is no longer compatible with Maria DB. Therefore, it is not possible to support both Maria DB and MySQL8 databases together. We plan to rectify this restriction in a later update.
 
-For more information, see [Install and configure a metrics database](/docs/apim_installation/apigtw_install/metrics_db_install/#add-third-party-jdbc-driver-files).
+For more information, see [Install and configure a metrics database](/docs/apim_installation/apigtw_install/metrics_db_install#add-third-party-jdbc-driver-files).
 
 ## Deprecated features
 

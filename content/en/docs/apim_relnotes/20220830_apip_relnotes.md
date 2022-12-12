@@ -16,9 +16,9 @@ API Portal is available as a software installation or a virtualized deployment i
 
 * If you are installing API Portal for the first time using this update, see [Install API Portal](/docs/apim_installation/apiportal_install/).
 * If you are already using API Portal (7.5.x, 7.6.x, 7.7.x) and want to install this update, see [Upgrade API Portal](/docs/apim_installation/apiportal_install/upgrade_automatic/).
-* If you are using API Portal 7.7.x with an applied patch and you want to install this update, you need to execute one manual step. See [Upgrade API Portal prerequisites](/docs/apim_installation/apiportal_install/upgrade_automatic/#api-portal-with-applied-patches).
-* You can use the [cumulative upgrade script](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade directly from earlier versions (for example, 7.5.5, 7.6.2) to API Portal [7.7 November 2020](/docs/apim_relnotes/20201130_apip_relnotes/), then you must apply API Portal 7.7 **February 22** update, and then you can apply the **August 22** update package.
-* See [API Portal single version upgrade](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-from-api-portal-7-6-2) to upgrade versions incrementally.
+* If you are using API Portal 7.7.x with an applied patch and you want to install this update, you need to execute one manual step. See [Upgrade API Portal prerequisites](/docs/apim_installation/apiportal_install/upgrade_automatic#api-portal-with-applied-patches).
+* You can use the [cumulative upgrade script](/docs/apim_installation/apiportal_install/upgrade_automatic#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade directly from earlier versions (for example, 7.5.5, 7.6.2) to API Portal [7.7 November 2020](/docs/apim_relnotes/20201130_apip_relnotes/), then you must apply API Portal 7.7 **February 22** update, and then you can apply the **August 22** update package.
+* See [API Portal single version upgrade](/docs/apim_installation/apiportal_install/upgrade_automatic#upgrade-from-api-portal-7-6-2) to upgrade versions incrementally.
 
 {{< alert title="Note" color="primary" >}}
 We highly recommend following the update flow as outlined above to avoid any incorrect behaviour of the product.
@@ -35,7 +35,7 @@ The following new features and enhancements are available in this update.
 
 ### API Manager lightweight APIs adoption in API Catalog
 
-With this release, API Portal is using new lightweight endpoints to improve performance of the API Catalog page when **API Information Source** is set to **Summary**. For more information, see [API information source](/docs/apim_administration/apiportal_admin/customize_apicatalog_overview/#customize-source-of-api-descriptions).
+With this release, API Portal is using new lightweight endpoints to improve performance of the API Catalog page when **API Information Source** is set to **Summary**. For more information, see [API information source](/docs/apim_administration/apiportal_admin/customize_apicatalog_overview#customize-source-of-api-descriptions).
 
 The endpoints are available at:
 
@@ -43,15 +43,15 @@ The endpoints are available at:
 /api/portal/v1.4/discovery/apis/light
 ```
 
-They were previously released in [API Manager May 22](/docs/apim_relnotes/20220530_apimgr_relnotes/#new-api-manager-lightweight-apis) update.
+They were previously released in [API Manager May 22](/docs/apim_relnotes/20220530_apimgr_relnotes#new-api-manager-lightweight-apis) update.
 
 ## Limitations of this update
 
 This update has the following limitations:
 
 * API Portal 7.7.20220830 is compatible with API Gateway and API Manager 7.7.20220830 only.
-* To update to API Portal August 2022 (which is based on Joomla 4) from versions older than Feb 2022 we recommend you to upgrade to API Portal Feb 2022 first, then follow the [Upgrade API Portal May 2022 or latest](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-to-api-portal-may-2022-or-latest-releases) section.
-* Direct update to API Portal August 2022 can be done only from API Portal May 2022 by following the [Upgrade from the Joomla! Administrator Interface](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-from-the-joomla-administrator-interface) section.
+* To update to API Portal August 2022 (which is based on Joomla 4) from versions older than Feb 2022 we recommend you to upgrade to API Portal Feb 2022 first, then follow the [Upgrade API Portal May 2022 or latest](/docs/apim_installation/apiportal_install/upgrade_automatic#upgrade-to-api-portal-may-2022-or-latest-releases) section.
+* Direct update to API Portal August 2022 can be done only from API Portal May 2022 by following the [Upgrade from the Joomla! Administrator Interface](/docs/apim_installation/apiportal_install/upgrade_automatic#upgrade-from-the-joomla-administrator-interface) section.
 * This update is not available as a virtual appliance or as a managed service on Axway Cloud.
 
 ## Important changes

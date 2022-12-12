@@ -60,7 +60,7 @@ When API Manager is configured for SSO, the following events occur during authen
 3. The IdP receives the request and checks if there is an active session for the user.
 4. If no session for this user exists on the IdP, the user is prompted to enter their credentials.
 5. The IdP analyzes the credentials and sends a SAML Response message, asserting that the user is authenticated.
-6. API Manager maps the user's IdP role to an API Manager-specific role. For more information, see [Mapping syntax](/docs/apim_administration/apimgr_sso/sso_mapping/#mapping-syntax).
+6. API Manager maps the user's IdP role to an API Manager-specific role. For more information, see [Mapping syntax](/docs/apim_administration/apimgr_sso/sso_mapping#mapping-syntax).
 7. The user is presented with the appropriate view of API Manager, depending on their role.
 
 ### Logout sequence

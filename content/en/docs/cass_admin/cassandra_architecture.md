@@ -58,7 +58,7 @@ To configure Cassandra in standalone mode, perform the following steps:
 The next steps depend on your installation setup type:
 
 * In a Standard or Complete setup that includes the QuickStart tutorial, the default configuration attempts to connect to Cassandra running on `localhost`.
-* In a Custom setup without the QuickStart tutorial, you must configure the connection in Policy Studio. For more details, see [Connect to API Gateway for the first time](/docs/cass_admin/cassandra_manage/#connect-to-api-gateway-for-the-first-time).
+* In a Custom setup without the QuickStart tutorial, you must configure the connection in Policy Studio. For more details, see [Connect to API Gateway for the first time](/docs/cass_admin/cassandra_manage#connect-to-api-gateway-for-the-first-time).
 
 To use Cassandra with API Manager, see [Configure a highly available Cassandra cluster](/docs/cass_admin/cassandra_config/). This is configured by default when API Manager is installed along with the QuickStart tutorial.
 

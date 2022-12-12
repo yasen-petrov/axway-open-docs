@@ -24,11 +24,11 @@ The following new features and enhancements are available in this update.
 
 ### Set Client Credentials as a Grant type
 
-You can now enable OAuth authorization for access tokens as Client credential type to share resources from another server using a Client ID and a Client Secret. For more information, see [Setting Grant type - Client Credentials](/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web/#grant-type---client-credentials).
+You can now enable OAuth authorization for access tokens as Client credential type to share resources from another server using a Client ID and a Client Secret. For more information, see [Setting Grant type - Client Credentials](/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web#grant-type---client-credentials).
 
 ### New Amplify menu header
 
-A new customisable header has been integrated to API Manager and API Gateway Manager. The new header allows you to enable search and help in multiple Axway portals, and to access the [Amplify platform](https://platform.axway.com/#/) portal. For more information see, [Customize Amplify menu header](/docs/apim_administration/apimgr_admin/api_mgmt_custom/#customize-amplify-menu-header).
+A new customisable header has been integrated to API Manager and API Gateway Manager. The new header allows you to enable search and help in multiple Axway portals, and to access the [Amplify platform](https://platform.axway.com#/) portal. For more information see, [Customize Amplify menu header](/docs/apim_administration/apimgr_admin/api_mgmt_custom#customize-amplify-menu-header).
 
 ## Important changes
 
@@ -47,11 +47,11 @@ Policy Studio has initial support for YAML-based policies with known limitations
 * Copy and paste options on the Policy tree view.
 * Configure API Manager and Configure OAuth options in the **File** menu.
 
-[Team Development](/docs/apigtw_devops/team_dev_practices/#when-to-use-team-development) has also been disabled for YAML-based projects because it is not a supported feature.
+[Team Development](/docs/apigtw_devops/team_dev_practices#when-to-use-team-development) has also been disabled for YAML-based projects because it is not a supported feature.
 
 ### Docker scripts now use Python 3
 
-The Externally Managed Topology (EMT) scripts were upgraded from Python 2.7 to Python 3. For more information, see [Set up your Docker environment](/docs/apim_installation/apigw_containers/docker_scripts_prereqs/#set-up-your-docker-environment).
+The Externally Managed Topology (EMT) scripts were upgraded from Python 2.7 to Python 3. For more information, see [Set up your Docker environment](/docs/apim_installation/apigw_containers/docker_scripts_prereqs#set-up-your-docker-environment).
 
 ## Deprecated features
 

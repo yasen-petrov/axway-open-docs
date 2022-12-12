@@ -225,7 +225,7 @@ option determines the number of Kerberos clients you can use with API Gateway:
 
 {{< alert title="Note" color="primary" >}}To use the native GSS library and the `kinit`
 tool, you must select to use the native GSS library on the instance-level API Gateway **Kerberos Configuration**
-settings. For more details, see [Configure Kerberos settings](/docs/apim_policydev/apigw_poldev/security_server_settings/#configure-kerberos-settings). {{< /alert >}}
+settings. For more details, see [Configure Kerberos settings](/docs/apim_policydev/apigw_poldev/security_server_settings#configure-kerberos-settings). {{< /alert >}}
 
 #### Kerberos Principal
 
@@ -448,7 +448,7 @@ To ensure maximum interoperability between Kerberos clients and Kerberos service
 You must ensure that the required encryption types exist in the keytab as defined in Kerberos system settings in the `krb5.conf` file. For a Kerberos client to request a Ticket Granting Ticket (TGT), it must have at least one key that matches one of the encryption types listed in the `default_tkt_enctypes`
 setting in `krb5.conf`. A Kerberos service requires a key of a matching encryption type to be able to decrypt a TGT a Kerberos client presents.
 
-For more details on the `krb5.conf` file, see [Configure Kerberos settings](/docs/apim_policydev/apigw_poldev/security_server_settings/#configure-kerberos-settings).
+For more details on the `krb5.conf` file, see [Configure Kerberos settings](/docs/apim_policydev/apigw_poldev/security_server_settings#configure-kerberos-settings).
 
 By default, for Windows 2003 Active Directory, TGT is encrypted using the `rc4-hmac`
 encryption type. However, if the service user has enabled **Use DES encryption types for this account**, the `des-cbc-md5`

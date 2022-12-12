@@ -69,4 +69,4 @@ To start API Gateway manually, follow these steps:
 
 ### Start as a service
 
-You can also run the gateway instances and Node Managers as services. For more information, see [Set up services](/docs/apim_installation/apigtw_install/post_overview/#set-up-services).
+You can also run the gateway instances and Node Managers as services. For more information, see [Set up services](/docs/apim_installation/apigtw_install/post_overview#set-up-services).

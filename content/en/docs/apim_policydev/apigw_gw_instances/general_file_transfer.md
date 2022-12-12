@@ -165,7 +165,7 @@ You can configure the following settings on the **Directory** tab:
 
 ## Logging settings
 
-The **Logging Settings** tab enables you to configure the logging level for the file transfer service, and to configure when message payloads are logged. For details see [Relative path logging settings](/docs/apim_policydev/apigw_gw_instances/general_relative_path/#logging-settings).
+The **Logging Settings** tab enables you to configure the logging level for the file transfer service, and to configure when message payloads are logged. For details see [Relative path logging settings](/docs/apim_policydev/apigw_gw_instances/general_relative_path#logging-settings).
 
 **Include in real time monitoring** Select whether to monitor traffic for the file transfer service. This means that traffic for this service is monitored in the API Gateway Manager and API Gateway Analytics web-based consoles. This setting is selected by default.
 

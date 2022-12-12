@@ -107,7 +107,7 @@ Select whether to record the received payload data for the message transaction. 
 
 These settings are global for all traffic passing through the API Gateway. You can override these persistence settings at the port level when configuring an HTTP or HTTPS interface.
 
-Details of inbound and outbound transactions are also written to the transaction event log. If recording of inbound or outbound transactions is disabled in **Traffic Monitor** settings, transaction data will not be written to the event log. For more details, see [Transaction event log settings](/docs/apim_reference/log_global_settings/#transaction-event-log-settings).
+Details of inbound and outbound transactions are also written to the transaction event log. If recording of inbound or outbound transactions is disabled in **Traffic Monitor** settings, transaction data will not be written to the event log. For more details, see [Transaction event log settings](/docs/apim_reference/log_global_settings#transaction-event-log-settings).
 
 **Transaction File Management Settings**:
 

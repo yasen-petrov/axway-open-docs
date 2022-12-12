@@ -790,10 +790,10 @@ The following logs should be persisted:
 * Trace files.
 * Admin Node Manager: `INSTALL_DIR/trace`.
 * API Gateway instance: `INSTALL_DIR/groups/<group-id>/<instance-id>/trace`.
-* Transaction audit log - see [Transaction audit log settings](/docs/apim_reference/log_global_settings/#transaction-audit-log-settings).
-* Transaction access log - see [Transaction access log settings](/docs/apim_reference/log_global_settings/#transaction-access-log-settings).
-* Transaction event log - see [Transaction event log settings](/docs/apim_reference/log_global_settings/#transaction-event-log-settings)
-* Open traffic event log - see [Open traffic event log settings](/docs/apim_reference/monitor_traffic_events_metrics/#open-traffic-event-log-settings)
+* Transaction audit log - see [Transaction audit log settings](/docs/apim_reference/log_global_settings#transaction-audit-log-settings).
+* Transaction access log - see [Transaction access log settings](/docs/apim_reference/log_global_settings#transaction-access-log-settings).
+* Transaction event log - see [Transaction event log settings](/docs/apim_reference/log_global_settings#transaction-event-log-settings)
+* Open traffic event log - see [Open traffic event log settings](/docs/apim_reference/monitor_traffic_events_metrics#open-traffic-event-log-settings)
 
 {{% alert title="Note" %}}
 Fluentd is deployed on infrapool nodes in AKS to stream logs. Fluentd is deployed on each node using a Daemonset. Although Fluentd does not have an Azure blob connector, a plugin is available on [GitHub](https://github.com/Microsoft/fluent-plugin-azure-storage-append-blob). You can also [use Fluentd with Azure Log Analytics](https://github.com/yokawasa/fluent-plugin-azure-loganalytics).

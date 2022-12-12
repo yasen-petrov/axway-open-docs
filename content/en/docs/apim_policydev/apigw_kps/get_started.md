@@ -68,7 +68,7 @@ To create a table, perform the following steps:
     * lastName
     * age
 
-    `age` has an Integer (numeric) **Type**. All the other columns are String. For more details, see [KPS table structure](/docs/apim_policydev/apigw_kps/kps_configuration/#kps-table-structure).
+    `age` has an Integer (numeric) **Type**. All the other columns are String. For more details, see [KPS table structure](/docs/apim_policydev/apigw_kps/kps_configuration#kps-table-structure).
 
 6. When you select the **User** table, you should have the following structure:
 

@@ -455,4 +455,4 @@ This directory contains the API Gateway, API Manager, and KPS configuration da
 
 ## Migrating data between environments
 
-Encrypted KPS data cannot be transferred directly between environments, so to migrate data between environments you must [re-encrypt the KPS data](/docs/apim_policydev/apigw_kps/how_to_use_kpsadmin_command/#re-encrypt-the-kps-data).
+Encrypted KPS data cannot be transferred directly between environments, so to migrate data between environments you must [re-encrypt the KPS data](/docs/apim_policydev/apigw_kps/how_to_use_kpsadmin_command#re-encrypt-the-kps-data).

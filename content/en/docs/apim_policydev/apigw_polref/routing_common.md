@@ -94,6 +94,7 @@ You can configure the following SSL protocol options:
 * **Do not use the TLS v1.2 protocol**: TLS v1.2 is not used for incoming connections to avoid any weaknesses in this protocol. This is *not* selected by default.
 * **Do not use the TLS v1.3 protocol**: TLS v1.3 is not used for incoming connections to avoid any weaknesses in this protocol. This is *not* selected by default.
 * **Disable renegotiation in TLSv1.2 and earlier**: Disable renegotiation, do not send HelloRequest messages, and ignore renegotiation requests via ClientHello. This is selected by default. If you disable this option and allow SSL renegotiation, both secure and legacy insecure renegotiation with unpatched servers will be possible.
+* **Enable unsafe legacy renegotiation**: Allows initial SSL connections and renegotiation with clients or servers that do not support Renegotiation Indication Extension (RFC 5746). This is *not* selected by default. When this option is selected, SSL connections will be vulnerable to the Man-in-the-Middle prefix attack, as described in CVE-2009-3555.
 
 **Ciphers**:
 
@@ -204,11 +205,11 @@ To specify the header settings for this filter, complete the following fields:
 
 * **HTTP Host Header**: An HTTP 1.1 client must send a `Host` header in all HTTP 1.1 requests. The `Host` header identifies the host name and port number of the resource as specified in the original request URL given by the client.
 
-    Select **Use Host header specified by client** to make the API Gateway use the `Host` header found in the `http.headers` attribute.  This attribute is automatically populated with the incoming `Host` header value. If you have used an **[Add HTTP Header](/docs/apim_policydev/apigw_polref/conversion_common/#add-http-header-filter)** filter, scripting, or other methods to rewrite the `Host` header value in the `http.headers` attribute, your changes will show in the outgoing `Host` header value. Alternatively, to configure API Gateway to create a new `Host` header, select **Generate new Host header**. This setting uses the host and port of the URL configured in the filter and ignores the `http.headers` attribute.
+    Select **Use Host header specified by client** to make the API Gateway use the `Host` header found in the `http.headers` attribute.  This attribute is automatically populated with the incoming `Host` header value. If you have used an **[Add HTTP Header](/docs/apim_policydev/apigw_polref/conversion_common#add-http-header-filter)** filter, scripting, or other methods to rewrite the `Host` header value in the `http.headers` attribute, your changes will show in the outgoing `Host` header value. Alternatively, to configure API Gateway to create a new `Host` header, select **Generate new Host header**. This setting uses the host and port of the URL configured in the filter and ignores the `http.headers` attribute.
 
 #### Response body settings
 
-**Load response body and release connection**: Select to load the response message body into API Gateway memory before exiting the filter, forcing it to do store-and-forward processing instead of pass-through. Loading and parsing durations are included in the corresponding traffic monitoring leg duration. The HTTP connection is released after the response body is parsed. This has the same effect on the policy as using the [HTTP Parser filter](/docs/apim_policydev/apigw_polref/utility_additional/index.html#http-parser-filter).
+**Load response body and release connection**: Select to load the response message body into API Gateway memory before exiting the filter, forcing it to do store-and-forward processing instead of pass-through. Loading and parsing durations are included in the corresponding traffic monitoring leg duration. The HTTP connection is released after the response body is parsed. This has the same effect on the policy as using the [HTTP Parser filter](/docs/apim_policydev/apigw_polref/utility_additional#http-parser-filter).
 
 #### Connection settings
 
@@ -220,7 +221,7 @@ This option defaults to disabled, causing the connection not to be closed until 
 
 #### Timeouts settings
 
-Configure custom timeouts for a filter. The custom timeouts will override the equivalent global-level timeouts (see, [General settings in Policy Studio](/docs/apim_reference/general_settings/#general-settings)), or the remote host level timeouts (see, [Remote Host Advanced settings](/docs/apim_policydev/apigw_gw_instances/general_remote_hosts/#advanced-settings)) when a remote host that matches the `host:port` of the URL specified in the filter has been previously configured.
+Configure custom timeouts for a filter. The custom timeouts will override the equivalent global-level timeouts (see, [General settings in Policy Studio](/docs/apim_reference/general_settings#general-settings)), or the remote host level timeouts (see, [Remote Host Advanced settings](/docs/apim_policydev/apigw_gw_instances/general_remote_hosts#advanced-settings)) when a remote host that matches the `host:port` of the URL specified in the filter has been previously configured.
 
 **Override timeouts**: Specifies whether or not timeouts are overridden by this filter. Defaults to disabled.
 

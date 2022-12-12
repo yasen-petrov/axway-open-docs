@@ -171,4 +171,4 @@ For example, perform the following steps:
 
 For details on how to view monitoring metrics in API Manager, see the [API Manager User Guide](/docs/apim_administration/apimgr_admin/).
 
-For details on how to view monitoring metrics in API Gateway Analytics, see [Monitor traffic](/docs/apimanager_analytics/analytics_start/#monitor-traffic).
+For details on how to view monitoring metrics in API Gateway Analytics, see [Monitor traffic](/docs/apimanager_analytics/analytics_start#monitor-traffic).

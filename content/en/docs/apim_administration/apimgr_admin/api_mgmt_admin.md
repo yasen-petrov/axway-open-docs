@@ -64,7 +64,7 @@ Both quota rules apply to the same API method.
 
 ### Configure quota storage settings
 
-You can configure how quota information is stored using Policy Studio in **Server Settings** > **API Manager** > **Quota Settings**. For more details, see [Quota Settings](/docs/apim_administration/apimgr_admin/api_mgmt_config_ps/#quota-settings).
+You can configure how quota information is stored using Policy Studio in **Server Settings** > **API Manager** > **Quota Settings**. For more details, see [Quota Settings](/docs/apim_administration/apimgr_admin/api_mgmt_config_ps#quota-settings).
 
 ## Manage OAuth authorizations
 
@@ -105,7 +105,7 @@ You can view the usage of published frontend APIs that has been granted access t
 
 You can revoke access to external organizations using an API, effectively being able to undo the process of granting access of an API to an external organization, enhancing API Manager’s capabilities to ensure API traffic, quotas, and other sensible factors are being managed as per company policy.
 
-For more details, see [Organizations and user roles in API Manager](/docs/api_mgmt_overview/key_concepts/api_mgmt_orgs_roles/#organizations-and-user-roles-in-api-manager).
+For more details, see [Organizations and user roles in API Manager](/docs/api_mgmt_overview/key_concepts/api_mgmt_orgs_roles#organizations-and-user-roles-in-api-manager).
 
 ### Create an organization
 
@@ -200,4 +200,4 @@ If you disable **Enable password expiry**, which forces users to change password
 
 API administrators, organization administrators, and application developers (API consumers) can use the **Clients** > **Applications** tab. This enables you to create and edit the client applications that use the APIs virtualized in **APIs** > **API Catalog**.
 
-For details on managing applications, see [Manage client applications](/docs/apim_administration/apimgr_admin/api_mgmt_consume/#manage-client-applications).
+For details on managing applications, see [Manage client applications](/docs/apim_administration/apimgr_admin/api_mgmt_consume#manage-client-applications).

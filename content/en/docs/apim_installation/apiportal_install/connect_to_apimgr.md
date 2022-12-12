@@ -24,7 +24,7 @@ To connect API Portal to API Manager:
 
 API Portal is now connected to API Manager.
 
-To log into API Portal you must have a user configured in API Manager. For more information, see [Manage users](/docs/apim_administration/apimgr_admin/api_mgmt_admin/#manage-users). Note that, by default, only users with **Organization administrator** or **User** roles are allowed to login to API Portal.
+To log into API Portal you must have a user configured in API Manager. For more information, see [Manage users](/docs/apim_administration/apimgr_admin/api_mgmt_admin#manage-users). Note that, by default, only users with **Organization administrator** or **User** roles are allowed to login to API Portal.
 
 ## Connect API Portal to multiple API Managers
 
@@ -111,9 +111,9 @@ You must create a separate project for each slave API Manager to use separate co
 
 1. In the Policy Studio node tree, click **Environment Configuration > Listeners > API Gateway > API Portal > Ports**.
 2. Open the configured port, go to the **Mutual Authentication** tab, and check that **Ignore client certificates** is selected.
-3. In the node tree, click **Environment Configuration > Listeners > API Gateway > API Portal > Paths.**, and under `/api/portal/`, double-click **API Manager API v1.3** or **API Manager API v1.4**, depending on [your API Portal version](/docs/apim_relnotes/20200930_apip_relnotes/#important-changes).
+3. In the node tree, click **Environment Configuration > Listeners > API Gateway > API Portal > Paths.**, and under `/api/portal/`, double-click **API Manager API v1.3** or **API Manager API v1.4**, depending on [your API Portal version](/docs/apim_relnotes/20200930_apip_relnotes#important-changes).
 4. Click **Add**.
-5. Add a new servlet property. The version of the API can be `1.3` or `1.4` depending on [your API Portal version](/docs/apim_relnotes/20200930_apip_relnotes/#important-changes).
+5. Add a new servlet property. The version of the API can be `1.3` or `1.4` depending on [your API Portal version](/docs/apim_relnotes/20200930_apip_relnotes#important-changes).
 
    * **Name**: `CsrfProtectionFilterFactory.refererWhitelist`
    * **Value**: the login URL of the *master* API Manager (for example, `https://10.142.10.4:8075/api/portal/v1.3/login`)
@@ -138,7 +138,7 @@ You must create a separate project for each slave API Manager to use separate co
 
 API Portal is now connected to multiple API Managers.
 
-To log in in to API Portal you must have a user configured in API Manager. For more information, see [Manage users](/docs/apim_administration/apimgr_admin/api_mgmt_admin/index.html#manage-users). Note that, by default, only users with **Organization administrator** or **User** roles are allowed to login to API Portal.
+To log in in to API Portal you must have a user configured in API Manager. For more information, see [Manage users](/docs/apim_administration/apimgr_admin/api_mgmt_admin#manage-users). Note that, by default, only users with **Organization administrator** or **User** roles are allowed to login to API Portal.
 
 Watch this video to learn more about how to connect API Portal to multiple API Managers.
 

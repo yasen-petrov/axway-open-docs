@@ -65,7 +65,7 @@ The Quickstart demo `quickstart.sh` script enables you to quickly deploy a demo 
 
 This script builds a base API Gateway Docker image using an API Gateway Linux installer and a Docker image based on a standard CentOS7 operating system image.
 
-{{< alert title="Caution" color="warning" >}}Docker tries to download the latest CentOS image from a remote registry, which may potentially contain security vulnerabilities. Axway is not responsible for any third-party base O/S images. You must ensure that all base O/S images are up-to-date and apply any security patches if necessary. See [Create a base image based on custom CentOS7/RHEL7](/docs/apim_installation/apigw_containers/docker_script_baseimage/#create-a-base-image-based-on-custom-centos7-rhel7) for details.{{< /alert >}}
+{{< alert title="Caution" color="warning" >}}Docker tries to download the latest CentOS image from a remote registry, which may potentially contain security vulnerabilities. Axway is not responsible for any third-party base O/S images. You must ensure that all base O/S images are up-to-date and apply any security patches if necessary. See [Create a base image based on custom CentOS7/RHEL7](/docs/apim_installation/apigw_containers/docker_script_baseimage#create-a-base-image-based-on-custom-centos7-rhel7) for details.{{< /alert >}}
 
 For the Quickstart help, run:
 
@@ -83,7 +83,7 @@ To run the demo environment, set the following in the agents configuration files
 * `APIGATEWAY_HOST=apimgr`
 * `APIMANAGER_SSL_INSECURESKIPVERIFY=true`
 
-{{< alert title="Note" color="primary" >}}Server certificates signed by a trusted Certificate Authority should be used when attempting to utilize the demo script as part of a production environment with the `APIMANAGER_SSL_INSECURESKIPVERIFY=true` configuration variable removed. For more information, see [Configure signed certificates for API Manager ports](/docs/apim_administration/apimgr_admin/api_mgmt_config/#configure-signed-certificates-for-api-manager-ports).{{< /alert >}}
+{{< alert title="Note" color="primary" >}}Server certificates signed by a trusted Certificate Authority should be used when attempting to utilize the demo script as part of a production environment with the `APIMANAGER_SSL_INSECURESKIPVERIFY=true` configuration variable removed. For more information, see [Configure signed certificates for API Manager ports](/docs/apim_administration/apimgr_admin/api_mgmt_config#configure-signed-certificates-for-api-manager-ports).{{< /alert >}}
 
 ## Create a Docker network
 

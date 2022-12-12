@@ -126,7 +126,7 @@ To update an XML schema, perform the following steps:
 
 API Gateway compares the contents of the schema and any of its imported schemas to those stored in its cache. If the contents are different, it creates a new version of the schema.
 
-See [Update a web service](/docs/apim_policydev/apigw_web_services/general_ws_repository/#update-a-web-service)
+See [Update a web service](/docs/apim_policydev/apigw_web_services/general_ws_repository#update-a-web-service)
 for more information on the types of changes to a WSDL or schema that trigger creation of a new version.
 
 ## Delete cached WSDL or XML schema documents

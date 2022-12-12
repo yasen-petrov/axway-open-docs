@@ -50,7 +50,7 @@ ${http.destination.protocol}://${http.destination.host}:${http.destination.port}
 ```
 
 In both cases, you can configure SSL settings, credential profiles for authentication, and other settings for the direct connection using the tabs in the **Connection Details**
-group. For more details, see [Connect to URL](/docs/apim_policydev/apigw_polref/routing_common/#connect-to-url-filter).
+group. For more details, see [Connect to URL](/docs/apim_policydev/apigw_polref/routing_common#connect-to-url-filter).
 
 **Delegate to Routing Policy**:
 Select this setting to use a dedicated routing policy to send messages on to the web service. For example, you might have configured a dedicated routing policy that uses the JMS-based **Send to JMS** filter to route over JMS.

@@ -14,7 +14,7 @@ To configure a client connection to a remote server over the RADIUS protocol, un
 > Add a RADIUS Client**. This topic explains how to configure the settings the **RADIUS Client**
 dialog.
 
-For details on how to configure a RADIUS authentication repository, see [RADIUS repositories](/docs/apim_policydev/apigw_external_connections/common_user_store/#radius-repositories).
+For details on how to configure a RADIUS authentication repository, see [RADIUS repositories](/docs/apim_policydev/apigw_external_connections/common_user_store#radius-repositories).
 
 ## Configuration
 

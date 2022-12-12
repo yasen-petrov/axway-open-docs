@@ -68,7 +68,7 @@ The API developer or service provider expects the flexibility to code, deploy, a
 
 ![Developer process](/Images/api_mgmt_overview/dev-to-prod-process.png)  
 
-{{< alert title="Tip" color="primary" >}}In this process it might be more efficient to use the API Manager CLI [`apim-cli`](/docs/api_mgmt_overview/api_mgmt_components/tools/#api-manager-cli).{{< /alert >}}
+{{< alert title="Tip" color="primary" >}}In this process it might be more efficient to use the API Manager CLI [`apim-cli`](/docs/api_mgmt_overview/api_mgmt_components/tools#api-manager-cli).{{< /alert >}}
 
 ### Promoting to all other stages
 

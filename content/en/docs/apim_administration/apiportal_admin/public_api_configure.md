@@ -56,7 +56,7 @@ sudo sh ./apiportal_encryption.sh
 
 The directory is created along with a file. The last segment of the directory is the file name, for example: `/sample/directory/for/encryption/key` creates an empty file named "key" in the desired directory.
 
-If you have already had a Public API mode user configured, re-enter the user account password in JAI to encrypt and store the script correctly. For more details see [Encrypt the Public API user password in unattended mode](/docs/apim_installation/apiportal_install/install_unattended/#encrypt-the-public-api-user-password-in-unattended-mode).
+If you have already had a Public API mode user configured, re-enter the user account password in JAI to encrypt and store the script correctly. For more details see [Encrypt the Public API user password in unattended mode](/docs/apim_installation/apiportal_install/install_unattended#encrypt-the-public-api-user-password-in-unattended-mode).
 
 ## Enable Public API mode in API Portal
 

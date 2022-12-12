@@ -388,7 +388,7 @@ The **JSON Remove Node** filter aborts with a `CircuitAbortException` if:the con
 
 The **Set Message** filter replaces the body of the message. The replacement data can be plain text, HTML, XML, or any other text-based markup.
 
-You can also use the **Set Message** filter to customize SOAP faults that are returned to clients in the case of a failure or exception in the policy. For a detailed explanation of how to use this filter to customize SOAP faults, see [SOAP fault handling](/docs/apim_policydev/apigw_polref/fault_filters/#soap-fault-filter).
+You can also use the **Set Message** filter to customize SOAP faults that are returned to clients in the case of a failure or exception in the policy. For a detailed explanation of how to use this filter to customize SOAP faults, see [SOAP fault handling](/docs/apim_policydev/apigw_polref/fault_filters#soap-fault-filter).
 
 Perform the following steps to configure the **Set Message** filter:
 
@@ -453,7 +453,7 @@ Accept-charset:en
 Celsius=200
 ```
 
-This filter is found in the **Conversion** category in Policy Studio. For details on how to extract REST request attributes from a message, see [Extract REST request attributes filter](/docs/apim_policydev/apigw_polref/attributes_manipulate/#extract-rest-request-attributes-filter). For details on how to validate a REST request, see [REST request validatioon filter](/docs/apim_policydev/apigw_polref/content_common/#rest-request-validation-filter).
+This filter is found in the **Conversion** category in Policy Studio. For details on how to extract REST request attributes from a message, see [Extract REST request attributes filter](/docs/apim_policydev/apigw_polref/attributes_manipulate#extract-rest-request-attributes-filter). For details on how to validate a REST request, see [REST request validatioon filter](/docs/apim_policydev/apigw_polref/content_common#rest-request-validation-filter).
 
 Complete the following fields:
 

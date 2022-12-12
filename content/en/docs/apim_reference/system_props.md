@@ -478,3 +478,16 @@ Axway-defined Java system properties introduced in the 7.7 20220830 release
 | System Property                                  | Context     | Description   |
 | ------------------------------------------------ | ----------- | ------------- |
 | com.axway.apigw.cookie.validation.ignore | API Gateway | Allow HTTP Cookie related filters to not enforce cookie validation as per RFC 6265. Default value: 'false' |
+
+## 7.7 November 2022
+
+Axway-defined Java system properties introduced in the 7.7 20221130 release
+
+| System Property                                  | Context     | Description   |
+| ------------------------------------------------ | ----------- | ------------- |
+| com.axway.apimanager.bypass.temporary.password.check | API Manager | Allow API Manager REST APIs to be invokable using temporary passwords generated via a password reset. When set to 'true' temporary password checking is bypassed. Default value: 'false' |
+| com.axway.api.runtime.broker.contentType.formUrlEncoded.preserve | API Manager | If set to 'true' the API Manager preserves attributes of the 'application/x-www-form-urlencoded' Content-Type header of user request messages to API Manager. Default value: 'false' |
+| com.axway.apimanager.api.export.cleartext.allowed | API Manager | If set to 'true' the API Manager allows Frontend APIs to be exported as clear text. Setting this property to 'true' may result in `authenticationProfile.parameters['password']` being visible in the export file if it is not password protected. Default value: 'false' |
+|com.vordel.coreapireg.runtime.broker.parameters.allowEmptyDefault | API Manager | This property was introduced to the product in the [March 21](/docs/apim_relnotes/20210330_apimgr_relnotes/) (7.7 20210330) release, and it has been removed from the product in this release. An equivalent setting ([`Allow empty value`](/docs/apim_reference/api_mgmt_config_web#runtime-parameter-validation)) has been added to API Manager settings. |
+|com.axway.api.runtime.broker.parameters.skipRequiredValidation | API Manager | This property was introduced to the product in the [August 21](/docs/apim_relnotes/20210830_apimgr_relnotes/) (7.7 20210830) release, and it has been removed from the product in this release. An equivalent setting ([`Skip required validation`](/docs/apim_reference/api_mgmt_config_web#runtime-parameter-validation)) has been added to API Manager settings. |
+|com.axway.api.runtime.broker.parameters.skipEnumValidation | API Manager | This property was introduced to the product in the [August 21](/docs/apim_relnotes/20210830_apimgr_relnotes/) (7.7 20210830) release, and it has been removed from the product in this release. An equivalent setting ([`Skip enun validation`](/docs/apim_reference/api_mgmt_config_web#runtime-parameter-validation)) has been added to API Manager settings. |

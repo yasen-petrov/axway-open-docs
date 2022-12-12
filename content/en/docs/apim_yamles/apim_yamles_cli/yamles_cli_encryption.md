@@ -17,7 +17,7 @@ Encryption of XML or YAML configuration means that sensitive fields of type `enc
 
 If you get an error when attempting to encrypt the YAML configuration, this means that the passphrase for the configuration is incorrect or that the configuration is already encrypted. Use the `change-passphrase` option to change the passphrase.
 
-You can also use [projdeploy](/docs/apim_reference/devopstools_ref/#projdeploy-command-options) to encrypt a YAML configuration at deployment time.
+You can also use [projdeploy](/docs/apim_reference/devopstools_ref#projdeploy-command-options) to encrypt a YAML configuration at deployment time.
 
 The following are examples of how you can use the `encrypt` option in the `yamles` CLI to encrypt an unencrypted YAML configuration.
 
@@ -90,7 +90,7 @@ A private key is sensitive data that is externalized into a separate file in the
 
 Both the `--text` and `--file` options require a YAML configuration to be specified in the `--source` parameter. The YAML configuration is not updated by the command. You must use the same YAML configuration that you will be adding the encrypted text or file into so that the data is encrypted correctly for the destination YAML configuration.
 
-See section [Add a new certificate and private key to a YAML configuration](/docs/apim_yamles/yamles_edit/#add-a-new-certificate-and-private-key-to-a-yaml-configuration) for more information regarding adding a certificate and private key to a YAML configuration. Note that `encrypt --file` option may be used to encrypt the content of any type of file. The operation will update the file which will always be base64 encoded after encryption, regardless of the format of the original unencrypted file. Note that encrypting a private key via `openssl` and adding it to the YAML configuration is not supported.
+See section [Add a new certificate and private key to a YAML configuration](/docs/apim_yamles/yamles_edit#add-a-new-certificate-and-private-key-to-a-yaml-configuration) for more information regarding adding a certificate and private key to a YAML configuration. Note that `encrypt --file` option may be used to encrypt the content of any type of file. The operation will update the file which will always be base64 encoded after encryption, regardless of the format of the original unencrypted file. Note that encrypting a private key via `openssl` and adding it to the YAML configuration is not supported.
 
 ## Change YAML configuration passphrase
 
@@ -122,7 +122,7 @@ You can run the following help command for more details on each parameter:
 yamles change-passphrase --help
 ```
 
-You can also use [projdeploy](/docs/apim_reference/devopstools_ref/#projdeploy-command-options) to change the passphrase of a YAML configuration at deployment time.
+You can also use [projdeploy](/docs/apim_reference/devopstools_ref#projdeploy-command-options) to change the passphrase of a YAML configuration at deployment time.
 
 The following snippet shows how the `change-passphrase` option affects the content of environmentalized YAML files. Encrypted data located in `values.yaml` is also changed unless it is an environment variable.
 

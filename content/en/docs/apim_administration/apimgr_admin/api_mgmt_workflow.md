@@ -25,7 +25,7 @@ To register a back-end API in API Manager, perform the following steps:
 
 For more details, see [Register REST APIs in API Manager](/docs/apim_administration/apimgr_admin/api_mgmt_register_web/).
 
-Alternatively, if you do not have a Swagger or WADL file to import for an existing API, see [Manually register a new back-end REST API](/docs/apim_administration/apimgr_admin/api_mgmt_register_web/#manually-register-a-new-back-end-rest-api).
+Alternatively, if you do not have a Swagger or WADL file to import for an existing API, see [Manually register a new back-end REST API](/docs/apim_administration/apimgr_admin/api_mgmt_register_web#manually-register-a-new-back-end-rest-api).
 
 ## Virtualize a front-end REST API in API Manager
 

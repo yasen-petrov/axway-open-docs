@@ -102,7 +102,7 @@ The following general settings apply to FTP and FTPS connections:
 
 {{< alert title="Note" color="primary" >}}
 To use passive transfer mode, you must perform the steps described in
-[Configure passive transfer mode](/docs/apim_policydev/apigw_gw_instances/general_file_transfer/#configure-passive-transfer-mode).{{< /alert >}}
+[Configure passive transfer mode](/docs/apim_policydev/apigw_gw_instances/general_file_transfer#configure-passive-transfer-mode).{{< /alert >}}
 
 **File Type**: Select **ASCII** mode for sending text-based data, or **Binary** mode for sending binary data over the file transfer connection. Defaults to **ASCII** mode.
 
@@ -170,7 +170,7 @@ The following general settings apply to FTP and FTPS connections:
 
 {{< alert title="Note" color="primary" >}}
 To use passive transfer mode, you must perform the steps described in
-[Configure passive transfer mode](/docs/apim_policydev/apigw_gw_instances/general_file_transfer/#configure-passive-transfer-mode).{{< /alert >}}
+[Configure passive transfer mode](/docs/apim_policydev/apigw_gw_instances/general_file_transfer#configure-passive-transfer-mode).{{< /alert >}}
 
 **File Type**: Select **ASCII** mode for sending text-based data, or **Binary** mode for sending binary data over the file transfer connection. Defaults to **ASCII** mode.
 
@@ -373,7 +373,7 @@ Click the **Add** button to add details about a particular field to add to the m
 
 API Gateway can capture both incoming and outgoing packets when it is listening passively (not opening any ports) on the network interface. For example, a web service is deployed in a web server that listens on port 80. API Gateway can be installed on the same machine as the web server. It is configured *not* to open any ports and to use a packet sniffer to capture all packets destined for TCP port 80.
 
-For details on how to configure a packet sniffer, see [Packet sniffers](/docs/apim_policydev/apigw_gw_instances/general_services/#packet-sniffers).
+For details on how to configure a packet sniffer, see [Packet sniffers](/docs/apim_policydev/apigw_gw_instances/general_services#packet-sniffers).
 
 ### Response packet sniffing
 
@@ -389,7 +389,7 @@ You can see from the policy that the first logging filter logs the *request* mes
 
 The **Call internal service** filter is a special filter that passes messages to an internal servlet application or static content provider that has been deployed at the API Gateway. The appropriate application is selected based on the relative path on which the request message is received.
 
-This filter is used by Management Services that are configured to listen on the Management Interface on port 8090. For more information on how the **Call internal service** filter is used by these services, see [Management services](/docs/apim_policydev/apigw_gw_instances/general_services/#management-services).
+This filter is used by Management Services that are configured to listen on the Management Interface on port 8090. For more information on how the **Call internal service** filter is used by these services, see [Management services](/docs/apim_policydev/apigw_gw_instances/general_services#management-services).
 
 ### Configure call internal service
 

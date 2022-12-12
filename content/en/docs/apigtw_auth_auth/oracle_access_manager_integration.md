@@ -168,7 +168,7 @@ This section describes how to configure API Gateway to work with Oracle Access M
 
 ### Start API Gateway
 
-Refer to [Install API Gateway](/docs/apim_installation/apigtw_install/install_gateway/#start-api-gateway) guide for instructions on how to start API Gateway.
+Refer to [Install API Gateway](/docs/apim_installation/apigtw_install/install_gateway#start-api-gateway) guide for instructions on how to start API Gateway.
 
 Example:
 

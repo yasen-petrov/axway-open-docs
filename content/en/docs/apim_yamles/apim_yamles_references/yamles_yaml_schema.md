@@ -92,7 +92,7 @@ children:                     # child entity
                               # file placeholder ^
 ```
 
-For more information on how to format YAML, see [YAML Syntax considerations](/docs/apim_yamles/yamles_edit/#yaml-syntax-considerations).
+For more information on how to format YAML, see [YAML Syntax considerations](/docs/apim_yamles/yamles_edit#yaml-syntax-considerations).
 
 ### Reference syntax
 
@@ -171,7 +171,7 @@ Cousin reference:
 
 #### Selector reference
 
-A reference can also be a selector. For more information, see [Selector syntax](/docs/apim_policydev/apigw_poldev/general_selector/#selector-syntax).
+A reference can also be a selector. For more information, see [Selector syntax](/docs/apim_policydev/apigw_poldev/general_selector#selector-syntax).
 
 #### Null reference
 
@@ -181,7 +181,7 @@ A reference can also be a selector. For more information, see [Selector syntax](
 
 A placeholder starts with `{{` and ends with `}}`. Leading and trailing spaces are allowed but they are removed during the export task. Placeholders must be surrounded by single quotation marks only if the value of the field `value` starts with a placeholder.
 
-For more information, see an example of how to [apply placeholders in YAML files](/docs/apim_yamles/yamles_environmentalization/#usage-in-yaml-files).
+For more information, see an example of how to [apply placeholders in YAML files](/docs/apim_yamles/yamles_environmentalization#usage-in-yaml-files).
 
 The following values are not allowed at the *beginning* of a placeholder:
 

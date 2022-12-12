@@ -121,7 +121,7 @@ Alternatively, you can use a script to automatically provide the passphrase when
 {{< alert title="Caution" color="warning" >}}
 
 * If the group passphrase is not correctly set in the `group.xml` file, then newly created API Gateway servers will fail to start.
-* If newly created API Gateway servers expect to use a script to provide the passphrase and the group passphrase cannot be correctly set in the `group.xml` file, then you must set the `pvalue` attribute to `"(prompt)"`, as described in [Prompt for the passphrase at server startup](/docs/apim_administration/apigtw_admin/general_passphrase/#prompt-for-the-passphrase-at-server-startup). In this scenario, you must provide the correct passphrase for the group when new API Gateway servers are created. Failing to provide the correct passphrase causes the newly created API Gateway servers fail to start.
+* If newly created API Gateway servers expect to use a script to provide the passphrase and the group passphrase cannot be correctly set in the `group.xml` file, then you must set the `pvalue` attribute to `"(prompt)"`, as described in [Prompt for the passphrase at server startup](/docs/apim_administration/apigtw_admin/general_passphrase#prompt-for-the-passphrase-at-server-startup). In this scenario, you must provide the correct passphrase for the group when new API Gateway servers are created. Failing to provide the correct passphrase causes the newly created API Gateway servers fail to start.
 {{< /alert >}}
 
 ## Promotion between environments

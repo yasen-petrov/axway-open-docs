@@ -23,7 +23,7 @@ You must install a JDBC-compliant database to store the monitoring and transacti
 
 You must ensure that you have the correct credentials to execute the setup scripts and to access the database for operations on the tables created by the scripts.
 
-For details on supported database versions, see [Databases](/docs/apim_installation/apigtw_install/system_requirements/#databases). For details on how to install your chosen third-party JDBC database, see your database product documentation.
+For details on supported database versions, see [Databases](/docs/apim_installation/apigtw_install/system_requirements#databases). For details on how to install your chosen third-party JDBC database, see your database product documentation.
 
 ### Install API Manager or API Gateway Analytics
 
@@ -102,7 +102,7 @@ When you have created the metrics database, you must update your API Gateway Ana
 
 ## Configure the database connection for API Manager
 
-To configure the API Gateway external connection to the database in Policy Studio, select **Environment Configuration > External Connections > Database Connections > Add a Database Connection**. For details, see [Configure the database connection](/docs/apim_policydev/apigw_external_connections/common_db_conf/#configure-the-database-connection).
+To configure the API Gateway external connection to the database in Policy Studio, select **Environment Configuration > External Connections > Database Connections > Add a Database Connection**. For details, see [Configure the database connection](/docs/apim_policydev/apigw_external_connections/common_db_conf#configure-the-database-connection).
 
 ## Set up the database tables
 

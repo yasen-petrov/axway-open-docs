@@ -12,7 +12,7 @@ Ideally, a standard IDE can be used to create a project and edit the files of a 
 
 ## Edit a YAML configuration with ES Explorer
 
-[ES Explorer](/docs/apigtw_devguide/entity_store/#use-the-es-explorer) can be used with some limitations to view, navigate, and edit a YAML configuration. To connect to a YAML configuration, enter a URL of the form `yaml:file:/root/dir/of/yaml`.
+[ES Explorer](/docs/apigtw_devguide/entity_store#use-the-es-explorer) can be used with some limitations to view, navigate, and edit a YAML configuration. To connect to a YAML configuration, enter a URL of the form `yaml:file:/root/dir/of/yaml`.
 
 ## Add a new certificate and private key to a YAML configuration
 

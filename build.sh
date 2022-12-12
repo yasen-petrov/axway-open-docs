@@ -22,7 +22,6 @@
 #     the build script
 #   - all other files like content/en/ content will be picked up by hugo automatically
 #     if they change
-#   - 
 #
 
 set -e
@@ -78,6 +77,31 @@ function fCheckoutSubmodule() {
     fi
 }
 
+# fCheckAnchorSyntax:
+#   - updates in Zoomin have broken the importing of html files that has links with anchors
+#   - the Zoomin process is blindly adding in "/index.html" before "#" which creates these broken links:
+#       a. "<url>//index.html#<anchor_name>"
+#       b. "<url>/index.html/index.html#<anchor_name>"
+#   - the MD syntax are actually all fine and it's a problem with Zoomin's import scripts
+#   - they have fixed the problem with "a" but "b" might not get fixed
+#   - so this function is a failsafe to break the build before it gets that far
+#   - also note that using index.html in the link is needed for external links
+#   - TODO: remember to remove this after zoomin fixes the issues
+function fCheckAnchorSyntax() {
+    local pattern="/index.html#"
+    local fail_build="false"
+    for file in $(grep -r "${pattern}" content/ | grep "(/docs/"| cut -d : -f 1);do
+        if [[ "${fail_build}" == "false" ]];then
+            echo "[ERROR] Following files have internal anchor links using syntax [${pattern}]:"
+        fi
+        echo "[ERROR]   - $file"
+        fail_build="true"
+    done
+    if [[ "${fail_build}" == "true" ]];then
+        exit 1
+    fi
+}
+
 # fMergeContent:
 #  1. makes sure BUILD_DIR is clean
 #  2. copies axway-open-docs-common to BUILD_DIR
@@ -91,6 +115,7 @@ function fMergeContent() {
     local _c_context
     local _c_path
     local _c_name
+    local _branch_name
     local _ln_opt='-sf'
     if [[ "$DEBUG" == "true" ]];then
         _ln_opt='-vsf'
@@ -136,6 +161,17 @@ function fMergeContent() {
         fi
     done
 
+    # Update the github_branch Param value in config.toml. This is used by the github edit link. If
+    # the BRANCH_NAME is not set then it's either a local build or a PR. We don't want to enable the
+    # github edit link when in this scenario.
+    _branch_name=${BRANCH_NAME} # the BRANCH_NAME variable comes from Jenkins
+    if [[ ! "${_branch_name}" =~ ^"PR-"* ]];then
+        unlink build/config.toml
+        cp -f config.toml build/config.toml
+        sed -i "s|# github_branch|github_branch|g" build/config.toml
+        sed -i "s|github_branch = .*|github_branch = \"${_branch_name}\"|g" build/config.toml
+    fi
+
     # This soft link makes the git info available for hugo to populate the date with git hash in the footer.
     # Note that common files coming from axway-open-docs-common will not have this information and the pages
     # will use the "date" value at the top of the page.
@@ -170,6 +206,7 @@ function fRunHugo() {
 }
 
 fCheckoutSubmodule
+fCheckAnchorSyntax
 fMergeContent
 fRunHugo
 echo "[INFO] Done."

@@ -8,7 +8,7 @@ description: Configure API Portal and API Manager Mutual TLS authentication to i
 ---
 Configure API Portal and API Manager Mutual TLS authentication to increase security in API Portal and API Manager connection. The mutual authentication ensures that traffic is secure between the server (API Manager), which presents its certificate to the client, and the client (API Portal), which presents its own certificate for the server's verification.
 
-Before you start you must have a TLS certificate, which presents the identity of API Portal to API Manager. To configure API Manager to require and verify this certificate, see [Set up the back-end SSL server for mutual authentication](/docs/apim_administration/apimgr_admin/api_mgmt_custom_policies/#set-up-the-back-end-ssl-server-for-mutual-authentication).
+Before you start you must have a TLS certificate, which presents the identity of API Portal to API Manager. To configure API Manager to require and verify this certificate, see [Set up the back-end SSL server for mutual authentication](/docs/apim_administration/apimgr_admin/api_mgmt_custom_policies#set-up-the-back-end-ssl-server-for-mutual-authentication).
 
 ## Configure API Portal to present its certificate
 
@@ -31,7 +31,7 @@ To avoid any issues with connecting to API Manager from the browser, we recommen
 * Configure API Manager to require client certificate for connection on this new port.
 * Leave the default port (`8075`) in the same state as it was until now, so the browser continues to connect to API Manager on the default port.
 
-For more details on how to expose a new port for API Manager, see [Add Http or Https Interface](/docs/apim_policydev/apigw_gw_instances/general_services/#http-and-https-interfaces).
+For more details on how to expose a new port for API Manager, see [Add Http or Https Interface](/docs/apim_policydev/apigw_gw_instances/general_services#http-and-https-interfaces).
 
 Once you expose a new port, you must change it in the API Portal configuration:
 

@@ -25,7 +25,7 @@ You can search for a specific certificate or key by entering a search string in 
 
 The following options are available at the bottom right of the window:
 
-* **Create/Import**: Click to create or import a new certificate and private key. For details, see [Configure an X.509 certificate](#configure-an-x-509-certificate).
+* **Create/Import**: Click to create or import a new certificate and private key. For details, see [Configure an X.509 certificate](#configure-an-x509-certificate).
 * **Edit**: Select a certificate, and click to edit its existing settings.
 * **View**: Select a certificate, and click to view more detailed information.
 * **Remove**: Select a certificate, and click to remove the certificate from the certificate store.
@@ -76,8 +76,6 @@ If the private key is stored in the API Gateway certificate store, select **Priv
 
 ### Private key provided by OpenSSL engine
 
-{{< alert title="Warning" color="warning" >}}Engines from OpenSSL versions 1.0 and 1.1 are not compatible with OpenSSL 3.0. When configuring and using an OpenSSL engine, make sure it has been made for version 3.0.{{< /alert >}}
-
 If the private key that corresponds to the public key in the certificate is provided by an OpenSSL engine, select **Private key provided by OpenSSL Engine**.
 
 Configure the following fields to associate a key provided by the OpenSSL engine with the current certificate:
@@ -86,15 +84,19 @@ Configure the following fields to associate a key provided by the OpenSSL engine
 * **Key Id**: Enter the key ID used to uniquely identify a specific private key from all others stored on an HSM. When you complete this dialog, the private key is associated with the certificate that you are currently editing. Private keys are identified by their key ID by default.
 * **Conversation**: If the HSM requires the server to provide a specific response to a specific request from the HSM, you can enter the response in this field. This enables the server to conduct an automated dialog with a HSM when it requires access to a private key. For example, in a simple case, the server response might be a specific passphrase.
 
+{{< alert title="Note" >}}OpenSSL engines are deprecated, and therefore they are disabled in FIPS mode.
+
+Engines from OpenSSL versions 1.0 and 1.1 are not compatible with OpenSSL 3.0. When configuring and using an OpenSSL engine, ensure it has been made for version 3.0.
+
+{{< /alert >}}
+
 ### Private key stored on external HSM
 
 If the private key that corresponds to the public key stored in the certificate resides on an external HSM, select **Private key stored on Hardware Security Module (HSM)**, and enter the name of the **Certificate Realm**.
 
-To use the API Gateway's PKCS#11 engine to access objects in an external HSM, the corresponding HSM provider and certificate realms must also be configured. For more details, see [Configure HSMs and certificate realms](#configure-hsms-and-certificate-realms).
+To allow the API Gateway's PKCS#11 layer to access objects in an external HSM, the corresponding HSM provider and certificate realms must also be configured. For more details, see [Configure HSMs and certificate realms](#configure-hsms-and-certificate-realms).
 
 ## Configure HSMs and certificate realms
-
-{{< alert title="Warning" color="warning" >}}API Gateway does not support FIPS and requires use of X.509 cryptographic operations. HSM hardware, and its corresponding driver, must be compatible with those requirements.{{< /alert >}}
 
 *Certificate realms* are abstractions of private keys and public key certificates, which mean that policy developers do not need to enter HSM-specific configuration such as slots and key labels. Instead, if a private key exists on an HSM, the developer can configure the certificate to show that its private key uses a specific certificate realm, which is simply an alias for a private key (for example, `JMS Keys`).
 
@@ -139,7 +141,7 @@ List configured certificate realms and associated keystores.
 
 Creates a keystore and assign it to a certificate realm.
 
-### Register an HSM provider
+### Register an external HSM provider
 
 You must first register an HSM provider as follows:
 
@@ -248,6 +250,48 @@ To configure an automatic PIN passphrase, perform the following steps:
        ;;
    esac
    ```
+
+### Configure VPKCS11 layer
+
+API Gateway ships with a built-in OpenSSL PKCS#11 provider. This provider is FIPS compliant, and it is configured from the following file:
+
+```
+apigateway/groups/group-2/instance-1/conf/vpkcs11.xml
+```
+
+```
+<?xml version='1.0' encoding='utf-8'?>
+<ConfigurationFragment provider='cryptov'>
+  <Engines>
+      <Engine name='vpkcs11' defaultFor=''>
+          <EngineCommand  when='preInit'
+                          name='REALMS_DIR'
+                          value='$VINSTDIR/conf/certrealms'/>
+          <EngineCommand when="preInit" name="InitRetryCountMax" value="5"/>
+          <EngineCommand when="preInit" name="InitRetryDelayMs" value="15000"/>
+          <EngineCommand when="preInit" name="RSARetryCountMax" value="5"/>
+          <EngineCommand when="preInit" name="RSARetryDelayMs" value="15000"/>
+          <EngineCommand when="preInit" name="RSAPssSupport" value="auto"/>
+          <EngineCommand when="preInit" name="RSAOaepSupport" value="auto"/>
+          <EngineCommand when="preInit" name="MaxSessionsPerKey" value="20"/>
+          <EngineCommand when="preInit" name="SessionIdleTimeoutMs" value="20000"/>
+      </Engine>
+  </Engines>
+</ConfigurationFragment>
+```
+
+Configuration parameters are:
+
+| Variable Name | Description |
+|------|-------|
+| InitRetryCountMax | Maximum number of retries performed on product startup to connect to the HSM. Default value is: `5` |
+| InitRetryDelayMs  | Delay in milliseconds between initialization attempts. Default value is: `15000` |
+| RSARetryCountMax  | Maximum number of RSA operation retries made before raising an error. Default value is: `5` |
+| RSARetryDelayMs   | Delay in milliseconds between RSA operation attempts. Default value is: `15000` |
+| RSAPssSupport     | HSM supports PSS padding for signature. Value can be:<br>- `on` to force PSS padding on HSM.<br>- `off` to perform PSS padding locally and rax signature on the HSM.<br>- `auto` to detect supported feature from the HSM.<br>Default value is: `auto` |
+| RSAOaepSupport    | HSM supports OAEP padding for encryption. Value can be:<br>- `on` to force OAEP padding decryption on HSM.<br>- `off` to force raw decryption from the HSM and perform OAEP padding locally.<br>- `auto` to detect supported feature from the HSM.<br>Default value is: `auto` |
+| MaxSessionsPerKey | Maximum number of sessions per key that can be open simultaneously. Default value is: `20` |
+| SessionIdleTimeoutMs | Time interval in milliseconds before idle sessions are closed. Default value is: `20000` |
 
 ## Configure SSH key pairs
 

@@ -51,7 +51,7 @@ Custom deployment archive properties could be added to the .tar.gz in a similar 
 {{< alert title="Note" color="note">}}
 
 * It is advised that you run the `yamles validate` tool on the final `.tar.gz` before deployment via your pipeline.
-* The pipeline should use `projdeploy` for deployment purposes, once [validation](/docs/apim_yamles/yamles_cli/#how-to-validate-configuration-changes-in-the-yaml-configuration) passes.
+* The pipeline should use `projdeploy` for deployment purposes, once [validation](/docs/apim_yamles/yamles_cli#how-to-validate-configuration-changes-in-the-yaml-configuration) passes.
 * Both of these tools will run in a docker image with the **Package & Deploy Tools** installed. They do not need to be run in the server-side environment where the API Gateway runs.
 
 {{< /alert>}}

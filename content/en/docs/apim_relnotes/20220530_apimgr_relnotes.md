@@ -26,7 +26,7 @@ The following new features and enhancements are available in this update.
 
 ### Manage timeouts on Connection and ConnectToUrl filters
 
-**Timeout** settings can now be set on the **Connection** and **ConnectToUrl** filters. This change allows for specific calls to timeout at different times based on your use case. For more information, see [Connect to URL filter](/docs/apim_policydev/apigw_polref/routing_common/#connect-to-url-filter).
+**Timeout** settings can now be set on the **Connection** and **ConnectToUrl** filters. This change allows for specific calls to timeout at different times based on your use case. For more information, see [Connect to URL filter](/docs/apim_policydev/apigw_polref/routing_common#connect-to-url-filter).
 
 ### Querystring passthrough per API
 
@@ -112,9 +112,9 @@ For more details on changes in OpenSSL 3.0.3, see [OpenSSL, Changelog](https://w
 
 ### New system property to propagate API Manager security Invoke Policy generated headers
 
-The ticket RDAPI-23601, from the [November 2021](/docs/apim_relnotes/20211130_apimgr_relnotes/#other-fixed-issues) release, added functionality to propagate the headers (http.headers) generated as part of an Inbound security Invoke Policy execution for further processing by API Manager, resulting in the original request headers being overwritten.
+The ticket RDAPI-23601, from the [November 2021](/docs/apim_relnotes/20211130_apimgr_relnotes#other-fixed-issues) release, added functionality to propagate the headers (http.headers) generated as part of an Inbound security Invoke Policy execution for further processing by API Manager, resulting in the original request headers being overwritten.
 
-Now, a new Java system property, `com.axway.apimanager.securitydevice.httpheaders.propagate`, has been added to propagate the generated headers when required, and the previous functionality of propagating the request headers for further processing is reinstated as the default. For more information, see [System property changes](/docs/apim_reference/system_props/#77-may-2022).
+Now, a new Java system property, `com.axway.apimanager.securitydevice.httpheaders.propagate`, has been added to propagate the generated headers when required, and the previous functionality of propagating the request headers for further processing is reinstated as the default. For more information, see [System property changes](/docs/apim_reference/system_props#77-may-2022).
 
 ### SAML SSO Metadata URL host verification is now required
 
@@ -138,7 +138,7 @@ metadataUrl="./idp_ADFS.xml"
 
 Updated General Terms and Conditions (T&C) have been added to API Gateway. During installation in interactive mode, a dialog appears, and you must accept the T&C to proceed with the installation. In unattended mode, a new parameter (`ACCEPT_GENERAL_CONDITIONS`) has been introduced, which must be set to `yes` in order to run the installation.
 
-For more information, see [Acceptance of General Conditions for license and subscription services](/docs/apim_installation/apigw_containers/docker_scripts_prereqs/#acceptance-of-general-conditions-for-license-and-subscription-services).
+For more information, see [Acceptance of General Conditions for license and subscription services](/docs/apim_installation/apigw_containers/docker_scripts_prereqs#acceptance-of-general-conditions-for-license-and-subscription-services).
 
 ### Cassandra 3.11.12 upgrade postponed
 
@@ -146,7 +146,7 @@ During development and testing of API Gateway with Cassandra 3.11.12, a critical
 
 ### A fault handling policy is required to enable the global fault handler
 
-When configuring the global fault handler in API Manager, it is now required to define and select a [fault handler policy](/docs/apim_administration/apimgr_admin/api_mgmt_custom_policies/#add-api-manager-fault-handler-policies).
+When configuring the global fault handler in API Manager, it is now required to define and select a [fault handler policy](/docs/apim_administration/apimgr_admin/api_mgmt_custom_policies#add-api-manager-fault-handler-policies).
 
 ### Corrections to the list of allowed HTTP methods for CORS request
 

@@ -19,7 +19,7 @@ The mappings are defined in the `Mappings` section of the `SAMLIdentityProvider`
 Two types of mappings are supported:
 
 * Rename mapping – This mapping enables you to rename an attribute from the IdP, keeping its value.
-* Filter mapping – This mapping creates output attributes when a filter matches the input attributes from the IdP. A filter is specified using the [LDAP Search Filter](https://docs.oracle.com/cd/E19528-01/819-0997/gdxpo/index.html) syntax. For more details, see [Filter syntax](/docs/apim_administration/apimgr_sso/sso_mapping/#filter-syntax).
+* Filter mapping – This mapping creates output attributes when a filter matches the input attributes from the IdP. A filter is specified using the [LDAP Search Filter](https://docs.oracle.com/cd/E19528-01/819-0997/gdxpo/index.html) syntax. For more details, see [Filter syntax](/docs/apim_administration/apimgr_sso/sso_mapping#filter-syntax).
 
 Following are the attributes expected by API Portal, and  examples of mappings that you can use to provide them.
 
@@ -242,7 +242,7 @@ The following attributes are supported:
 `entityId`
 
 * Sets the unique identifier of the SP. This identifier is sent to the IdP so it can know who is requesting an authentication or logging out.
-* The default value is `api-portal`. The same value must also be set in the Joomla! Administrator Interface (JAI), see [Enable SSO in API Portal](/docs/apim_administration/apiportal_sso/sso_config/#enable-sso-in-api-portal).
+* The default value is `api-portal`. The same value must also be set in the Joomla! Administrator Interface (JAI), see [Enable SSO in API Portal](/docs/apim_administration/apiportal_sso/sso_config#enable-sso-in-api-portal).
 
 `excludeHostInEndpointURICheck`
 

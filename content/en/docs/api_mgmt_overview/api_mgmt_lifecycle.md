@@ -44,7 +44,7 @@ When using the API-first approach it makes sense to think about how to quickly a
 
 While service providers are implementing a service, they can provide a mock, allowing service consumers to advance the implementation of the client. In addition, mocks help to improve the feedback loop, as potential consumers can provide information about the payload to optimize it for different application purposes.
 
-To learn more about mocking, see [mock an API in API builder](/docs/api_mgmt_overview/api_mgmt_components/apibuilder/#mock-an-api).
+To learn more about mocking, see [mock an API in API builder](/docs/api_mgmt_overview/api_mgmt_components/apibuilder#mock-an-api).
 
 ## Develop and integrate
 
@@ -84,7 +84,7 @@ There are two deployment artifacts in the Amplify API Management solution:
 
 Both deployment units must support the staging concept, since certain components (for example, passwords, host names, and so on) are different for each stage.
 
-To learn more about how to promote APIs and policies, see [Staging](/docs/api_mgmt_overview/api_mgmt_components/pipeline/#staging).
+To learn more about how to promote APIs and policies, see [Staging](/docs/api_mgmt_overview/api_mgmt_components/pipeline#staging).
 
 ## Pipeline-based integration
 

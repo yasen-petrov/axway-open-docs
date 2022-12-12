@@ -85,7 +85,7 @@ Always use fully qualified domain names (FQDNs) for the host name. Avoid using I
 
 ### User role mapping and API Manager organizations
 
-You must manually configure the mapping of user roles between the IdP and API Manager in the file `service-provider.xml`. For more information, see [Mapping syntax](/docs/apim_administration/apimgr_sso/sso_mapping/#mapping-syntax).
+You must manually configure the mapping of user roles between the IdP and API Manager in the file `service-provider.xml`. For more information, see [Mapping syntax](/docs/apim_administration/apimgr_sso/sso_mapping#mapping-syntax).
 
 An SSO user is mapped to one of three SSO roles:
 
@@ -105,10 +105,10 @@ The SSO role to API Manager role mapping is as follows:
 
 The `service-provider.xml` mapping effectively maps a user to an organization. To authenticate a user successfully using SSO:
 
-* If the user's role is `User` or `Operator`, the user must belong to a specific organization (at most one organization) and that organization must already exist in API Manager. An API Manager administrator user can add the organizations in advance. For more information on adding organizations, see [Manage organizations](/docs/apim_administration/apimgr_admin/api_mgmt_admin/#manage-organizations).
+* If the user's role is `User` or `Operator`, the user must belong to a specific organization (at most one organization) and that organization must already exist in API Manager. An API Manager administrator user can add the organizations in advance. For more information on adding organizations, see [Manage organizations](/docs/apim_administration/apimgr_admin/api_mgmt_admin#manage-organizations).
 * If the user's role is `Administrator`, that user does not need to belong to a specific organization.
 
-For more information on API Manager roles, see [API Manager access control](/docs/api_mgmt_overview/key_concepts/api_mgmt_orgs_roles/#api-manager-access-control).
+For more information on API Manager roles, see [API Manager access control](/docs/api_mgmt_overview/key_concepts/api_mgmt_orgs_roles#api-manager-access-control).
 
 ### SSO users and SSO login
 
@@ -189,8 +189,8 @@ In this step you will create a `service-provider.xml` file based on a sample fil
    ```
 
 4. In the `SamlIdentityProvider` section, update the `metadataUrl` field as detailed in [Specify the IdP by file](#specify-the-idp-by-file) or [Specify the IdP by URL](#specify-the-idp-by-url).
-5. In the `SAMLIdentityProvider` section, update the `Mappings` section with the appropriate mapping of IdP attributes to API Manager attributes. For more information on the mapping syntax, see [Mapping syntax](/docs/apim_administration/apimgr_sso/sso_mapping/#mapping-syntax).
-6. Update any other fields as required. For more information on the elements in the `service-provider.xml` configuration file, see [service-provider.xml configuration file reference](/docs/apim_administration/apimgr_sso/sso_mapping/#service-provider-xml-configuration-file-reference).
+5. In the `SAMLIdentityProvider` section, update the `Mappings` section with the appropriate mapping of IdP attributes to API Manager attributes. For more information on the mapping syntax, see [Mapping syntax](/docs/apim_administration/apimgr_sso/sso_mapping#mapping-syntax).
+6. Update any other fields as required. For more information on the elements in the `service-provider.xml` configuration file, see [service-provider.xml configuration file reference](/docs/apim_administration/apimgr_sso/sso_mapping#service-provider-xml-configuration-file-reference).
 
 ### Specify the IdP by file
 
@@ -283,9 +283,9 @@ To change the default domain name to a sample domain name such as `axway.int`:
 
 ## Step 6 – Configure the `orgs2Role` header using a policy (optional)
 
-You can use the [`orgs2Role`](/docs/apim_administration/apimgr_sso/sso_mapping/#orgs2role) attribute to assign user membership to multiple API Manager organizations, or you can configure an API Gateway policy.
+You can use the [`orgs2Role`](/docs/apim_administration/apimgr_sso/sso_mapping#orgs2role) attribute to assign user membership to multiple API Manager organizations, or you can configure an API Gateway policy.
 
-The policy is invoked at runtime after the SAML response from the identity provider is verified by the service provider (in this case, API Manager). The API Manager runtime will only accept the output of the policy if it is successful and it has the `orgs2Role` value set in the HTTP headers. To set the header, you can use existing API Gateway filters, for example [Add HTTP Header Filter](/docs/apim_policydev/apigw_polref/conversion_common/#add-http-header-filter), or you can set the header programmatically.
+The policy is invoked at runtime after the SAML response from the identity provider is verified by the service provider (in this case, API Manager). The API Manager runtime will only accept the output of the policy if it is successful and it has the `orgs2Role` value set in the HTTP headers. To set the header, you can use existing API Gateway filters, for example [Add HTTP Header Filter](/docs/apim_policydev/apigw_polref/conversion_common#add-http-header-filter), or you can set the header programmatically.
 
 The following message attributes are available to aid with the decision making process of setting the `orgs2Role`header:
 

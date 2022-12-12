@@ -11,7 +11,7 @@
 To upgrade your API Portal container deployment, perform the following:
 
 1. Always back up your database and data from volumes before an upgrade.
-2. Obtain a newer API Portal Docker image, available from [Axway Support](https://support.axway.com/en/search/index/type/Downloads/q/API%20Portal%20/ipp/10/product/545/version/3036/subtype/89).
+2. Obtain a newer API Portal Docker image, available from [Axway Repository](https://repository.axway.com).
 3. Remove the running container:
 
     ```
@@ -23,6 +23,8 @@ To upgrade your API Portal container deployment, perform the following:
     ```
     docker container run <old-parameters> <newer-image>
     ```
+
+See more [Run a Docker container using the image](/docs/apim_installation/apiportal_docker/docker_portal_run_image#run-a-docker-container-using-the-image).
 
 The upgrade preserves any API Portal customizations stored in volumes or database.
 
@@ -54,7 +56,7 @@ To upgrade from before May 2022 to API Portal latest 2022 release, follow these 
       <old-parameters> -e MYSQL_SSL_ON=0 <feb22-image>
     ```
 
-    It is important that you use plain MySQL connection. So, you ensure the `MYSQL_SSL_ON` environment variable is set to `0`, and `MYSQL_USER` and `MYSQL_PASSWORD` environment variables contain credentials for plain connection. Also, you might need to [create a MySQL user account without TLS authentication](/docs/apim_installation/apiportal_install/install_software_configure_database/#configure-a-user-account-without-authentication).
+    It is important that you use plain MySQL connection. So, you ensure the `MYSQL_SSL_ON` environment variable is set to `0`, and `MYSQL_USER` and `MYSQL_PASSWORD` environment variables contain credentials for plain connection. Also, you might need to [create a MySQL user account without TLS authentication](/docs/apim_installation/apiportal_install/install_software_configure_database#configure-a-user-account-without-authentication).
 5. With a newly started container, log in to the Joomla! Administrator Interface (JAI).
 6. Click **Extensions > Plugins**, then search and disable the *T3 Framework* plugin.
 7. Click **Components > Joomla! Update > Upload & Update**, then apply *Joomla 4* by uploading the relevant file from third party package.
@@ -75,5 +77,5 @@ Service packs and patches provide important security updates, fixes for known is
 
 To apply a service pack or patch to a container deployment:
 
-1. Download a new API Portal Docker image that includes the service pack or patch from [Axway Support](https://support.axway.com/).
+1. Download a new API Portal Docker image that includes the service pack or patch from [Axway Repository](https://repository.axway.com).
 2. Follow the steps in [Upgrade API Portal in Docker containers](/docs/apim_installation/apiportal_docker/upgrade_docker/).

@@ -42,7 +42,7 @@ Enter the attribute that stores the properties. Defaults to `oauth.state.map`.
 
 You can use the **Retrieve OAuth Client Access Token from Token Storage** filter to retrieve a stored access token from a client access token store.
 
-Tokens received from OAuth providers are stored in a **Client Access Token Store**. You can configure client access token stores under the **Environment Configuration > Libraries > OAuth2 Stores** node in the Policy Studio tree. Similar to an **Access Token Store**, this store can be backed by an API Gateway cache (default), a relational database, or an Apache Cassandra database. For more details on client access token stores, see [Manage client access tokens](/docs/apim_policydev/apigw_oauth/gw_oauth_client/#manage-client-access-tokens).
+Tokens received from OAuth providers are stored in a **Client Access Token Store**. You can configure client access token stores under the **Environment Configuration > Libraries > OAuth2 Stores** node in the Policy Studio tree. Similar to an **Access Token Store**, this store can be backed by an API Gateway cache (default), a relational database, or an Apache Cassandra database. For more details on client access token stores, see [Manage client access tokens](/docs/apim_policydev/apigw_oauth/gw_oauth_client#manage-client-access-tokens).
 
 A configured token store is associated with an OAuth provider and is shared by all client applications registered with that provider.
 
@@ -92,7 +92,7 @@ The **Settings** tab allows you to configure the following additional settings:
 
 By default, these sections are collapsed. Click a section to expand it.
 
-For details on the fields on the **SSL** tab and the **Settings** tab, see [Connect to URL filter](/docs/apim_policydev/apigw_polref/routing_common/#connect-to-url-filter).
+For details on the fields on the **SSL** tab and the **Settings** tab, see [Connect to URL filter](/docs/apim_policydev/apigw_polref/routing_common#connect-to-url-filter).
 
 ## Save an OAuth client access token filter
 
@@ -144,7 +144,7 @@ tab allows you to configure the following additional settings:
 
 By default, these sections are collapsed. Click a section to expand it.
 
-For details on the fields on the **SSL** tab and the **Settings** tab, see [Connect to URL filter](/docs/apim_policydev/apigw_polref/routing_common/#connect-to-url-filter).
+For details on the fields on the **SSL** tab and the **Settings** tab, see [Connect to URL filter](/docs/apim_policydev/apigw_polref/routing_common#connect-to-url-filter).
 
 ## Delete an OAuth client access token filter
 

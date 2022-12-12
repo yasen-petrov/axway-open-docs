@@ -134,7 +134,7 @@ API Gateway regenerates the configuration. The service handler for the web servi
 
 To delete a web service, right-click on the web service node under the **Web Service Repository** and select **Delete**.
 
-{{< alert title="Note" color="primary" >}}To delete the WSDL document or XML schemas associated with a web service, see [Delete cached WSDL or XML schema documents](/docs/apim_policydev/apigw_web_services/general_schema_cache/#delete-cached-wsdl-or-xml-schema-documents).{{< /alert >}}
+{{< alert title="Note" color="primary" >}}To delete the WSDL document or XML schemas associated with a web service, see [Delete cached WSDL or XML schema documents](/docs/apim_policydev/apigw_web_services/general_schema_cache#delete-cached-wsdl-or-xml-schema-documents).{{< /alert >}}
 
 ## Use scripts to manage web services
 
@@ -187,4 +187,4 @@ For example, if the policy is deployed under `http://SERVICES:8080/services/getQ
 
 ### Publish to UDDI
 
-For details on how to publish a WSDL file registered in the web service repository to a UDDI registry, see [Publish WSDL files to a UDDI registry](/docs/apim_policydev/apigw_web_services/general_uddi/#publish-wsdl-files-to-a-uddi-registry).
+For details on how to publish a WSDL file registered in the web service repository to a UDDI registry, see [Publish WSDL files to a UDDI registry](/docs/apim_policydev/apigw_web_services/general_uddi#publish-wsdl-files-to-a-uddi-registry).

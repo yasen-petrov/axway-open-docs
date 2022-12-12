@@ -44,7 +44,7 @@ To send emails from API Portal (for example, for user registration or email vali
 
 ## Customize user registration emails
 
-You can customize the emails that are sent to API Portal users on sign up. All API Portal user emails are sent from API Manager, so to customize emails see [Customize API Manager generated email](/docs/apim_administration/apimgr_admin/api_mgmt_custom/#customize-api-manager-generated-email).
+You can customize the emails that are sent to API Portal users on sign up. All API Portal user emails are sent from API Manager, so to customize emails see [Customize API Manager generated email](/docs/apim_administration/apimgr_admin/api_mgmt_custom#customize-api-manager-generated-email).
 
 ## Customize API Portal user login
 
@@ -107,7 +107,7 @@ To enable this feature follow these steps:
 
 ### Enforce password policies
 
-To ensure compliance with security polices, you can enforce password policies by asking your API Portal users to change their password at first login, as well as after an expired interval. These settings are available in API Manager, and they are enabled by default. For more information, see [Customize password validation](/docs/apim_administration/apimgr_admin/api_mgmt_custom/#customize-api-manager-password-validation).
+To ensure compliance with security polices, you can enforce password policies by asking your API Portal users to change their password at first login, as well as after an expired interval. These settings are available in API Manager, and they are enabled by default. For more information, see [Customize password validation](/docs/apim_administration/apimgr_admin/api_mgmt_custom#customize-api-manager-password-validation).
 
 To disable the **Enable password expiry** and **Days before passwords expire** settings, follow these steps:
 
@@ -200,7 +200,7 @@ If you create and enable a new policy, for example, because the policy of your c
 
 ## API Manager custom properties support
 
-API Portal offers an interface to the custom properties defined in API Manager. For more details on how to add and manage custom properties in API Manager, see [Customize API Manager data](/docs/apim_administration/apimgr_admin/api_mgmt_custom/#customize-api-manager-data).
+API Portal offers an interface to the custom properties defined in API Manager. For more details on how to add and manage custom properties in API Manager, see [Customize API Manager data](/docs/apim_administration/apimgr_admin/api_mgmt_custom#customize-api-manager-data).
 
 API Portal supports custom properties for the following entities:
 

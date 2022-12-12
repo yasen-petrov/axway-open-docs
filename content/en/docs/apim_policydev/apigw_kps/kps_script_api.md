@@ -103,7 +103,7 @@ Throws
 ## Example code
 
 The following Jython code examples show how you can use the KPS scripting API in a **Scripting Language** filter. For more information on using this filter, see
-[Scripting language filter](/docs/apim_policydev/apigw_polref/utility_additional/#scripting-language-filter).
+[Scripting language filter](/docs/apim_policydev/apigw_polref/utility_additional#scripting-language-filter).
 
 ### Create a new record
 

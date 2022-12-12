@@ -98,11 +98,12 @@ The `projchangepass` command options are described as follows:
 The `projupgrade` command options are described as follows:
 
 | Option                 | **Description**                                                                                                                                 |
-|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--help, -h`          | Display help message and exit.                                                                                                                  |
-| `--projdir`              | Directory containing the projects to be upgraded (for example, `/home/user1/apiprojects`). This option is required.                             |
-| `--backupdir`            | Directory into which projects are copied   before upgrade begins. This directory is created if it does not   exist. If this option is not specified a backup is not created. |
-| `--projpass`             | Encryption passphrase for the projects to be upgraded. You can use the `--passfile` option to override this passphrase for individual projects. If passphrases are not specified using this option or `--passfile`, the command uses a zero-length string as the passphrase.    |
-| `--passfile`             | File that contains the project passphrases. |
-| `--tracelevel`           | Trace level for the generated trace file. Supported trace levels are `FATAL`, `ALWAYS`, `ERROR`, `INFO`, `MIN`, `DEBUG`, `VERBOSE`. The default is `INFO`. |
-| `--tracedir`             | Directory to write trace files to. This directory is created if it does not exist. The default is the current directory. |
+|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `--help, -h`            | Display help message and exit.                                                                                                                  |
+| `--projdir`                | Directory containing the projects to be upgraded (for example, `/home/user1/apiprojects`). This option is required.                             |
+| `--backupdir`              | Directory into which projects are copied   before upgrade begins. This directory is created if it does not   exist. If this option is not specified a backup is not created. |
+| `--projpass`               | Encryption passphrase for the projects to be upgraded. You can use the `--passfile` option to override this passphrase for individual projects. If passphrases are not specified using this option or `--passfile`, the command uses a zero-length string as the passphrase.    |
+| `--passfile`               | File that contains the project passphrases. |
+| `--tracelevel`             | Trace level for the generated trace file. Supported trace levels are `FATAL`, `ALWAYS`, `ERROR`, `INFO`, `MIN`, `DEBUG`, `VERBOSE`. The default is `INFO`. |
+| `--tracedir`               | Directory to write trace files to. This directory is created if it does not exist. The default is the current directory. |
+| `--noGeneratedPolicies`    | The default Generated Policies container is not added to projects when this option is specified. |

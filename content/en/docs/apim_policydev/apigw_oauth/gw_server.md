@@ -22,7 +22,7 @@ To set up API Gateway as an OAuth authorization server and OAuth resource server
 5. Select `all` or `authzserver` as the OAuth deployment type.
     * `all` – Deploys the OAuth 2.0 services listener and supporting policies, and the OAuth client demo. This deploys the OAuth server components on port 8089 and deploys the client demo on port 8088.
 
-        This option does not register the sample client applications in the Client Application Registry. You must import them manually as detailed in [Import sample client applications](/docs/apim_policydev/apigw_oauth/gw_client_demo/#import-sample-client-applications).
+        This option does not register the sample client applications in the Client Application Registry. You must import them manually as detailed in [Import sample client applications](/docs/apim_policydev/apigw_oauth/gw_client_demo#import-sample-client-applications).
     * `authzserver` – Select this option to deploy the OAuth server components only.
 6. Click **Finish**.
 7. Click **Deploy** in the toolbar to deploy the updated configuration to API Gateway.

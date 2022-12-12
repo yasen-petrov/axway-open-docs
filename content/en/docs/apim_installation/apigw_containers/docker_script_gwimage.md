@@ -103,7 +103,7 @@ The following example creates an API Gateway Docker image using an existing API 
 Ensure that your `fed` contains the following:
 
 * API Gateway version 7.7 configuration.
-* You can upgrade existing projects (from version 7.5.1 or later) using `projupgrade`, see [Upgrade an API Gateway project](/docs/apigtw_devops/deploy_package_tools/#upgrade-an-api-gateway-project).
+* You can upgrade existing projects (from version 7.5.1 or later) using `projupgrade`, see [Upgrade an API Gateway project](/docs/apigtw_devops/deploy_package_tools#upgrade-an-api-gateway-project).
 * You can also upgrade existing `fed` files using Policy Studio or `upgradeconfig`.
 * Only IP addresses that are accessible at runtime. For example, the `fed` cannot contain IP addresses of container-based Admin Node Managers and API Gateways, as IP addresses are usually dynamically assigned in a Docker network.
 
@@ -171,7 +171,7 @@ To create an API Manager enabled image:
 
 To create an OAuth-enabled image:
 
-* Before running the `build_gw_image.py` script you must first create a project in Policy Studio, configure OAuth in that project, and export the configuration from Policy Studio as a `fed` file (or `pol` and `env` files). For more information, see see [Configure OAuth in Policy Studio](/docs/apim_installation/apigw_containers/container_apimgr_oauth/#oauthps).
+* Before running the `build_gw_image.py` script you must first create a project in Policy Studio, configure OAuth in that project, and export the configuration from Policy Studio as a `fed` file (or `pol` and `env` files). For more information, see see [Configure OAuth in Policy Studio](/docs/apim_installation/apigw_containers/container_apimgr_oauth#oauthps).
 * You must specify the configuration exported from Policy Studio to the `build_gw_image.py` script when building the API Gateway Docker image.
 
 For example:
@@ -223,7 +223,7 @@ docker run -it -v /tmp/events:/opt/Axway/apigateway/events -v /tmp/trace:/opt/Ax
 
 This example starts the API Gateway container and writes the trace and log files to `/tmp/events` and `/tmp/trace` on your host machine. The trace and log files contain the container ID of the API Gateway container in the file names.
 
-{{< alert title="Note" color="primary" >}}To enable an Admin Node Manager container to process the event logs from API Gateway containers, you must run the Admin Node Manager container with the same volume mounted. For more details, see [Create a metrics-enabled ANM image](/docs/apim_installation/apigw_containers/docker_script_anmimage/#create-a-metrics-enabled-admin-node-manager-image) and [Start a metrics-enabled Admin Node Manager container](/docs/apim_installation/apigw_containers/docker_script_anmimage/#start-a-metrics-enabled-admin-node-manager-container).{{< /alert >}}
+{{< alert title="Note" color="primary" >}}To enable an Admin Node Manager container to process the event logs from API Gateway containers, you must run the Admin Node Manager container with the same volume mounted. For more details, see [Create a metrics-enabled ANM image](/docs/apim_installation/apigw_containers/docker_script_anmimage#create-a-metrics-enabled-admin-node-manager-image) and [Start a metrics-enabled Admin Node Manager container](/docs/apim_installation/apigw_containers/docker_script_anmimage#start-a-metrics-enabled-admin-node-manager-container).{{< /alert >}}
 
 ### Start a deployment-enabled API Gateway container in a development environment
 
@@ -242,4 +242,4 @@ The `EMT_DEPLOYMENT_ENABLED` environment variable is provided as a convenience f
 
 ## Further information
 
-For more information on the environment variables that you can specify at runtime, see [Environment variables reference](/docs/apim_installation/apigw_containers/container_env_variables/#environment-variables-reference).
+For more information on the environment variables that you can specify at runtime, see [Environment variables reference](/docs/apim_installation/apigw_containers/container_env_variables#environment-variables-reference).

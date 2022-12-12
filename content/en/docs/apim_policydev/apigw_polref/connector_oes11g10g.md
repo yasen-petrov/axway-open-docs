@@ -43,7 +43,7 @@ ${http.destination.protocol}://${http.destination.host}:${http.destination.port}
 ```
 
 **Resource Naming Authority**: Enter `apigatewayResource` to match the Naming Authority Definition loaded in the OES 10g settings. For more details, see
-[Oracle Security Service Module settings (10g)](/docs/apim_policydev/apigw_poldev/security_server_settings/#configure-oracle-security-service-module-settings-10g).
+[Oracle Security Service Module settings (10g)](/docs/apim_policydev/apigw_poldev/security_server_settings#configure-oracle-security-service-module-settings-10g).
 
 **Action**: Enter the HTTP verb (for example, `POST`, `GET`, `DELETE`, and so on). Alternatively, if this policy is reused for multiple services, enter a message attribute selector, which is expanded at runtime to the value of the specified attribute (for example, `${http.request.verb}`).
 

@@ -207,7 +207,7 @@ To start, add a new policy named, for example, `Kerberos KCD SPNEGO Client-Side`
 
     Replace the realm settings in the example with your Kerberos realm, and set the `kdc` setting to the host name of your Windows Domain Controller.
 
-    For more details on the fields and options in this configuration window, see [Kerberos configuration](/docs/apim_policydev/apigw_poldev/security_server_settings/#configure-kerberos-settings).
+    For more details on the fields and options in this configuration window, see [Kerberos configuration](/docs/apim_policydev/apigw_poldev/security_server_settings#configure-kerberos-settings).
 
 3. Click the **Deploy** icon to deploy the configuration to API Gateway.
 
@@ -221,7 +221,7 @@ Use a client application to call the KCD policy in API Gateway.
 
 The back-end Kerberos service should send a confirmation on a successful authentication.
 
-The **Traffic Monitor** tab on the API Gateway Manager (`https://localhost:8090`) is an excellent place to view and troubleshoot the message flows. For more details, see [Monitor services in API Gateway Manager](/docs/apim_administration/apigtw_admin/monitor_service/#monitor-services-in-api-gateway-manager).
+The **Traffic Monitor** tab on the API Gateway Manager (`https://localhost:8090`) is an excellent place to view and troubleshoot the message flows. For more details, see [Monitor services in API Gateway Manager](/docs/apim_administration/apigtw_admin/monitor_service#monitor-services-in-api-gateway-manager).
 
 ## Configure a KCD demo setup
 
@@ -231,7 +231,7 @@ Follow the next steps to configure a test back-end service and sample users to t
 
 For demonstration purposes, you can use another API Gateway instance as the back-end Kerberos service. API Gateway is configured as the Kerberos service for the most part the same way for both KCD and standard Kerberos authentication in the client-side transaction. For more details, see [Configure API Gateway to act as the Kerberos service](/docs/apigtw_kerberos/kerberos_use_case_service/).
 
-The difference between KCD and standard SPNEGO configuration is that for KCD, the back-end service must have a Service Principal Name (SPN). For more details, see [Map an SPN to the user account](/docs/apigtw_kerberos/kerberos_use_case_service/#map-an-spn-to-the-user-account).
+The difference between KCD and standard SPNEGO configuration is that for KCD, the back-end service must have a Service Principal Name (SPN). For more details, see [Map an SPN to the user account](/docs/apigtw_kerberos/kerberos_use_case_service#map-an-spn-to-the-user-account).
 
 ### Configure sample authentication
 

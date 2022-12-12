@@ -100,7 +100,7 @@ To run the script without user interaction, specify `--mode unattended` option.
 
 ### Change the trace level
 
-The `update_apigw.sh` script generates a trace file in the `update-output/trace` directory. Use the `--tracelevel` option to [change the level of tracing](/docs/apim_administration/apigtw_admin/tracing/#set-api-gateway-trace-levels).
+The `update_apigw.sh` script generates a trace file in the `update-output/trace` directory. Use the `--tracelevel` option to [change the level of tracing](/docs/apim_administration/apigtw_admin/tracing#set-api-gateway-trace-levels).
 
 ### Specify a directory to back up your installation
 
@@ -277,14 +277,14 @@ The cipher scheme for all encrypted data in the system (such as Database/LDAP pa
 
 The Entity store is re-encrypted with PBKDF2 as part of API Gateway update process, but the Key property store will not be re-encrypted.
 
-To make use of a more secure cipher scheme, you must re-encrypt your KPS data using the `kpsadmin` command. For more information see, [Re-encrypt the KPS data](/docs/apim_policydev/apigw_kps/how_to_use_kpsadmin_command/#re-encrypt-the-kps-data).
+To make use of a more secure cipher scheme, you must re-encrypt your KPS data using the `kpsadmin` command. For more information see, [Re-encrypt the KPS data](/docs/apim_policydev/apigw_kps/how_to_use_kpsadmin_command#re-encrypt-the-kps-data).
 
 ### Transfer KPS data between environments
 
 Encrypted KPS data cannot be transferred directly between environments even when the passphrase in use is the same in both environments. Instead, you must use one of the following options:
 
-* For internal API Manager tables, use the [Cassandra Backup and Restore](/docs/cass_admin/cassandra_bur/) process and run [KPS Admin Re-Encrypt](/docs/apim_policydev/apigw_kps/how_to_use_kpsadmin_command/#re-encrypt-the-kps-data).
-* For non-Cassandra KPS table, use the [KPS Admin Backup and Restore](/docs/apim_policydev/apigw_kps/how_to_use_kpsadmin_command/#back-up-and-restore) process. The restore command decrypts the data from the source environment and re-encrypts the data for the target environment.
+* For internal API Manager tables, use the [Cassandra Backup and Restore](/docs/cass_admin/cassandra_bur/) process and run [KPS Admin Re-Encrypt](/docs/apim_policydev/apigw_kps/how_to_use_kpsadmin_command#re-encrypt-the-kps-data).
+* For non-Cassandra KPS table, use the [KPS Admin Backup and Restore](/docs/apim_policydev/apigw_kps/how_to_use_kpsadmin_command#back-up-and-restore) process. The restore command decrypts the data from the source environment and re-encrypts the data for the target environment.
 
 ### Use the cipher scheme with custom code
 

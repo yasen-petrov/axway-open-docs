@@ -6,7 +6,7 @@
 "description": "Learn how to use the YAML configuration CLI to import and export YAML configuration."
 }
 
-A YAML configuration fragment is created by exporting from a YAML configuration using the `export` option, or by converting an XML configuration fragment using the [`frag2yaml`](/docs/apim_yamles/apim_yamles_cli/yamles_cli_convert/#convert-your-xml-configuration-fragment-to-a-yaml-configuration-fragment) option.
+A YAML configuration fragment is created by exporting from a YAML configuration using the `export` option, or by converting an XML configuration fragment using the [`frag2yaml`](/docs/apim_yamles/apim_yamles_cli/yamles_cli_convert#convert-your-xml-configuration-fragment-to-a-yaml-configuration-fragment) option.
 
 The fragment has the following characteristics:
 
@@ -15,7 +15,7 @@ The fragment has the following characteristics:
 * It has the same structure as a complete configuration, with less types and less entities, meaning that some of the usual folders might be missing.
 * You can run the `import` and `export` commands on complete YAML configurations or YAML configuration fragments.
 * A number of `import` operations can be chained together to build up the required YAML configuration needed for a deployment.
-* You can validate an exported YAML fragment by using the yamles [`validate`](/docs/apim_yamles/apim_yamles_cli/yamles_cli_validate/#validate-configuration-changes-in-the-yaml-configuration) command.
+* You can validate an exported YAML fragment by using the yamles [`validate`](/docs/apim_yamles/apim_yamles_cli/yamles_cli_validate#validate-configuration-changes-in-the-yaml-configuration) command.
 
 The following options in the YAML CLI are related to import and export of YAML configuration fragments:
 
@@ -72,7 +72,7 @@ The `EXPORT_TYPES` flag ensures all the type information for the selected entiti
 
 You can also export all the type definitions only from a YAML configuration by supplying a `_fragment.yaml` with flags set to EXPORT_TYPES and no `addIfAbsent` or `addOrReplace` entries.
 
-If `EXPORT_CLOSURE` is enabled, all entities referred to by the selected entities and their children are also exported. The type information for these entities will also be included. If this flag is disabled, the fragment might not contain all entities that are referred to from those included in the fragment. In this case, the YAML configuration can only be validated with the `--allow-invalid-ref` parameter. For more information, see [how to allow unresolved references](/docs/apim_yamles/apim_yamles_cli/yamles_cli_validate/#disable-entity-reference-check).
+If `EXPORT_CLOSURE` is enabled, all entities referred to by the selected entities and their children are also exported. The type information for these entities will also be included. If this flag is disabled, the fragment might not contain all entities that are referred to from those included in the fragment. In this case, the YAML configuration can only be validated with the `--allow-invalid-ref` parameter. For more information, see [how to allow unresolved references](/docs/apim_yamles/apim_yamles_cli/yamles_cli_validate#disable-entity-reference-check).
 
 The `EXPORT_TRUNKS` flag ensures that all parent entities of the selected entities are exported.
 
@@ -156,7 +156,7 @@ To check the passphrase, an ESConfiguration entity must exist in the configurati
 
 If a source configuration contains `{{file "..." }}` placeholders pointing to an absolute file, an error might occur at load-time if those files are not present in the system running the CLI. To import these types of configurations, use must the `--allow-unresolved-absolute-files` parameter instead.
 
-When using [Team development in Policy Studio](/docs/apigtw_devops/team_dev_practices/#enable-team-development-in-policy-studio) or when your configuration is fragmented into smaller pieces, it is very likely that you import incomplete, invalid stores into a main store. To workaround these validation issues, you can set two flags with `yamles import`:
+When using [Team development in Policy Studio](/docs/apigtw_devops/team_dev_practices#enable-team-development-in-policy-studio) or when your configuration is fragmented into smaller pieces, it is very likely that you import incomplete, invalid stores into a main store. To workaround these validation issues, you can set two flags with `yamles import`:
 
 * Set `--allow-invalid-ref` if some references can only be resolved in the main store.
 * Set `--allow-invalid-cardinality` if the import returns cardinality errors.

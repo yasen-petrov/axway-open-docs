@@ -154,7 +154,7 @@ You can edit this information in the following file:
 INSTALL_DIR/apigateway/webapps/apiportal/vordel/apiportal/app/app.config
 ```
 
-For more info on how to configure custom properties, see [API Manager custom properties](/docs/apim_reference/config_files_reference/#api-manager-custom-properties).
+For more info on how to configure custom properties, see [API Manager custom properties](/docs/apim_reference/config_files_reference#api-manager-custom-properties).
 
 ### Add a custom property to organizations
 
@@ -619,11 +619,11 @@ To specify the location of the API Gateway Manager console, perform the followin
 
 ## Customize Amplify menu header
 
-You can configure API Manager and API Gateway Manager menu headers to enable features like search, help, and link to the [Amplify platform](https://platform.axway.com/#/). The menu header displays all features by default, but you can choose to hide some or all of them.
+You can configure API Manager and API Gateway Manager menu headers to enable features like search, help, and link to the [Amplify platform](https://platform.axway.com#/). The menu header displays all features by default, but you can choose to hide some or all of them.
 
 * **Search**: Allows you to search by any term in multiple Axway portals, for example, documentation, support, blog, community, and so on.
 * **Help**: Displays a list of links to Axway's portals, for example, documentation, support, blog, community, and so on.
-* **Platform**: Redirects you to the [Amplify platform](https://platform.axway.com/#/) portal.
+* **Platform**: Redirects you to the [Amplify platform](https://platform.axway.com#/) portal.
 
 The menu is located in the `app.config` file, and it is enabled by default:
 

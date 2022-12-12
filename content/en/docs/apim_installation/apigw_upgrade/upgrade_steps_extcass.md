@@ -70,7 +70,7 @@ Do not make any changes to the old API Gateway installation after the upgrade pr
 * Do not update the API Gateway admin user store
 * Do not update API Manager configuration (for example, add new APIs, organizations, or applications)
 
-See also [What happens if you change the old API Gateway installation after running export?](/docs/apim_installation/apigw_upgrade/upgrade_faq/#what-happens-if-you-change-the-old-api-gateway-installation-after-running-export)
+See also [What happens if you change the old API Gateway installation after running export?](/docs/apim_installation/apigw_upgrade/upgrade_faq#what-happens-if-you-change-the-old-api-gateway-installation-after-running-export)
 
 #### Task 4 - Check that ext/lib customizations in the old installation are compatible
 
@@ -91,7 +91,7 @@ Not all components and configuration from earlier API Gateway versions can be up
 
 Check your old installation and identify if you are using any of the following:
 
-* **Redaction files** – You must copy the `redaction.xml` file from your old installalation to the new gateway, then include it from the `service.xml` file as described in [Enable redaction for an API Gateway](/docs/apim_administration/apigtw_admin/admin_redactors/#enable-redaction-for-an-api-gateway) and validate your configuration.
+* **Redaction files** – You must copy the `redaction.xml` file from your old installalation to the new gateway, then include it from the `service.xml` file as described in [Enable redaction for an API Gateway](/docs/apim_administration/apigtw_admin/admin_redactors#enable-redaction-for-an-api-gateway) and validate your configuration.
 * **Customizations to OAuth sample .md files** – For more information on how to set up OAuth, see [Configure OAuth](/docs/apim_policydev/apigw_oauth/).
 * **API firewalling** – You must set up API firewalling again using the configuration from the old installation. For more information, see [API Firewalling](/docs/apim_administration/apigtw_admin/admin_waf/).
 * **QuickStart tutorial** – For more information on migrating the QuickStart tutorial, see [Migrate the QuickStart tutorial](#migrate-the-quickstart-tutorial).
@@ -103,9 +103,9 @@ Check your old installation and identify if you are using any of the following:
 All Node Manager customizations are lost on upgrade, and they must be redone from scratch in the new installation. Examples of such customizations include:
 
 * RBAC and integration with [OpenLDAP](/docs/apim_administration/apigtw_admin/general_rbac_openldap/) or [Active Directory](/docs/apim_administration/apigtw_admin/eneral_rbac_ad_ldap/).
-* [HA setup for Admin Node Managers](/docs/apim_administration/apigtw_admin/admin_node_mngr/index.html#admin-node-manager-backup-and-disaster-recovery).
-* [Customizations to security headers on API Gateway Manager (8090)](/docs/apim_policydev/apigw_gw_instances/general_services/index.html#customize-http-security-headers).
-* [Changes to the Admin Node Manager certificate via managedomain](/docs/apim_reference/managedomain_ref/index.html#domain-ssl-certificates.)
+* [HA setup for Admin Node Managers](/docs/apim_administration/apigtw_admin/admin_node_mngr#admin-node-manager-backup-and-disaster-recovery).
+* [Customizations to security headers on API Gateway Manager (8090)](/docs/apim_policydev/apigw_gw_instances/general_services#customize-http-security-headers).
+* [Changes to the Admin Node Manager certificate via managedomain](/docs/apim_reference/managedomain_ref#domain-ssl-certificates.)
 
 ### Checklist for the new API Gateway 7.7 installation
 
@@ -216,7 +216,7 @@ To verify that the upgrade has been successful:
 
 ### Step 6 - Update cipher scheme
 
-To make use of a more secure cipher scheme, you must re-encrypt your KPS data using the `kpsadmin` command. For more information see, [Update cipher scheme](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion/#update-cipher-scheme).
+To make use of a more secure cipher scheme, you must re-encrypt your KPS data using the `kpsadmin` command. For more information see, [Update cipher scheme](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion#update-cipher-scheme).
 
 ## Upgrade steps - Multi-node upgrade example
 
@@ -301,7 +301,7 @@ Run the `export` and `upgrade` commands on each node (NodeA, NodeB, and NodeC). 
 
 The value of `--anm_host` must be an exact match of the host name in the topology (in this example, `--anm_host NodeA`) and you must specify the same name for `--anm_host` option on the other nodes (`--anm_host NodeA` in NodeB and NodeC).
 
-In a topology with multiple Admin Node Managers, we recommend that you specify the first Admin Node Manager (see [Which is the first Admin Node Manager?](/docs/apim_installation/apigw_upgrade/upgrade_faq/#which-is-the-first-admin-node-manager)).{{< /alert >}}
+In a topology with multiple Admin Node Managers, we recommend that you specify the first Admin Node Manager (see [Which is the first Admin Node Manager?](/docs/apim_installation/apigw_upgrade/upgrade_faq#which-is-the-first-admin-node-manager)).{{< /alert >}}
 
 All processes must be running on all nodes in the old installation to export the API Gateway configuration data. Therefore, ensure that the Admin Node Manager (NodeA), Node Managers (NodeB and NodC), and API Gateway instances (NodeA, NodeB and NodC) are running.
 
@@ -355,7 +355,7 @@ For the sample topology you can also perform the following checks to verify the 
 
 ### Step 7 - Update cipher scheme
 
-To make use of a more secure cipher scheme, you must re-encrypt your KPS data using the `kpsadmin` command. For more information see, [Update cipher scheme](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion/#update-cipher-scheme).
+To make use of a more secure cipher scheme, you must re-encrypt your KPS data using the `kpsadmin` command. For more information see, [Update cipher scheme](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion#update-cipher-scheme).
 
 {{< alert title="Note" color="primary" >}}The `kpsadmin` command with the `reencrypt` option only needs to be run on one node.{{< /alert >}}
 
@@ -379,7 +379,7 @@ Each API Gateway group has a configuration that is typically deployed as a `.fed
 * In Policy Studio:
     * Choose the **From an API Gateway instance** option to create a new project from the configuration in an already upgraded API Gateway.
     * Choose the **From existing configuration** option to create a new project from an old configuration. The configuration is upgraded to version 7.7 automatically.
-* If you upgraded from version 7.5.1 or later and you have several projects to upgrade (these projects might be independent of one another, or could include shared projects and their dependencies), you can use the `projupgrade` tool. This tool upgrades several projects at once. For more information, see [Upgrade an API Gateway project](/docs/apigtw_devops/deploy_package_tools/#upgrade-an-api-gateway-project).
+* If you upgraded from version 7.5.1 or later and you have several projects to upgrade (these projects might be independent of one another, or could include shared projects and their dependencies), you can use the `projupgrade` tool. This tool upgrades several projects at once. For more information, see [Upgrade an API Gateway project](/docs/apigtw_devops/deploy_package_tools#upgrade-an-api-gateway-project).
 
 ### Upgrade services
 

@@ -82,7 +82,7 @@ Perform the backup of your 2.2.8/2.2.12 data.
    system_traces                                  |           True | {'class': 'org.apache.cassandra.locator.SimpleStrategy', 'replication_factor': '2'}
    ```
 2. Copy the `apigw-backup-tool` folder, located at `install_dir/apigateway/tools/` to your Cassandra node.
-3. Update the `/conf/apigw-backup-tool.ini` file to configure your backup. For more information, see [Apache Cassandra backup and restore](/docs/cass_admin/cassandra_bur/#update-your-configuration-file).
+3. Update the `/conf/apigw-backup-tool.ini` file to configure your backup. For more information, see [Apache Cassandra backup and restore](/docs/cass_admin/cassandra_bur#update-your-configuration-file).
 4. After the configuration is set and Cassandra is running, run the following command to validate the configuration:
 
    ```

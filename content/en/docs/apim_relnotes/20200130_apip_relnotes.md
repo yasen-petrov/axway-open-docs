@@ -16,7 +16,7 @@ API Portal is available as a software installation or a virtualized deployment 
 * If you are installing API Portal for the first time using this update, see [Install API Portal](/docs/apim_installation/apiportal_install/).
 * If you are already using API Portal (7.5.x, 7.6.x, 7.7.x) and want to install this update, see [Upgrade API Portal](/docs/apim_installation/apiportal_install/upgrade_automatic/).
 
-API Portal in Docker containers is available for production environment from [API Portal 7.7 November 2020](/docs/apim_relnotes/20201130_apip_relnotes/) update. For more information, see [Production-ready Docker container](/docs/apim_relnotes/20201130_apip_relnotes/#production-ready-docker-container).
+API Portal in Docker containers is available for production environment from [API Portal 7.7 November 2020](/docs/apim_relnotes/20201130_apip_relnotes/) update. For more information, see [Production-ready Docker container](/docs/apim_relnotes/20201130_apip_relnotes#production-ready-docker-container).
 
 *This section was updated to amend the information about API Portal in Docker containers.*
 
@@ -38,7 +38,7 @@ Validation and error messaging for command line errors were improved. For more i
 
 The home page has been completely rebuilt using Joomla! modules, which allow for a more extensively customization using the configuration settings in the Joomla! Admin Interface (JAI). No source code changes are required.
 
-For more information, see [Customize your home page layout](/docs/apim_administration/apiportal_admin/customize_getting_started/#customize-your-home-page-layout).
+For more information, see [Customize your home page layout](/docs/apim_administration/apiportal_admin/customize_getting_started#customize-your-home-page-layout).
 
 ### Application tab improvements
 
@@ -52,23 +52,23 @@ The style is consistent across all Info, Warning, and Error messages.
 
 Previously, this setting applied to both the list of APIs and the API details view at the same time. Now, it applies to the list of APIs only. This is useful if you want to display only a summary of the API on the API listing, but want a full description when viewing the API details. You can set the API detail's view in API Manager.
 
-For more information, see [Customize source of API descriptions](/docs/apim_administration/apiportal_admin/customize_apicatalog_overview/#customize-source-of-api-descriptions).
+For more information, see [Customize source of API descriptions](/docs/apim_administration/apiportal_admin/customize_apicatalog_overview#customize-source-of-api-descriptions).
 
 ### Change of behavior to customize standard footer
 
-Previously, this setting used text field in **Extensions > Languages > Overrides**. Now, you can [customize API Portal standard footer, and add rich text to it](/docs/apim_administration/apiportal_admin/customize_getting_started/#customize-standard-footer).
+Previously, this setting used text field in **Extensions > Languages > Overrides**. Now, you can [customize API Portal standard footer, and add rich text to it](/docs/apim_administration/apiportal_admin/customize_getting_started#customize-standard-footer).
 
 ### Control the visibility of APIs in the catalog
 
 A new setting, **Do not show APIs with tags**, was added to the API Catalog menu options. This setting supports `*` and `?` wildcards, and it is a powerful option when used in combination with **Show APIs with tags** setting.
 
-For more information, see [Group APIs with tags](/docs/apim_administration/apiportal_admin/customize_apicatalog_overview/#group-apis-with-tags).
+For more information, see [Group APIs with tags](/docs/apim_administration/apiportal_admin/customize_apicatalog_overview#group-apis-with-tags).
 
 ### Open API Specification (OAS) 3.0 Support
 
 OAS3 support is enabled and integrated with the Swagger.io UI component to bring the standardized look and feel of Swagger.io right into the core of API Portal. The additional configuration added on top of the basic integration allows for more control than ever over your favorite Swagger interface.
 
-For more information, see [Additional features for API Catalog view](/docs/apim_administration/apiportal_admin/apip_overview/#additional-features-api-catalog-view).
+For more information, see [Additional features for API Catalog view](/docs/apim_administration/apiportal_admin/apip_overview#additional-features-api-catalog-view).
 
 ### Further Enhancements
 

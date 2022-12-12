@@ -185,7 +185,7 @@ There are two basic configuration items required to retrieve a user's profile fr
 * **Database Location**:
     To configure connection details for the database, click **Add**, and complete the Database Connection dialog. For details on configuring the fields on this dialog, see [Configure database connections](/docs/apim_policydev/apigw_external_connections/common_db_conf). To edit or remove previously configured database connections, select them from the drop-down list and click **Edit** or **Delete**.
 * **Database Query**:
-    **Database Query** retrieves the profile of a specific user from the database to enable API Gateway to authenticate the user. after a successfull authentication, you can select an attribute of this user to use for the authorization filter later in the policy. **Database Query** can be an SQL statement, stored procedure, or function call. For details on how to configure **Database Query**, see [Configure database queries](/docs/apim_policydev/apigw_external_connections/common_db_conf/#configure-database-queries).
+    **Database Query** retrieves the profile of a specific user from the database to enable API Gateway to authenticate the user. after a successfull authentication, you can select an attribute of this user to use for the authorization filter later in the policy. **Database Query** can be an SQL statement, stored procedure, or function call. For details on how to configure **Database Query**, see [Configure database queries](/docs/apim_policydev/apigw_external_connections/common_db_conf#configure-database-queries).
 
 **Format Password Received From Client**:
 If the user sends up a clear-text password to API Gateway, but that user's password is stored in a hashed format in the database, API Gateway must hash the password before performing the authentication step.
@@ -365,7 +365,7 @@ For example, API Gateway can extract credentials from the message sent by the cl
 To authenticate and authorize users against an OES 10g repository, right-click **Oracle Entitlements Server 10g Repositories**, and select **Add a new Repository**. Configure the following fields on the Authentication Repository dialog:
 
 * **Repository Name**: Enter an appropriate name for this repository.
-* **Oracle SSM Settings**: Click **Configure** to launch the **Oracle Security Service Module Settings** dialog. For details on configuring these settings, see [Configure Oracle Security Service Module settings (10g)](/docs/apim_policydev/apigw_poldev/security_server_settings/#configure-oracle-security-service-module-settings-10g).
+* **Oracle SSM Settings**: Click **Configure** to launch the **Oracle Security Service Module Settings** dialog. For details on configuring these settings, see [Configure Oracle Security Service Module settings (10g)](/docs/apim_policydev/apigw_poldev/security_server_settings#configure-oracle-security-service-module-settings-10g).
 
 ## RADIUS repositories
 

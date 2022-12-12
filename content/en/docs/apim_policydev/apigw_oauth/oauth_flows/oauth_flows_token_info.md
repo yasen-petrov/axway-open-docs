@@ -81,4 +81,4 @@ The response is sent back as a JSON message. For example:
 }
 ```
 
-You can get additional information about the access token using message attributes. For more details, see [OAuth 2.0 server message attributes](/docs/apim_policydev/apigw_oauth/oauth_message_attributes/#oauth-2-0-server-message-attributes).
+You can get additional information about the access token using message attributes. For more details, see [OAuth 2.0 server message attributes](/docs/apim_policydev/apigw_oauth/oauth_message_attributes#oauth-2-0-server-message-attributes).

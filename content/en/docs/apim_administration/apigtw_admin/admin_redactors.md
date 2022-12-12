@@ -645,4 +645,4 @@ Redaction for trace log records works as follows:
 Redaction rules do not apply to domain audit and access logs. For details on how to redact sensitive data from domain audit log and access log files, see:
 
 * [Configure API Gateway logging and events](/docs/apim_administration/apigtw_admin/logging).
-* [Transaction access log settings](/docs/apim_reference/log_global_settings/#transaction-access-log-setting).
+* [Transaction access log settings](/docs/apim_reference/log_global_settings#transaction-access-log-setting).

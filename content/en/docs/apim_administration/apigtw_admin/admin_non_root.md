@@ -121,7 +121,7 @@ See also [Remove privileges when updating](#remove-privileges-when-updating-the-
 
 ## Restart API Gateway
 
-Start API Gateway as the non-root user. For more information on starting API Gateway, see [Start and stop the API Gateway](/docs/apim_administration/apigtw_admin/manage_operations/#start-and-stop-the-api-gateway).
+Start API Gateway as the non-root user. For more information on starting API Gateway, see [Start and stop the API Gateway](/docs/apim_administration/apigtw_admin/manage_operations#start-and-stop-the-api-gateway).
 
 ## Remove privileges when updating the software
 

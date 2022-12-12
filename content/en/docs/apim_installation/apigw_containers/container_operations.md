@@ -16,7 +16,7 @@ https://HOST:8090/
 
 `HOST` refers to the host name or IP address of the host machine (for example, `https://localhost:8090/`).
 
-To access API Gateway Manager from your host machine you must have mapped the Admin Node Manager container port 8090 to port 8090 on your host machine, as detailed in [Start the Admin Node Manager Docker container](/docs/apim_installation/apigw_containers/docker_script_anmimage/#start-the-admin-node-manager-docker-container).
+To access API Gateway Manager from your host machine you must have mapped the Admin Node Manager container port 8090 to port 8090 on your host machine, as detailed in [Start the Admin Node Manager Docker container](/docs/apim_installation/apigw_containers/docker_script_anmimage#start-the-admin-node-manager-docker-container).
 
 ## Monitor API Gateway containers in API Gateway Manager
 

@@ -96,7 +96,7 @@ This section describes how to add Kerberos principals for the intermediary Kerbe
     * **Principal Name**: `<Service Principal Name for the back-end service>` (for example, `HOST/BackEndService.axway.com@AXWAY.COM`)
     * **Principal Type**: `NT_USER_NAME`
 
-For more details on the fields and options in this configuration window, see [Configure Kerberos principals](/docs/apim_policydev/apigw_external_connections/common_client_credentials/#configure-kerberos-principals).
+For more details on the fields and options in this configuration window, see [Configure Kerberos principals](/docs/apim_policydev/apigw_external_connections/common_client_credentials#configure-kerberos-principals).
 
 ## Configure API Gateway policy
 
@@ -135,7 +135,7 @@ Selecting **Extract delegated credentials** means that API Gateway extracts the 
     * **Synchronize to Avoid Replay Errors at Service**: Deselect this option to improve performance.
     * **Refresh when remaining validity is `<value>` seconds**: Set to `300`.
 
-For more details on the fields and options in this configuration window, see [Configure Kerberos clients](/docs/apim_policydev/apigw_external_connections/common_client_credentials/#configure-kerberos-clients).
+For more details on the fields and options in this configuration window, see [Configure Kerberos clients](/docs/apim_policydev/apigw_external_connections/common_client_credentials#configure-kerberos-clients).
 
 ### Configure a Kerberos profile for the intermediary Kerberos service
 
@@ -236,4 +236,4 @@ Use a client application to call the policy in API Gateway.
 
 The back-end Kerberos service should send a confirmation on a successful authentication.
 
-The **Traffic Monitor** tab on the API Gateway Manager (`https://localhost:8090`) is an excellent place to view and troubleshoot the message flows. For more details, see [Monitor services in API Gateway Manager](/docs/apim_administration/apigtw_admin/monitor_service/#monitor-services-in-api-gateway-manager).
+The **Traffic Monitor** tab on the API Gateway Manager (`https://localhost:8090`) is an excellent place to view and troubleshoot the message flows. For more details, see [Monitor services in API Gateway Manager](/docs/apim_administration/apigtw_admin/monitor_service#monitor-services-in-api-gateway-manager).

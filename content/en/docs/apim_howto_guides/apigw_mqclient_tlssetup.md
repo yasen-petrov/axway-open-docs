@@ -13,7 +13,7 @@ One of the core components of Amplify API Management is the API Gateway. API Gat
 API Gateway is built on Java and uses Java message service (JMS) for messaging. Connecting to JMS servers requires some general configuration and special settings:
 
 * To configure the connection to a JMS server, see [Configure messaging services](/docs/apim_policydev/apigw_poldev/general_messaging/).
-* To listen on queues or topics for messages to process, configure a JMS service provider (listener) as detailed in [Configure a JMS session](/docs/apim_policydev/apigw_poldev/general_messaging/#configure-a-jms-session).
+* To listen on queues or topics for messages to process, configure a JMS service provider (listener) as detailed in [Configure a JMS session](/docs/apim_policydev/apigw_poldev/general_messaging#configure-a-jms-session).
 * For writing received and processed messages to queues or topics and waiting for reply messages from back-end services, see [Route to JMS filters](/docs/apim_policydev/apigw_polref/routing_jms/).
 
 Different vendors have different strategies to maintain compatibility between messaging clients and JMS servers. IBM offers backward compatibility for some versions of MQ clients as described in [IBM Support, MQ 7.x, MQ 8.0, MQ 9.0 and MQ 9.1 compatibility with previous versions](https://www.ibm.com/support/pages/mq-7x-80-90-91-and-92-compatibility-previous-versions-including-usage-ccdt-files-jms-bindings-ssltls).

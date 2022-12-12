@@ -47,15 +47,15 @@ The following diagram illustrates how an API request is processed at runtime by 
 
 Suppose you want to prioritize APIs differently at peak times, so that lower prioritized APIs will be processed secondary to ensure that enough capacity is available for the most important requests. You can use API Manager policies for this use case.
 
-As explained earlier, each policy gets context injected and can use it to make decisions, so the context controls the execution of the policy. For this use case you need context information that tells the policy about the prioritization of the API, and you can configure and use a [custom attribute](/docs/apim_administration/apimgr_admin/api_mgmt_custom/#add-a-custom-property-to-apis) `Prioritization` in API Manager. This allows the API service providers to define for their APIs whether it is high, medium, or low priority. This information becomes available as part of the context to the runtime policies and they can use it to control the execution.
+As explained earlier, each policy gets context injected and can use it to make decisions, so the context controls the execution of the policy. For this use case you need context information that tells the policy about the prioritization of the API, and you can configure and use a [custom attribute](/docs/apim_administration/apimgr_admin/api_mgmt_custom#add-a-custom-property-to-apis) `Prioritization` in API Manager. This allows the API service providers to define for their APIs whether it is high, medium, or low priority. This information becomes available as part of the context to the runtime policies and they can use it to control the execution.
 
 ![Custom property prioritization](/Images/api_mgmt_overview/api-manager-custom-prop-prio.png)
 
-For example, you can configure the following policy in Policy Studio. This policy is either added to an existing corporate global request policy using a [policy shortcut](/docs/apim_policydev/apigw_polref/utility_additional/#policy-shortcut-filter) or configured as a dedicated request policy.
+For example, you can configure the following policy in Policy Studio. This policy is either added to an existing corporate global request policy using a [policy shortcut](/docs/apim_policydev/apigw_polref/utility_additional#policy-shortcut-filter) or configured as a dedicated request policy.
 
 ![Handle prioritization policy](/Images/api_mgmt_overview/handle-prioritization-policy.png)
 
-This policy starts with a general [throttling action](/docs/apim_policydev/apigw_polref/content_max_messages/) every API must pass. If the configured throttling threshold value is reached, the policy follows the red path and the API is checked to see if it is a high priority API. If it is high priority, it is processed immediately. If not, processing is [paused](/docs/apim_policydev/apigw_polref/utility_additional/#pause-processing-filter) (for example, for 200ms). Next, the system checks whether the API is a medium priority API, and so on. The pause times can be obtained from the context or loaded dynamically from the [KPS](/docs/apim_policydev/apigw_kps/) to be able to react on actual requirements.
+This policy starts with a general [throttling action](/docs/apim_policydev/apigw_polref/content_max_messages/) every API must pass. If the configured throttling threshold value is reached, the policy follows the red path and the API is checked to see if it is a high priority API. If it is high priority, it is processed immediately. If not, processing is [paused](/docs/apim_policydev/apigw_polref/utility_additional#pause-processing-filter) (for example, for 200ms). Next, the system checks whether the API is a medium priority API, and so on. The pause times can be obtained from the context or loaded dynamically from the [KPS](/docs/apim_policydev/apigw_kps/) to be able to react on actual requirements.
 
 #### Supported API Manager policies
 
@@ -72,7 +72,7 @@ This policy starts with a general [throttling action](/docs/apim_policydev/apigw
 | Alerts                         | Besides standard notifications via email to API developers and API consumers, there is sometimes the need to integrate the API management solution into existing processes. For example, based on events in the API management system, start workflows in a ticket system that can be used to process a problem. Alert policies that can be configured for a whole range of events are suitable for this. |
 | API-Promotion                  | One way to promote APIs from one stage to the next is the promotion policy, which can be triggered via the API Manager Web UI for a selected API. This policy gets the current API configuration from input as JSON payload, can manipulate it and then pass it on accordingly. Either directly to the higher stage, open a ticket with the API as attachment or send information via email. |
 
-Learn more about [how to set up API Manager policies](/docs/apim_administration/apimgr_admin/api_mgmt_config_ps/#global-request-policies) and [how to set up alerts](/docs/apim_administration/apimgr_admin/api_mgmt_alerts/).
+Learn more about [how to set up API Manager policies](/docs/apim_administration/apimgr_admin/api_mgmt_config_ps#global-request-policies) and [how to set up alerts](/docs/apim_administration/apimgr_admin/api_mgmt_alerts/).
 
 ### Integration policies
 

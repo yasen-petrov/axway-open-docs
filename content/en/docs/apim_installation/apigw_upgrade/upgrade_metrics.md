@@ -10,7 +10,7 @@ If you are using a metrics database with an earlier version of API Gateway for m
 
 {{< alert title="Note" color="primary" >}}For details on upgrading a metrics database for use with API Gateway Analytics, see [Upgrade API Gateway Analytics](/docs/apim_installation/apigw_upgrade/upgrade_analytics/) instead.{{< /alert >}}
 
-For frequently asked questions about upgrading your metrics database, see [API Gateway Analytics and metrics database upgrades](/docs/apim_installation/apigw_upgrade/upgrade_faq/#api-gateway-analytics-and-metrics-database-upgrades).
+For frequently asked questions about upgrading your metrics database, see [API Gateway Analytics and metrics database upgrades](/docs/apim_installation/apigw_upgrade/upgrade_faq#api-gateway-analytics-and-metrics-database-upgrades).
 
 ## Summary of steps
 

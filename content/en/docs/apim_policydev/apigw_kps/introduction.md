@@ -24,9 +24,9 @@ KPS administrators can use the API Gateway Manager web console to view and modif
 
 KPS data can be stored in one of the following locations:
 
-* **External Apache Cassandra database**: Data can be distributed across multiple nodes to provide high availability. This is the default data store. See [Configure Apache Cassandra KPS storage](/docs/apim_policydev/apigw_kps/configure_database_storage/#configure-apache-cassandra-kps-storage).
+* **External Apache Cassandra database**: Data can be distributed across multiple nodes to provide high availability. This is the default data store. See [Configure Apache Cassandra KPS storage](/docs/apim_policydev/apigw_kps/configure_database_storage#configure-apache-cassandra-kps-storage).
 * **Relational database**: Accessible to all API Gateway instances in the gateway group. See [Configure database storage](/docs/apim_policydev/apigw_kps/configure_database_storage/)
-* **JSON files**: On the local file system (deprecated). See [Configure file-based KPS storage](/docs/apim_policydev/apigw_kps/configure_database_storage/#configure-file-based-kps-storage)
+* **JSON files**: On the local file system (deprecated). See [Configure file-based KPS storage](/docs/apim_policydev/apigw_kps/configure_database_storage#configure-file-based-kps-storage)
 
 {{< alert title="Note" color="primary" >}}Custom KPS data defined in Policy Studio supports Cassandra, database, and file data stores. API Manager KPS data (Client Registry and API Catalog) supports Cassandra only. File-based KPS is deprecated and will be removed in a future release.{{< /alert >}}
 

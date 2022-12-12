@@ -49,7 +49,7 @@ Run full repair at 1 a.m. every Monday:
 0 1 * * 1 PATH_TO_CASSANDRA/bin/nodetool CONNECTION_SECURITY_PARAMS repair -pr --full > PATH_TO_CASSANDRA/logs/last_repair.log 2>&1
 ```
 
-See also [Clean up Cassandra repair history](/docs/cass_admin/cassandra_bestpractices/#span-id-clean-span-clean-up-cassandra-repair-history).
+See also [Clean up Cassandra repair history](/docs/cass_admin/cassandra_bestpractices#span-id-clean-span-clean-up-cassandra-repair-history).
 
 ## Replace dead nodes
 

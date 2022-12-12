@@ -63,17 +63,17 @@ It is important, especially when upgrading from an earlier version, to be aware 
 
 ### Distributed cache socket connect timeout
 
-A new socket connect timeout is added for distributed cache replicated updates. The default timeout is 500 millisecond and can be changed if required using JVM system property `com.axway.rmi.socket.connect.timeout`. For more information, see [System property changes](/docs/apim_reference/system_props/#77-february-2022).
+A new socket connect timeout is added for distributed cache replicated updates. The default timeout is 500 millisecond and can be changed if required using JVM system property `com.axway.rmi.socket.connect.timeout`. For more information, see [System property changes](/docs/apim_reference/system_props#77-february-2022).
 
 ### WSDL Schema Validation
 
-The Schema Validation filter now caches WSDL Schema objects to improve performance of WSDL schema validation. Previously only Schemas that were configured using the Schema Validation filter were cached. The size of the Schema Validation cache can be increased if required with system property schemaCacheSize. For more information, see [System property changes](/docs/apim_reference/system_props/#762).
+The Schema Validation filter now caches WSDL Schema objects to improve performance of WSDL schema validation. Previously only Schemas that were configured using the Schema Validation filter were cached. The size of the Schema Validation cache can be increased if required with system property schemaCacheSize. For more information, see [System property changes](/docs/apim_reference/system_props#762).
 
 ### Axway Terms and Conditions must be accepted to start an API Gateway Docker container
 
 Updated General Terms and Conditions (T&C) have been added to API Gateway. During installation in interactive mode a pop-up window is shown for you to accept the T&C. For API Gateway Docker container, a new parameter (`ACCEPT_GENERAL_CONDITIONS`) has been introduced, which must be set to `yes` in order to start a container.
 
-For more information, see [Acceptance of General Conditions for license and subscription services](/docs/apim_installation/apigw_containers/docker_scripts_prereqs/#acceptance-of-general-conditions-for-license-and-subscription-services).
+For more information, see [Acceptance of General Conditions for license and subscription services](/docs/apim_installation/apigw_containers/docker_scripts_prereqs#acceptance-of-general-conditions-for-license-and-subscription-services).
 
 ### API Gateway password policy and passphrase policy APIs stricter validation
 
@@ -85,7 +85,7 @@ In the API Manager Swagger definition, the description for the `retirementDate` 
 
 Previously, the `retired` flag on the proxy was immediately set to `true` when the `retirementDate` contained a date in the past; however, the proxy itself was not immediately retired. Now, API Manager sets the `retired` flag to `true` when the proxy retirement process is complete. If you expect the `retired` flag in the immediate response from the deprecation request to be `true` then you may be affected by this change.
 
-This issue has been addressed and more details can be found in the related description of the RDAPI-25708 ticket, in the [Other fixed issues](/docs/apim_relnotes/20220228_apimgr_relnotes/#other-fixed-issues) table.
+This issue has been addressed and more details can be found in the related description of the RDAPI-25708 ticket, in the [Other fixed issues](/docs/apim_relnotes/20220228_apimgr_relnotes#other-fixed-issues) table.
 
 ### Increased validation on API Manager Quota operations
 
@@ -105,7 +105,7 @@ The following items are end of support:
 
 Apache Foundation no longer supports Apache Cassandra database version 2.2.x. Although Axway will continue to support this version on a best efforts basis, no critical updates will be available from Apache anymore.
 
-API Gateway supports Cassandra 3.11.11 since [August 2021](/docs/apim_relnotes/20210830_apimgr_relnotes/#support-for-apache-cassandra-31111) update. Therefore, we recommend that all customers update their Cassandra installation to this version as soon as possible.
+API Gateway supports Cassandra 3.11.11 since [August 2021](/docs/apim_relnotes/20210830_apimgr_relnotes#support-for-apache-cassandra-31111) update. Therefore, we recommend that all customers update their Cassandra installation to this version as soon as possible.
 
 The Cassandra version 3.11.x end of support date is April 2023. Axway is planning to include support for Cassandra version 4 later this year.
 
@@ -119,7 +119,7 @@ To stay current and align our offerings with customer demand and best practices,
 
 ### Titanium SDK generation
 
-Titanium app was removed as an option for Software Development Kits (SDKs) generation. For more information, see [Mobile Backend Services use cases](/docs/apim_administration/apimgr_admin/api_mgmt_connect_mobile_backend_services/#mobile-backend-services-use-cases).
+Titanium app was removed as an option for Software Development Kits (SDKs) generation. For more information, see [Mobile Backend Services use cases](/docs/apim_administration/apimgr_admin/api_mgmt_connect_mobile_backend_services#mobile-backend-services-use-cases).
 
 ### Developer tools on Windows 8.1
 

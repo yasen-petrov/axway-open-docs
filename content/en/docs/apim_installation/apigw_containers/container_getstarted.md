@@ -56,7 +56,7 @@ For more information, see [Operate and monitor API Gateway containers](/docs/api
 
 ### How do you persist logs
 
-To persist API Gateway logs to a directory on your host machine, you can use the `docker run -v` option to mount volumes for logs when running the API Gateway Docker container. For an example, see [Mount volumes to persist logs outside the API Gateway container](/docs/apim_installation/apigw_containers/docker_script_gwimage/#mount-volumes-to-persist-logs-outside-the-api-gateway-container).
+To persist API Gateway logs to a directory on your host machine, you can use the `docker run -v` option to mount volumes for logs when running the API Gateway Docker container. For an example, see [Mount volumes to persist logs outside the API Gateway container](/docs/apim_installation/apigw_containers/docker_script_gwimage#mount-volumes-to-persist-logs-outside-the-api-gateway-container).
 
 For more information on using volumes to persist data, see the [Use volumes](https://docs.docker.com/storage/volumes/) Docker documentation.
 
@@ -134,7 +134,7 @@ These variables allow you to make the configuration generic, so that you can cre
 
 To customize logging for a multi-node environment, perform the following steps:
 
-1. In Policy Studio, create a project [from a .fed file](/docs/apim_policydev/apigw_poldev/gs_project/#new-project-from-a-fed-file), pointing it to an existing API Gateway FED. Or, alternatively, create a project [from an existing configuration](/docs/apim_policydev/apigw_poldev/gs_project/#new-project-from-existing-configuration) pointing to an existing directory that contains an XML or YAML configuration.
+1. In Policy Studio, create a project [from a .fed file](/docs/apim_policydev/apigw_poldev/gs_project#new-project-from-a-fed-file), pointing it to an existing API Gateway FED. Or, alternatively, create a project [from an existing configuration](/docs/apim_policydev/apigw_poldev/gs_project#new-project-from-existing-configuration) pointing to an existing directory that contains an XML or YAML configuration.
 2. Click **Server Settings > Logging**.
 3. Click **Transaction Audit Log** and configure where you wish API Gateway to log transaction audit information:
 
@@ -175,8 +175,8 @@ For information on upgrading to 7.7, see the
 
 When building your API Gateway or Admin Node Manager Docker images, you can specify a merge directory containing custom configuration, JAR files, and so on, to add to the Docker image. For detailed examples, see:
 
-* [Create an ANM image using existing ANM fed and customized configuration](/docs/apim_installation/apigw_containers/docker_script_anmimage/#create-an-admin-node-manager-image-using-existing-fed-and-customized-configuration)
-* [Create an API Gateway image using existing fed and customized configuration](/docs/apim_installation/apigw_containers/docker_script_gwimage/#create-an-api-gateway-image-using-existing-fed-and-customized-configuration)
+* [Create an ANM image using existing ANM fed and customized configuration](/docs/apim_installation/apigw_containers/docker_script_anmimage#create-an-admin-node-manager-image-using-existing-fed-and-customized-configuration)
+* [Create an API Gateway image using existing fed and customized configuration](/docs/apim_installation/apigw_containers/docker_script_gwimage#create-an-api-gateway-image-using-existing-fed-and-customized-configuration)
 
 ### How do you manage API Gateway topology
 
@@ -188,13 +188,13 @@ API Gateway, running in containers is fully supported on Openshift Container Pla
 
 ### How do you run API Gateway administration tools or scripts
 
-In a container deployment, you must connect to the running Admin Node Manager Docker container to run API Gateway administration tools, such as `kpsadmin`. For an example, see [Manage KPS with kpsadmin](/docs/apim_installation/apigw_containers/container_troubleshoot/#manage-kps-with-kpsadmin).
+In a container deployment, you must connect to the running Admin Node Manager Docker container to run API Gateway administration tools, such as `kpsadmin`. For an example, see [Manage KPS with kpsadmin](/docs/apim_installation/apigw_containers/container_troubleshoot#manage-kps-with-kpsadmin).
 
 ### How do you set up API Manager metrics
 
 To set up API Manager metrics you must first create an Admin Node Manager Docker image with metrics processing enabled, and then run the Admin Node Manager and API Gateway Docker containers using the `docker run -v` option to mount a volume for the API Gateway events directory.
 
-When starting the containers, you must also specify the connection details for the metrics database using environment variables. For an example, see [Create a metrics-enabled ANM image](/docs/apim_installation/apigw_containers/docker_script_anmimage/#create-a-metrics-enabled-admin-node-manager-image).
+When starting the containers, you must also specify the connection details for the metrics database using environment variables. For an example, see [Create a metrics-enabled ANM image](/docs/apim_installation/apigw_containers/docker_script_anmimage#create-a-metrics-enabled-admin-node-manager-image).
 
 ### How do you run API Gateway in Kubernetes
 

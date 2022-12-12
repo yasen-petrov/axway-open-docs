@@ -14,7 +14,7 @@ The steps required to build, integrate, configure, and test the supplied `Jabber
 
 ## Create the TypeDoc
 
-A *TypeDoc* is an XML file that contains entity type definitions. Entity type definitions describe the format of data associated with a configurable item. For more details on entity types, see [Entity types](/docs/apigtw_devguide/entity_store/#entity-types).
+A *TypeDoc* is an XML file that contains entity type definitions. Entity type definitions describe the format of data associated with a configurable item. For more details on entity types, see [Entity types](/docs/apigtw_devguide/entity_store#entity-types).
 
 All TypeDocs for custom filters must:
 

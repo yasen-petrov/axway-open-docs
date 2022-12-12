@@ -18,10 +18,10 @@ You can examine the installation log in the root directory of the installation (
 
 ### Start API Gateway components and tools
 
-* To start the API Gateway server and Admin Node Manager and to log in to the API Gateway Manager web-based administration tool, see [Start API Gateway](/docs/apim_installation/apigtw_install/install_gateway/#start-api-gateway).
-* To start the Policy Studio desktop tool, see [Start Policy Studio](/docs/apim_installation/apigtw_install/install_policy_studio/#start_policy_studio).
-* To log in to the API Manager web-based tool, see [Start API Manager](/docs/apim_installation/apigtw_install/install_api_mgmt/#start-api-manager).
-* To start the Configuration Studio desktop tool, see [Start Configuration Studio](/docs/apim_installation/apigtw_install/install_config_studio/#start-configuration-studio).
+* To start the API Gateway server and Admin Node Manager and to log in to the API Gateway Manager web-based administration tool, see [Start API Gateway](/docs/apim_installation/apigtw_install/install_gateway#start-api-gateway).
+* To start the Policy Studio desktop tool, see [Start Policy Studio](/docs/apim_installation/apigtw_install/install_policy_studio#start_policy_studio).
+* To log in to the API Manager web-based tool, see [Start API Manager](/docs/apim_installation/apigtw_install/install_api_mgmt#start-api-manager).
+* To start the Configuration Studio desktop tool, see [Start Configuration Studio](/docs/apim_installation/apigtw_install/install_config_studio#start-configuration-studio).
 * To set up and start the API Gateway Analytics server, and to log in to the API Gateway Analytics web-based tool, see the [API Gateway Analytics User Guide](/docs/apimanager_analytics/).
 * To start the Discovery agent, see [Running the Discovery agent](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/connect_api_manager/gateway-administation/index.html#running-the-discovery-agent).
 * To start the Traceability agent, see [Running the Traceability agent](https://docs.axway.com/bundle/amplify-central/page/docs/connect_manage_environ/connect_api_manager/gateway-administation/index.html#running-the-binary-traceability-agent).
@@ -61,7 +61,7 @@ Perform the following tasks after installation to secure your API Gateway system
 ### Change default passwords
 
 If you did not set an administrator user name and password during installation, you should change the default administrator user name and password now. For details, see
-[Manage administrator users](/docs/apim_administration/apigtw_admin/manage_user_access/#manage-admin-users).
+[Manage administrator users](/docs/apim_administration/apigtw_admin/manage_user_access#manage-admin-users).
 
 If using the Discovery and Traceability agents, password configuration should also be updated.
 

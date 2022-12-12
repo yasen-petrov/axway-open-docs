@@ -12,7 +12,7 @@ YAML configuration upgrade is supported in a fully automated way. However, upgra
 
 * Technical preview releases can be upgraded with manual steps, as described in following sections.
 * Any YAML configuration created before [API Gateway March 21 update](/docs/apim_relnotes/20210330_apimgr_relnotes/) cannot be upgraded.
-* The service pack update (`update_apigw.sh`) script does not support YAML configuration upgrade prior to [API Gateway May 21 update](/docs/apim_relnotes/20210530_apimgr_relnotes/#yaml-configuration-store-ga).
+* The service pack update (`update_apigw.sh`) script does not support YAML configuration upgrade prior to [API Gateway May 21 update](/docs/apim_relnotes/20210530_apimgr_relnotes#yaml-configuration-store-ga).
 
 ### Upgrade Technical Preview releases
 
@@ -82,4 +82,4 @@ YAML configuration for Analytics is not supported.
 
 ## Deployment archive
 
-You can update the deployment archive package properties by choosing `option 22` of the `managedomain` script. For more information, see [Updating Deployment Archive Properties](/docs/apim_yamles/yamles_packaging_deployment/#updating-deployment-archive-properties).
+You can update the deployment archive package properties by choosing `option 22` of the `managedomain` script. For more information, see [Updating Deployment Archive Properties](/docs/apim_yamles/yamles_packaging_deployment#updating-deployment-archive-properties).

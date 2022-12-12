@@ -288,7 +288,7 @@ The following is an example `jvm.xml` file for Windows:
 
 ### Start API Gateway
 
-Start API Gateway so that it runs with the OES client classpath and the associated environment settings. For more information, see [Start API Gateway](/docs/apim_installation/apigtw_install/install_gateway/#start-api-gateway).
+Start API Gateway so that it runs with the OES client classpath and the associated environment settings. For more information, see [Start API Gateway](/docs/apim_installation/apigtw_install/install_gateway#start-api-gateway).
 
 Command example:
 

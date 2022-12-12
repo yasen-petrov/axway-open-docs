@@ -8,11 +8,11 @@
 
 The `types` directory located under the `META-INF` directory of a YAML configuration contains the definition of all the entity types in the Entity store model, and its subdirectories are organized in a hierarchical tree structure that represents the inheritance relationships between types.
 
-An [entity type](/docs/apigtw_devguide/entity_store/#entity-types) is a description of an entity in the Entity store.
+An [entity type](/docs/apigtw_devguide/entity_store#entity-types) is a description of an entity in the Entity store.
 
 The YAML Entity store supports all entity types and custom types.
 
-Please refer to dedicated page for the [Entity Type files schema](/docs/apim_yamles/apim_yamles_references/yamles_yaml_schema/#entity-type-files)
+Please refer to dedicated page for the [Entity Type files schema](/docs/apim_yamles/apim_yamles_references/yamles_yaml_schema#entity-type-files)
 
 ## Simple type
 
@@ -122,7 +122,7 @@ You can add custom types by creating a YAML file definition of an entity type, a
 
 ### Filter type
 
-This section extends the [Create the TypeDoc](/docs/apigtw_devguide/custom_filter_extension_kit/#create-the-typedoc) section to add a new filter when using YAML.
+This section extends the [Create the TypeDoc](/docs/apigtw_devguide/custom_filter_extension_kit#create-the-typedoc) section to add a new filter when using YAML.
 
 For a custom filter to be usable, it must inherit from `Filter` or a subtype of `Filter`. To add a new filter, create a YAML file within `META-INF/types/Entity/Filter/`. Note that if you place the YAML file under `META-INF/types/Entity/Filter/AWSFilter`, it will inherit from `AWSFilter` fields.
 

@@ -31,7 +31,7 @@ The settings on the **Validation/Templates** tab enable you to specify login and
 Configure the following fields:
 
 **Login Form**:
-Enter the full path to the HTML form that the resource owner can use to log in. Defaults to the value `${environment.VDISTDIR}/samples/oauth/templates/login.html`.
+Enter the full path to the HTML form that the resource owner can use to log in. Defaults to the value `${environment.VDISTDIR}/samples/oauth/templates/login.html`. The `login.html` file can be modified to meet your needs. The sample form contains fields for username, password, and a `continue` path to redirect the user to the authorization flow following a successful login. The default behavior of this form is to post to the `/oauth/login` path.
 
 **Authorization Form**:
 Enter the full path to the HTML form that the resource owner can use to grant (allow or deny) client application access to the resources. Defaults to the value `${environment.VDISTDIR}/samples/oauth/templates/requestAccess.html`.
@@ -49,7 +49,7 @@ Select this option to skip the authorization check and automatically accept the 
 Configure the following fields on the **Authz Code Details** tab:
 
 **Authorization Code will be stored here**:
-Click the browse button to select where to cache the authorization code (for example, in the default **Authz Code Store**). To add an authorization code store, right-click **Authorization Code Stores**, and select **Add Authorization Code Store**. You can store codes in a cache, in a relational database, or in an Apache Cassandra database. For more details, see [Manage access tokens and authorization codes](/docs/apim_policydev/apigw_oauth/gw_oauth_authz_server/#manage-access-tokens-and-authorization-codes).
+Click the browse button to select where to cache the authorization code (for example, in the default **Authz Code Store**). To add an authorization code store, right-click **Authorization Code Stores**, and select **Add Authorization Code Store**. You can store codes in a cache, in a relational database, or in an Apache Cassandra database. For more details, see [Manage access tokens and authorization codes](/docs/apim_policydev/apigw_oauth/gw_oauth_authz_server#manage-access-tokens-and-authorization-codes).
 
 **Location of Access Code redirect page**:
 Enter the full path to the HTML page used for the access code HTTP redirect. Defaults to the following:

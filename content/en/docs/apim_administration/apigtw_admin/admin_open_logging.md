@@ -85,8 +85,8 @@ In a distributed system with multiple API Gateway instances running, the data is
 
 The open traffic event log combines the data from:
 
-* Transaction event log – This log contains a summary of transactions in JSON format. For more details on the transaction event log, see [Transaction event log settings](/docs/apim_reference/log_global_settings/#transaction-event-log-settings).
-* Traffic monitor – This log contains detailed traffic monitoring information including transaction payloads, policy paths, and so on. This data is stored in a proprietary OpsDB format. For more details on traffic monitor, see [Traffic monitoring settings](/docs/apim_reference/monitor_traffic_events_metrics/#traffic-monitoring-settings).
+* Transaction event log – This log contains a summary of transactions in JSON format. For more details on the transaction event log, see [Transaction event log settings](/docs/apim_reference/log_global_settings#transaction-event-log-settings).
+* Traffic monitor – This log contains detailed traffic monitoring information including transaction payloads, policy paths, and so on. This data is stored in a proprietary OpsDB format. For more details on traffic monitor, see [Traffic monitoring settings](/docs/apim_reference/monitor_traffic_events_metrics#traffic-monitoring-settings).
 
 The combined data is written to an open traffic event log file in JSON format. The JSON schema is described in [Open logging schema](/docs/apim_reference/open_logging_schema/) and is available in your installation at `INSTALL_DIR/apigateway/system/schemas/logging/openLogging.json`.
 
@@ -129,7 +129,7 @@ Open traffic event logging is disabled by default. To enable it, perform the fol
 4. When finished, click **Save** at the bottom right.
 5. Click **Deploy** in the toolbar to deploy your settings to the API Gateway.
 
-For details on configuring all the available options, see [Open traffic event log settings](/docs/apim_reference/monitor_traffic_events_metrics/#open-traffic-event-log-settings).
+For details on configuring all the available options, see [Open traffic event log settings](/docs/apim_reference/monitor_traffic_events_metrics#open-traffic-event-log-settings).
 
 ## Environment variables
 

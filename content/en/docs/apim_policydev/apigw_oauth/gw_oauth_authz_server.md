@@ -45,6 +45,16 @@ Exposed on path: `/api/oauth/tokeninfo`
 
 This policy is used to request information about an access token. It uses the **Access Token Information** filter.
 
+### Login sample policy
+
+Exposed on path: `/oauth/login`
+
+The **Authorization Code Flow** filter returns a sample HTML login form, which is used by the **Login** sample policy to authenticate a user by processing the content of that form.
+
+You must modify the sample **Login** form, and related login policy, to reflect your own functional and security requirements by way of the `continue` field, which redirects the user to the authorization flow.
+
+You must ensure to secure all filters in the user policy to prevent security breaches, such as injection and open redirects.
+
 ## Manage access tokens and authorization codes
 
 API Gateway can store generated authorization codes and access tokens in its caches, in an Apache Cassandra database, or in a relational database. The authorization server issues tokens to clients on behalf of a resource owner. These tokens are used when authenticating subsequent API calls to the resource server. These issued tokens must be persisted so that subsequent client requests to the authorization server can be validated.

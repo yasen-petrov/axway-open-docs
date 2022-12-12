@@ -16,7 +16,7 @@ For details on upgrading a metrics database for use with API Manager, see [Upgra
 
 If you create a new API Gateway Analytics metrics database as part of a rollback strategy, you must run `managedomain` on every host to change the database URL to that of the newly created database after you have completed the `sysupgrade apply` step.
 
-For frequently asked questions about upgrading API Gateway Analytics, see [API Gateway Analytics and metrics database upgrades](/docs/apim_installation/apigw_upgrade/upgrade_faq/#api-gateway-analytics-and-metrics-database-upgrades).
+For frequently asked questions about upgrading API Gateway Analytics, see [API Gateway Analytics and metrics database upgrades](/docs/apim_installation/apigw_upgrade/upgrade_faq#api-gateway-analytics-and-metrics-database-upgrades).
 
 ## Rollback strategy
 

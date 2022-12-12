@@ -129,7 +129,7 @@ To create a project with API Manager configuration, perform the following steps:
 
 1. Create a new project using any of the options detailed in [Select a project starting point](#select-a-project-starting-point).
 2. Select **File > Configure API Manager**. For more details on configuring API Manager in Policy Studio, see the
-    [Enable API Manager](/docs/apim_administration/apimgr_admin/api_mgmt_config/#enable-api-manager).
+    [Enable API Manager](/docs/apim_administration/apimgr_admin/api_mgmt_config#enable-api-manager).
 
     Alternatively, if you already have API Manager configured you can create the project from the existing API Gateway configuration directory.
 

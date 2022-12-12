@@ -94,4 +94,4 @@ When you have created client applications, you can select them in the **Applicat
 
 You can click **Export all** in the menu bar at the top to export all client applications in the client registry. You can click **Import** to import previously exported applications in the selected `.dat` file.
 
-{{< alert title="Note" color="primary" >}}Importing a `.dat` file, which contains a large number of applications, might take some time to complete. To avoid importing errors, consider increasing the default value of **Transaction Timeout** set in **General settings** within Policy Studio. For more information, see [General settings in Policy Studio](/docs/apim_reference/general_settings/#general-settings).{{< /alert >}}
+{{< alert title="Note" color="primary" >}}Importing a `.dat` file, which contains a large number of applications, might take some time to complete. To avoid importing errors, consider increasing the default value of **Transaction Timeout** set in **General settings** within Policy Studio. For more information, see [General settings in Policy Studio](/docs/apim_reference/general_settings#general-settings).{{< /alert >}}

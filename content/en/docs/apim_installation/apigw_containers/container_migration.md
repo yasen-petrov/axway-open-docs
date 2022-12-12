@@ -34,7 +34,7 @@ The steps are as follows.
 
 ### Step 1 – Generate domain certificates
 
-Generate a new domain certificate and key as detailed in [Generate domain SSL certificates](/docs/apim_installation/apigw_containers/docker_scripts_prereqs/#generate-domain-ssl-certificates).
+Generate a new domain certificate and key as detailed in [Generate domain SSL certificates](/docs/apim_installation/apigw_containers/docker_scripts_prereqs#generate-domain-ssl-certificates).
 
 Alternatively, you can reuse your existing system domain certificate and key. Domain certificates for a classic deployment are located in the `/INSTALL_DIR/apigateway/groups/certs/` directory. This can be useful if you have domain certificates signed by an external CA and you want to reuse them.
 
@@ -107,13 +107,13 @@ To build images, follow these steps:
     ./build_base_image.py --installer=apigw-installer.run --os=rhel7 --out-image= apigw-base:1.0
     ```
 
-2. Build an Admin Node Manager image as detailed in [Create an Admin Node Manager Docker image](/docs/apim_installation/apigw_containers/docker_script_anmimage/#create-an-admin-node-manager-docker-image). For example:
+2. Build an Admin Node Manager image as detailed in [Create an Admin Node Manager Docker image](/docs/apim_installation/apigw_containers/docker_script_anmimage#create-an-admin-node-manager-docker-image). For example:
 
     ```
     ./build_anm_image.py --parent-image=apigw-base:1.0 --out-image my-domain-anm:1.0 --merge-dir /tmp/mergedir/group1/apigateway --fed ANM.fed --domain-cert ClassicDomainCert.pem --domain-key ClassicDomainKey.pem --domain-key-pass-file /tmp/domainpass.txt
     ```
 
-3. Build the Group1 API Gateway image as detailed in [Create an API Gateway Docker image](/docs/apim_installation/apigw_containers/docker_script_gwimage/#create-an-api-gateway-docker-image). For example:
+3. Build the Group1 API Gateway image as detailed in [Create an API Gateway Docker image](/docs/apim_installation/apigw_containers/docker_script_gwimage#create-an-api-gateway-docker-image). For example:
 
     ```
     ./build_gw_image.py --parent-image=apigw-base:1.0 --out-image my-gw-group1:1.0 --license LicenseWithoutHostname.lic --domain-cert ClassicDomainCert.pem --domain-key ClassicDomainKey.pem --domain-key-pass-file /tmp/domainpass.txt --fed Group1.fed
@@ -133,7 +133,7 @@ To start the Admin Node Manager and API Gateway Docker containers, follow these 
 
 {{< alert title="Note" >}}API Gateway Analytics container **requires** you to enable the `ACCEPT_GENERAL_CONDITIONS` environment variable to acknowledge that you have read and accepted [Axway License, Support, and Service Agreement](https://cdn.axway.com/u/Axway_General_Conditions_version_april_2014_eng%20(France).pdf). {{< /alert >}}
 
-1. Start the Admin Node Manager container as detailed in [Start the Admin Node Manager Docker container](/docs/apim_installation/apigw_containers/docker_script_anmimage/#start-the-admin-node-manager-docker-container). For example:
+1. Start the Admin Node Manager container as detailed in [Start the Admin Node Manager Docker container](/docs/apim_installation/apigw_containers/docker_script_anmimage#start-the-admin-node-manager-docker-container). For example:
 
     ```
     docker run -it -p 8090:8090 --name=ANM1 -e ACCEPT_GENERAL_CONDITIONS=yes --network=my_network my-domain-anm:1.0
@@ -147,7 +147,7 @@ To start the Admin Node Manager and API Gateway Docker containers, follow these 
 
     You can now log in to API Gateway Manager at `https://docker_host:8090` with the same administrator credentials as you used for your classic deployment.
 
-2. Start the Group1 API Gateway container as detailed in [Start the API Gateway Docker container](/docs/apim_installation/apigw_containers/docker_script_gwimage/#start-the-api-gateway-docker-container). For example:
+2. Start the Group1 API Gateway container as detailed in [Start the API Gateway Docker container](/docs/apim_installation/apigw_containers/docker_script_gwimage#start-the-api-gateway-docker-container). For example:
 
     ```
     docker run -it -p 8075:8075 -e EMT_ANM_HOSTS= ANM1:8090 -e ACCEPT_GENERAL_CONDITIONS=yes --network=my_network my-gw-group1:1.0

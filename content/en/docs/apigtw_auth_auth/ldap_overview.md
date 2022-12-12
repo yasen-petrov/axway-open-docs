@@ -266,7 +266,7 @@ You can extend the authentication to downstream web services, if required. After
 
     ![Connect the filters with success paths](/Images/IntegrationGuides/auth_auth/ldap_policy_final.png)
 
-For more details on how to configure an insert SAML Authentication Assertion filter, see [Insert SAML authentication assertion filter](/docs/apim_policydev/apigw_polref/authn_common/#insert-saml-authentication-assertion-filter)
+For more details on how to configure an insert SAML Authentication Assertion filter, see [Insert SAML authentication assertion filter](/docs/apim_policydev/apigw_polref/authn_common#insert-saml-authentication-assertion-filter)
 
 ### Secure the connection to the directory server
 

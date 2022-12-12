@@ -66,7 +66,7 @@ The following diagram shows a simplified message flow for SSO using SAML:
     * For non-SSO login, use the default URL (for example, `https://<FQDN>:<port>`).
     * For SSO login, use the SSO URL (for example, `https://<FQDN>:<port>/sso`).
 
-    The `<FQDN>` is the fully qualified domain name of the machine where API Portal is running, and `<port>` is the API Portal listening port. You can change the SSO URL in the Joomla! Admin Interface (JAI). For more details, see [Enable SSO in API Portal](/docs/apim_administration/apiportal_sso/sso_config/#enable-sso-in-api-portal).
+    The `<FQDN>` is the fully qualified domain name of the machine where API Portal is running, and `<port>` is the API Portal listening port. You can change the SSO URL in the Joomla! Admin Interface (JAI). For more details, see [Enable SSO in API Portal](/docs/apim_administration/apiportal_sso/sso_config#enable-sso-in-api-portal).
 
     The SSO login URL must be used even if the user has already logged in using SSO (for example, if they have already logged in to API Manager or Decision Insight).
 

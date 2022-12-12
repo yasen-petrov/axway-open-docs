@@ -77,7 +77,7 @@ There are a number of actors involved in this demo:
 * Google is configured as an OAuth AS and RS and as an OpenID Connect IdP
 * Salesforce is configured as an OAuth AS and RS but not as an OpenID Connect IdP.
 
-To complete the configuration for Google and Salesforce you must register a client application with each provider, and update the relevant provider profiles with the received client ID and secrets. For more information, see [Configure OAuth client application credentials](/docs/apim_policydev/apigw_oauth/gw_oauth_client/#configure-oauth-client-application-credentials).
+To complete the configuration for Google and Salesforce you must register a client application with each provider, and update the relevant provider profiles with the received client ID and secrets. For more information, see [Configure OAuth client application credentials](/docs/apim_policydev/apigw_oauth/gw_oauth_client#configure-oauth-client-application-credentials).
 
 When you connect to the client demo (for example, at `https://localhost:8088`), a login page is displayed:
 
@@ -99,4 +99,4 @@ When using one of OpenID Connect options the user information presented on this 
 
 ### Client policies
 
-The majority of the work in this demo is carried out in the client policies. To support the different methods of authentication (form-based and OpenID Connect), the demo is configured to issue an anonymous session to start the process. This anonymous session is replaced with an updated user session after the user has been identified with either a successful form login or an ID token. For an example of the client policies used, see [Callback sample](/docs/apim_policydev/apigw_oauth/gw_oauth_client/#callback-sample).
+The majority of the work in this demo is carried out in the client policies. To support the different methods of authentication (form-based and OpenID Connect), the demo is configured to issue an anonymous session to start the process. This anonymous session is replaced with an updated user session after the user has been identified with either a successful form login or an ID token. For an example of the client policies used, see [Callback sample](/docs/apim_policydev/apigw_oauth/gw_oauth_client#callback-sample).

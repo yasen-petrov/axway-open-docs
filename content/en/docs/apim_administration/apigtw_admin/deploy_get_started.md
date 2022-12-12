@@ -153,7 +153,7 @@ The following diagram illustrates the process:
 
 To perform a zero downtime policy deployment, follow these steps:
 
-1. Enable zero downtime deployment in Policy Studio, and set the delays before and after deployment. For more information, see [Zero downtime settings](/docs/apim_reference/general_settings/#zero-downtime-settings).
+1. Enable zero downtime deployment in Policy Studio, and set the delays before and after deployment. For more information, see [Zero downtime settings](/docs/apim_reference/general_settings#zero-downtime-settings).
 2. Configure your load balancer to ping the Health Check LB policy periodically to determine if each API Gateway is healthy. This is available on the following default URL:
 
     ```

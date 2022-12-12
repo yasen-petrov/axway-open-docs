@@ -277,4 +277,4 @@ This section describe how to test your SiteMinder policy using a standard browse
 3. Enter the login credentials. API Gateway authenticates the user against SiteMinder and returns the response along with the SiteMinder session cookie.
 4. Refresh the browser to access the protected resource. Because the custom cookie (`smcookie`) is available this time, API Gateway does not prompt for credentials. Instead of re-authentication, API Gateway validates the cookie against the SiteMinder.
 
-The **Traffic Monitor** tab on the API Gateway Manager (`https://localhost:8090`) is an excellent place to view and troubleshoot the message flows. For more details, see [Monitor services in API Gateway Manager](/docs/apim_administration/apigtw_admin/monitor_service/#monitor-services-in-api-gateway-manager).
+The **Traffic Monitor** tab on the API Gateway Manager (`https://localhost:8090`) is an excellent place to view and troubleshoot the message flows. For more details, see [Monitor services in API Gateway Manager](/docs/apim_administration/apigtw_admin/monitor_service#monitor-services-in-api-gateway-manager).

@@ -9,7 +9,7 @@
 The selector syntax uses the Java Unified Expression Language (JUEL) to evaluate and expand the specified values. Selectors provide a powerful feature when integrating with other systems or when customizing and extending the API Gateway.
 
 When you press the **Shift**
-key and open a filter, you can edit all filter settings using text values in the advanced filter view. This means that you can specify all filter fields using the API Gateway selector syntax. For more details on the advanced view, see [Advanced options](/docs/apim_policydev/apigw_poldev/general_ps_settings/#advanced-options).
+key and open a filter, you can edit all filter settings using text values in the advanced filter view. This means that you can specify all filter fields using the API Gateway selector syntax. For more details on the advanced view, see [Advanced options](/docs/apim_policydev/apigw_poldev/general_ps_settings#advanced-options).
 
 ## Selector syntax
 

@@ -29,7 +29,7 @@ We have added a new option, **Disable renegotiation in TLSv1.2 and earlier**, in
 
 For more information, see:
 
-* [Configure Advanced SSL settings](/docs/apim_policydev/apigw_gw_instances/general_services/#configure-advanced-ssl-settings)
+* [Configure Advanced SSL settings](/docs/apim_policydev/apigw_gw_instances/general_services#configure-advanced-ssl-settings)
 * [Connect to URL filter](/docs/apim_policydev/apigw_polref/routing_common/)
 
 ### Backup passphrase parameter to restore operation in kpsadmin
@@ -41,13 +41,13 @@ If the parameter is not specified the script will prompt for a passphrase. The p
 
 The Content Security Policy (CSP) header sets a policy that instructs the browser to only fetch resources, such as scripts, images, or objects, from the specified locations. A compliant browser will deny loading any resources from locations not listed in the policy. The CSP header reduces an attacker's ability to inject malicious content and helps to protect a web page from attacks like Cross-Site Scripting (XSS), dynamic code execution, and clickjacking.
 
-For more information, see [Define a restrictive content security policy](/docs/apim_installation/apiportal_install/secure_harden_portal/#define-a-restrictive-content-security-policy).
+For more information, see [Define a restrictive content security policy](/docs/apim_installation/apiportal_install/secure_harden_portal#define-a-restrictive-content-security-policy).
 
 ### YAML configuration store (Technical preview capability)
 
 This update includes bug fixes and enhanced functionality for YAML configuration as follows:
 
-* Support for [certificates and keys](/docs/apim_yamles/yamles_edit/#add-a-new-certificate-and-private-key-to-a-yaml-configuration) in standard PEM files.
+* Support for [certificates and keys](/docs/apim_yamles/yamles_edit#add-a-new-certificate-and-private-key-to-a-yaml-configuration) in standard PEM files.
 * Enhanced support for managing more configuration content in [externalized files](/docs/apim_yamles/yamles_externalized_files).
 * Restructured [entity type](/docs/apim_yamles/apim_yamles_references/yamles_types/) information into separate files to enable custom type support.
 * Enhanced policy readability.
@@ -55,7 +55,7 @@ This update includes bug fixes and enhanced functionality for YAML configuration
 * Fix issue of reordering fields in YAML files after configuration edits via tooling.
 * Support for `${env.CERT}` environmentalization of certificates in the YAML configuration.
 
-See the [September 2020](/docs/apim_relnotes/20200930_apimgr_relnotes/#yaml-configuration-store-technical-preview-capability) release notes for an overview of this technical preview, and the [YAML configuration](/docs/apim_yamles/) documentation for more detailed information.
+See the [September 2020](/docs/apim_relnotes/20200930_apimgr_relnotes#yaml-configuration-store-technical-preview-capability) release notes for an overview of this technical preview, and the [YAML configuration](/docs/apim_yamles/) documentation for more detailed information.
 
 ## Important changes
 

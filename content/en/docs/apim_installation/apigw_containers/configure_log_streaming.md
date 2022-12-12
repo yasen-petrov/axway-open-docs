@@ -60,4 +60,4 @@ APIGW_LOG_OPENTRAFFIC_OUTPUT=stdout
 
 For more information on trace logging and open traffic logging, see the [API Gateway Administrator Guide](/docs/apim_administration/apigtw_admin/). This guide also describes the open logging JSON schema.
 
-For more information on the environment variables that you can specify at runtime, see [Environment variables reference](/docs/apim_installation/apigw_containers/container_env_variables/#environment-variables-reference).
+For more information on the environment variables that you can specify at runtime, see [Environment variables reference](/docs/apim_installation/apigw_containers/container_env_variables#environment-variables-reference).

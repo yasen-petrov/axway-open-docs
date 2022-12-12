@@ -71,7 +71,7 @@ This example creates an Admin Node Manager Docker image named `my-metrics-admin-
 * Runs with metrics processing enabled
 * Uses a specified merge directory (containing the JDBC driver JAR file for the metrics database) that is merged into the API Gateway image
 
-{{< alert title="Note" color="primary" >}}The domain certificate specified here must be a CA certificate created by the `gen_domain_cert.py` script.  For more details, see [setting up the Docker environment.](/docs/apim_installation/apigw_containers/docker_scripts_prereqs/index.html#generate-domain-ssl-certificates){{< /alert >}}
+{{< alert title="Note" color="primary" >}}The domain certificate specified here must be a CA certificate created by the `gen_domain_cert.py` script.  For more details, see [setting up the Docker environment.](/docs/apim_installation/apigw_containers/docker_scripts_prereqs#generate-domain-ssl-certificates){{< /alert >}}
 
 ### Other options for creating Admin Node Manager Docker images  
 
@@ -166,4 +166,4 @@ This example performs the following:
 
 For more details on the `docker run` command, see the [Docker user documentation](https://docs.docker.com/ "https://docs.docker.com/").
 
-For more information on the environment variables that you can specify at runtime, see [Environment variables reference](/docs/apim_installation/apigw_containers/container_env_variables/#environment-variables-reference).
+For more information on the environment variables that you can specify at runtime, see [Environment variables reference](/docs/apim_installation/apigw_containers/container_env_variables#environment-variables-reference).

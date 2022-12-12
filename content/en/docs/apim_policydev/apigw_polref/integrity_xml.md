@@ -577,7 +577,7 @@ On the **Node Locations** tab, you can select one or more nodesets to sign from 
 
 You can use an XPath expression to identify the nodeset (the series of elements) that must be signed. To specify that nodeset, select an existing XPath expression from the table, which contains several XPath expressions that can be used to locate nodesets representing common SOAP security headers, including SAML assertions.
 
-Alternatively, you can add a new XPath expression using the **Add** button. XPath expressions can also be edited and removed with the **Edit** and **Remove** buttons. For more information, see [Configure XPath expressions](/docs/apim_policydev/apigw_polref/content_additional/#configure-xpath-expressions).
+Alternatively, you can add a new XPath expression using the **Add** button. XPath expressions can also be edited and removed with the **Edit** and **Remove** buttons. For more information, see [Configure XPath expressions](/docs/apim_policydev/apigw_polref/content_additional#configure-xpath-expressions).
 
 An example of a SOAP message is as follows:
 

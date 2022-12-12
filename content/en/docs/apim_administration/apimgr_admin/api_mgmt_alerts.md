@@ -67,7 +67,7 @@ API Manager generates API registration alerts for events relating to managing AP
 | API Proxy Unpublished                  | Governance | API owner unpublishes API proxy.                           |
 | API Proxy Deprecated                   | Governance | When an API proxy is deprecated.                           |
 | API Proxy Retired                      | Governance | When an API proxy is retired (unpublished).                |
-| API Proxy Promoted                     | Governance | API owner promotes API proxy using the configured [API promotion policy](/docs/apim_administration/apimgr_admin/api_mgmt_promote/#promote-registered-apis-using-a-promotion-policy).                              |
+| API Proxy Promoted                     | Governance | API owner promotes API proxy using the configured [API promotion policy](/docs/apim_administration/apimgr_admin/api_mgmt_promote#promote-registered-apis-using-a-promotion-policy).                              |
 
 ## API catalog alerts and events
 
@@ -159,7 +159,7 @@ This topic describes the message attributes that are available to the configured
 
 The following tables outline the message properties that are generated for each alert. All message property values are in string format. Message properties are only available if a value exists for the entity field in question.
 
-{{< alert title="Tip" color="primary" >}}To discover available properties, you can include a [Trace filter](/docs/apim_policydev/apigw_polref/utility_common/#trace-filter) in the triggered alert policy. This gives you a list of all attributes and their values.{{< /alert >}}
+{{< alert title="Tip" color="primary" >}}To discover available properties, you can include a [Trace filter](/docs/apim_policydev/apigw_polref/utility_common#trace-filter) in the triggered alert policy. This gives you a list of all attributes and their values.{{< /alert >}}
 
 ### Application credential alert properties
 

@@ -11,7 +11,7 @@ For more information on Amazon Simple Storage Service, see [Amazon S3](http://aw
 For detailed information on Amazon Web Services integration, see the *AWS Integration Guide* available from Axway Support.
 
 For more information on configuring AWS client settings in Policy Studio, see
-[Configure AWS client settings](/docs/apim_policydev/apigw_gw_instances/general_aws_poller/#configure-aws-client-settings).
+[Configure AWS client settings](/docs/apim_policydev/apigw_gw_instances/general_aws_poller#configure-aws-client-settings).
 
 ## Upload to Amazon S3 filter
 

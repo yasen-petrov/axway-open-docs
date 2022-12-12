@@ -6,7 +6,7 @@
 "description": "Learn how to environmentalize your YAML configuration."
 }
 
-The XML federated configuration provides different ways to environmentalize parts of API Gateway configuration. For more information, see [Environmentalize configuration](/docs/apigtw_devops/promotion_arch/#environmentalize-configuration).
+The XML federated configuration provides different ways to environmentalize parts of API Gateway configuration. For more information, see [Environmentalize configuration](/docs/apigtw_devops/promotion_arch#environmentalize-configuration).
 
 The YAML configuration format replaces the environmentalization done via Policy Studio (using the *Earth* icon). The conversion process will look after the replacement of this type of environmentalization. Selectors such as `${environment.XYZ}` and `${env.XYZ}` will continue to work as before.
 
@@ -15,7 +15,7 @@ YAML environmentalization capabilities can be applied to:
 * All entities.
 * The value of a field. This is possible for all types of fields: numeric, string, references, passwords.
 * Part of the value of a string.
-* Some or all of the content in externalized files such as Scripts, Messages, and JSON Schemas. For more information, see **Environmentalization possible inside file content** column of the [Externalized files naming Scheme](/docs/apim_yamles/yamles_externalized_files/#externalized-files-default-naming-scheme) table.
+* Some or all of the content in externalized files such as Scripts, Messages, and JSON Schemas. For more information, see **Environmentalization possible inside file content** column of the [Externalized files naming Scheme](/docs/apim_yamles/yamles_externalized_files#externalized-files-default-naming-scheme) table.
 
 In a nutshell, the YAML configuration is a template where you can environmentalize all types of values.
 
@@ -117,7 +117,7 @@ certs:
   sign: /Environment Configuration/Certificate Store/{{env "CERT_DNAME"}}
 ```
 
-Your CI/CD pipeline must ensure that any certificates and keys are packed up correctly for each environment in the `.tar.gz` that gets deployed. If you attempt to validate a YAML configuration that uses a system environment variable on a system that does not have a value set for that environment variable, you will need to use the `--allow-invalid-ref` option. For more information, see [Disabling entity reference check](/docs/apim_yamles/yamles_cli/#disabling-entity-reference-check).
+Your CI/CD pipeline must ensure that any certificates and keys are packed up correctly for each environment in the `.tar.gz` that gets deployed. If you attempt to validate a YAML configuration that uses a system environment variable on a system that does not have a value set for that environment variable, you will need to use the `--allow-invalid-ref` option. For more information, see [Disabling entity reference check](/docs/apim_yamles/yamles_cli#disabling-entity-reference-check).
 
 ## Environmentalization syntax
 

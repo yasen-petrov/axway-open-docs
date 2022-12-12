@@ -6,7 +6,7 @@
 "description": "Convert API Gateway federated configurations from XML to a YAML human-friendly format."
 }
 
-This section explains how to convert an existing XML federated configuration to YAML. For more information on how to create an XML federated configuration in Policy Studio, see  [Create a Policy Studio project](/docs/apim_policydev/apigw_poldev/gs_project/#new-project-from-a-template-configuration).
+This section explains how to convert an existing XML federated configuration to YAML. For more information on how to create an XML federated configuration in Policy Studio, see  [Create a Policy Studio project](/docs/apim_policydev/apigw_poldev/gs_project#new-project-from-a-template-configuration).
 
 {{< alert title="Note">}}
 Ensure that you have the most recent Policy Studio installation and upgraded your XML federated configuration to the latest version before converting it to YAML.

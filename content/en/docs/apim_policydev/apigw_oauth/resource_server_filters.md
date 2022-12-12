@@ -16,7 +16,7 @@ Configure the following fields:
 Enter a suitable name for this filter.
 
 **Verify access token is in cache**:
-Click the browse button to select the cache in which to verify the access token (for example, in the default **OAuth Access Token Store**). To add an access token store, right-click **Access Token Stores**, and select **Add Access Token Store**. You can store tokens in a cache, in a relational database, or in an Apache Cassandra database. For more details, see [Manage access tokens and authorization codes](/docs/apim_policydev/apigw_oauth/gw_oauth_authz_server/#manage-access-tokens-and-authorization-codes).
+Click the browse button to select the cache in which to verify the access token (for example, in the default **OAuth Access Token Store**). To add an access token store, right-click **Access Token Stores**, and select **Add Access Token Store**. You can store tokens in a cache, in a relational database, or in an Apache Cassandra database. For more details, see [Manage access tokens and authorization codes](/docs/apim_policydev/apigw_oauth/gw_oauth_authz_server#manage-access-tokens-and-authorization-codes).
 
 **Location of access token**:
 Select one of the following:

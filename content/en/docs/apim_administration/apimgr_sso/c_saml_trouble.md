@@ -253,7 +253,7 @@ The username `G-fb7c839b-a879-4231-bae9-1c05e3ba6f04` does not correspond to a r
 
 ## Error retrieving metadata
 
-When using the option to [specify the IdP by URL](/docs/apim_administration/apimgr_sso/saml_sso_config/#specify-the-idp-by-url), the API Manager, at startup, tries to download the required IdP-Metadata information from the given Metadata-URL. This might fail if the server-certificate cannot be validated with an error message like:
+When using the option to [specify the IdP by URL](/docs/apim_administration/apimgr_sso/saml_sso_config#specify-the-idp-by-url), the API Manager, at startup, tries to download the required IdP-Metadata information from the given Metadata-URL. This might fail if the server-certificate cannot be validated with an error message like:
 
 ```
 Error retrieving metadata from /auth/realms/master/protocol/saml/descriptor

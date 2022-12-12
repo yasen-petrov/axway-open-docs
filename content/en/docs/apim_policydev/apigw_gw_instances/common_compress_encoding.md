@@ -65,7 +65,7 @@ API Gateway uses the content encodings configured in the general settings, **Env
 You can override these settings at the listening interface level (on the **Advanced** tab of the HTTP or HTTPS Interface dialog), and the remote host level (on the **Advanced** tab of the Remote Host Settings dialog). When any of these settings have a value of `DEFAULT`, they try to use whatever is configured in the general settings. If the general settings also have a value of `DEFAULT`, then no content is encoded.
 
 {{< alert title="Note" color="primary" >}}
-When an [incoming remote host](/docs/apim_policydev/apigw_gw_instances/general_remote_hosts/#configure-an-incoming-remote-host) is configured with **Output Encodings** set to `Default`, the **Output Encodings** values from the HTTP or HTTPS interfaces are used. To use the **Output Encodings** values from the incoming remote host, you must define the AXWAY_LEGACY_INCOMING_OUTPUT_ENCODINGS environment variable.
+When an [incoming remote host](/docs/apim_policydev/apigw_gw_instances/general_remote_hosts#configure-an-incoming-remote-host) is configured with **Output Encodings** set to `Default`, the **Output Encodings** values from the HTTP or HTTPS interfaces are used. To use the **Output Encodings** values from the incoming remote host, you must define the AXWAY_LEGACY_INCOMING_OUTPUT_ENCODINGS environment variable.
 {{< /alert >}}
 
 ### Add content encodings

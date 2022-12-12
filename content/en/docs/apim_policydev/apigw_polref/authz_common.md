@@ -514,7 +514,7 @@ tab enables you to specify configuration settings for routing the XACML request 
 To route XACML requests to a URL, select this option, and enter the **URL**. You can also specify the URL as a selector so that the URL is built dynamically at runtime from the specified message attributes. For example, `${host}:${port}`, or `${http.destination.protocol}://${http.destination.host}:${http.destination.port}`.
 
 You can configure SSL settings, credential profiles for authentication, and other settings for the direct connection using the tabs in the **Connection Details**
-group. For more details, see [Connect to URL](/docs/apim_policydev/apigw_polref/routing_common/#connect-to-url-filter).
+group. For more details, see [Connect to URL](/docs/apim_policydev/apigw_polref/routing_common#connect-to-url-filter).
 
 **Delegate routing to the following policy**:
 To use a dedicated routing policy to send XACML requests to the PDP, select this option. Click the browse button next to the **Routing Policy**

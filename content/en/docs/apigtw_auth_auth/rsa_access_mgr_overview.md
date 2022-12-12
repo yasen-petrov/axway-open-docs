@@ -81,7 +81,7 @@ The RSA Access Manager connection is configured as a connection set. A connectio
 
 To later view or edit your connection sets, click **Environment Configuration > External Connections > Connection Sets**, double-click **RSA Access Manager Connection Sets**, and select the connection you want.
 
-For more details on the fields and options in this configuration window, see [Configure a connection group](/docs/apim_policydev/apigw_external_connections/common_connection_groups/#configure-a-connection-group).
+For more details on the fields and options in this configuration window, see [Configure a connection group](/docs/apim_policydev/apigw_external_connections/common_connection_groups#configure-a-connection-group).
 
 ### Configure an RSA Access Manager authentication repository
 
@@ -94,7 +94,7 @@ This section describes how to configure an RSA Access Manager authentication rep
 5. Select the connection group that API Gateway connects to.
 6. Select the authentication type you plan to use, and click **OK**.
 
-For more details on the fields and options in this configuration window, see [RSA Access Manager repositories](/docs/apim_policydev/apigw_external_connections/common_user_store/#rsa-access-manager-repositories).
+For more details on the fields and options in this configuration window, see [RSA Access Manager repositories](/docs/apim_policydev/apigw_external_connections/common_user_store#rsa-access-manager-repositories).
 
 ### Configure API Gateway policy
 

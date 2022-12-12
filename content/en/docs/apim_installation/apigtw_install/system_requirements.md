@@ -32,7 +32,7 @@ Your Linux system must have the `LANG` environment variable set. If this variabl
 ENV LANG=en_US.UTF-8
 ```
 
-This variable is automatically set for you in EMT mode, but it can be overridden by directly modifying the EMT API Gateway Dockerfiles or setting an environment variable at container runtime. For more information, see [Best practices for running API management in Docker containers](/docs/apim_howto_guides/apigw_in_containers/#setting-locale-environment-variables).  
+This variable is automatically set for you in EMT mode, but it can be overridden by directly modifying the EMT API Gateway Dockerfiles or setting an environment variable at container runtime. For more information, see [Best practices for running API management in Docker containers](/docs/apim_howto_guides/apigw_in_containers#setting-locale-environment-variables).  
 
 In CentOS 8.x and Red Hat Enterprise Linux 8.x, the GNU C Library (glibc) no longer includes `libnsl` and `glibc-langpack-en` libraries. However, those were included in previous releases and are required by the API Gateway. To install the missing libraries, run the following command:
 
@@ -246,7 +246,7 @@ If your Linux system has the `/tmp` directory mounted with `noexec`, you must co
 
 When installing API Gateway, do not install the QuickStart tutorial:
 
-* When running the installer in GUI mode, you must select the **Custom** setup type and deselect the QuickStart tutorial component. For more information, see [Installation options](/docs/apim_installation/apigtw_install/installation/#installation-options).
+* When running the installer in GUI mode, you must select the **Custom** setup type and deselect the QuickStart tutorial component. For more information, see [Installation options](/docs/apim_installation/apigtw_install/installation#installation-options).
 * When running the installer in unattended mode, you must use the `--setup_type advanced` option and specify `qstart` to the `--disable-components` option. For more information, see [Unattended installation](/docs/apim_installation/apigtw_install/installation_unattended/).
 
 {{< alert title="Note" color="primary" >}}Do not install the [QuickStart tutorial](/docs/apim_installation/apigtw_install/install_quickstart_tutorial/) as this option starts Apache Cassandra, the API Gateway server and the Node Manager when installation completes, and in a system with `/tmp` mounted as `noexec` you must make some changes before starting these components.{{< /alert >}}

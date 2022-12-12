@@ -19,7 +19,7 @@ The API Gateway installer provides a default **Standard** installation option, w
 * Configuration Studio
 * Package and deployment tools
 
-The **Standard** option also installs an external Apache Cassandra database, which is used to store API Gateway and API Manager data. For more details, see [Installation options](/docs/apim_installation/apigtw_install/installation/#installation-options).
+The **Standard** option also installs an external Apache Cassandra database, which is used to store API Gateway and API Manager data. For more details, see [Installation options](/docs/apim_installation/apigtw_install/installation#installation-options).
 
 ## Before you begin
 
@@ -31,7 +31,7 @@ In preparation for a quick start installation, perform the following tasks:
 
 ## Installation
 
-Locate and run the installation setup file. The installer launches in GUI mode by default. Follow the instructions on each window, accepting the default selections at each step. For more information on starting the installer, see [Start installation](/docs/apim_installation/apigtw_install/installation/#start-installation).
+Locate and run the installation setup file. The installer launches in GUI mode by default. Follow the instructions on each window, accepting the default selections at each step. For more information on starting the installer, see [Start installation](/docs/apim_installation/apigtw_install/installation#start-installation).
 
 When installation is complete, the Cassandra database, API Gateway instance, and Admin Node Manager processes are started, the QuickStart tutorial is launched in a browser window, and the Policy Studio desktop tool is started.
 

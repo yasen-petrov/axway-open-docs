@@ -146,7 +146,7 @@ The API administrator can manage the maximum message traffic rate that can be se
 * Application-default quota - The default quota that applies on a per-application basis to all applications unless an application-specific quota is configured. This quota specifies the default maximum message rate that any application can send to APIs and methods (for example, 25 messages per second).
 * Application-specific quota - This overrides the application-default quota. This quota specifies the maximum message rate that the specific application can send to APIs and methods (for example, 15 messages per second).
 
-API administrators can specify all quotas at the API and at API method level. For more details, see [Manage quotas](/docs/apim_administration/apimgr_admin/api_mgmt_admin/#manage-quotas).
+API administrators can specify all quotas at the API and at API method level. For more details, see [Manage quotas](/docs/apim_administration/apimgr_admin/api_mgmt_admin#manage-quotas).
 
 ### Authorization
 

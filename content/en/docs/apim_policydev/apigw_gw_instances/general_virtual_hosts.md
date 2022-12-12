@@ -46,6 +46,10 @@ You can configure virtual hosts at the HTTP service level. This means that these
    * **Enabled**: Select whether the virtual host processing is enabled. This is enabled by default.
    * **Hosts**: Specify the list of domains that you wish to host under this HTTP service. To add a host, click **Add** at the bottom right, and enter the domain name (for example `company1.api.example.com`). You can also specify domain names using wildcards already configured in your DNS (for example `*.example.com:/8080` or `company3.api.example.com.*`).
 
+### Configure multiple traffic ports
+
+If a virtual host (global default, organization level, or for a published API) is set to `myhost` and there are multiple traffic ports (mix of HTTP and HTTPS) configured, API Manager correctly displays `https://myhost` and `http://myhost` as base path URLs in the API Catalog.  You can set `myhost` with multiple traffic ports, one enabled and one disabled, and the API Catalog will correctly display the base URLs.
+
 ### Configure child resolvers
 
 When you have configured a virtual host at the HTTP service level, you can also configure the following child resolvers:

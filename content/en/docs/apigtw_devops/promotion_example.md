@@ -109,7 +109,7 @@ The standard way to environmentalize a certificate at group level is to click **
 
 Alternatively, you can environmentalize a certificate using an alias. For example, in the development environment, the **XML Signature** filter could use a certificate named `MySigningCert`. The policy package (`.pol`) created from the development environment must be merged with an environment package (`.env`) that contains a certificate with the same alias.
 
-{{< alert title="Note" color="primary" >}}You can also environmentalize certificates using an alias at the API Gateway instance level as described in [Externalize an instance configuration](/docs/apigtw_devops/promotion_arch/#externalize-an-instance-configuration). However, certificates are normally environmentalized at the API Gateway group level as described in this topic.{{< /alert >}}
+{{< alert title="Note" color="primary" >}}You can also environmentalize certificates using an alias at the API Gateway instance level as described in [Externalize an instance configuration](/docs/apigtw_devops/promotion_arch#externalize-an-instance-configuration). However, certificates are normally environmentalized at the API Gateway group level as described in this topic.{{< /alert >}}
 
 ## Save policy package in Policy Studio for promotion
 

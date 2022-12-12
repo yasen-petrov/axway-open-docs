@@ -25,7 +25,7 @@ You must rerun `upgrade` if:
 * You have rerun `export`.
 * The previous attempt to run `upgrade` failed with errors.
 
-{{< alert title="Note" color="primary" >}}When upgrading very large configurations, the default memory settings might not be sufficient for `upgrade` to run successfully. See [Out of memory error when running upgrade](/docs/apim_installation/apigw_upgrade/upgrade_troubleshoot/#out-of-memory-error-when-running-upgrade).{{< /alert >}}
+{{< alert title="Note" color="primary" >}}When upgrading very large configurations, the default memory settings might not be sufficient for `upgrade` to run successfully. See [Out of memory error when running upgrade](/docs/apim_installation/apigw_upgrade/upgrade_troubleshoot#out-of-memory-error-when-running-upgrade).{{< /alert >}}
 
 ### Why would you rerun `export`?
 
@@ -39,7 +39,7 @@ You must rerun `export` if:
 
 ### How to increase timeouts for `apply`
 
-Increasing the timeout for node managers to prevent errors being returned when you run the [apply](/apim_installation/apigw_upgrade/upgrade_script/#apply-command) command during an upgrade.
+Increasing the timeout for node managers to prevent errors being returned when you run the [apply](/apim_installation/apigw_upgrade/upgrade_script#apply-command) command during an upgrade.
 
 1. Stop all 7.7 `vshell` processes.
 2. Back up previous 7.7 upgrade directories:
@@ -67,7 +67,7 @@ Increasing the timeout for node managers to prevent errors being returned when y
     zipgrep maxTransTimeout FactoryConfiguration-VordelGateway.fed
     {{< /alert >}}
 
-5. Run the [export](/apim_installation/apigw_upgrade/upgrade_script/#export-command) command on all nodes.
+5. Run the [export](/apim_installation/apigw_upgrade/upgrade_script#export-command) command on all nodes.
 
 6. Amend `maxTransTimeout` to the desired value in the exported configuration `PrimaryStore.xml`:
 
@@ -75,9 +75,9 @@ Increasing the timeout for node managers to prevent errors being returned when y
     * **API Gateway**: `apigateway/upgrade/bin/out/export/esgroups/groups/group-2/f5304aa6-a0f5-4643-88b7-8cef992924e4/`. Group and configuration IDs will vary.
     * **API Gateway**: `apigateway/upgrade/bin/out/export/esgroups/groups/group-2/f5304aa6-a0f5-4643-88b7-8cef992924e4.fed`. Group and configuration IDs will vary.
 
-7. Run the [export](/apim_installation/apigw_upgrade/upgrade_script/#export-command) and [upgrade](/docs/apim_installation/apigw_upgrade/upgrade_script/#upgrade-command) commands on all nodes.
+7. Run the [export](/apim_installation/apigw_upgrade/upgrade_script#export-command) and [upgrade](/docs/apim_installation/apigw_upgrade/upgrade_script#upgrade-command) commands on all nodes.
 
-8. If topology has multiple Admin node managers, run the [apply](/apim_installation/apigw_upgrade/upgrade_script/#apply-command) step for the Admin node manager nodes first.
+8. If topology has multiple Admin node managers, run the [apply](/apim_installation/apigw_upgrade/upgrade_script#apply-command) step for the Admin node manager nodes first.
 
 ### Why would you rerun `apply`?
 

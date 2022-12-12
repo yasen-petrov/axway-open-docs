@@ -10,7 +10,7 @@
 You can use the **Insert BST**
 filter to insert a Binary Security Token (BST) into a message. A BST is a security token that is in binary form, and therefore not necessarily human readable. For example, an X.509 certificate is a binary security token. Inserting a BST into a message is normally performed as a side effect of signing or encrypting a message. However, there are also some scenarios where you might insert a certificate into a message in a BST without signing or encrypting the message.
 
-For example, you can use the **Insert BST** filter when the API Gateway is acting as a client to a Security Token Service (STS) that issues security tokens (for example, to create `OnBehalfOf` tokens). For more details, see the topic on [STS client authentication](/docs/apim_policydev/apigw_polref/authn_common/#sts-client-authentication-filter). Finally, you can also use the **Insert BST** filter to generate XML nodes without inserting them into the message. In this case, the **WS-Security Actor** is set to blank.
+For example, you can use the **Insert BST** filter when the API Gateway is acting as a client to a Security Token Service (STS) that issues security tokens (for example, to create `OnBehalfOf` tokens). For more details, see the topic on [STS client authentication](/docs/apim_policydev/apigw_polref/authn_common#sts-client-authentication-filter). Finally, you can also use the **Insert BST** filter to generate XML nodes without inserting them into the message. In this case, the **WS-Security Actor** is set to blank.
 
 You can configure the following settings on the filter dialog:
 
@@ -71,7 +71,7 @@ The output of the external process is captured in two variables on the message w
 
 These variables might be empty if the program did not print any output to those streams.
 
-For programs that output data to files, a [Load File Contents filter](/docs/apim_policydev/apigw_polref/conversion_additional/#load-file-contents-filter) might be needed to read the output. Also, in this case, you must ensure to implement a logic to clean up old files.
+For programs that output data to files, a [Load File Contents filter](/docs/apim_policydev/apigw_polref/conversion_additional#load-file-contents-filter) might be needed to read the output. Also, in this case, you must ensure to implement a logic to clean up old files.
 
 Complete the following fields:
 
@@ -103,7 +103,7 @@ In cases where API Gateway receives a multipart related MIME message, you can us
 
 For example, if other XML documents are attached to an XML message (using the SOAP with Attachments specification), you can pass each of these documents to an appropriate policy where they can be processed by the full complement of message filters.
 
-See also [Convert multipart or compound body type message](/docs/apim_policydev/apigw_polref/conversion_additional/#convert-multipart-or-compound-body-type-message-filter).
+See also [Convert multipart or compound body type message](/docs/apim_policydev/apigw_polref/conversion_additional#convert-multipart-or-compound-body-type-message-filter).
 
 Complete the following fields:
 
@@ -153,7 +153,7 @@ table is pre-populated with a number of XPath expressions to locate SOAP element
 
 To select an existing XPath expression, you can select the check box next to the **Name** of the appropriate XPath expression. You can select any number of XPath expressions in this manner.
 
-To add a new XPath expression, click the **Add** button. You must enter a name for the XPath expression in the **Name** field and enter the XPath expression in the **XPath Expression** field. For more information, see [Configure XPath expressions](/docs/apim_policydev/apigw_polref/content_additional/#configure-xpath-expressions).
+To add a new XPath expression, click the **Add** button. You must enter a name for the XPath expression in the **Name** field and enter the XPath expression in the **XPath Expression** field. For more information, see [Configure XPath expressions](/docs/apim_policydev/apigw_polref/content_additional#configure-xpath-expressions).
 
 To select this node for encryption purposes, you must select an appropriate **Encryption Type**. For example, WS-Security policy mandates that when encrypting the SOAP Body that only its contents are encrypted and not the SOAP Body element itself. This means that the`<xenc:EncryptedData>` is inserted as a direct child of the SOAP Body element. In this case, you should select the **Encrypt Node Content** option.
 

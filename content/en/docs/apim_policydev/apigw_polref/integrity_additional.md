@@ -234,7 +234,7 @@ You can configure the following settings on the **JWT Verify** dialog:
 
 **Name**: Enter an appropriate name for the filter to display in a policy.
 
-**Token location**: Enter the selector expression to retrieve the JWT to be verified. This must contain the value of token in the format of `HEADER.PAYLOAD.SIGNATURE`, but without the `Bearer` prefix. You can use a filter, such as [Retrieve attribute from HTTP header](/docs/apim_policydev/apigw_polref/attributes_retrieve/#retrieve-from-http-header-filter), in your policy to get the token from any header. For example: `${http.headers["Authorization"].substring(7)}`
+**Token location**: Enter the selector expression to retrieve the JWT to be verified. This must contain the value of token in the format of `HEADER.PAYLOAD.SIGNATURE`, but without the `Bearer` prefix. You can use a filter, such as [Retrieve attribute from HTTP header](/docs/apim_policydev/apigw_polref/attributes_retrieve#retrieve-from-http-header-filter), in your policy to get the token from any header. For example: `${http.headers["Authorization"].substring(7)}`
 
 ### Key and Algorithm
 
@@ -255,7 +255,7 @@ Before the policy is called, two message attributes are created containing the J
 
 You can use these attributes in the discovery policy to locate the correct key. For example, you can use:
 
-* `${jwt.header.jku}` with the [Connect to URL](/docs/apim_policydev/apigw_polref/routing_common/#connect-to-url-filter) filter to retrieve a JWK from an external source.
+* `${jwt.header.jku}` with the [Connect to URL](/docs/apim_policydev/apigw_polref/routing_common#connect-to-url-filter) filter to retrieve a JWK from an external source.
 * `${jwt.header.x5u}` to retrieve a PEM encoded certificate from an external source.
 * `${jwt.body}` to identify the subject of the JWS, and retrieve a key from a data source, such as the KPS.
 

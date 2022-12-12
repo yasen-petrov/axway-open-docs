@@ -11,7 +11,7 @@ Policy Studio enables you to configure a range of settings that apply to API Man
 
 To create a Policy Studio project with API Manager configuration, perform the following steps:
 
-1. Ensure that your API Gateway installation has already been configured for API Manager. For more details, see [Enable API Manager](/docs/apim_administration/apimgr_admin/api_mgmt_config/#enable-api-manager).
+1. Ensure that your API Gateway installation has already been configured for API Manager. For more details, see [Enable API Manager](/docs/apim_administration/apimgr_admin/api_mgmt_config#enable-api-manager).
 2. Create a project from one of the following:
 
    * API Gateway instance
@@ -39,7 +39,7 @@ Administrator Distinguished Name (DN)
 Community Organization Name
 : Enter the organization name for the 'Community' organization. The default is `Community`.
 
-{{< alert title="Note" color="primary" >}}The default API administrator user name and password set in Policy Studio are used only when configuring the initial connection to Apache Cassandra. After Cassandra has been configured (for example, after you have deployed this configuration to API Gateway) changing the credentials in Policy Studio has no effect, and you must use API Manager to change the administrator credentials. For more information, see [Account settings](/docs/apim_reference/api_mgmt_config_web/#account-settings).{{< /alert >}}
+{{< alert title="Note" color="primary" >}}The default API administrator user name and password set in Policy Studio are used only when configuring the initial connection to Apache Cassandra. After Cassandra has been configured (for example, after you have deployed this configuration to API Gateway) changing the credentials in Policy Studio has no effect, and you must use API Manager to change the administrator credentials. For more information, see [Account settings](/docs/apim_reference/api_mgmt_config_web#account-settings).{{< /alert >}}
 
 ### Alerts
 
@@ -166,7 +166,7 @@ The **Global Request Policies** settings enable you to configure optional global
 
 To configure global request policies, click **Add**, and select policies in the dialog. By default, no global policies are configured.
 
-When global request policies have been configured in Policy Studio, the API administrator can select a global request policy in API Manager on the **API Manager** **settings** page. The selected global request policy is executed after inbound authentication but before any request, routing, or response policies configured for the front-end API. For more details, see [Enforce API Manager global policies](/docs/apim_administration/apimgr_admin/api_mgmt_custom_policies/#enforce-api-manager-global-policies).
+When global request policies have been configured in Policy Studio, the API administrator can select a global request policy in API Manager on the **API Manager** **settings** page. The selected global request policy is executed after inbound authentication but before any request, routing, or response policies configured for the front-end API. For more details, see [Enforce API Manager global policies](/docs/apim_administration/apimgr_admin/api_mgmt_custom_policies#enforce-api-manager-global-policies).
 
 ### Global Response Policies
 
@@ -174,7 +174,7 @@ The **Global Response Policies** settings enable you to configure optional globa
 
 To configure global response policies, click **Add**, and select policies in the dialog. By default, no global response policies are configured.
 
-When global response policies have been configured in Policy Studio, the API administrator can select a global response policy in API Manager on the **API Manager** **settings** page. The selected global response policy is executed last after any response policy configured for the front-end API. For more details, see [Enforce API Manager global policies](/docs/apim_administration/apimgr_admin/api_mgmt_custom_policies/#enforce-api-manager-global-policies).
+When global response policies have been configured in Policy Studio, the API administrator can select a global response policy in API Manager on the **API Manager** **settings** page. The selected global response policy is executed last after any response policy configured for the front-end API. For more details, see [Enforce API Manager global policies](/docs/apim_administration/apimgr_admin/api_mgmt_custom_policies#enforce-api-manager-global-policies).
 
 ### Request Policies
 
@@ -208,7 +208,7 @@ To configure fault handler policies, click **Add**, and select policies in the d
 
 When fault handler policies are configured, an API administrator can select a global fault handler policy for all front-end APIs on the **API Manager** **settings** page in API Manager. API developers can also select fault handler policies for specific front-end APIs and API methods on the **Frontend API > Outbound > Advanced** page.
 
-For more details, see [Add API Manager fault handler policies](/docs/apim_administration/apimgr_admin/api_mgmt_custom_policies/#add-api-manager-fault-handler-policies).
+For more details, see [Add API Manager fault handler policies](/docs/apim_administration/apimgr_admin/api_mgmt_custom_policies#add-api-manager-fault-handler-policies).
 
 ### SMTP Server
 

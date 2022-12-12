@@ -24,7 +24,7 @@ When a client application is authorized (granted access) to use an API, then all
 
 ### Enable global scopes in API Manager
 
-To enable OAuth scopes at the level of the client application, in API Manager select **Settings > API Manager Settings > General settings > Enable application scopes**. This allows API administrators to create application-level scopes to permit access to OAuth resources that are not covered by API-level scopes. This setting can be used if you are using the API Gateway global scopes model. For more information, see [Scopes in API Gateway](/docs/apim_policydev/apigw_oauth/gw_oauth_resource_server/#scopes-in-api-gateway).
+To enable OAuth scopes at the level of the client application, in API Manager select **Settings > API Manager Settings > General settings > Enable application scopes**. This allows API administrators to create application-level scopes to permit access to OAuth resources that are not covered by API-level scopes. This setting can be used if you are using the API Gateway global scopes model. For more information, see [Scopes in API Gateway](/docs/apim_policydev/apigw_oauth/gw_oauth_resource_server#scopes-in-api-gateway).
 
 When you select the **Enable application scopes** setting, you can configure the scopes that a client application can access. When editing a client application in API Manager, select the **Authentication** tab. In the **Application Scopes** section you can specify scopes as free-form text or select a scope from a list of known configured scopes. You can also select a scope as a default scope for the client application.
 
@@ -80,4 +80,4 @@ You can also add OAuth scopes at the client application level if you have enable
 
 ![Manage client applications in API Manager](/Images/OAuth/api_mgmt_app.png)
 
-For more information on registering and managing client applications in API Manager, see [Manage client applications in API Manager](/docs/apim_administration/apimgr_admin/api_mgmt_consume/#manage-client-applications).
+For more information on registering and managing client applications in API Manager, see [Manage client applications in API Manager](/docs/apim_administration/apimgr_admin/api_mgmt_consume#manage-client-applications).

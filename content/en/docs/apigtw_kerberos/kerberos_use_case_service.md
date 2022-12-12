@@ -281,7 +281,7 @@ To test the policy, you need a client app that can get a Kerberos token, such as
 
 API Gateway authenticates the Kerberos user, passes the request to the back-end service, and passes the response from the back-end service back to the browser.
 
-The **Traffic Monitor** tab on the API Gateway Manager (`https://localhost:8090`) is an excellent place to view and troubleshoot the message flows. For more details, see [Monitor services in API Gateway Manager](/docs/apim_administration/apigtw_admin/monitor_service/#monitor-services-in-api-gateway-manager).
+The **Traffic Monitor** tab on the API Gateway Manager (`https://localhost:8090`) is an excellent place to view and troubleshoot the message flows. For more details, see [Monitor services in API Gateway Manager](/docs/apim_administration/apigtw_admin/monitor_service#monitor-services-in-api-gateway-manager).
 
 For details how to change the configuration to use a secure connection, see [Configure browser authentication over SSL/TLS](#configure-browser-authentication).
 

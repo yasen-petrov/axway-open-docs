@@ -26,7 +26,7 @@ Support for the OpenAPI specification 3 (OAS3) parameter attributes is now enric
 
 ### Enhanced API life cycle management for Organization administrators
 
-We have [previously](/docs/apim_relnotes/20200930_apimgr_relnotes/#organization-administrators-can-publish-apis) released a system property, `api.manager.orgadmin.selfservice.enabled`, to include additional permissions for an Organization administrator to publish and unpublish APIs that were created in their organization without approval from an API Administrator.
+We have [previously](/docs/apim_relnotes/20200930_apimgr_relnotes#organization-administrators-can-publish-apis) released a system property, `api.manager.orgadmin.selfservice.enabled`, to include additional permissions for an Organization administrator to publish and unpublish APIs that were created in their organization without approval from an API Administrator.
 
 In this update, additional API life cycle events (deprecate, undeprecate, upgrade, and grant access to APIs) will also be enabled for an Organization administrator when `api.manager.orgadmin.selfservice.enabled` is set to True.
 
@@ -42,7 +42,7 @@ This update includes bug fixes and enhanced functionality for YAML configuration
 * Improved layout in YAML entity files.
 * Enhanced support for managing more configuration content in [externalized files](/docs/apim_yamles/yamles_externalized_files).
 
-See the [September 2020](/docs/apim_relnotes/20200930_apimgr_relnotes/#yaml-configuration-store-technical-preview-capability) release notes for an overview of this technical preview, and the [YAML configuration](/docs/apim_yamles/) documentation for more detailed information.
+See the [September 2020](/docs/apim_relnotes/20200930_apimgr_relnotes#yaml-configuration-store-technical-preview-capability) release notes for an overview of this technical preview, and the [YAML configuration](/docs/apim_yamles/) documentation for more detailed information.
 
 ## Important changes
 

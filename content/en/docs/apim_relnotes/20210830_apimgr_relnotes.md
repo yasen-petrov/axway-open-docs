@@ -24,15 +24,15 @@ The following new features and enhancements are available in this update.
 
 ### Elastic-Stack Logging is available for API Gateway
 
-The Elastic-Stack (Elasticsearch, Logstash, and Kibana) solution, version 3.2.0, is now production-ready for you to integrate with your API Gateway. For more information see, [Configure Elastic-Stack Logging](/docs/apim_administration/apigtw_admin/logging/#configure-elastic-stack-logging).
+The Elastic-Stack (Elasticsearch, Logstash, and Kibana) solution, version 3.2.0, is now production-ready for you to integrate with your API Gateway. For more information see, [Configure Elastic-Stack Logging](/docs/apim_administration/apigtw_admin/logging#configure-elastic-stack-logging).
 
 ### YAML configuration store
 
-It is now possible to deploy [YAML configuration](/docs/apim_yamles/) stores in the API Gateway Manager web UI on port 8090. For more information, see [Manage domain topology in API Gateway Manager](/docs/apim_administration/apigtw_admin/managetopology/#deploy-a-yaml-deployment-package).
+It is now possible to deploy [YAML configuration](/docs/apim_yamles/) stores in the API Gateway Manager web UI on port 8090. For more information, see [Manage domain topology in API Gateway Manager](/docs/apim_administration/apigtw_admin/managetopology#deploy-a-yaml-deployment-package).
 
 ### ICAP message preview
 
-The ICAP filter now supports message preview ([RFC 3507, Section 4.5](https://datatracker.ietf.org/doc/html/rfc3507#section-4.5)). For more information, see [Message preview in Configure ICAP servers](/docs/apim_policydev/apigw_external_connections/common_icap_conf/#enable-message-preview-in-request-headers).
+The ICAP filter now supports message preview ([RFC 3507, Section 4.5](https://datatracker.ietf.org/doc/html/rfc3507#section-4.5)). For more information, see [Message preview in Configure ICAP servers](/docs/apim_policydev/apigw_external_connections/common_icap_conf#enable-message-preview-in-request-headers).
 
 ## Important changes
 
@@ -55,7 +55,7 @@ API Gateway now supports Apache Cassandra 3.11.11. For details on how to upgrade
 
 ### Unauthenticated request rate limiter is available in API Manager
 
-You can now configure an unauthenticated request rate limiter in your API Manager. For more information, see [Configure API Manager unauthenticated request rate limiter](/docs/apim_administration/apimgr_admin/api_mgmt_config/#configure-api-manager-unauthenticated-request-rate-limiter).
+You can now configure an unauthenticated request rate limiter in your API Manager. For more information, see [Configure API Manager unauthenticated request rate limiter](/docs/apim_administration/apimgr_admin/api_mgmt_config#configure-api-manager-unauthenticated-request-rate-limiter).
 
 ### Notice of schedule change for updates
 

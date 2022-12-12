@@ -37,11 +37,11 @@ Your API Gateway installation includes sample files that may help you configure 
 INSTALL_DIR/apigateway/samples/sso`
 ```
 
-For more details, see [API Manager configuration files](/docs/apim_administration/apimgr_sso/saml_sso_config/#configuration-files).
+For more details, see [API Manager configuration files](/docs/apim_administration/apimgr_sso/saml_sso_config#configuration-files).
 
 ## Set up a keystore
 
-Set up a keystore containing a key pair to your API Gateway instance. For more details, see [Configure the IdP](/docs/apim_administration/apimgr_sso/saml_sso_config/#step-1-configure-the-idp).
+Set up a keystore containing a key pair to your API Gateway instance. For more details, see [Configure the IdP](/docs/apim_administration/apimgr_sso/saml_sso_config#step-1-configure-the-idp).
 
 ## Create a service-provider-apiportal.xml file
 
@@ -78,7 +78,7 @@ Do not change any settings with paths containing `/sso`, unless otherwise instru
 4. In the `SamlIdentityProvider` section, change references to `keycloak.int.acme.com:8443` to the FQDN and port of your IdP.
 5. In the `SamlIdentityProvider` section, set the `metadataUrl` field as detailed in [Specify the IdP by file](#specify-the-idp-by-file) or [Specify the IdP by URL](#specify-the-idp-by-url), and save the configuration file.
 
-For more information on the elements in the `service-provider-apiportal.xml` configuration file, see [configuration file reference](/docs/apim_administration/apiportal_sso/sso_mapping/#service-provider-apiportal-xml-configuration-file-reference).
+For more information on the elements in the `service-provider-apiportal.xml` configuration file, see [configuration file reference](/docs/apim_administration/apiportal_sso/sso_mapping#service-provider-apiportal-xml-configuration-file-reference).
 
 ### Specify the IdP by file
 
@@ -131,7 +131,7 @@ You can use the same keystore for all of the operations.
 
 ## Configure SSO in Policy Studio
 
-After configuring and saving `service-provider-apiportal.xml`, you must configure the SSO connection between your API Gateway and API Portal. This configuration is the same as when configuring API Manager SSO. For more details, see [Configure SSO in Policy Studio](/docs/apim_administration/apimgr_sso/saml_sso_config/#step-3-configure-sso-in-policy-studio).
+After configuring and saving `service-provider-apiportal.xml`, you must configure the SSO connection between your API Gateway and API Portal. This configuration is the same as when configuring API Manager SSO. For more details, see [Configure SSO in Policy Studio](/docs/apim_administration/apimgr_sso/saml_sso_config#step-3-configure-sso-in-policy-studio).
 
 ## Configure SAML endpoint URLs
 
@@ -166,13 +166,13 @@ Because API Portal is dependent of API Manager and API Gateway, you must config
 
 ### Manage IdP certificates
 
-API Portal relies on API Manager to process the SAML assertions in the requests. API Manager uses a certificate to sign SAML requests. The IdP requires the public key to verify the validity and provenance of the SAML requests from API Manager, so you must import the public key to the IdP. For more details, see [Configure the IdP](/docs/apim_administration/apimgr_sso/saml_sso_config/#step-1-configure-the-idp).
+API Portal relies on API Manager to process the SAML assertions in the requests. API Manager uses a certificate to sign SAML requests. The IdP requires the public key to verify the validity and provenance of the SAML requests from API Manager, so you must import the public key to the IdP. For more details, see [Configure the IdP](/docs/apim_administration/apimgr_sso/saml_sso_config#step-1-configure-the-idp).
 
 ### Configure the SSO cookie domain name
 
 This implementation of SSO uses a cookie, which is created on the API Gateway server and sent to the client's browser. One property of this cookie is the domain name. The default domain name is the API Gateway host name.
 
-If the API Gateway is hidden behind a load balancer, you might need to change the cookie domain name because the client's browser is not aware of the internal API Gateway host name and therefore might not accept the cookie. For more details, see [Configure the SSO cookie domain name](/docs/apim_administration/apimgr_sso/saml_sso_config/#step-5-configure-the-sso-cookie-domain-name-optional).
+If the API Gateway is hidden behind a load balancer, you might need to change the cookie domain name because the client's browser is not aware of the internal API Gateway host name and therefore might not accept the cookie. For more details, see [Configure the SSO cookie domain name](/docs/apim_administration/apimgr_sso/saml_sso_config#step-5-configure-the-sso-cookie-domain-name-optional).
 
 ## Enable SSO in API Portal
 

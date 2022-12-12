@@ -24,13 +24,13 @@ The following new features and enhancements are available in this update.
 
 ### Dependency view and revoke access to front-end APIs
 
-API Manager allows Organization Administrators and API Administrators to grant access to their APIs within any organization. Now, you can also view the usage of APIs, where access has been granted to organizations and their applications, as well as revoking their access. For more information, see [Manage API access](/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web/#manage-api-access).
+API Manager allows Organization Administrators and API Administrators to grant access to their APIs within any organization. Now, you can also view the usage of APIs, where access has been granted to organizations and their applications, as well as revoking their access. For more information, see [Manage API access](/docs/apim_administration/apimgr_admin/api_mgmt_virtualize_web#manage-api-access).
 
 ### Import APIs over HTTPS through a HTTPS proxy server
 
 It is now possible to send an API download request to a HTTPS proxy server over HTTPS. This ensures the confidentiality of the download request as the request is sent over HTTPS.
 
-If using a proxy server to import APIs is a requirement, then it is recommended to do so by using a HTTPS Proxy server. For more information, see [Configure a proxy server](/docs/apim_administration/apimgr_admin/api_mgmt_config/#configure-a-proxy-server).
+If using a proxy server to import APIs is a requirement, then it is recommended to do so by using a HTTPS Proxy server. For more information, see [Configure a proxy server](/docs/apim_administration/apimgr_admin/api_mgmt_config#configure-a-proxy-server).
 
 ### YAML configuration store (GA)
 
@@ -60,7 +60,7 @@ To follow-up on what's coming based on this capability, see [API Management Road
 
 This procedure is valid **for API Gateway May 21 update only**. Later versions will upgrade the YAML configuration automatically when running a service pack update.
 
-Perform these steps to update an API Gateway installation, which has YAML configuration from the [March 21 update](/docs/apim_relnotes/20210330_apimgr_relnotes/#yaml-configuration-store-technical-preview-capability) deployed:
+Perform these steps to update an API Gateway installation, which has YAML configuration from the [March 21 update](/docs/apim_relnotes/20210330_apimgr_relnotes#yaml-configuration-store-technical-preview-capability) deployed:
 
 1. For each API Gateway installation, back up your deployed YAML configurations.
 2. Deploy a simple **federated store**, as a placeholder, to replace all deployed YAML configurations. For example, a configuration created with Policy Studio using a template.
@@ -101,7 +101,7 @@ The permissions on `INSTALL_DIR/apigateway` folder have been restricted down on 
 
 ### Changes to JWT Verify filter
 
-There are new output options that can be configured for the JWT Verify filter in Policy Studio. For more information, see [JWT Verify - Output](/docs/apim_policydev/apigw_polref/integrity_additional/#verify-output).
+There are new output options that can be configured for the JWT Verify filter in Policy Studio. For more information, see [JWT Verify - Output](/docs/apim_policydev/apigw_polref/integrity_additional#verify-output).
 
 <!-- RDAPI-22777 -->
 
@@ -123,7 +123,7 @@ API Gateway configuration files were previously provided with an accompanying MD
 
 ### New SHA-256 hash algorithm option on SFTP server fingerprint check
 
-To improve security in API Gateway, a new `SHA-256 hash` algorithm option was added to [File Upload](/docs/apim_policydev/apigw_polref/routing_additional/#file-upload-filter) and [File Download](/docs/apim_policydev/apigw_polref/routing_additional/#file-download-filter) routing filters, and [FTP Poller](/docs/apim_policydev/apigw_gw_instances/general_ftp_scanner/) on SFTP server fingerprint check.
+To improve security in API Gateway, a new `SHA-256 hash` algorithm option was added to [File Upload](/docs/apim_policydev/apigw_polref/routing_additional#file-upload-filter) and [File Download](/docs/apim_policydev/apigw_polref/routing_additional#file-download-filter) routing filters, and [FTP Poller](/docs/apim_policydev/apigw_gw_instances/general_ftp_scanner/) on SFTP server fingerprint check.
 
 The `SHA-256` algorithm option is designed to replace the existing `MD5` algorithm, and it is advisable to use it now as it is more secure.
 
@@ -141,7 +141,7 @@ The packet sniffing capability is deprecated from this update. The removal date 
 
 ### SFTP server fingerprint check (MD5 hash algorithm)
 
-SFTP server fingerprint check using `MD5` hash algorithm is deprecated on [File Upload](/docs/apim_policydev/apigw_polref/routing_additional/#file-upload-filter), [File Download](/docs/apim_policydev/apigw_polref/routing_additional/#file-download-filter), and [FTP Poller](/docs/apim_policydev/apigw_gw_instances/general_ftp_scanner/) for security reasons, and will be removed in the future. You must use `SHA-256` instead.
+SFTP server fingerprint check using `MD5` hash algorithm is deprecated on [File Upload](/docs/apim_policydev/apigw_polref/routing_additional#file-upload-filter), [File Download](/docs/apim_policydev/apigw_polref/routing_additional#file-download-filter), and [FTP Poller](/docs/apim_policydev/apigw_gw_instances/general_ftp_scanner/) for security reasons, and will be removed in the future. You must use `SHA-256` instead.
 
 ### End of Support notices
 

@@ -219,4 +219,4 @@ If you are using Redis cache, you must configure the new API Portal 7.7 contain
 
 ### Encrypt the Public API mode user password (optional)
 
-If you are using the Public API mode in API Portal you must run a script to encrypt the Public API mode user password and specify a directory to store the encryption key. For details, see [Encrypt the Public API user password (optional)](/docs/apim_installation/apiportal_docker/docker_portal_deploy/#encrypt-the-public-api-user-password-optional).
+If you are using the Public API mode in API Portal you must run a script to encrypt the Public API mode user password and specify a directory to store the encryption key. For details, see [Encrypt the Public API user password (optional)](/docs/apim_installation/apiportal_docker/docker_portal_deploy#encrypt-the-public-api-user-password-optional).

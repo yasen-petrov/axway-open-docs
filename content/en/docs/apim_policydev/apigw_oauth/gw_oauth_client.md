@@ -43,13 +43,13 @@ The OAuth client capability of API Gateway supports the following scenario:
 * Instead API X is proxied by API Gateway as API Y, and exposed into the enterprise for internal applications to use. A policy implements API Y, including all the OAuth client capability to invoke API X.
 * The internal application invokes API Y using an internal authentication mechanism (for example, HTTP basic). The policy authenticates the internal application and then invokes API X using OAuth.
 
-You can test the OAuth client capabilities of API Gateway using a web-based OAuth client demo. For more information, see [OAuth client demo](/docs/apim_policydev/apigw_oauth/gw_client_demo/#api-gateway-oauth-client-demo).
+You can test the OAuth client capabilities of API Gateway using a web-based OAuth client demo. For more information, see [OAuth client demo](/docs/apim_policydev/apigw_oauth/gw_client_demo#api-gateway-oauth-client-demo).
 
 Contact Axway Support for more information on integrating your application with Google or Salesforce APIs using API Gateway and OAuth 2.0.
 
 ## OAuth 2.0 example client workflow
 
-This example is similar to the [OAuth server example workflow](/docs/apim_policydev/apigw_oauth/gw_oauth_server/#oauth-server-example-workflow), but in this context API Gateway acts as a client, and the service provider is Google.
+This example is similar to the [OAuth server example workflow](/docs/apim_policydev/apigw_oauth/gw_oauth_server#oauth-server-example-workflow), but in this context API Gateway acts as a client, and the service provider is Google.
 
 Assume that you, as a resource owner, are using a service that wants to access your Google calendar (a protected resource). The service is defined on API Gateway (API Gateway is an OAuth client). You do not want to reveal your Google credentials to API Gateway. This problem can be solved using the example OAuth 2.0 web server flow shown in the following diagram:
 
@@ -120,7 +120,7 @@ You must register client applications with the OAuth service provider (for examp
 * API Gateway applications can be registered in the Client Application Registry (port 8089).
 
 If you have installed API Manager, you can register API Gateway applications in API Manager (port 8075). For more information, see the
-[Manage client applications in API Manager](/docs/apim_administration/apimgr_admin/api_mgmt_consume/#manage-client-applications).
+[Manage client applications in API Manager](/docs/apim_administration/apimgr_admin/api_mgmt_consume#manage-client-applications).
 
 The API Gateway provider represents OAuth services running on an API Gateway. The API Gateway provider uses the existing OAuth server samples for authorization and token endpoints (for example, `https://127.0.0.1:8089/api/oauth/authorize` and `https://127.0.0.1:8089/api/oauth/token`). The Google and SalesForce provider settings ship with the current public endpoints.
 
@@ -157,7 +157,7 @@ To configure client scopes, SAML bearer settings, JWT settings, or other advance
 
 #### Configure scopes
 
-You can configure the scopes that a client application can access on the **Scopes** tab. Click **Add** to add a scope. This is the set of scopes required by the application, and this list must match, or be a subset of, the required scopes registered with the OAuth provider. For more information on scopes, see [Manage OAuth scopes](/docs/apim_policydev/apigw_oauth/gw_oauth_resource_server/#manage-oauth-scopes-in-the-client-application-registry).
+You can configure the scopes that a client application can access on the **Scopes** tab. Click **Add** to add a scope. This is the set of scopes required by the application, and this list must match, or be a subset of, the required scopes registered with the OAuth provider. For more information on scopes, see [Manage OAuth scopes](/docs/apim_policydev/apigw_oauth/gw_oauth_resource_server#manage-oauth-scopes-in-the-client-application-registry).
 
 #### Configure SAML bearer
 
@@ -280,7 +280,7 @@ In the client demo configuration the callback policy first checks if the current
 
 ## Manage client access tokens
 
-You can configure client access token stores under the **Environment Configuration > Libraries > OAuth2 Stores** node in the Policy Studio tree. API Gateway can store client access tokens in its cache, in an embedded database, or in a relational database. For more information on the persistent storage options, see [Manage access tokens and authorization codes](/docs/apim_policydev/apigw_oauth/gw_oauth_authz_server/#manage-access-tokens-and-authorization-codes).
+You can configure client access token stores under the **Environment Configuration > Libraries > OAuth2 Stores** node in the Policy Studio tree. API Gateway can store client access tokens in its cache, in an embedded database, or in a relational database. For more information on the persistent storage options, see [Manage access tokens and authorization codes](/docs/apim_policydev/apigw_oauth/gw_oauth_authz_server#manage-access-tokens-and-authorization-codes).
 
 To store client access tokens in a relational database, create the supporting schema using the `oauth-client.sql` SQL scripts that you can find in the following directory:
 
@@ -298,7 +298,7 @@ You can configure a OAuth credential profile to set a Bearer token in the author
 
 1. In the Policy Studio tree, click **External Connections > Client Credentials > OAuth2**.
 2. On the OAuth Credentials tab, double-click the credential profile you want to edit.
-3. If you do not already have a token to access the API, add a [**Get Oauth Token filter**](/docs/apim_policydev/apigw_oauth/oauth_client_filters/#getoauthtoken) to get a token.
+3. If you do not already have a token to access the API, add a [**Get Oauth Token filter**](/docs/apim_policydev/apigw_oauth/oauth_client_filters#getoauthtoken) to get a token.
 4. Call the Resource server:
 
     * Select the filter **Connect to URL**.

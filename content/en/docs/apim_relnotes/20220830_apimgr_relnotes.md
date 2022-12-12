@@ -56,7 +56,7 @@ Hardware Security Module (HSM) usage is not supported in FIPS mode. It is intend
 
 During the Policy Studio and Configuration Studio update process, the `plugins` directory is deleted and then recreated with the new plugins. Therefore, any custom plugins added to this directory is removed.
 
-For more information, see [Install a Policy Studio update](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion/#install-a-policy-studio-update) and [Install a Configuration Studio update](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion/#install-a-configuration-studio-update).
+For more information, see [Install a Policy Studio update](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion#install-a-policy-studio-update) and [Install a Configuration Studio update](/docs/apim_installation/apigw_upgrade/upgrade_steps_oneversion#install-a-configuration-studio-update).
 
 ### HTTP cookie validation
 
@@ -70,7 +70,7 @@ The **HTTP Redirect** filter now fails URLs containing non-encoded CRLF characte
 
 The **Connect to URL filter** now fails URLs containing non-encoded trailing CRLF characters with an `Internal Server Error` instead of passing the trimmed URL without the trailing CRLF characters to the server.
 
-For more information, see [HTTP redirect filter](/docs/apim_policydev/apigw_polref/routing_additional/#http-redirect-filter) and [Connect to URL filter](/docs/apim_policydev/apigw_polref/routing_common/#connect-to-url-filter).
+For more information, see [HTTP redirect filter](/docs/apim_policydev/apigw_polref/routing_additional#http-redirect-filter) and [Connect to URL filter](/docs/apim_policydev/apigw_polref/routing_common#connect-to-url-filter).
 
 ### Organization administrator self-service API publishing
 
@@ -78,7 +78,7 @@ When Self-service API publishing is enabled, Organization administrators can acc
 
 Customer's scripts or client applications might now fail to get APIs from other organizations if the Organization administrators have not been granted access to these APIs.
 
-For more information, see [API Manager access control, Organization administrator](/docs/api_mgmt_overview/key_concepts/api_mgmt_orgs_roles/index.html#organizationadministrator).
+For more information, see [API Manager access control, Organization administrator](/docs/api_mgmt_overview/key_concepts/api_mgmt_orgs_roles#organizationadministrator).
 
 ### API Gateway expression language resolver changed
 
@@ -106,11 +106,11 @@ For API Gateway Analytics
 script-src 'self' 'unsafe-eval'; img-src 'self' data: blob:; style-src 'self' 'unsafe-inline'; font-src 'self' data: blob:; object-src 'self'; media-src 'self'; frame-src 'self'; frame-ancestors 'none'; upgrade-insecure-requests; manifest-src 'none'; connect-src 'self'; form-action 'self'; prefetch-src 'none'
 ```
 
-For more information, see [Define a restrictive Content Security Policy](/docs/apim_installation/apiportal_install/secure_harden_portal/#define-a-restrictive-content-security-policy).
+For more information, see [Define a restrictive Content Security Policy](/docs/apim_installation/apiportal_install/secure_harden_portal#define-a-restrictive-content-security-policy).
 
 ### New Cassandra user script
 
-A new script has been added to help in creating new users in Cassandra. It is located at `apigateway/samples/cassandrauser/scripts/createuser.sh`. For more information, see [Create a new Cassandra database user](/docs/cass_admin/cassandra_config/#create-a-new-cassandra-database-user).
+A new script has been added to help in creating new users in Cassandra. It is located at `apigateway/samples/cassandrauser/scripts/createuser.sh`. For more information, see [Create a new Cassandra database user](/docs/cass_admin/cassandra_config#create-a-new-cassandra-database-user).
 
 ### Disable connection cache for LDAP authentication using Auth Repository
 

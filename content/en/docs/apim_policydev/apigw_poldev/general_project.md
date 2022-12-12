@@ -101,4 +101,4 @@ To unlock a server connection, perform the following steps:
 5. Upload the files back to the server's `conf/fed` directory.
 6. Restart the Admin Node Manager.
 
-For more details on **Management Services**, see [Management services](/docs/apim_policydev/apigw_gw_instances/general_services/#management-services).
+For more details on **Management Services**, see [Management services](/docs/apim_policydev/apigw_gw_instances/general_services#management-services).

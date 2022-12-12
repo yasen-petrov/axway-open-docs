@@ -8,9 +8,9 @@
 
 For details on data source-specific configuration, see the following topics:
 
-* [Configure Apache Cassandra KPS storage](/docs/apim_policydev/apigw_kps/configure_database_storage/#configure-apache-cassandra-kps-storage)
-* [Configure database KPS storage](/docs/apim_policydev/apigw_kps/configure_database_storage/#configure-database-kps-storage)
-* [Configure file-based KPS storage](/docs/apim_policydev/apigw_kps/configure_database_storage/#configure-file-based-kps-storage)
+* [Configure Apache Cassandra KPS storage](/docs/apim_policydev/apigw_kps/configure_database_storage#configure-apache-cassandra-kps-storage)
+* [Configure database KPS storage](/docs/apim_policydev/apigw_kps/configure_database_storage#configure-database-kps-storage)
+* [Configure file-based KPS storage](/docs/apim_policydev/apigw_kps/configure_database_storage#configure-file-based-kps-storage)
 
 {{< alert title="Caution" color="warning" >}}Do not edit the default KPS tables in Policy Studio unless under strict supervision from Axway Support. This includes the **API Server**, **OAuth**, or **API Portal** KPS tables available under **Environment Configuration** > **Key Property Stores**.{{< /alert >}}
 

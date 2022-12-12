@@ -6,9 +6,9 @@
 "description": "Use YAML configuration to convert projects, which were created using Policy Studio Team development functionality."
 }
 
-You can convert common and API projects, created using Policy Studio [Team development](/docs/apigtw_devops/team_dev_practices/#enable-team-development-in-policy-studio) functionality, into YAML configurations in the same way as any other XML federated configuration. The converted YAML projects will validate successfully, but they might need the `--allow-invalid-ref` option to pass validation because some of these projects might contain entities that reference entities in another project.
+You can convert common and API projects, created using Policy Studio [Team development](/docs/apigtw_devops/team_dev_practices#enable-team-development-in-policy-studio) functionality, into YAML configurations in the same way as any other XML federated configuration. The converted YAML projects will validate successfully, but they might need the `--allow-invalid-ref` option to pass validation because some of these projects might contain entities that reference entities in another project.
 
-The `projpack` and `projgitupgrade` tools cannot be used with the YAML entity store. You can achieve the equivalent of `projpack` by using the [`yamles import`](/docs/apim_yamles/apim_yamles_cli/yamles_cli_importexport/#import-a-yaml-configuration-into-another-yaml-configuration) command, and the equivalent of `projupgrade` by using the [`yamles upgrade`](/docs/apim_yamles/apim_yamles_cli/yamles_cli_upgrade) command.
+The `projpack` and `projgitupgrade` tools cannot be used with the YAML entity store. You can achieve the equivalent of `projpack` by using the [`yamles import`](/docs/apim_yamles/apim_yamles_cli/yamles_cli_importexport#import-a-yaml-configuration-into-another-yaml-configuration) command, and the equivalent of `projupgrade` by using the [`yamles upgrade`](/docs/apim_yamles/apim_yamles_cli/yamles_cli_upgrade) command.
 
 You can use the `projdeploy` tool with YAML configuration, but it requires a YAML `.tar.gz` file built using standard tooling. The design of the YAML configuration lends itself well to Team development for many use cases. The natural split of the configuration into separate files allows multiple developers to make changes on the same YAML configuration project without causing merge conflicts. The conflicts that do occur, are more easily understood and resolved as files are smaller and more human readable.
 
@@ -71,4 +71,4 @@ The updated `test-api.tar.gz` will contain the policies from the `test-api` and 
 
 The `test-api.tar.gz` can be deployed in the usual way via `managedomain` or `projdeploy`.
 
-Currently, the import command does not support project dependencies in the same way as XML. You must ensure the final project has all references resolved. This can be verified using the `yamles validate` command. The ordering and use of `addIfAbsent` and `addOrReplace` in the [`_fragment.yaml`](/docs/apim_yamles/apim_yamles_cli/yamles_cli_importexport/#use-the-_fragmentyaml-file-to-export) file determines how to resolve conflicts.
+Currently, the import command does not support project dependencies in the same way as XML. You must ensure the final project has all references resolved. This can be verified using the `yamles validate` command. The ordering and use of `addIfAbsent` and `addOrReplace` in the [`_fragment.yaml`](/docs/apim_yamles/apim_yamles_cli/yamles_cli_importexport#use-the-_fragmentyaml-file-to-export) file determines how to resolve conflicts.

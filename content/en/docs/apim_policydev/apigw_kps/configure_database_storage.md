@@ -56,7 +56,7 @@ When creating a KPS collection, you can select database storage in the **Defaul
 
 Alternatively, you can add a database storage option to the collection later. On the **Data Sources** tab, select **Add** > **Add Database**.
 
-For an example with file storage, see [Configure file-based KPS storage](/docs/apim_policydev/apigw_kps/configure_database_storage/#configure-file-based-kps-storage).
+For an example with file storage, see [Configure file-based KPS storage](/docs/apim_policydev/apigw_kps/configure_database_storage#configure-file-based-kps-storage).
 
 #### Database storage information
 
