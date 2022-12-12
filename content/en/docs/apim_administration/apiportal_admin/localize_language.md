@@ -59,7 +59,7 @@ You do not have to install a language to Joomla! before configuring the required
 
 To add a new content language and main menu, follow these steps:
 
-1. In the JAI left navigation bar, click **Language(s) > Content Languages**.
+1. In the JAI left navigation menu, click **System > Content Languages**.
 2. Click **New** to add a new content language.
 
    {{< alert title="Note" color="primary" >}}If you have already installed a new language, a corresponding content language will already exist for that language and you can skip steps 3 to 7, and continue from step 8.{{< /alert >}}
@@ -90,9 +90,45 @@ You must duplicate the API Portal main menu for each language.
 
 ### Duplicate the page template styles
 
-You must also duplicate your page template styles for each language. By default, API Portal uses the Purity III template style.
+You must duplicate your page template styles for each language. API Portal versions before [November 22](/docs/apim_relnotes/20221130_apip_relnotes/) ship with the Purity III template style by default, while API Portal installations from *November 22* onwards, ship with the [T4](https://www.joomlart.com/t4-framework) Page Builder template by default.
 
-1. In the JAI left navigation bar, click **Templates > Styles**.
+#### Use the T4 Page Builder template
+
+Follow this section to use the T4 base template:
+
+1. In JAI, from the left navigation menu, click **System > Site Template Styles** from the **Templates** card. The following image shows the Site Template Style list:
+
+   ![Site Template Styles list](/Images/APIPortal/APIPortal_localization/scr1_styles_list.png)
+2. Select **T4 - Page Builder** from the list, then click the **Duplicate** button.
+3. Click the newly duplicated style (This opens the T4 style editor).
+4. From the left navigation menu, click **Overview**, then change the name of the style to something informative. The following image shows the T4 Page Builder style editor:
+
+   ![T4 Page Builder Style Editor](/Images/APIPortal/APIPortal_localization/scr2_styles_editor.png)
+5. From the left navigation menu, click **Menu Assignment**, then select the menu items for the **Legal Menu** of the corresponding language. The following image shows the T4 Page Builder legal menu assignment.
+
+   ![T4 Page Builder legal menu assignment](/Images/APIPortal/APIPortal_localization/scr3_menu_assignment.png)
+
+6. Click the down arrow of the **Save** button, then click **Save & Close**.
+
+#### Use T4 API Portal default template
+
+1. In JAI, from the left navigation menu, click **System > Site Template Styles** from the **Templates** card.
+2. Select **T4 - Default** from the list, then click the **Duplicate** button.
+3. Click the newly duplicated style (This opens the T4 style editor).
+4. From the left navigation menu, click **Overview**, then change the name of the style to something informative.
+5. From the left navigation menu, click **Navigation**, then click **Clone selected navigation**. The following image shows the **Navigation** screen.
+
+   ![T4 Page Builder nav cloning](/Images/APIPortal/APIPortal_localization/scr4_nav_cloning.png)
+6. Enter a name for the newly cloned navigation and click the **Save** button. The following image shows the cloned navigation:
+   ![T4 Page Builder nsv clone selected](/Images/APIPortal/APIPortal_localization/scr6_nav_clone_selected.png)
+7. From the left navigation menu, click **Menu Assignment**, then select the menu items for the main menu and the user menu of the corresponding language.
+    ![T4 Page Builder API Portal menus assigned](/Images/APIPortal/APIPortal_localization/scr7_menu_assignment.png)
+
+8. Click the down arrow of the **Save** button, then click **Save & Close**.
+
+#### Use the Putity III
+
+1. In the JAI left navigation menu, click **System > Site Template Styles**.
 2. Click your template style (for example, `purity_III - Default`) to open it.
 3. Click the arrow next to the **Save** button at the top left of the window, and select **Save as Copy**.
 4. Edit the **Style Name** to indicate the language (for example, `purity_III - fr`).
@@ -105,7 +141,7 @@ You must also duplicate your page template styles for each language. By default,
 
 You must also duplicate your homepage template style for each language.
 
-1. In the JAI left navigation bar, click **Templates > Styles**.
+1. In the JAI left navigation menu, click **System > Site Template Styles**.
 2. Click **apiportal-homepage** template style to open it.
 3. Click the arrow next to the **Save** button at the top left of the window, and select **Save as Copy**.
 4. Edit the **Style Name** to update the name of your new homepage.
@@ -128,7 +164,7 @@ On the Home page layout there are available positions where you can add modules.
 ### Publish additional languages
 
 1. Ensure that you have completed all the steps described in [Change API Portal language](#change-api-portal-language) for each language you want to publish.
-2. In the JAI left navigation bar, click **Language(s) > Content Languages**.
+2. In the JAI left navigation menu, click **System > Content Languages**.
 3. Ensure that the **Status** for all the languages you want to publish is set to **Publish**.
 4. In the JAI left menu, click **System > Plugins**, and ensure the **System - Language Filter** plugin is enabled.
 5. Open your API Portal home page in a browser, and change the language code in the URL to one of the languages you have published. For example, change `https://<your API Portal URL>/en/` to `https://<your API Portal URL>/fr/`. You are redirected to the API Portal home page in that language.
@@ -145,7 +181,7 @@ To install new languages, follow these steps:
 
 1. In the JAI left menu, click **System > Languages** in the **Install** card.
 2. Find and select the language to install, and click **Install**.
-3. In the JAI left navigation bar, click **Language(s) > Content Languages**.
+3. In the JAI left navigation menu, click **Language(s) > Content Languages**.
 4. Set the **Status** of the new language to **Published**.
 
 ### Create main menus
@@ -212,15 +248,9 @@ Finally, rename the original main menu:
 
 To enable a language switcher, you need to have template styles for each language you are providing (including one for English), and an additional template style for all languages.
 
-By default, API Portal uses the Purity III template style. After following this process you will have the following template styles:
-
-* purity_III - Default - English
-* purity_III - Default - French
-* purity_III - Default - All
-
 #### Duplicate the template style for the new language
 
-1. In the JAI left navigation bar, click **System > Site Templates Styles**.
+1. In the JAI left navigation menu, click **System > Site Templates Styles**.
 2. Click your template style (for example, `purity_III - Default`) to open it.
 3. Click the arrow next to the **Save** button at the top left of the window, and select **Save as Copy**.
 4. Edit the **Style Name** to indicate the language (for example, `purity_III - Default - French`).
@@ -246,13 +276,34 @@ Finally, edit the original template style for the English language:
 
 ### Enable the language switcher
 
+Follow the next sections to enable the language switcher accordingly with the template you have configure in your portal.
+
+#### T4 Page Builder Template
+
 To enable the language switcher, complete the following steps:
 
-1. In the JAI left menu, click **System > Site Modules** and click **New**.
+1. In JAI, from the left navigation menu, click **System > Site Modules**, then click **New**.
 2. Click **Language Switcher**.
-3. Enter a **Title** and for **Position** select `Purity iii > Footer 1`.
+3. Enter a **Title**, and for **Position** select `Language Switcher`.
 4. Click **Save & Close**.
-5. In the JAI left menu, click **System > Plugins**, and ensure the **System - Language Filter** plugin is enabled.
+5. From the left navigation menu, click **System > Plugins** and ensure the **System - Language Filter** plugin is enabled.
+6. Click the **System - Language Filter** plugin to open it.
+7. Set **Automatic Language Change** to `No`.
+8. Click **Save & Close**.
+
+The language switcher is now available on the header of each API Portal page. For example:
+
+![Language switcher on header](/Images/APIPortal/APIPortal_localization/scr9_lang_switch_fe.png)
+
+#### Purity III
+
+To enable the language switcher, complete the following steps:
+
+1. In JAI, from the left navigation menu, click **System > Site Modules**, then click **New**.
+2. Click **Language Switcher**.
+3. Enter a **Title**, and for **Position** select `Purity iii > Footer 1`.
+4. Click **Save & Close**.
+5. From the left navigation menu, click **System > Plugins** and ensure the **System - Language Filter** plugin is enabled.
 6. Click the **System - Language Filter** plugin to open it.
 7. Set **Automatic Language Change** to `No`.
 8. Click **Save & Close**.

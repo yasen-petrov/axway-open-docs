@@ -50,18 +50,31 @@ You can customize the emails that are sent to API Portal users on sign up. All A
 
 You can customize what API Portal page your API consumers see on first log in, and you can also enable ReCaptcha and user account locking on the login page.
 
-### Change the page displayed after first login
+### Change the page displayed after first login in Purity III template
 
 You can change the API Portal page users see when they first log in successfully to API Portal. The default behavior is:
 
 * Display the Applications page if at least one application exists.
 * Display the API Catalog page if no applications exist.
 
-To change this, follow these steps:
+To change this behavior, follow these steps:
 
 1. In JAI, click **Components > API Portal > Additional Settings**.
 2. In the **Redirect after login** field, enter a menu link (for example, `/index.php?option=com_apiportal&view=home`) or a menu alias (for example, `/home`) to redirect the user to after successful login.
 3. Click **Save**.
+
+### Change the page displayed after first login in T4 template
+
+You can change the API Portal page users see when they first log in successfully to API Portal. By default you are redirected to the Applications catalog page.
+
+To change this behavior, follow these steps:
+
+1. In JAI, click **Content > Site Modules**.
+2. Open **API Portal Login Form** module.
+3. From **Redirect after login** and **Link to page** fields you can change the redirect on successful login.
+4. Click **Save**.
+
+{{< alert title="Note" color="primary" >}} In case of SSO login, the redirect URL is determined by the **Redirect after login** field, which is located at **Components > API Portal > Additional Settings**.{{< /alert >}}
 
 ### Change the page displayed after unauthorized request
 
@@ -116,7 +129,7 @@ To disable the **Enable password expiry** and **Days before passwords expire** s
 
 {{< alert title="Note" color="primary" >}} If you disable **Enable password expiry**, which forces users to change password at first login, and a new user logs in after that, then this user will not be asked to change password if you decide to enable this setting again.{{< /alert >}}
 
-## Customize page title and summary
+## Customize page title and summary in Purity III template
 
 You can customize the title and summary text for the following API Portal pages: **Users**, **APIs**, **Applications**, **Monitoring**, **Help Center**, and **Pricing**.
 
@@ -136,6 +149,8 @@ You can customize what your API consumers can see in the Applications view of AP
 * Enable users read/write or read only permissions on credentials, or hide credentials completely. The default is read/write.
 * Show or hide application scopes. The default is shown.
 
+### Customize application settings in Purity III template
+
 To change the settings:
 
 1. In JAI, click **Menus > Main Menu**.
@@ -144,6 +159,21 @@ To change the settings:
 4. Change the settings as required and click **Save & Close**.
 
 ![Customize application settings](/Images/APIPortal/jai_customize_apps_j4.png)
+
+### Customize application settings in T4 template
+
+There are three modules In T4 template from which you can configure the Applications pages:
+
+* Applications Catalog: you can adjust the configuration that will be applied to Applications Catalog page.
+* Application View: this module provides all options available for the Application view page.
+* Application Form: this module provides all options available for the Create application and edit application pages.
+
+To change the settings of the page:
+
+1. Log in to the Joomla! Administrator Interface (JAI) (`https://<API Portal_host>/administrator`).
+2. Click **Content > Site Modules**.
+3. Select the module that you want to change.
+4. Change the settings as required, then click **Save & Close**.
 
 ## Customize monitoring
 

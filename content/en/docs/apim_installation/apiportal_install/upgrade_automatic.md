@@ -81,11 +81,11 @@ If you have a 7.7.x API Portal installation, you can upgrade to the latest versi
    sudo ./apiportal_upgrade.sh
    ```
 
-## Upgrade to API Portal May 2022 or latest releases
+## Upgrade from versions before May 2022
 
-API Portal [May 2022](/docs/apim_relnotes/20220530_apip_relnotes/) release (7.7.20220530) is integrated with *Joomla 4*, which results in some backward incompatible changes. Attempting to upgrade directly from versions prior to [February 2022](/docs/apim_relnotes/20220228_apip_relnotes/) to May 22 will break database integrity.
+API Portal [May 2022](/docs/apim_relnotes/20220530_apip_relnotes/) release is integrated with *Joomla 4*, which results in some backward incompatible changes. Attempting to upgrade directly from versions prior to [May 2022](/docs/apim_relnotes/20220530_apip_relnotes/) to later versions will break database integrity.
 
-To upgrade to API Portal May 2022 or latest releases, follow these steps:
+To upgrade from before May 2022 to later releases, follow these steps:
 
 1. If your API Portal version is lower than [February 2022](/docs/apim_relnotes/20220228_apip_relnotes/), you must first upgrade to February 2022 as described in the previous sections.
 2. Establish an SSH connection to your API Portal server and locate the additional PHP settings directory:
@@ -113,15 +113,14 @@ To upgrade to API Portal May 2022 or latest releases, follow these steps:
 6. Click **Extensions > Plugins**, then search and disable the *T3 Framework* plugin.
 7. Click **Components > Joomla! Update > Upload & Update**, then apply *Joomla 4* by uploading the relevant file from the upgrade package.
 8. Wait for the upgrade process to finish.
-9. Establish an SSH connection to your API Portal server and upgrade your product:
+9. (Mandatory step only for when upgrading to API Portal November 2022 and later) Click **System > Plugins**, then search and disable the **Action Log - API Portal** plugin.
+10. Establish an SSH connection to your API Portal server and upgrade your product:
 
     ```shell
     sudo ./apiportal_upgrade.sh
     ```
 
-10. (Optional) To change the `Database Type` field back to the value which was there before, in JAI, click **System > Global Configuration > Server > Database section** and change your database settings.
-
-    Note that *Joomla 4* uses a native `MySQLi` driver in conjunction with `One-way` or `Two-way authentication` for the `Connection Encryption` field for SSL connection.
+11. (Optional) To change the `Database Type` field back to the value which was there before, in JAI, click **System > Global Configuration > Server > Database section** and change your database settings. Note that *Joomla 4* uses a native `MySQLi` driver in conjunction with `One-way` or `Two-way authentication` for the `Connection Encryption` field for SSL connection.
 
 ### Upgrade with mandatory prerequisites
 

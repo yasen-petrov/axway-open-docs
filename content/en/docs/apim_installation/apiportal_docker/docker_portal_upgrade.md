@@ -24,7 +24,7 @@ To upgrade your API Portal container deployment, perform the following:
     docker container run <old-parameters> <newer-image>
     ```
 
-See more [Run a Docker container using the image](/docs/apim_installation/apiportal_docker/docker_portal_run_image#run-a-docker-container-using-the-image).
+See more [Run a Docker container using the image](/docs/apim_installation/apiportal_docker/docker_portal_run_image/#run-a-docker-container-using-the-image).
 
 The upgrade preserves any API Portal customizations stored in volumes or database.
 
@@ -34,42 +34,23 @@ There is no support for downgrading an API Portal container deployment. Running 
 
 ## Upgrade from versions before May 2022 to latest release
 
-API Portal versions after [February 2022](/docs/apim_relnotes/20220228_apip_relnotes/) (7.7.20220228) is integrated with *Joomla 4*, which results in some backward incompatible changes. Attempting to upgrade directly from versions prior to [May 2022](/docs/apim_relnotes/20220530_apip_relnotes/) to latest will break database integrity. To upgrade from May 2022 to API Portal lates 2022 release, follow [General upgrade](#general-upgrade) section above in this page.
+API Portal versions after [February 2022](/docs/apim_relnotes/20220228_apip_relnotes/) are integrated with *Joomla 4*, which results in some backward incompatible changes. Attempting to upgrade directly from versions prior to [May 2022](/docs/apim_relnotes/20220530_apip_relnotes/) to latest release will break database integrity.
 
-To upgrade from before May 2022 to API Portal latest 2022 release, follow these steps:
+To upgrade API Portal from versions higher than February 2022 to the latest release, follow the [General upgrade](#general-upgrade) section.
 
-1. Download the `APIPortal_7.7.20220830_ThirdPartyPackages.zip` upgrade package from [Axway Support](https://support.axway.com).
-2. If your API Portal version is lower than [February 2022](/docs/apim_relnotes/20220228_apip_relnotes/), you must first upgrade to February 2022 as described in the previous section.
-3. Create an `apiportal.ini` file with the following content:
+To upgrade from before May 2022 to API Portal latest release, follow these steps:
 
-    ```ini
-    post_max_size = 60m
-    upload_max_filesize = 60m
-    ```
+1. If your API Portal version is lower than [February 2022](/docs/apim_relnotes/20220228_apip_relnotes/), you must first upgrade to February 2022 as described in the [General upgrade](#general-upgrade) section.
+2. After you installation is updated to the February 2022 release, stop the February 2022 container and start a new container from the latest image with the old parameters.
 
-4. Restart API Portal container with your `*.ini` file mounted to the PHP configuration directory of the container:
-
-    ```shell
-    docker container rm -f <feb22-container-name>
-    docker container run \
-      -v <path-to-apiportal.ini-file>:/etc/php7/conf.d/apiportal.ini \
-      <old-parameters> -e MYSQL_SSL_ON=0 <feb22-image>
-    ```
-
-    It is important that you use plain MySQL connection. So, you ensure the `MYSQL_SSL_ON` environment variable is set to `0`, and `MYSQL_USER` and `MYSQL_PASSWORD` environment variables contain credentials for plain connection. Also, you might need to [create a MySQL user account without TLS authentication](/docs/apim_installation/apiportal_install/install_software_configure_database#configure-a-user-account-without-authentication).
-5. With a newly started container, log in to the Joomla! Administrator Interface (JAI).
-6. Click **Extensions > Plugins**, then search and disable the *T3 Framework* plugin.
-7. Click **Components > Joomla! Update > Upload & Update**, then apply *Joomla 4* by uploading the relevant file from third party package.
-8. Wait for the upgrade process to finish and log in to JAI again.
-9. Click **System > Install > Extensions > Upload Package File**, then apply the *T3 System* plugin by uploading the relevant file from third party package.
-10. Stop the `feb22` container and start a new one from the latest image with the old parameters, but without the mounted `apiportal.ini` file.
+    {{% alert title="Note" %}}It is important that you use plain MySQL connection to ensure the `MYSQL_SSL_ON` environment variable is set to `0`, and `MYSQL_USER` and `MYSQL_PASSWORD` environment variables contain credentials for plain connection. For more information on how to create a plain MySQL account, see [Create a MySQL user account without TLS authentication](/docs/apim_installation/apiportal_install/install_software_configure_database/#configure-a-user-account-without-authentication).{{% /alert %}}
 
     ```shell
     docker container rm -f <feb22-container-name>
     docker container run \
       <old-parameters-from-prior-to-latest-container> <latest-image>
     ```
-11. (Optional) If you have used MySQL SSL connection, you can change its value back to what was there before.
+3. (Optional) If you have used MySQL SSL connection to start your new container, you can now change its value back to what was there before.
 
 ## Apply a service pack or patch on a container deployment
 

@@ -29,27 +29,67 @@ You can customize the following in the API Catalog view of API Portal:
 
 ![Customize API catalog](/Images/APIPortal/api-catalog_j4.png)
 
-To change the API Catalog settings:
+### Change API Catalog settings in Purity III template
+
+Follow these steps to change the API Catalog settings in Purity III template:
 
 1. Log in to the Joomla! Administrator Interface (JAI) (`https://<API Portal_host>/administrator`).
 2. Click **Menus > Main Menu**.
 3. Click **APIs**.
 4. Click the **API Catalog** tab.
-5. Change the settings as required and click **Save & Close**.
+5. Change the settings as required, then click **Save & Close**.
 
-## Customize source of API descriptions
+### Change API Catalog settings in T4 template
 
-You can customize API Portal to show summaries instead of descriptions for APIs to give the app developer a quicker summary view of what the API is about instead of a long description. Using description can also have a performance impact, so it is best to use summary to improve the performance of the API Catalog view.
+Use the Joomla module available from the T4 template to change the configuration for your API Catalog page.
+
+1. Log in to JAI (`https://<API Portal_host>/administrator`).
+2. Click **Content > Site Modules**.
+3. Click **API Catalog List**.
+4. Change the settings as required, then click **Save & Close**.
+
+### Change API details page settings in T4 template
+
+The following are the three Joomla modules available for the API details page:
+
+* API Portal **Try It Meta Data**: this module allows you to configure what information will be shown on the overview tab of the API Details page (description, status, host, tags, and so on). You can also restrict the access to API Details page for APIs by way of specific tags and statuses.
+* API Portal **Try It Swagger**: this module allows you to configure settings for the methods tab of the API Details page (Swagger UI layout, whether to show Try-it button, colors of different API methods, and so on).
+* API Portal **Try It Application Subscriptions**: this module allows you to configure settings for the applications tab of API Details page.
+
+Follow these steps to change any of the settings:
+
+1. Log in to JAI (`https://<API Portal_host>/administrator`).
+2. Click **Content > Site Modules**.
+3. Select the module you want to change.
+4. Change the settings as required, then click **Save & Close**.
+
+## Customize source of API descriptions in Purity III
+
+You can customize API Portal to show summaries, instead of descriptions, for APIs, to provide the App developer a quicker summary view of what the API is about instead of a long description. Using description can also have a performance impact, so it is best to use summary to improve the performance of the API Catalog view.
 
 To change the settings:
 
-1. In the Joomla! Administrator Interface (JAI), click **Components > API Portal > Additional Settings**.
-2. In the **API Information Source** field, select `Description` or `Summary`.
-3. Click **Save**.
+1. Log in to JAI (`https://<API Portal_host>/administrator`).
+2. Click **Components > API Portal > Additional Settings**.
+3. In the **API Information Source** field, select `Description` or `Summary`.
+4. Click **Save**.
 
-## Customize page title and summary
+## Customize source of API descriptions in T4 template
 
-You can customize the API Catalog page title and summary text. For details, see [Additional customizations](/docs/apim_administration/apiportal_admin/customize_page_content#customize-page-title-and-summary).
+In the T4 template, to change the source of API descriptions, follow these steps:
+
+1. Log in to JAI (`https://<API Portal_host>/administrator`).
+2. Click **Content > Site Modules**.
+3. Click **API Catalog List**.
+4. Change the settings as required, then click **Save & Close**.
+
+## Customize page title and summary in Purity III
+
+You can customize the API Catalog page title and summary text. For more information, see [Additional customizations](/docs/apim_administration/apiportal_admin/customize_page_content/#customize-page-title-and-summary).
+
+## Customize page title and summary in T4 template
+
+You can directly edit API Catalog page title and summary from T4 Page Builder. For more information, see [Customizations with T4 Page Builder](/docs/apim_administration/apiportal_admin/customize_getting_started/#customizations-with-t4---pagebuilder).
 
 ## Group APIs with tags
 
@@ -57,7 +97,9 @@ You can add tags to APIs in API Manager and use them to split your API Catalog i
 
 For more details on adding tags to APIs, see the [API Manager User Guide](/docs/apim_administration/apimgr_admin/).
 
-To create a dedicated API Catalog for a subset of tagged APIs, do the following:
+### Create an API Catalog using Purity III
+
+To create a dedicated API Catalog in **Purity III** for a subset of tagged APIs, follow these steps:
 
 1. Log in to Joomla! Administrator Interface (JAI).
 2. Click **Menus > Main Menu > Add New Menu Item**.
@@ -67,10 +109,35 @@ To create a dedicated API Catalog for a subset of tagged APIs, do the following:
 6. In **Ordering**, select where in the main menu the new API Catalog appears. The menu item is placed after the item you select in here.
 
    * To access all your API Catalogs under the **APIs** menu item rather than additional menu items, set **Parent Item** to **APIs**.
-7. On the **API Catalog** tab, in the **Show APIs with tags**, enter the tags to include in this API Catalog.
-8. On the **API Catalog** tab, in the **Do not show APIs with tags**, enter the tags to exclude in this API Catalog.
-9. On the **Page Display** tab, you can change the page title and summary text. For more details, see [Customize page title and summary](/docs/apim_administration/apiportal_admin/customize_page_content#customize-page-title-and-summary).
+7. On the **API Catalog** tab, in **Show APIs with tags**, enter the tags to include in this API Catalog.
+8. On the **API Catalog** tab, in **Do not show APIs with tags**, enter the tags to exclude in this API Catalog.
+9. On the **Page Display** tab, you can change the page title and summary text. For more details, see [Customize page title and summary](/docs/apim_administration/apiportal_admin/customize_page_content/#customize-page-title-and-summary).
 10. Click **Save & Close**.
+
+### Create an API Catalog using T4 template
+
+To create a dedicated API Catalog in **T4 template** for a subset of tagged APIs, follow these steps:
+
+1. Log in to Joomla! Administrator Interface (JAI).
+2. Click **Content > Site Modules**.
+3. Select the following modules: API Catalog List, API Catalog Layout Switch, API Catalog Search Box, API Catalog Sorting, then click **Duplicate** from the **Actions** button.
+4. Open the duplicated API Catalog List module.
+5. In **Show APIs with tags**, enter the tags to include in this API Catalog.
+6. In **Do not show APIs with tags**, enter the tags to exclude in this API Catalog.
+7. Click **Save & Close**.
+8. Click **Components > T4 Page Builder > All Pages** and open **API Catalog** page.
+9. Enter title for the new API Catalog page and click on the **Save as copy** button.
+10. Click **Edit** from the **Page Content** tab.
+    The page is opened in **T4 Page Builder**. In the structure of the page you will see four modules: API Catalog List, API Catalog Layout Switch, API Catalog Search Box, and API Catalog Sorting.
+11. Replace the modules from the previous page with the duplicated modules from step 3. To do so, click on each module and from the right -side toolbox that is shown, select the duplicated module from the **Module** drop-down.
+12. Click **Save** and **Close**.
+13. From **Components > T4 Page Builder > All Pages** click **Add menu item** button that is shown on the row of the newly created page from step 10.
+14. A dialog window is shown. Enter a **Title** for the new API Catalog.
+15. Select **Main Menu** from the **Menu** drop-down.
+16. For **Template Style** set **T4 - Page Builder**, or your copy of that template style if you have created one.
+17. Set **Access** to the level you wish, and ensure that **Status** is set to `Published`.
+18. In **Ordering**, select where in the main menu you want to display the new API Catalog. The menu item is placed after the item you select in here.
+19. Click **Create New Menu**.
 
 Your themed API Catalog is now ready, and you can see it in your API Portal.
 
@@ -82,7 +149,7 @@ You can add tags using the `*` and `?` wildcards. This is helpful to list only d
 
 ## Customize the Try-it button visibility
 
-You can customize the **Try-it** button for a specific API Catalog.
+You can customize the **Try-it** button for a specific API Catalog. For **Purity III**, follow these steps:
 
 1. In JAI, click **Menus > Main Menu > APIs**.
 2. Click the **API Catalog** tab.
@@ -93,6 +160,8 @@ You can customize the **Try-it** button for a specific API Catalog.
    * **No for APIs with the following tags** - The **Try-it** button will be hidden for APIs with specific tags. When this option is selected, a new field, **Hide Inline Try-it for APIs with tags**, is shown. In this field, you can choose for which tags the **Try-it** button will be hidden. You can enter multiple tags by separating them by coma. Wildcard symbols (`?` and `*`) are allowed in this field.
    * **Never** - The **Try-it**  button will always be hidden.
 4. Click **Save**.
+
+{{< alert title="Note" color="primary" >}}If you are using **T4 template**, the option to change is located in the **API Portal Try It Swagger** module.{{< /alert >}}
 
 ## Disable the Try-it button visibility
 
