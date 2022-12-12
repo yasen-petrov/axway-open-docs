@@ -251,14 +251,6 @@ You can also select a relative path or service in the tree, and configure the fo
 
 When finished, click **Apply Changes** at the bottom of the page.
 
-## Configure Elastic-Stack Logging
-
-You can configure the Elastic-Stack (Elasticsearch, Logstash, and Kibana) to manage logging in your API Gateway.
-
-This approach utilizes the ELK technology stack to provide a centralized and customizable logging alternative. By using this method, you can observe a longer time frame of traffic, and it improves performance over the standard Traffic Monitor logging for heavy loads of requests.
-
-For more information on how to integrate this solution to your gateway, see the [Axway APIGW ELK Implementation](https://github.com/Axway-API-Management-Plus/apigateway-openlogging-elk) project.
-
 ## Further information
 
 For more details on real-time monitoring and traffic monitoring, see [Monitor services in API Gateway Manager](/docs/apim_administration/apigtw_admin/monitor_service).
