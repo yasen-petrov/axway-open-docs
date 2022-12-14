@@ -14,6 +14,16 @@ You can find the release notes for all service packs on [Axway Support](https://
 
 |Update |New features and enhancements        |Important Changes    |Deprecated/Removed/EOS  |
 |---    |---                                  |---                  |---                     |
+|[API Gateway and Manager 7.7.20221130](/docs/apim_relnotes/20221130_apimgr_relnotes/)|New API Gateway Docker image|API Manager settings, Remote hosts input and output encodings can now be disabled  |-  |
+|    |Helm use of externalization |Changes in OAuth Login Form path  |-  |
+|    |Amplify Analytics Operational Insights|Traffic Monitor filter behavior change with threat protection  |-  |
+|    |- |API Manager no longer allows exporting front-end APIs as plain text by default  |-  |
+|    |- |New checkbox in the Advanced (SSL) tab of the Connect To URL filter   |-  |
+|    |- |Runtime parameter validation system properties have been replaced with API Manager settings |-  |
+|    |- |EdDSA certificates are supported |-  |
+|**Update**       |**New features and enhancements**        | **Important Changes**   |**Deprecated/Removed/EOS**  |
+|[API Portal 7.7.20221130](/docs/apim_relnotes/20221130_apip_relnotes/)|New T4 template and Page Builder  |New User Interface (T4 template)|Purity III Template |
+|**Update**       |**New features and enhancements**        | **Important Changes**   |**Deprecated/Removed/EOS**  |
 |[API Gateway and Manager 7.7.20220830](/docs/apim_relnotes/20220830_apimgr_relnotes/)|Configure a Node Manager Docker container to use a persisted volume for Node Manager configuration|Policy Studio and Configuration Studio update process  |-  |
 |    |YAML and Policy Studio|HTTP cookie validation |-        |-  |
 |    |HTTP Redirect and Connect to URL filters fail URLs containing non-encoded characters |-        |-  |
