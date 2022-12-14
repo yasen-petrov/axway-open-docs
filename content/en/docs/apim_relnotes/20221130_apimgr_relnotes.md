@@ -30,11 +30,11 @@ The following new features and enhancements are available in this update.
 
 A newly introduced API Gateway Docker image has been introduced, and is downloadable from the [Amplify repository](https://repository.axway.com). FIPS mode is not yet supported.
 
-To get started, see [Deploy API Gateway with Axway Docker images](/docs/apigw_howto_guides/configuring_apigw_container).
+To get started, see [Deploy API Gateway with Axway Docker images](/docs/apim_howto_guides/configuring_apigw_container).
 
 ### Helm use of externalization
 
-Axway Helm charts can now be used to externalize API Gateway configuration for containers. For more information, see [Deploy API Gateway using Helm](/docs/apim_installation/apigw_containers/container_helm_deployment) and [Deploy API Gateway with Axway Docker images](/docs/apigw_howto_guides/configuring_apigw_container).
+Axway Helm charts can now be used to externalize API Gateway configuration for containers. For more information, see [Deploy API Gateway using Helm](/docs/apim_howto_guides/container_helm_deployment) and [Deploy API Gateway with Axway Docker images](/docs/apim_howto_guides/configuring_apigw_container).
 
 ### Amplify Analytics Operational Insights
 
